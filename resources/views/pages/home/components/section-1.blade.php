@@ -73,25 +73,7 @@
         justify-content: center;
     }
 
-    .button-pink-search {
-            background-color: rgb(255, 157, 211);
-            font-size: 25px;
-            font-weight: bold;
-            padding: 0px 15px;
-            border: 0px solid black;
-            border-radius: 10px;
-            color: #ffffff;
-            cursor: pointer;
-            text-decoration: none;
-            text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.8);
-            transition: all 0.3s ease;
-            /* เพิ่มทรานสิชั่น */
-        }
-
-        .button-pink-search:hover {
-            background-color: rgb(255, 123, 196);
-            /* เรืองแสงสีขาว */
-        }
+   
     
 
 </style>

@@ -27,7 +27,7 @@
         }
 
         .bg-nav {
-            background-image: url('{{ asset('images/navbar/bg-navbar.png') }}');
+            background-image: url('{{ asset('images/navbar/แถบบน.png') }}');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
@@ -66,7 +66,7 @@
         }
 
         .button-blue {
-            background-color: rgb(138, 241, 255);
+            background: linear-gradient(to bottom, rgb(98, 211, 255), rgb(0, 121, 0));
             font-size: 25px;
             font-weight: bold;
             padding: 2px 20px;
@@ -103,6 +103,26 @@
             height: 8rem;
             filter: drop-shadow(0 0 3px rgba(0, 0, 0, 0.7));
         }
+
+        .button-search {
+            background-color: rgb(98, 211, 255);
+            font-size: 25px;
+            font-weight: bold;
+            padding: 0px 15px;
+            border: 0px solid black;
+            border-radius: 10px;
+            color: #ffffff;
+            cursor: pointer;
+            text-decoration: none;
+            text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.8);
+            transition: all 0.3s ease;
+            /* เพิ่มทรานสิชั่น */
+        }
+
+        .button-search:hover {
+            background-color: rgb(55, 198, 255);
+            /* เรืองแสงสีขาว */
+        }
     </style>
 </head>
 
@@ -112,7 +132,7 @@
     <header class="bg-nav d-flex">
         <div class="container d-flex justify-content-center justify-content-md-between align-items-center">
             <div class="d-flex  justify-content-start align-items-center">
-                <img src="{{ asset('images/navbar/Logo.png') }}" alt="logo" class="logo d-none d-md-block" style="margin-right:-25px; z-index: 3;">
+                <img src="{{ asset('images/navbar/Logo-601.png') }}" alt="logo" class="logo d-none d-md-block" style="margin-right:-25px; z-index: 3;">
                 <div class="text-title-nav lh-1 text-center text-md-start py-2 px-5">
                     <span class="me-1" style="font-size: 30px;">องค์การบริหารส่วนตำบลแปลงยาว</span><br>
                     <span style="font-size: 28px;">อำเภอแปลงยาว จังหวัดฉะเชิงเทรา</span>
@@ -120,11 +140,17 @@
             </div>
             <div class="d-flex gap-2">
                 <div class="d-flex flex-column justify-content-start align-items-center d-none d-lg-block">
-                    <div class="d-flex justify-content-start align-items-center gap-2">
-                        <a class="button-blue">สมัครสมาชิก</a>
-                        <a class="button-pink">เข้าสู่ระบบ</a>
+                    <div class="d-flex justify-content-end align-items-center gap-2">
+                        <a class="button-blue"><i class="fa-solid fa-house fs-5"></i> หน้าหลัก</a>
+                        <a class="button-blue"><i class="fa-solid fa-user fs-5"></i> เข้าสู่ระบบ</a>
                     </div>
                     <div class="d-flex justify-content-end align-items-center gap-2 button-img mt-2">
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="ค้นหา..." style="border-radius: 10px 0 0 10px;">
+                            <button class="button-search" type="button" style="border-radius: 0 10px 10px 0;">
+                                <i class="fas fa-search mt-2"></i>
+                            </button>
+                        </div>
                         <img src="{{ asset('images/navbar/disability.png') }}" alt="btn-disability" width="42"
                             height="42">
                         <img src="{{ asset('images/navbar/th.png') }}" alt="thailand">

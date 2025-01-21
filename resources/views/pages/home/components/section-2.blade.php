@@ -84,7 +84,7 @@
 
     .responsive-image {
         width: 100%;
-        max-width: 300px;
+        max-width: 250px;
         height: auto;
     }
 
@@ -182,9 +182,9 @@
 
 </style>
 <main class="d-flex bg-page2">
-    <div class="container d-flex flex-column align-items-center justify-content-center">
-        <div class="d-flex flex-column flex-lg-row">
-            <div class="col-12 col-lg-6 d-flex align-items-end justify-content-center">
+    <div class="container d-flex flex-column align-items-center ">
+        <div class="d-flex flex-column flex-lg-row gap-3 ">
+            <div class="col-12 col-lg-6 d-flex">
                 <img src="{{ asset('images/section-2/persernals.png') }}" alt="persernals" class="responsive-image">
             </div>
 

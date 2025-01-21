@@ -19,7 +19,7 @@
 
 
     .bg-menu {
-        background: linear-gradient(to right, rgba(135, 255, 36, 0.8), rgba(6, 179, 0, 0.8));
+        background: linear-gradient(to right, rgba(155, 255, 73, 0.8), rgba(135, 255, 37, 0.8));
         z-index: 2;
         transition: transform 0.3s ease;
     }
@@ -60,7 +60,7 @@
     }
 
     .navbar-item:hover div {
-        color: rgba(135, 255, 36, 0.8);
+        color: rgba(32, 61, 8, 0.8);
         /* เปลี่ยนสีของข้อความเมื่อ hover */
     }
 

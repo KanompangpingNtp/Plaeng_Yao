@@ -34,6 +34,7 @@
         box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
         border-radius: 30px;
         font-size: 22px;
+        font-weight: bold;
         text-decoration: none;
         color: #000;
         position: relative;
@@ -92,11 +93,11 @@
                     data-bs-ride="carousel">
                     <!-- Indicators -->
                     <div class="carousel-indicators">
-                        <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="0" class="active"
+                        <button type="button" data-bs-target="#carousel-sectioon-3" data-bs-slide-to="0" class="active"
                             aria-current="true" aria-label="Slide 1"></button>
-                        <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="1"
+                        <button type="button" data-bs-target="#carousel-sectioon-3" data-bs-slide-to="1"
                             aria-label="Slide 2"></button>
-                        <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="2"
+                        <button type="button" data-bs-target="#carousel-sectioon-3" data-bs-slide-to="2"
                             aria-label="Slide 3"></button>
                     </div>
 

@@ -54,13 +54,13 @@
                 <div class="sb-sidenav-menu">
                     <div class="nav">
                         <div class="sb-sidenav-menu-heading">ระบบ</div>
-                        <a class="nav-link" href="">
+                        <a class="nav-link" href="{{route('PressReleaseHome')}}">
                             <div class="sb-nav-link-icon">
                                 <i class="bi bi-database-add"></i>
                             </div>
                             จัดการข่าวประชาสัมพันธ์
                         </a>
-                        <a class="nav-link" href="">
+                        <a class="nav-link" href="{{route('ActivityHome')}}">
                             <div class="sb-nav-link-icon">
                                 <i class="bi bi-database-add"></i></div>
                             จัดการกิจกรรม
@@ -76,8 +76,10 @@
                         </a>
                         <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                             <nav class="sb-sidenav-menu-nested nav">
-                                <a class="nav-link" href="layout-static.html">Static Navigation</a>
-                                <a class="nav-link" href="layout-sidenav-light.html">Light Sidenav</a>
+                                <a class="nav-link" href="{{route('ProcurementResultsHome')}}">ผลจัดซื้อจัดจ้าง</a>
+                                <a class="nav-link" href="{{route('ProcurementHome')}}">ประกาศจัดซื้อจัดจ้าง</a>
+                                <a class="nav-link" href="{{route('AveragePriceHome')}}">ประกาศราคากลาง</a>
+                                <a class="nav-link" href="{{route('RevenueHome')}}">งานเก็บรายได้</a>
                             </nav>
                         </div>
                         <a class="nav-link" href="">
@@ -174,5 +176,6 @@
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <script src="{{asset('js/scripts.js')}}"></script>
+
 </body>
 </html>

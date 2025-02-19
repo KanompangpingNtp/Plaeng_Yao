@@ -1,254 +1,223 @@
 <style>
     .bg-page2 {
-        background-image: url('{{ asset('images/section-2/bg-2.png') }}');
+        background-image: url('{{ asset('images/section-2/BG.png') }}');
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
         min-height: 100vh;
-        position: relative;
+        padding: 2rem 0px;
     }
 
-    .banner-section-2 {
-        position: relative;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        padding: 10px 20px;
-        text-decoration: none;
+    #carousel-sectioon-2 {
+        height: 500px;
+        /* ตั้งค่าความสูงที่ต้องการ */
+        overflow: hidden;
+    }
 
-        color: #ffffff;
-        background: linear-gradient(to right, rgba(5, 143, 0, 0.8), rgba(135, 255, 36, 0.8), rgba(5, 143, 0, 0.8));
-        box-shadow: 0 0 5px 3px rgba(255, 255, 255, 0.5);
+    #carousel-sectioon-2 img {
+        object-fit: cover;
+        /* ปรับรูปภาพให้ขยายและครอบคลุมพื้นที่ */
+        height: 500px;
+        /* เต็มพื้นที่แนวตั้ง */
+    }
+
+    .bg-carousel-sectioon-2 {
+        background: linear-gradient(to top, rgba(5, 143, 0, 0.8), rgba(135, 255, 36, 0.8));
+        box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
         border-radius: 20px;
+        padding: 15px;
+    }
+
+
+    .banner-section-2 {
+        background-color: white;
+        box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+        border-radius: 30px;
+        font-size: 22px;
+        font-weight: bold;
+        text-decoration: none;
+        color: #000;
+        position: relative;
         overflow: visible;
-        transition: all 0.3s ease-in-out;
-        /* เพิ่มทรานซิชัน */
+        transition: box-shadow 0.3s, transform 0.3s;
     }
 
     .banner-section-2:hover {
-        background: linear-gradient(to right, rgba(135, 255, 36, 0.8), rgba(5, 143, 0, 0.8), rgba(135, 255, 36, 0.8));
-        box-shadow: 0 0 15px 5px rgba(255, 255, 255, 0.7);
-        transform: scale(1.05);
-        /* เพิ่มการขยาย */
+        box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.7);
+        transform: scale(1.02);
+        /* ขยายขนาดเล็กน้อยเมื่อ hover */
     }
 
-    .banner-section-2 .icon-attach {
+    .banner-section-2 .bg-inbanner {
+        background: linear-gradient(to bottom, rgba(5, 143, 0, 0.8), rgba(135, 255, 36, 0.8));
+        border-radius: 30px 0 0 30px;
+        width: 70px;
+        z-index: 1;
+        position: relative;
+        overflow: visible;
+        transition: background 0.3s;
+    }
+
+    .banner-section-2:hover .bg-inbanner {
+        background: linear-gradient(to bottom, rgba(5, 200, 50, 0.9), rgba(135, 255, 80, 0.9));
+        /* เปลี่ยนสีเมื่อ hover */
+    }
+
+    .bg-inbanner img {
         position: absolute;
-        top: -13px;
-        left: -15px;
-        width: 40px;
-        height: auto;
-        transition: transform 0.3s ease-in-out;
-        /* เพิ่มทรานซิชันสำหรับไอคอน */
+        width: 75px;
+        top: -16px;
+        left: -8px;
+        z-index: 2;
+        transition: transform 0.3s, filter 0.3s;
+        /* เพิ่มทรานซิชันสำหรับ hover */
     }
 
-    .banner-section-2:hover .icon-attach {
-        transform: rotate(-10deg) scale(1.1);
-        /* เอฟเฟกต์หมุนและขยาย */
+    .banner-section-2:hover .bg-inbanner img {
+        transform: rotate(10deg) scale(1.1);
+        /* หมุนและขยายภาพ */
+        filter: brightness(1.2);
+        /* ทำให้ภาพสว่างขึ้น */
     }
-
-    .banner-section-2 .icon {
-        width: 50px;
-        height: auto;
-        margin-right: 15px;
-        transition: transform 0.3s ease-in-out;
-        /* เพิ่มทรานซิชันสำหรับไอคอน */
-    }
-
-    .banner-section-2:hover .icon {
-        transform: scale(1.1);
-        /* ขยายไอคอน */
-    }
-
-    .banner-section-2 .text-content {
-        font-size: 30px;
-        font-weight: bold;
-        transition: color 0.3s ease-in-out;
-        /* เพิ่มทรานซิชันสำหรับข้อความ */
-    }
-
-    .banner-section-2:hover .text-content {
-        color: #ffbb00;
-        /* เปลี่ยนสีข้อความเมื่อ hover */
-    }
-
-    .bg-dark-section-2 {
-        background: linear-gradient(to right, rgba(0, 0, 0, 0.5), rgba(8, 8, 8, 0.5));
-        padding: 1.5rem;
-        position: absolute;
-        bottom: 0;
-        /* จัดตำแหน่งให้ล่างสุด */
-        left: 0;
-        width: 100%;
-    }
-
-    .responsive-image {
-        width: 100%;
-        max-width: 250px;
-        height: auto;
-    }
-
-    @media (min-width: 992px) {
-
-        /* สำหรับจอ lg หรือใหญ่กว่า */
-        .responsive-image {
-            max-width: 100%;
-            /* ขนาดที่ใหญ่ขึ้น */
-        }
-    }
-
-    .name-title {
-        margin-left: 18rem;
-        /* ค่าเริ่มต้นสำหรับหน้าจอใหญ่ */
-    }
-
-    .position-title {
-        margin-left: 25rem;
-        /* ค่าเริ่มต้นสำหรับหน้าจอใหญ่ */
-    }
-
-    .contact-info {
-        margin-left: 30rem;
-        /* ค่าเริ่มต้นสำหรับหน้าจอใหญ่ */
-    }
-
-    /* Media Queries สำหรับ Responsive */
-    @media (max-width: 992px) {
-
-        /* สำหรับหน้าจอขนาดกลาง (tablet) */
-        .name-title,
-        .position-title,
-        .contact-info {
-            margin-left: 10rem;
-            /* ลดระยะขอบ */
-        }
-    }
-
-    @media (max-width: 768px) {
-
-        /* สำหรับหน้าจอขนาดเล็ก (mobile) */
-        .name-title,
-        .position-title,
-        .contact-info {
-            margin-left: 2rem;
-            /* ลดระยะขอบให้เหลือน้อยที่สุด */
-            text-align: center;
-            /* จัดข้อความให้อยู่กลาง */
-        }
-    }
-
-    /* Margin default for each <a> */
-.margin-a1 {
-    margin-left: 5rem;
-}
-
-.margin-a2 {
-    margin-left: 10rem;
-}
-
-.margin-a3 {
-    margin-left: 15rem;
-}
-
-.margin-a4 {
-    margin-left: 10rem;
-}
-
-.margin-a5 {
-    margin-left: 5rem;
-}
-
-/* Responsive adjustments */
-@media (max-width: 992px) { /* For tablet screens */
-    .margin-a1,
-    .margin-a2,
-    .margin-a3,
-    .margin-a4,
-    .margin-a5 {
-        margin-left: 3rem; /* Reduce margin for smaller screens */
-    }
-}
-
-@media (max-width: 768px) { /* For mobile screens */
-    .margin-a1,
-    .margin-a2,
-    .margin-a3,
-    .margin-a4,
-    .margin-a5 {
-        margin-left: 0; /* Align to the left for compact view */
-        text-align: center; /* Center-align content */
-    }
-}
-
 </style>
-<main class="d-flex bg-page2">
-    <div class="container d-flex flex-column align-items-center ">
-        <div class="d-flex flex-column flex-lg-row gap-3 ">
-            <div class="col-12 col-lg-6 d-flex">
-                <img src="{{ asset('images/section-2/persernals.png') }}" alt="persernals" class="responsive-image">
+<main class="d-flex flex-column align-items-center justify-content-center bg-page2">
+    <div class="container d-flex flex-column flex-lg-row align-items-center w-100 gap-2">
+        <div class="col-lg-6 col-xl-8 d-flex flex-column">
+            <div class="d-flex align-items-center justify-content-center mb-3 gap-2 fs-1 fw-bold">
+                รางวัลแห่งความภาคภูมิใจ <img src="{{ asset('images/section-2/trophy.png') }}" alt="icon" width="50"
+                    height="50">
             </div>
+            <div class="bg-carousel-sectioon-2">
+                <!-- ภาพสไลด์ -->
+                <div id="carousel-sectioon-2" class="carousel slide" style="border-radius: 20px;"
+                    data-bs-ride="carousel">
+                    <!-- Indicators -->
+                    <div class="carousel-indicators">
+                        <button type="button" data-bs-target="#carousel-sectioon-2" data-bs-slide-to="0" class="active"
+                            aria-current="true" aria-label="Slide 1"></button>
+                        <button type="button" data-bs-target="#carousel-sectioon-2" data-bs-slide-to="1"
+                            aria-label="Slide 2"></button>
+                        <button type="button" data-bs-target="#carousel-sectioon-2" data-bs-slide-to="2"
+                            aria-label="Slide 3"></button>
+                    </div>
 
-            <div class="cool-12 col-lg-6 d-flex flex-column align-items-center align-items-lg-start justify-content-center gap-2 gap-lg-5">
-                <a href="#" class="banner-section-2 d-flex margin-a1">
-                    <img class="icon-attach" src="{{ asset('images/section-2/attach.png') }}" alt="attach">
-                    <img class="icon" src="{{ asset('images/section-2/businessman.png') }}" alt="icon">
-                    <div class="text-content lh-1">
-                        สารจากนายก
+                    <!-- Images -->
+                    <div class="carousel-inner ">
+                        <div class="carousel-item active">
+                            <img src="{{ asset('images/section-2/16082567.png') }}" class="d-block w-100 img-fluid"
+                                alt="Slide 1">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="{{ asset('images/section-2/BG.png') }}" class="d-block w-100 img-fluid"
+                                alt="Slide 2">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="{{ asset('images/section-2/16082567.png') }}" class="d-block w-100 img-fluid"
+                                alt="Slide 3">
+                        </div>
                     </div>
-                </a>
-                <a href="#" class="banner-section-2 d-flex margin-a2">
-                    <img class="icon-attach" src="{{ asset('images/section-2/attach.png') }}" alt="attach">
-                    <img class="icon" src="{{ asset('images/section-2/goal.png') }}" alt="icon">
-                    <div class="text-content lh-1">
-                        เจตจำนงสุจริต <br>
-                        ของผู้บริหาร
-                    </div>
-                </a>
-                <a href="#" class="banner-section-2 d-flex margin-a3">
-                    <img class="icon-attach" src="{{ asset('images/section-2/attach.png') }}" alt="attach">
-                    <img class="icon" src="{{ asset('images/section-2/information.png') }}" alt="icon">
-                    <div class="text-content lh-1">
-                        รับแจ้งเรื่องราว <br>
-                        ร้องทุกข์
-                    </div>
-                </a>
-                <a href="#" class="banner-section-2 d-flex margin-a4">
-                    <img class="icon-attach" src="{{ asset('images/section-2/attach.png') }}" alt="attach">
-                    <img class="icon" src="{{ asset('images/section-2/email-marketing.png') }}" alt="icon">
-                    <div class="text-content lh-1">
-                        รับเรื่องร้องเรียน <br>
-                        ทุจริตประพฤติมิชอบ
-                    </div>
-                </a>
-                <a href="#" class="banner-section-2 d-flex margin-a5">
-                    <img class="icon-attach" src="{{ asset('images/section-2/attach.png') }}" alt="attach">
-                    <img class="icon" src="{{ asset('images/section-2/ita.png') }}" alt="icon">
-                    <div class="text-content lh-1">
-                        การประเมินคุณธรรม <br>
-                        และ ความโปร่งใส
-                    </div>
-                </a>
-            </div>
-            
-        </div>
-    </div>
-    <div class="bg-dark-section-2 d-flex align-items-start justify-content-center lh-1 text-light fw-bold">
-        <div class="container d-flex flex-column align-items-center justify-content-center gap-2">
-            <div class="fs-1 name-title">
-                นาย ธานินทร์ พุทธรัตน์
-            </div>
-            <div class="fs-4 position-title">
-                นายกองค์การบริหารส่วนตำบลแปลงยาว
-            </div>
-            <div class="d-flex fs-4 gap-2 contact-info">
-                <img src="{{ asset('images/section-2/telephone-call.png') }}" alt="phone" width="30"
-                    height="30">
-                <div>
-                    สายด่วนนายก : 000-000-0000
+
+                    <!-- Navigation Buttons -->
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carousel-sectioon-3"
+                        data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carousel-sectioon-3"
+                        data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
                 </div>
+
+            </div>
+
+        </div>
+        <div class="col-lg-6  col-xl-4 d-flex justify-content-center mt-lg-5 pt-lg-4">
+            <img src="{{ asset('images/section-2/126805.png') }}" alt="img-right"
+                style="filter: drop-shadow(2px 2px 10px rgba(0, 0, 0, 0.5));">
+        </div>
+    </div>
+    <div class="container mt-3 mt-sm-5">
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-3 justify-content-center">
+            <div class="col">
+                <a href="#" class="banner-section-2 d-flex border lh-1 p-0">
+                    <div class="bg-inbanner">
+                        <img src="{{ asset('images/section-2/knowledge.png') }}" alt="icon">
+                    </div>
+                    <div class="m-auto py-3 py-sm-2">
+                        การจัดการองค์ความรู้ <br class="d-none d-sm-block">
+                        อบต.แปลงยาว
+                    </div>
+                </a>
+            </div>
+            <div class="col">
+                <a href="#" class="banner-section-2 d-flex border lh-1 p-0">
+                    <div class="bg-inbanner">
+                        <img src="{{ asset('images/section-3/public-service.png') }}" alt="icon">
+                    </div>
+                    <div class="m-auto py-3 py-sm-2">
+                        คู่มือบริการประชาชน <br class="d-none d-sm-block">
+                        อบต.แปลงยาว
+                    </div>
+                </a>
+            </div>
+            <div class="col">
+                <a href="#" class="banner-section-2 d-flex border lh-1 p-0">
+                    <div class="bg-inbanner">
+                        <img src="{{ asset('images/section-3/facebook.png') }}" alt="icon">
+                    </div>
+                    <div class="m-auto py-3 py-sm-2">
+                        Facebook <br class="d-none d-sm-block">
+                        อบต.แปลงยาว
+                    </div>
+                </a>
+            </div>
+            <div class="col">
+                <a href="#" class="banner-section-2 d-flex border lh-1 p-0">
+                    <div class="bg-inbanner">
+                        <img src="{{ asset('images/section-3/documentation.png') }}" alt="icon">
+                    </div>
+                    <div class="m-auto py-3 py-sm-2">
+                        ระบบสารบรรณ <br class="d-none d-sm-block">
+                        อบต.แปลงยาว
+                    </div>
+                </a>
+            </div>
+            <div class="col">
+                <a href="#" class="banner-section-2 d-flex border lh-1 p-0">
+                    <div class="bg-inbanner">
+                        <img src="{{ asset('images/section-3/resources.png') }}" alt="icon">
+                    </div>
+                    <div class="m-auto py-3 py-sm-2">
+                        ระบบสารสนเทศ <br class="d-none d-sm-block">
+                        อบต.แปลงยาว
+                    </div>
+                </a>
+            </div>
+            <div class="col">
+                <a href="#" class="banner-section-2 d-flex border lh-1 p-0">
+                    <div class="bg-inbanner">
+                        <img src="{{ asset('images/section-3/accounting.png') }}" alt="icon">
+                    </div>
+                    <div class="m-auto py-3 py-sm-2">
+                        ระบบบันทึกบัญชี <br class="d-none d-sm-block">
+                        อบต.แปลงยาว
+                    </div>
+                </a>
+            </div>
+            <div class="col">
+                <a href="#" class="banner-section-2 d-flex border lh-1 p-0">
+                    <div class="bg-inbanner">
+                        <img src="{{ asset('images/section-3/mail.png') }}" alt="icon">
+                    </div>
+                    <div class="m-auto py-3 py-sm-2">
+                        เช็ค E - mail <br class="d-none d-sm-block">
+                        อบต.แปลงยาว
+                    </div>
+                </a>
             </div>
         </div>
     </div>
-
 
 </main>

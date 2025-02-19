@@ -148,10 +148,11 @@
         <div class="container d-flex justify-content-center justify-content-md-between align-items-center">
             <div class="d-flex  justify-content-start align-items-center">
                 <img src="{{ asset('images/navbar/Logo-601.png') }}" alt="logo" class="logo d-none d-md-block"
-                    style="margin-right:-25px; z-index: 3;">
+                    style="margin-right:-35px; z-index: 3;">
                 <div class="text-title-nav lh-1 text-center text-md-start py-2 px-5">
-                    <span class="me-1" style="font-size: 30px;">องค์การบริหารส่วนตำบลแปลงยาว</span><br>
-                    <span style="font-size: 28px;">อำเภอแปลงยาว จังหวัดฉะเชิงเทรา</span>
+                    <span class="me-1" style="font-size: 30px;">องค์การบริหารส่วนตำบลแปลงยาว <br> อำเภอแปลงยาว
+                        จังหวัดฉะเชิงเทรา</span><br>
+                    <span style="font-size: 25px;">Plaeng Yao Subdistrict Administrative Oraganization</span>
                 </div>
             </div>
             <div class="d-flex gap-2">
@@ -161,32 +162,73 @@
                         <a class="button-blue"><i class="fa-solid fa-user fs-5"></i> เข้าสู่ระบบ</a>
                     </div>
                     <div class="d-flex justify-content-end align-items-center gap-2 button-img mt-2">
-                        <div class="input-group">
-                            <button class="button-search" type="button" style="border-radius: 10px 0 0 10px;">
-                                <i class="fas fa-search mt-2"></i>
-                            </button>
-                            <input type="text" class="form-control" placeholder="ค้นหา..."
-                                style="border-radius: 0 10px 10px 0;">
-
+                        <div
+                            class="d-flex justify-content-start align-items-start button-img gap-1 d-none d-lg-flex bg-black-opacity">
+                            <img src="{{ asset('images/navbar/text-minus.png') }}" alt="text-minus">
+                            <img src="{{ asset('images/navbar/text-normal.png') }}" alt="text-normal">
+                            <img src="{{ asset('images/navbar/text-plus.png') }}" alt="text-plus">
                         </div>
                         <img src="{{ asset('images/navbar/disability.png') }}" alt="btn-disability" width="42"
                             height="42">
-                        <img src="{{ asset('images/navbar/th.png') }}" alt="thailand">
-                        <img src="{{ asset('images/navbar/en.png') }}" alt="english">
+                        <div class="bg-black-opacity">
+                            <img src="{{ asset('images/navbar/th.png') }}" alt="thailand" width="30">
+                            <img src="{{ asset('images/navbar/en.png') }}" alt="english" width="30">
+                        </div>
+
 
                     </div>
                 </div>
-                <div
-                    class="d-flex flex-column justify-content-start align-items-start button-img gap-1 d-none d-lg-flex bg-black-opacity">
-                    <img src="{{ asset('images/navbar/text-minus.png') }}" alt="text-minus">
-                    <img src="{{ asset('images/navbar/text-normal.png') }}" alt="text-normal">
-                    <img src="{{ asset('images/navbar/text-plus.png') }}" alt="text-plus">
-                </div>
+
             </div>
         </div>
     </header>
-
-
+    <div class="bg-menu w-100 pb-2 pt-3">
+        <div class="container d-flex flex-wrap justify-content-evenly">
+            <div class="d-flex flex-column align-items-center justify-content-center">
+                <a href="#" class="navbar-item">
+                    <img src="{{ asset('images/header/info.png') }}" alt="ปุ่มหน้าหลัก">
+                    <div>ข้อมูลพื้นฐาน</div>
+                </a>
+            </div>
+            <div class="d-flex flex-column align-items-center justify-content-center">
+                <a href="#" class="navbar-item">
+                    <img src="{{ asset('images/header/networking.png') }}" alt="ปุ่มบุคลากร">
+                    <div>บุคลากร</div>
+                </a>
+            </div>
+            <div class="d-flex flex-column align-items-center justify-content-center">
+                <a href="#" class="navbar-item">
+                    <img src="{{ asset('images/header/key-performance-indicator.png') }}" alt="ปุ่มผลการดำเนินงาน">
+                    <div>ผลการดำเนินงาน</div>
+                </a>
+            </div>
+            <div class="d-flex flex-column align-items-center justify-content-center">
+                <a href="#" class="navbar-item">
+                    <img src="{{ asset('images/header/certificate-authority.png') }}" alt="ปุ่มอำนาจหน้าที่">
+                    <div>อำนาจหน้าที่</div>
+                </a>
+            </div>
+            <div class="d-flex flex-column align-items-center justify-content-center">
+                <a href="#" class="navbar-item">
+                    <img src="{{ asset('images/header/growth.png') }}" alt="ปุ่มแผนพัฒนาท้องถิ่น">
+                    <div>แผนพัฒนนาท้องถิ่น</div>
+                </a>
+            </div>
+            <div class="d-flex flex-column align-items-center justify-content-center">
+                <a href="#" class="navbar-item">
+                    <img src="{{ asset('images/header/verdict.png') }}" alt="กฏหมาย">
+                    <div>กฏหมายและกฏระเบียบ</div>
+                </a>
+            </div>
+            <div class="d-flex flex-column align-items-center justify-content-center">
+                <a href="#" class="navbar-item">
+                    <img src="{{ asset('images/header/crowd.png') }}" alt="ปุ่มเมนูสำหรับประชาชน">
+                    <div>เมนูสำรหับประชาชน</div>
+                </a>
+            </div>
+        </div>
+    </div>
+    @include('layouts.components.header')
 
     @yield('content')
 

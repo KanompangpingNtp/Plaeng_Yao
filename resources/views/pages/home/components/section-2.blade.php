@@ -118,12 +118,12 @@
                     </div>
 
                     <!-- Navigation Buttons -->
-                    <button class="carousel-control-prev" type="button" data-bs-target="#carousel-sectioon-3"
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carousel-sectioon-2"
                         data-bs-slide="prev">
                         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                         <span class="visually-hidden">Previous</span>
                     </button>
-                    <button class="carousel-control-next" type="button" data-bs-target="#carousel-sectioon-3"
+                    <button class="carousel-control-next" type="button" data-bs-target="#carousel-sectioon-2"
                         data-bs-slide="next">
                         <span class="carousel-control-next-icon" aria-hidden="true"></span>
                         <span class="visually-hidden">Next</span>
@@ -154,7 +154,7 @@
             <div class="col">
                 <a href="#" class="banner-section-2 d-flex border lh-1 p-0">
                     <div class="bg-inbanner">
-                        <img src="{{ asset('images/section-3/public-service.png') }}" alt="icon">
+                        <img src="{{ asset('images/section-2/public-service.png') }}" alt="icon">
                     </div>
                     <div class="m-auto py-3 py-sm-2">
                         คู่มือบริการประชาชน <br class="d-none d-sm-block">
@@ -165,7 +165,7 @@
             <div class="col">
                 <a href="#" class="banner-section-2 d-flex border lh-1 p-0">
                     <div class="bg-inbanner">
-                        <img src="{{ asset('images/section-3/facebook.png') }}" alt="icon">
+                        <img src="{{ asset('images/section-2/facebook.png') }}" alt="icon">
                     </div>
                     <div class="m-auto py-3 py-sm-2">
                         Facebook <br class="d-none d-sm-block">
@@ -176,7 +176,7 @@
             <div class="col">
                 <a href="#" class="banner-section-2 d-flex border lh-1 p-0">
                     <div class="bg-inbanner">
-                        <img src="{{ asset('images/section-3/documentation.png') }}" alt="icon">
+                        <img src="{{ asset('images/section-2/documentation.png') }}" alt="icon">
                     </div>
                     <div class="m-auto py-3 py-sm-2">
                         ระบบสารบรรณ <br class="d-none d-sm-block">
@@ -187,7 +187,7 @@
             <div class="col">
                 <a href="#" class="banner-section-2 d-flex border lh-1 p-0">
                     <div class="bg-inbanner">
-                        <img src="{{ asset('images/section-3/resources.png') }}" alt="icon">
+                        <img src="{{ asset('images/section-2/resources.png') }}" alt="icon">
                     </div>
                     <div class="m-auto py-3 py-sm-2">
                         ระบบสารสนเทศ <br class="d-none d-sm-block">
@@ -198,7 +198,7 @@
             <div class="col">
                 <a href="#" class="banner-section-2 d-flex border lh-1 p-0">
                     <div class="bg-inbanner">
-                        <img src="{{ asset('images/section-3/accounting.png') }}" alt="icon">
+                        <img src="{{ asset('images/section-2/accounting.png') }}" alt="icon">
                     </div>
                     <div class="m-auto py-3 py-sm-2">
                         ระบบบันทึกบัญชี <br class="d-none d-sm-block">
@@ -209,7 +209,7 @@
             <div class="col">
                 <a href="#" class="banner-section-2 d-flex border lh-1 p-0">
                     <div class="bg-inbanner">
-                        <img src="{{ asset('images/section-3/mail.png') }}" alt="icon">
+                        <img src="{{ asset('images/section-2/mail.png') }}" alt="icon">
                     </div>
                     <div class="m-auto py-3 py-sm-2">
                         เช็ค E - mail <br class="d-none d-sm-block">

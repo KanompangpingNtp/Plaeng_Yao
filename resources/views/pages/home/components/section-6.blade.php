@@ -1,41 +1,51 @@
 <style>
-    .bg-page7 {
-        background-image: url('{{ asset('images/sectioon-7/bg-7.png') }}');
+    .bg-page6 {
+        background-image: url('{{ asset('images/section-6/bg-7.png') }}');
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
         min-height: 100vh;
         padding: 2rem 0px;
     }
-
-
-
-    .bg-green-title-sectioon-7 {
-        background: linear-gradient(to top, rgba(5, 143, 0, 0.6), rgba(135, 255, 36, 0.6));
-        box-shadow: 2px 2px 10px rgba(255, 255, 255, 0.5);
-        border-top-left-radius: 20px;
-        border-top-right-radius: 20px;
-        padding: 15px;
-        width: 100%;
-        overflow: hidden;
-    }
-
-    .bg-title{
-        background: linear-gradient(to right, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.1));
-        padding: 0.2rem 3rem;
-        border-radius: 40px;
-    }
 </style>
-<main class="d-flex flex-column align-items-center justify-content-center bg-page7">
-    <div class="container d-flex flex-column align-items-center justify-content-center">
-        <div class="bg-green-title-sectioon-7 d-flex justify-content-between align-items-center">
-            <div class="bg-title lh-1">
-                <span class="fs-1">ข่าวประชาสัมพันธ์</span><br>
-                <span class="fs-3">องค์การบริหารส่วนตำบลแปลงยาว</span>
+<main class="d-flex align-items-center justify-content-center bg-page6">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 d-flex flex-column">
+                <div class="p-3 d-flex justify-content-between align-items-center gap-2" 
+                    style="background: linear-gradient(to top, rgba(74, 131, 0, 0.9), rgba(163, 245, 12, 0.9)); 
+                           border-top-left-radius: 50px; border-top-right-radius: 50px;">
+                    
+                    <!-- ส่วนข้อความและโลโก้ -->
+                    <div class="d-flex align-items-center lh-1 ps-4 pe-5 py-2" 
+                        style="background: linear-gradient(to left, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.8)); 
+                               border-radius: 50px;">
+                        
+                        <div class="fw-bold d-flex flex-column justify-content-center align-items-start">
+                            <span class="fs-2 fw-bold">ข่าวประชาสัมพันธ์</span>
+                            <span class="fs-4">องค์การบริหารส่วนตำบลแปลงยาว</span>
+                        </div>
+                        
+                        <img src="{{ asset('images/section-6/public-relations.png') }}" 
+                             alt="logo" class="ms-2" style="width: 50px; height: auto;">
+                    </div>
+                    
+                    <!-- ปุ่มดูทั้งหมด -->
+                    <a href="#" class="btn btn-light fs-4 px-4" 
+                       style="text-decoration: none; border-radius: 15px;">ดูทั้งหมด</a>
+                </div>
+                <div class="px-3" style="background: linear-gradient(to left, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2));
+                border-bottom-left-radius: 50px; border-bottom-right-radius: 50px;">
+                    
+                </div>
             </div>
-            <a href="#" class="btn btn-light fs-4 px-4" style="border-radius: 20px;">ดูทั้งหมด</a>
+            
+            <div class="col-lg-6">
+                text
+            </div>
         </div>
-
     </div>
+    
+    
 
 </main>

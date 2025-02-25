@@ -1,6 +1,6 @@
 <style>
-    .bg-page5 {
-        background-image: url('{{ asset('images/section-5/bg-5.png') }}');
+    .bg-page4 {
+        background-image: url('{{ asset('images/section-4/bg-5.png') }}');
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
@@ -10,7 +10,7 @@
 
 
 
-    .bg-video-sectioon-5 {
+    .bg-video-sectioon-4 {
         background: linear-gradient(to top, rgba(5, 143, 0, 0.5), rgba(135, 255, 36, 0.5));
         box-shadow: 2px 2px 10px rgba(255, 255, 255, 0.5);
         border-radius: 20px;
@@ -20,7 +20,7 @@
         overflow: hidden;
     }
 
-    .bg-video-sectioon-5 video {
+    .bg-video-sectioon-4 video {
         width: 100%;
         height: 470px;
         object-fit: cover;
@@ -47,7 +47,7 @@
     }
 
     .bg-e-service {
-        background-image: url('{{ asset('images/section-5/button-eservice.png') }}');
+        background-image: url('{{ asset('images/section-4/button-eservice.png') }}');
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
@@ -97,7 +97,7 @@
     }
 
     .bg-e-book {
-        background-image: url('{{ asset('images/section-5/bg-ebook.png') }}');
+        background-image: url('{{ asset('images/section-4/bg-ebook.png') }}');
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
@@ -110,13 +110,13 @@
         transition: all 0.3s ease;
     }
 
-    .ebook-section-5 {
+    .ebook-section-4 {
         width: 100%;
         height: 150px;
         transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
-    .ebook-section-5:hover {
+    .ebook-section-4:hover {
         transform: rotate(5deg) scale(1.01);
         /* ขยายขนาดเมื่อ hover */
         box-shadow: 0 4px 15px rgba(255, 255, 255, 0.3);
@@ -125,15 +125,15 @@
         /* เปลี่ยนเป็นรูปมือ */
     }
 </style>
-<main class="d-flex flex-column align-items-center justify-content-center bg-page5">
+<main class="d-flex flex-column align-items-center justify-content-center bg-page4">
     <div class="container d-flex flex-column flex-lg-row align-items-center w-100 gap-3">
         <div class="col-lg-6 col-xl-8 d-flex flex-column">
             <div class="d-flex align-items-center justify-content-start mb-3 fs-1 fw-bold"
                 style="text-shadow: 2px 2px 3px rgba(255, 255, 255, 0.8);">
                 วิดีทัศน์แนะนำ
             </div>
-            <div class="bg-video-sectioon-5">
-                <video src="{{ asset('images/section-5/video.mp4') }}" autoplay loop muted></video>
+            <div class="bg-video-sectioon-4">
+                <video src="{{ asset('images/section-4/video.mp4') }}" autoplay loop muted></video>
             </div>
 
             <div class="d-flex align-items-center justify-content-end mt-3 fs-3 fw-bold ">
@@ -147,31 +147,31 @@
             <div class="w-100 px-1 px-lg-4">
                 <a href="#" class="bg-e-service d-flex flex-column justify-content-between position-relative"
                     style="filter: drop-shadow(2px 2px 10px rgba(255, 255, 255, 0.5));">
-                    <img src="{{ asset('images/section-5/star.png') }}" alt="star" class="star-icon">
+                    <img src="{{ asset('images/section-4/star.png') }}" alt="star" class="star-icon">
                     <div class="fs-4 lh-1 text-center text-light fw-bold">
                         บริการยื่นคำร้องออนไลน์ สะดวก รวดเร็ว <br>
                         ครบทุกงานบริการประชาชน <br>
                         สะดวกรวดเร็วตลอด 24 ชม.
                     </div>
                     <div class="d-flex align-items-center justify-content-center fs-1 fw-bold gap-2 text-dark">
-                        <img src="{{ asset('images/section-5/button.png') }}" alt="icon" width="50"
+                        <img src="{{ asset('images/section-4/button.png') }}" alt="icon" width="50"
                             height="50">
                         E - Service
                     </div>
                 </a>
                 <div class="bg-brown"></div>
             </div>
-            <div class="w-100 px-1 px-lg-4">
+            <div class=" px-1 px-lg-4">
                 <a href="#" class="bg-e-book d-flex flex-column justify-content-between position-relative"
                     style="filter: drop-shadow(2px 2px 10px rgba(255, 255, 255, 0.5));">
                     <div class="d-flex align-items-center justify-content-start fs-1 fw-bold text-light lh-1">
                         E - LIBRARY
                     </div>
-                    <img src="{{ asset('images/section-5/star.png') }}" alt="star" class="star-icon">
+                    <img src="{{ asset('images/section-4/star.png') }}" alt="star" class="star-icon">
                     <div class="d-flex justify-content-between align-items-center gap-3">
-                        <img src="{{ asset('images/section-5/ebook-1.png') }}" alt="book1" class="ebook-section-5">
-                        <img src="{{ asset('images/section-5/ebook-2.png') }}" alt="book2" class="ebook-section-5">
-                        <img src="{{ asset('images/section-5/ebook-3.png') }}" alt="book3" class="ebook-section-5">
+                        <img src="{{ asset('images/section-4/ebook-1.png') }}" alt="book1" class="ebook-section-4">
+                        <img src="{{ asset('images/section-4/ebook-2.png') }}" alt="book2" class="ebook-section-4">
+                        <img src="{{ asset('images/section-4/ebook-3.png') }}" alt="book3" class="ebook-section-4">
                     </div>
                 </a>
                 <div class="bg-brown"></div>

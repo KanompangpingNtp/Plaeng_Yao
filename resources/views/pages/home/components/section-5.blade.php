@@ -1,6 +1,6 @@
 <style>
-    .bg-page6 {
-        background-image: url('{{ asset('images/section-6/bg-6.png') }}');
+    .bg-page5 {
+        background-image: url('{{ asset('images/section-5/bg-6.png') }}');
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
@@ -84,7 +84,7 @@
         /* ตำแหน่งของรูปภายใน container */
     }
 
-    .bg-card-section-6 {
+    .bg-card-section-5 {
         background: linear-gradient(to top, rgba(5, 143, 0, 0.8), rgba(135, 255, 36, 0.8), rgba(5, 143, 0, 0.8));
         box-shadow: 2px 2px 8px rgba(255, 255, 255, 0.5);
         border-radius: 20px;
@@ -94,15 +94,15 @@
         transition: all 0.3s ease;
     }
 
-    .bg-card-section-6:hover {
+    .bg-card-section-5:hover {
         transform: scale(1.02);
     }
 
-    .bg-card-section-6 img {
+    .bg-card-section-5 img {
         transition: all 0.3s ease;
     }
 
-    .bg-card-section-6:hover img {
+    .bg-card-section-5:hover img {
         transform: rotate(5deg) scale(1.01);
     }
 
@@ -182,7 +182,7 @@
         /* สีข้อความ */
     }
 </style>
-<main class="d-flex flex-column align-items-center justify-content-center bg-page6">
+<main class="d-flex flex-column align-items-center justify-content-center bg-page5">
     <div class="container py-5">
         <div class="d-flex flex-column align-items-start justify-content-center mb-3  lh-1"
             style="text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.8);">
@@ -207,12 +207,12 @@
                                         <!-- จำนวนการ์ดที่ต้องการแสดงในแต่ละสไลด์ -->
                                         <div class="col-4" id="card-carousel">
                                             <a href="#" class="text-decoration-none text-dark ">
-                                                <div class="card bg-card-section-6">
+                                                <div class="card bg-card-section-5">
                                                     <div class="img-container">
                                                         <?php
-                                                        $imagePath = public_path('images/section-6/logo.png'); // ไฟล์ที่ต้องการตรวจสอบ
-                                                        $defaultImage = asset('images/section-6/logo.png'); // ไฟล์สำรอง
-                                                        $imageToShow = file_exists($imagePath) ? asset('images/section-6/logo.png') : $defaultImage;
+                                                        $imagePath = public_path('images/section-5/logo.png'); // ไฟล์ที่ต้องการตรวจสอบ
+                                                        $defaultImage = asset('images/section-5/logo.png'); // ไฟล์สำรอง
+                                                        $imageToShow = file_exists($imagePath) ? asset('images/section-5/logo.png') : $defaultImage;
                                                         ?>
                                                         <img src="{{ $imageToShow }}" class="card-img-top"
                                                             alt="Default Image">
@@ -265,12 +265,12 @@
                                     @for ($j = 1; $j <= 2; $j++) <!-- จำนวนการ์ดที่ต้องการแสดงในแต่ละสไลด์ -->
                                         <div class="col-6" id="card-carousel"> <!-- เปลี่ยนจาก col-4 เป็น col-6 -->
                                             <a href="#" class="text-decoration-none text-dark">
-                                                <div class="card bg-card-section-6">
+                                                <div class="card bg-card-section-5">
                                                     <div class="img-container">
                                                         <?php
-                                                        $imagePath = public_path('images/section-6/logo.png'); // ไฟล์ที่ต้องการตรวจสอบ
-                                                        $defaultImage = asset('images/section-6/logo.png'); // ไฟล์สำรอง
-                                                        $imageToShow = file_exists($imagePath) ? asset('images/section-6/logo.png') : $defaultImage;
+                                                        $imagePath = public_path('images/section-5/logo.png'); // ไฟล์ที่ต้องการตรวจสอบ
+                                                        $defaultImage = asset('images/section-5/logo.png'); // ไฟล์สำรอง
+                                                        $imageToShow = file_exists($imagePath) ? asset('images/section-5/logo.png') : $defaultImage;
                                                         ?>
                                                         <img src="{{ $imageToShow }}" class="card-img-top" alt="Default Image">
                                                     </div>
@@ -319,12 +319,12 @@
                                     <!-- จำนวนการ์ดที่ต้องการแสดงในแต่ละสไลด์ = 1 การ์ด -->
                                     <div class="col-12 col-md-4" id="card-carousel">
                                         <a href="#" class="text-decoration-none text-dark">
-                                            <div class="card bg-card-section-6">
+                                            <div class="card bg-card-section-5">
                                                 <div class="img-container">
                                                     <?php
-                                                    $imagePath = public_path('images/section-6/logo.png'); // ไฟล์ที่ต้องการตรวจสอบ
-                                                    $defaultImage = asset('images/section-6/logo.png'); // ไฟล์สำรอง
-                                                    $imageToShow = file_exists($imagePath) ? asset('images/section-6/logo.png') : $defaultImage;
+                                                    $imagePath = public_path('images/section-5/logo.png'); // ไฟล์ที่ต้องการตรวจสอบ
+                                                    $defaultImage = asset('images/section-5/logo.png'); // ไฟล์สำรอง
+                                                    $imageToShow = file_exists($imagePath) ? asset('images/section-5/logo.png') : $defaultImage;
                                                     ?>
                                                     <img src="{{ $imageToShow }}" class="card-img-top" alt="Default Image">
                                                 </div>
@@ -377,7 +377,7 @@
                 <div class="d-flex flex-column align-items-start justify-content-center mb-3  lh-1"
                     style="text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.8);">
                     <div class=" fs-1 fw-bold text-light ">
-                        แนะนำสถานที่ <img src="{{ asset('images/section-6/branch.png') }}" alt="icon">
+                        แนะนำสถานที่ <img src="{{ asset('images/section-5/branch.png') }}" alt="icon">
                     </div>
                     <div class="fs-3  text-light">
                         องค์การบริหารส่วนตำบลแปลงยาว
@@ -391,7 +391,7 @@
 
             </div>
             <div class="carousel-container">
-                <img id="carousel-image" class="carousel-image" src="{{ asset('images/section-6/image1.png') }}"
+                <img id="carousel-image" class="carousel-image" src="{{ asset('images/section-5/image1.png') }}"
                     alt="Image 1">
 
                 <div class="carousel-buttons mt-3">
@@ -411,19 +411,19 @@
     </div>
     <script>
         const images = [{
-                src: "{{ asset('images/section-6/image1.png') }}",
+                src: "{{ asset('images/section-5/image1.png') }}",
                 caption: "บ้านใหญ่"
             },
             {
-                src: "{{ asset('images/section-6/image2.png') }}",
+                src: "{{ asset('images/section-5/image2.png') }}",
                 caption: "ยักดำพวงมาลัยแดง"
             },
             {
-                src: "{{ asset('images/section-6/image3.png') }}",
+                src: "{{ asset('images/section-5/image3.png') }}",
                 caption: "ศาลา"
             },
             {
-                src: "{{ asset('images/section-6/image4.png') }}",
+                src: "{{ asset('images/section-5/image4.png') }}",
                 caption: "พระเรืองแสง"
             }
         ];

@@ -36,6 +36,20 @@
                 </div>
                 <div class="px-3" style="background: linear-gradient(to left, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2));
                 border-bottom-left-radius: 50px; border-bottom-right-radius: 50px;">
+                    <div class="card p-3 shadow-lg">
+                        <div class="d-flex align-items-center">
+                            <!-- รูปภาพด้านซ้าย -->
+                            <img src="{{ asset('images/section-6/logo.png') }}" alt="รูปภาพ" 
+                                 class="rounded me-3" style="width: 100px; height: 100px; object-fit: cover;">
+                            
+                            <!-- ข้อความด้านขวา -->
+                            <div class="flex-grow-1">
+                                <h5 class="card-title fw-bold">หัวข้อข่าว</h5>
+                                <p class="card-text text-muted">รายละเอียดสั้นๆ เกี่ยวกับข่าวหรือข้อมูลที่ต้องการนำเสนอ...</p>
+                                <a href="#" class="btn btn-primary btn-sm">อ่านเพิ่มเติม</a>
+                            </div>
+                        </div>
+                    </div>
                     
                 </div>
             </div>

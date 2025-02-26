@@ -61,8 +61,11 @@
                                 
                                 <!-- ข้อความด้านขวา -->
                                 <div class="flex-grow-1">
-                                    <h5 class="card-title fw-bold">หัวข้อข่าว</h5>
-                                    <p class="card-text text-muted">รายละเอียดสั้นๆ เกี่ยวกับข่าวหรือข้อมูลที่ต้องการนำเสนอ...</p>
+                                    <div class="card-text">รายละเอียดสั้นๆ เกี่ยวกับข่าวหรือข้อมูลที่ต้องการนำเสนอ...</div>
+                                    <div class="card-text text-muted">
+                                        <img src="{{asset('images/section-6/clock.png')}}" alt="icon" class="me-1" width="18">
+                                        dd/mm/yyyy
+                                    </div>
                                 </div>
                             </div>
                         </div>

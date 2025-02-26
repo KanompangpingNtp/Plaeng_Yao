@@ -7,4 +7,6 @@
     @include('pages.home.components.section-4')
     @include('pages.home.components.section-5')
     @include('pages.home.components.section-6')
+    @include('pages.home.components.section-7')
+    @include('pages.home.components.section-8')
 @endsection

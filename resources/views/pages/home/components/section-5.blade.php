@@ -187,7 +187,7 @@
         <div class="d-flex flex-column align-items-start justify-content-center mb-3  lh-1"
             style="text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.8);">
             <div class=" fs-1 fw-bold text-light ">
-                ข่าวกิจกรรม <img src="{{ asset('images/section-6/news.png') }}" alt="icon">
+                ข่าวกิจกรรม <img src="{{ asset('images/section-5/news.png') }}" alt="icon">
             </div>
             <div class="fs-3  text-light">
                 องค์การบริหารส่วนตำบลแปลงยาว

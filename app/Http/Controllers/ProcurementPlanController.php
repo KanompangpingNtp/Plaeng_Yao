@@ -8,23 +8,22 @@ use App\Models\PostDetail;
 use App\Models\PostPdf;
 use Illuminate\Support\Facades\Storage;
 
-class RevenueController extends Controller
+class ProcurementPlanController extends Controller
 {
-    //
-    public function RevenueHome()
+    public function ProcurementPlanHome()
     {
         $postTypes = PostType::all();
 
-        $postTypeId = $postTypes->firstWhere('type_name', 'สรุปผลการจัดซื้อจัดจ้าง')->id;
+        $postTypeId = $postTypes->firstWhere('type_name', 'แผนการจัดซื้อจัดจ้าง')->id;
         $postDetails = PostDetail::with('postType', 'pdfs')
             ->where('post_type_id', $postTypeId)
             ->orderBy('created_at', 'desc')
             ->get();
 
-        return view('admin.post.revenue.revenue', compact('postDetails', 'postTypes'));
+        return view('admin.post.procurement_plan.page', compact('postDetails', 'postTypes'));
     }
 
-    public function RevenueCreate(Request $request)
+    public function ProcurementPlanCreate(Request $request)
     {
         $request->validate([
             'post_type_id' => 'required|exists:post_types,id',
@@ -62,7 +61,7 @@ class RevenueController extends Controller
         return redirect()->back()->with('success', 'ไฟล์ประกาศถูกเพิ่มแล้ว!');
     }
 
-    public function RevenueUpdate(Request $request, $id)
+    public function ProcurementPlanUpdate(Request $request, $id)
     {
         $request->validate([
             'date' => 'nullable|date',
@@ -75,24 +74,21 @@ class RevenueController extends Controller
 
         $postDetail = PostDetail::findOrFail($id);
 
-        // อัปเดตข้อมูลทั่วไป
         $postDetail->update([
             'date' => $request->date,
             'title_name' => $request->title_name,
         ]);
 
-        // ลบไฟล์ที่ถูกเลือก
         if ($request->delete_files) {
             $filesToDelete = PostPdf::whereIn('id', $request->delete_files)->get();
             foreach ($filesToDelete as $file) {
-                // ลบไฟล์ออกจาก Storage
+
                 Storage::disk('public')->delete($file->post_pdf_file);
-                // ลบข้อมูลในฐานข้อมูล
+
                 $file->delete();
             }
         }
 
-        // อัปโหลดไฟล์ใหม่ถ้ามี
         if ($request->hasFile('file_post')) {
             foreach ($request->file('file_post') as $file) {
                 $filename = time() . '_' . $file->getClientOriginalName();
@@ -108,7 +104,7 @@ class RevenueController extends Controller
         return redirect()->back()->with('success', 'แก้ไขประกาศสำเร็จ!');
     }
 
-    public function RevenueDelete($id)
+    public function ProcurementPlanDelete($id)
     {
         $postDetail = PostDetail::findOrFail($id);
 

@@ -19,13 +19,17 @@ class PostTypeSeeder extends Seeder
             ['type_name' => 'กิจกรรม'],
 
             ['type_name' => 'ประกาศจัดซื้อจัดจ้าง'],
-            ['type_name' => 'ผลจัดซื้อจัดจ้าง'],
-            ['type_name' => 'ประกาศราคากลาง'],
-            ['type_name' => 'งานเก็บรายได้'],
+            ['type_name' => 'ผลประกาศจัดซื้อจัดจ้างประจำปี'],
+            ['type_name' => 'สรุปผลการจัดซื้อจัดจ้าง'],
+            ['type_name' => 'แผนการจัดซื้อจัดจ้าง'],
+            ['type_name' => 'ประกาศผู้ชนะการเสนอราคา'],
         ];
 
         foreach ($data as $item) {
-            PostType::create($item);
+            PostType::firstOrCreate(
+                ['type_name' => $item['type_name']],
+                ['type_name' => $item['type_name']]
+            );
         }
     }
 }

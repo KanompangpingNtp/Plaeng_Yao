@@ -3,24 +3,24 @@
 
 <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.min.css">
 
-<h3 class="text-center">งานเก็บรายได้</h3>
+<h3 class="text-center">สรุปผลการจัดซื้อจัดจ้าง</h3>
 
 <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal">
-    สร้างงานเก็บรายได้
+    สร้างสรุปผล
 </button>
 
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg" style="margin-top: 5%;">
         <div class="modal-content">
             <div class="modal-header">
-                <h1 class="modal-title fs-5" id="exampleModalLabel">สร้างงานเก็บรายได้</h1>
+                <h1 class="modal-title fs-5" id="exampleModalLabel">สร้างสรุปผล</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <form action="{{ route('RevenueCreate') }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="modal-body">
                     <div class="mb-3">
-                        <input type="hidden" name="post_type_id" value="{{ $postTypes->firstWhere('type_name', 'งานเก็บรายได้')->id }}">
+                        <input type="hidden" name="post_type_id" value="{{ $postTypes->firstWhere('type_name', 'สรุปผลการจัดซื้อจัดจ้าง')->id }}">
                         <label for="date" class="form-label">วันที่</label>
                         <input type="date" class="form-control" id="date" name="date">
                     </div>

@@ -195,61 +195,48 @@
         </div>
         <div class="container d-flex align-items-start justify-content-center ">
             <div class="d-flex flex-column align-items-center justify-content-center ">
-                <div id="cardCarousel1" class="carousel slide d-none d-lg-block " data-bs-ride="carousel">
+                <div id="cardCarousel1" class="carousel slide d-none d-lg-block" data-bs-ride="carousel">
 
                     <!-- Carousel Items -->
-                    <div class="carousel-inner ">
-                        @for ($i = 0; $i < 3; $i++)
-                            <!-- จำนวนหน้าสไลด์ที่ต้องการ -->
-                            <div class="carousel-item {{ $i === 0 ? 'active' : '' }} py-2 px-5">
+                    <div class="carousel-inner">
+                        @foreach ($activity->chunk(3) as $key => $chunkedActivities)
+                            <div class="carousel-item {{ $key === 0 ? 'active' : '' }} py-2 px-5">
                                 <div class="row">
-                                    @for ($j = 1; $j <= 3; $j++)
-                                        <!-- จำนวนการ์ดที่ต้องการแสดงในแต่ละสไลด์ -->
+                                    @foreach ($chunkedActivities as $post)
                                         <div class="col-4" id="card-carousel">
-                                            <a href="#" class="text-decoration-none text-dark ">
+                                            <a href="#" class="text-decoration-none text-dark">
                                                 <div class="card bg-card-section-5">
                                                     <div class="img-container">
                                                         <?php
-                                                        $imagePath = public_path('images/section-5/logo.png'); // ไฟล์ที่ต้องการตรวจสอบ
-                                                        $defaultImage = asset('images/section-5/logo.png'); // ไฟล์สำรอง
-                                                        $imageToShow = file_exists($imagePath) ? asset('images/section-5/logo.png') : $defaultImage;
+                                                        $imageToShow = $post->photos->isNotEmpty()
+                                                            ? asset('storage/' . $post->photos->first()->post_photo_file)
+                                                            : asset('images/section-5/logo.png');
                                                         ?>
-                                                        <img src="{{ $imageToShow }}" class="card-img-top"
-                                                            alt="Default Image">
+                                                        <img src="{{ $imageToShow }}" class="card-img-top" alt="Post Image">
                                                     </div>
-
-                                                    <div class="card-body bg-white mt-2" style=" border-radius: 20px;">
+                                                    <div class="card-body bg-white mt-2" style="border-radius: 20px;">
                                                         <h5 class="card-title" style="font-size: 18px;">
-                                                            {{ $i * 3 + $j }}
-                                                            <?php
-                                                            $text = 'This is card number  with sample text. This text might be too long for the card.';
-                                                            echo mb_strimwidth($text, 0, 50, '...');
-                                                            ?>
+                                                            {{ $post->title_name }}
                                                         </h5>
                                                         <p class="card-text text-muted" style="font-size: 16px;">
-                                                            <?php
-                                                            $text = 'This is card number with sample text. This text might be too long for the card.';
-                                                            echo mb_strimwidth($text, 0, 90, '...');
-                                                            ?>
+                                                            {{ Str::limit($post->details, 90, '...') }}
                                                         </p>
                                                     </div>
                                                 </div>
                                             </a>
                                         </div>
-                                    @endfor
+                                    @endforeach
                                 </div>
                             </div>
-                        @endfor
+                        @endforeach
                     </div>
 
                     <!-- Controls -->
-                    <button class="carousel-control-prev" type="button" data-bs-target="#cardCarousel1"
-                        data-bs-slide="prev">
+                    <button class="carousel-control-prev" type="button" data-bs-target="#cardCarousel1" data-bs-slide="prev">
                         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                         <span class="visually-hidden">Previous</span>
                     </button>
-                    <button class="carousel-control-next" type="button" data-bs-target="#cardCarousel1"
-                        data-bs-slide="next">
+                    <button class="carousel-control-next" type="button" data-bs-target="#cardCarousel1" data-bs-slide="next">
                         <span class="carousel-control-next-icon" aria-hidden="true"></span>
                         <span class="visually-hidden">Next</span>
                     </button>
@@ -274,7 +261,7 @@
                                                         ?>
                                                         <img src="{{ $imageToShow }}" class="card-img-top" alt="Default Image">
                                                     </div>
-                
+
                                                     <div class="card-body bg-white mt-2" style=" border-radius: 20px;">
                                                         <h5 class="card-title" style="font-size: 18px;">
                                                             {{ $i * 2 + $j }} <!-- เปลี่ยนเลขให้แสดงผลเหมาะสม -->
@@ -298,7 +285,7 @@
                             </div>
                         @endfor
                     </div>
-                
+
                     <!-- Controls -->
                     <button class="carousel-control-prev" type="button" data-bs-target="#cardCarousel2" data-bs-slide="prev">
                         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -328,7 +315,7 @@
                                                     ?>
                                                     <img src="{{ $imageToShow }}" class="card-img-top" alt="Default Image">
                                                 </div>
-                
+
                                                 <div class="card-body bg-white mt-2" style=" border-radius: 20px;">
                                                     <h5 class="card-title" style="font-size: 18px;">
                                                         {{ $i * 1 + 1 }} <!-- แสดงการ์ดเดียว -->
@@ -351,7 +338,7 @@
                             </div>
                         @endfor
                     </div>
-                
+
                     <!-- Controls -->
                     <button class="carousel-control-prev" type="button" data-bs-target="#cardCarousel3" data-bs-slide="prev">
                         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -362,7 +349,7 @@
                         <span class="visually-hidden">Next</span>
                     </button>
                 </div>
-                
+
                 <div class="d-flex align-items-center justify-content-end mt-3 fs-3 fw-bold w-100">
                     <a href="#" class="bg-link-button px-4 py-1">
                         ดูทั้งหมด

@@ -195,8 +195,8 @@
             <div class="d-flex gap-2">
                 <div class="d-flex flex-column justify-content-start align-items-center d-none d-lg-block">
                     <div class="d-flex justify-content-end align-items-center gap-2">
-                        <a class="button-blue"><i class="fa-solid fa-house fs-5"></i> หน้าหลัก</a>
-                        <a class="button-blue"><i class="fa-solid fa-user fs-5"></i> เข้าสู่ระบบ</a>
+                        <a class="button-blue" href="#"><i class="fa-solid fa-house fs-5"></i> หน้าหลัก</a>
+                        <a class="button-blue" href="{{route('showLoginForm')}}"><i class="fa-solid fa-user fs-5"></i> เข้าสู่ระบบ</a>
                     </div>
                     <div class="d-flex justify-content-end align-items-center gap-2 button-img mt-2">
                         <div

@@ -3,7 +3,7 @@
 
 <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.min.css">
 
-<h3 class="text-center">ผลจัดซื้อจัดจ้าง</h3>
+<h3 class="text-center">ผลประกาศจัดซื้อจัดจ้างประจำปี</h3>
 
 <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal">
     สร้างผลจัดซื้อจัดจ้าง
@@ -20,7 +20,7 @@
                 @csrf
                 <div class="modal-body">
                     <div class="mb-3">
-                        <input type="hidden" name="post_type_id" value="{{ $postTypes->firstWhere('type_name', 'ผลจัดซื้อจัดจ้าง')->id }}">
+                        <input type="hidden" name="post_type_id" value="{{ $postTypes->firstWhere('type_name', 'ผลประกาศจัดซื้อจัดจ้างประจำปี')->id }}">
                         <label for="date" class="form-label">วันที่</label>
                         <input type="date" class="form-control" id="date" name="date">
                     </div>

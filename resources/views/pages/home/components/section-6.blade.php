@@ -27,18 +27,17 @@
         color: #f1f1f1;
         /* เปลี่ยนสีข้อความเมื่อ hover */
     }
+
 </style>
 <main class="d-flex align-items-center justify-content-center bg-page6">
     <div class="container">
         <div class="row" style="gap: 1rem 0;">
             <div class="col-xl-7 d-flex flex-column">
-                <div class="p-3 d-flex justify-content-between align-items-center gap-2"
-                    style="background: linear-gradient(to top, rgba(74, 131, 0, 0.9), rgba(163, 245, 12, 0.9)); 
+                <div class="p-3 d-flex justify-content-between align-items-center gap-2" style="background: linear-gradient(to top, rgba(74, 131, 0, 0.9), rgba(163, 245, 12, 0.9));
                            border-top-left-radius: 30px; border-top-right-radius: 30px;">
 
                     <!-- ส่วนข้อความและโลโก้ -->
-                    <div class="d-flex align-items-center lh-1 ps-4 pe-5 py-2"
-                        style="background: linear-gradient(to left, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.8)); 
+                    <div class="d-flex align-items-center lh-1 ps-4 pe-5 py-2" style="background: linear-gradient(to left, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.8));
                                border-radius: 50px;">
 
                         <div class="fw-bold d-flex flex-column justify-content-center align-items-start">
@@ -46,52 +45,44 @@
                             <span class="fs-4">องค์การบริหารส่วนตำบลแปลงยาว</span>
                         </div>
 
-                        <img src="{{ asset('images/section-6/public-relations.png') }}" alt="logo" class="ms-2"
-                            style="width: 50px; height: auto;">
+                        <img src="{{ asset('images/section-6/public-relations.png') }}" alt="logo" class="ms-2" style="width: 50px; height: auto;">
                     </div>
 
                     <!-- ปุ่มดูทั้งหมด -->
-                    <a href="#" class="btn btn-light fs-4 px-4"
-                        style="text-decoration: none; border-radius: 15px;">ดูทั้งหมด</a>
+                    <a href="#" class="btn btn-light fs-4 px-4" style="text-decoration: none; border-radius: 15px;">ดูทั้งหมด</a>
                 </div>
-                <div class="px-3 pb-5 pt-2"
-                    style="background: linear-gradient(to left, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2));
-                border-bottom-left-radius: 30px; border-bottom-right-radius: 30px;  ">
-                    <?php
-                    // วนลูปเพื่อแสดงการ์ด 4 อัน
-                    for ($i = 1; $i <= 4; $i++): 
-                        $imagePath = public_path('images/section-6/logo.png'); // ไฟล์ที่ต้องการตรวจสอบ
-                        $defaultImage = asset('images/section-6/logo.png'); // ไฟล์สำรอง
-                        $imageToShow = file_exists($imagePath) ? asset('images/section-6/logo.png') : $defaultImage;
-                    ?>
-                        <a href="#" style="text-decoration: none;">
-                            <div class="card p-3 press-card text-black">
-                                <div class="d-flex align-items-center">
-                                    <!-- รูปภาพด้านซ้าย -->
-                                    <img src="{{ $imageToShow }}" alt="รูปภาพ" class="rounded me-3"
-                                        style="width: 100px; height: 100px; object-fit: cover;">
-                                    <!-- ข้อความด้านขวา -->
-                                    <div class="flex-grow-1">
-                                        <div class="card-text">
-                                            <?php
-                                            $text = 'This is card number ' . $i . ' with sample text.'; // สร้างข้อความให้แตกต่างกันตามลูป
-                                            echo mb_strimwidth($text, 0, 120, '...');
-                                            ?>
-                                        </div>
-                                        <div class="card-text text-muted">
-                                            <img src="{{ asset('images/section-6/clock.png') }}" alt="icon"
-                                                class="me-1" width="18">
-                                            dd/mm/yyyy
-                                        </div>
+                <div class="px-3 pb-5 pt-2" style="background: linear-gradient(to left, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2));
+            border-bottom-left-radius: 30px; border-bottom-right-radius: 30px;">
+
+                    @foreach($pressRelease->take(4) as $post)
+                    @php
+                    // ตรวจสอบว่ามีรูปภาพที่อัปโหลดมาหรือไม่
+                    $imagePath = $post->photos->first()->post_photo_file ?? 'images/section-6/logo.png';
+                    $imageToShow = asset('storage/' . $imagePath);
+                    @endphp
+
+                    <a href="#" style="text-decoration: none;">
+                        <div class="card p-3 press-card text-black">
+                            <div class="d-flex align-items-center">
+                                <!-- รูปภาพด้านซ้าย -->
+                                <img src="{{ $imageToShow }}" alt="รูปภาพ" class="rounded me-3" style="width: 100px; height: 100px; object-fit: cover;">
+
+                                <!-- ข้อความด้านขวา -->
+                                <div class="flex-grow-1">
+                                    <div class="card-text">
+                                        {{ Str::limit($post->title_name, 120, '...') }}
+                                    </div>
+                                    <div class="card-text text-muted">
+                                        <img src="{{ asset('images/section-6/clock.png') }}" alt="icon" class="me-1" width="18">
+                                        {{ \Carbon\Carbon::parse($post->date)->format('d/m/Y') }}
                                     </div>
                                 </div>
                             </div>
-                        </a>
-                    <?php endfor; ?>
-                    
-
-
+                        </div>
+                    </a>
+                    @endforeach
                 </div>
+
             </div>
 
             <div class="col-xl-5 d-flex flex-column justify-content-center align-items-center">
@@ -100,7 +91,7 @@
                     <div class="bg-white py-3 px-5 lh-1 text-center fw-bold" style="border-radius: 20px;">
                         <span class="fs-2">แบบสำรวจความคิดเห็น</span><br>
                         <span class="fs-4">องค์การบริหารส่วนตำบลแปลงยาว</span><br>
-                    
+
                         <!-- ตัวเลือก Radio Button เรียงลง -->
                         <div class="my-1 text-start ps-1">
                             <div class="form-check">
@@ -136,7 +127,7 @@
                         <img src="{{asset('images/section-6/ช่องทางline.png')}}" alt="xx">
                     </div>
                 </div>
-                
+
             </div>
         </div>
     </div>

@@ -28,45 +28,49 @@ class ShowDataController extends Controller
                 $query->where('type_name', 'ประกาศจัดซื้อจัดจ้าง');
             })->get();
 
-        //ผลจัดซื้อจัดจ้าง
+        //ผลประกาศจัดซื้อจัดจ้างประจำปี
         $procurementResults = PostDetail::with('postType', 'pdfs')
             ->whereHas('postType', function ($query) {
-                $query->where('type_name', 'ผลจัดซื้อจัดจ้าง');
+                $query->where('type_name', 'ผลประกาศจัดซื้อจัดจ้างประจำปี');
             })->get();
 
-        //ประกาศราคากลาง
+        //สรุปผลการจัดซื้อจัดจ้าง
         $average = PostDetail::with('postType', 'pdfs')
             ->whereHas('postType', function ($query) {
-                $query->where('type_name', 'ประกาศราคากลาง');
+                $query->where('type_name', 'สรุปผลการจัดซื้อจัดจ้าง');
             })->get();
 
-        //งานเก็บรายได้
+        //แผนการจัดซื้อจัดจ้าง
         $revenue = PostDetail::with('postType', 'pdfs')
             ->whereHas('postType', function ($query) {
-                $query->where('type_name', 'งานเก็บรายได้');
+                $query->where('type_name', 'แผนการจัดซื้อจัดจ้าง');
+            })->get();
+
+        //ประกาศผู้ชนะการเสนอราคา
+        $announcement = PostDetail::with('postType', 'pdfs')
+            ->whereHas('postType', function ($query) {
+                $query->where('type_name', 'ประกาศผู้ชนะการเสนอราคา');
             })->get();
 
         //แนะนำห้องเรียน
-        $classroom = PostDetail::with('postType', 'videos', 'photos', 'pdfs')
-            ->whereHas('postType', function ($query) {
-                $query->where('type_name', 'แนะนำห้องเรียน');
-            })->get();
+        // $classroom = PostDetail::with('postType', 'videos', 'photos', 'pdfs')
+        //     ->whereHas('postType', function ($query) {
+        //         $query->where('type_name', 'แนะนำห้องเรียน');
+        //     })->get();
 
-        //อาคารและสถานทื่
-        $building = PostDetail::with('postType', 'videos', 'photos', 'pdfs')
-            ->whereHas('postType', function ($query) {
-                $query->where('type_name', 'อาคารและสถานทื่');
-            })->get();
+        // //อาคารและสถานทื่
+        // $building = PostDetail::with('postType', 'videos', 'photos', 'pdfs')
+        //     ->whereHas('postType', function ($query) {
+        //         $query->where('type_name', 'อาคารและสถานทื่');
+        //     })->get();
 
-        return view('user.home.home', compact(
+        return view('pages.home.app', compact(
             'pressRelease',
             'activity',
             'procurement',
             'procurementResults',
             'average',
             'revenue',
-            'classroom',
-            'building'
         ));
     }
 

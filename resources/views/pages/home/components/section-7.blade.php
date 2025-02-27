@@ -1,62 +1,62 @@
 <?php
-$procurement = [
-    [
-        'title_name' => 'จัดซื้อวัสดุสำนักงานปี 2025',
-        'date' => '12-01-2025',
-        'pdfs' => [['post_pdf_file' => 'procurement_2025_1.pdf'], ['post_pdf_file' => 'procurement_2025_2.pdf']],
-    ],
-    [
-        'title_name' => 'จัดซื้อเครื่องมือแพทย์',
-        'date' => '11-01-2025',
-        'pdfs' => [['post_pdf_file' => 'medical_tools_2025.pdf']],
-    ],
-    [
-        'title_name' => 'จัดซื้อรถบรรทุกน้ำ',
-        'date' => '10-01-2025',
-        'pdfs' => [],
-    ],
-];
+// $procurement = [
+//     [
+//         'title_name' => 'จัดซื้อวัสดุสำนักงานปี 2025',
+//         'date' => '12-01-2025',
+//         'pdfs' => [['post_pdf_file' => 'procurement_2025_1.pdf'], ['post_pdf_file' => 'procurement_2025_2.pdf']],
+//     ],
+//     [
+//         'title_name' => 'จัดซื้อเครื่องมือแพทย์',
+//         'date' => '11-01-2025',
+//         'pdfs' => [['post_pdf_file' => 'medical_tools_2025.pdf']],
+//     ],
+//     [
+//         'title_name' => 'จัดซื้อรถบรรทุกน้ำ',
+//         'date' => '10-01-2025',
+//         'pdfs' => [],
+//     ],
+// ];
 
-$procurementResults = [
-    [
-        'title_name' => 'ประกาศผลจัดซื้อวัสดุสำนักงาน',
-        'date' => '09-01-2025',
-        'pdfs' => [['post_pdf_file' => 'result_procurement_2025.pdf']],
-    ],
-    [
-        'title_name' => 'ผลจัดซื้อเครื่องมือแพทย์',
-        'date' => '08-01-2025',
-        'pdfs' => [],
-    ],
-];
+// $procurementResults = [
+//     [
+//         'title_name' => 'ประกาศผลจัดซื้อวัสดุสำนักงาน',
+//         'date' => '09-01-2025',
+//         'pdfs' => [['post_pdf_file' => 'result_procurement_2025.pdf']],
+//     ],
+//     [
+//         'title_name' => 'ผลจัดซื้อเครื่องมือแพทย์',
+//         'date' => '08-01-2025',
+//         'pdfs' => [],
+//     ],
+// ];
 
-$average = [
-    [
-        'title_name' => 'ราคากลางวัสดุสำนักงาน',
-        'date' => '07-01-2025',
-        'pdfs' => [['post_pdf_file' => 'average_price_office_2025.pdf']],
-    ],
-    [
-        'title_name' => 'ราคากลางเครื่องมือแพทย์',
-        'date' => '06-01-2025',
-        'pdfs' => [],
-    ],
-];
+// $average = [
+//     [
+//         'title_name' => 'ราคากลางวัสดุสำนักงาน',
+//         'date' => '07-01-2025',
+//         'pdfs' => [['post_pdf_file' => 'average_price_office_2025.pdf']],
+//     ],
+//     [
+//         'title_name' => 'ราคากลางเครื่องมือแพทย์',
+//         'date' => '06-01-2025',
+//         'pdfs' => [],
+//     ],
+// ];
 
-$procurementPlan = [
-    [
-        'title_name' => 'งานเก็บรายได้ปี 2025',
-        'date' => '05-01-2025',
-        'pdfs' => [['post_pdf_file' => 'procurementPlan_2025_1.pdf'], ['post_pdf_file' => 'procurementPlan_2025_2.pdf']],
-    ],
-];
-$winnerAnnouncement = [
-    [
-        'title_name' => 'งานเก็บรายได้ปี 2025',
-        'date' => '05-01-2025',
-        'pdfs' => [['post_pdf_file' => 'winnerAnnouncement_2025_1.pdf'], ['post_pdf_file' => 'winnerAnnouncement_2025_2.pdf']],
-    ],
-];
+// $revenue = [
+//     [
+//         'title_name' => 'งานเก็บรายได้ปี 2025',
+//         'date' => '05-01-2025',
+//         'pdfs' => [['post_pdf_file' => 'procurementPlan_2025_1.pdf'], ['post_pdf_file' => 'procurementPlan_2025_2.pdf']],
+//     ],
+// ];
+// $announcement = [
+//     [
+//         'title_name' => 'งานเก็บรายได้ปี 2025',
+//         'date' => '05-01-2025',
+//         'pdfs' => [['post_pdf_file' => 'winnerAnnouncement_2025_1.pdf'], ['post_pdf_file' => 'winnerAnnouncement_2025_2.pdf']],
+//     ],
+// ];
 ?>
 <style>
     .bg-page7 {
@@ -146,9 +146,9 @@ $winnerAnnouncement = [
                     <div id="btnProcurementResults" onclick="changeContent('ผลประกาศจัดซื้อจัดจ้างประจำปี', {{ json_encode($procurementResults) }})" class="w-100 text-center text-lg-start px-4 py-1">
                         ผลประกาศจัดซื้อจัดจ้างประจำปี</div>
                     <div id="btnAverage" onclick="changeContent('สรุปผลการจัดซื้อจัดจ้าง', {{ json_encode($average) }})" class="w-100 text-center text-lg-start px-4 py-1">สรุปผลการจัดซื้อจัดจ้าง</div>
-                    <div id="btnProcurementPlan" onclick="changeContent('แผนการจัดซื้อจัดจ้าง', {{ json_encode($procurementPlan) }})" class="w-100 text-center text-lg-start px-4 py-1">แผนการจัดซื้อจัดจ้าง
+                    <div id="btnProcurementPlan" onclick="changeContent('แผนการจัดซื้อจัดจ้าง', {{ json_encode($revenue) }})" class="w-100 text-center text-lg-start px-4 py-1">แผนการจัดซื้อจัดจ้าง
                     </div>
-                    <div id="btnWinnerAnnouncement" onclick="changeContent('ประกาศผู้ชนะการเสนอราคา', {{ json_encode($winnerAnnouncement) }})" class="w-100 text-center text-lg-start px-4 py-1">
+                    <div id="btnWinnerAnnouncement" onclick="changeContent('ประกาศผู้ชนะการเสนอราคา', {{ json_encode($announcement) }})" class="w-100 text-center text-lg-start px-4 py-1">
                         ประกาศผู้ชนะการเสนอราคา</div>
 
                 </div>
@@ -164,7 +164,7 @@ $winnerAnnouncement = [
                                 <!-- ข้อความด้านขวา -->
                                 <div class="flex-grow-1">
                                     <div class="card-text lh-1">
-                                       
+
                                     </div>
                                     <div class="card-text text-muted">
                                         <img src="{{ asset('images/section-7/fast-time.png') }}" alt="icon"
@@ -215,7 +215,7 @@ $winnerAnnouncement = [
     }
 
     let currentPage = 1;
-    const itemsPerPage = 5;
+    const itemsPerPage = 6;
     let allItems = [];
 
     function displayItems() {

@@ -71,6 +71,7 @@ class ShowDataController extends Controller
             'procurementResults',
             'average',
             'revenue',
+            'announcement'
         ));
     }
 

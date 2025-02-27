@@ -109,6 +109,11 @@
         background: #f3f3f3;
     }
 
+    .bg-menu-egp .active {
+        color: black;
+        background: #f3f3f3;
+    }
+
     .egp-card {
         background-color: transparent !important;
         border: 1px solid black;
@@ -141,40 +146,27 @@
             <div class="row bg-egp justify-content-center shadow-lg w-100">
                 <div
                     class="col-lg-4 d-flex flex-column justify-content-center align-items-center bg-menu-egp  ps-0 ps-lg-3 py-2 py-lg-5 fw-bold pe-0">
-                    <div id="btnProcurement" onclick="changeContent('จัดซื้อจัดจ้าง', {{ json_encode($procurement) }}" class="w-100 text-center text-lg-start px-4 py-1">ประกาศจัดซื้อจัดจ้าง
+                    <div id="btnProcurement" onclick="changeContent('จัดซื้อจัดจ้าง', {{ json_encode($procurement) }})"
+                        class="w-100 text-center text-lg-start px-4 py-1">ประกาศจัดซื้อจัดจ้าง
                     </div>
-                    <div id="btnProcurementResults" onclick="changeContent('ผลประกาศจัดซื้อจัดจ้างประจำปี', {{ json_encode($procurementResults) }})" class="w-100 text-center text-lg-start px-4 py-1">
+                    <div id="btnProcurementResults"
+                        onclick="changeContent('ผลประกาศจัดซื้อจัดจ้างประจำปี', {{ json_encode($procurementResults) }})"
+                        class="w-100 text-center text-lg-start px-4 py-1">
                         ผลประกาศจัดซื้อจัดจ้างประจำปี</div>
-                    <div id="btnAverage" onclick="changeContent('สรุปผลการจัดซื้อจัดจ้าง', {{ json_encode($average) }})" class="w-100 text-center text-lg-start px-4 py-1">สรุปผลการจัดซื้อจัดจ้าง</div>
-                    <div id="btnProcurementPlan" onclick="changeContent('แผนการจัดซื้อจัดจ้าง', {{ json_encode($revenue) }})" class="w-100 text-center text-lg-start px-4 py-1">แผนการจัดซื้อจัดจ้าง
+                    <div id="btnAverage" onclick="changeContent('สรุปผลการจัดซื้อจัดจ้าง', {{ json_encode($average) }})"
+                        class="w-100 text-center text-lg-start px-4 py-1">สรุปผลการจัดซื้อจัดจ้าง</div>
+                    <div id="btnProcurementPlan"
+                        onclick="changeContent('แผนการจัดซื้อจัดจ้าง', {{ json_encode($revenue) }})"
+                        class="w-100 text-center text-lg-start px-4 py-1">แผนการจัดซื้อจัดจ้าง
                     </div>
-                    <div id="btnWinnerAnnouncement" onclick="changeContent('ประกาศผู้ชนะการเสนอราคา', {{ json_encode($announcement) }})" class="w-100 text-center text-lg-start px-4 py-1">
+                    <div id="btnWinnerAnnouncement"
+                        onclick="changeContent('ประกาศผู้ชนะการเสนอราคา', {{ json_encode($announcement) }})"
+                        class="w-100 text-center text-lg-start px-4 py-1">
                         ประกาศผู้ชนะการเสนอราคา</div>
 
                 </div>
-                <div
-                    class="col-lg-8 d-flex flex-column justify-content-center align-items-center px-3 py-5 " style="gap: 1rem 0;" id="contentArea">
-
-                    {{-- <a href="#" class="w-100" style="text-decoration: none; ">
-                        <div class="card p-3 egp-card text-black w-100">
-                            <div class="d-flex align-items-center">
-                                <!-- รูปภาพด้านซ้าย -->
-                                <img src="{{ asset('images/section-7/bookmark.png') }}" alt="รูปภาพ"
-                                    class="rounded me-3" style="width: 45px; height: 45px; object-fit: contain;">
-                                <!-- ข้อความด้านขวา -->
-                                <div class="flex-grow-1">
-                                    <div class="card-text lh-1">
-
-                                    </div>
-                                    <div class="card-text text-muted">
-                                        <img src="{{ asset('images/section-7/fast-time.png') }}" alt="icon"
-                                            class="me-1" width="18">
-                                        dd/mm/yyyy
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </a> --}}
+                <div class="col-lg-8 d-flex flex-column justify-content-center align-items-center px-3 py-5 "
+                    style="gap: 1rem 0;" id="contentArea">
 
                 </div>
             </div>
@@ -187,22 +179,28 @@
     </div>
 </main>
 <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        let procurementData = @json($procurement) || [];
+
+        if (procurementData.length > 0) {
+            changeContent('จัดซื้อจัดจ้าง', procurementData);
+        }
+    });
     // ฟังก์ชันที่ใช้แสดงเนื้อหา
     function changeContent(topic, data) {
-        // เก็บข้อมูลทั้งหมด
         allItems = data;
-
-        // เรียกใช้ฟังก์ชันเพื่อแสดงข้อมูลตามหน้า
         displayItems();
-
-        // ทำการเปลี่ยนปุ่มที่ถูกคลิกเป็น active และรีเซ็ตปุ่มอื่นๆ
-        setActiveButton(topic);
+        setActiveButton(topic); // เปลี่ยนปุ่มให้ Active
     }
 
     function setActiveButton(topic) {
         // กำหนดชื่อปุ่มตามหัวข้อ
-        const buttons = ['btnProcurement', 'btnProcurementResults', 'btnAverage', 'btnProcurementPlan', 'btnWinnerAnnouncement'];
-        const topics = ['จัดซื้อจัดจ้าง', 'ผลประกาศจัดซื้อจัดจ้างประจำปี', 'สรุปผลการจัดซื้อจัดจ้าง', 'แผนการจัดซื้อจัดจ้าง','ประกาศผู้ชนะการเสนอราคา'];
+        const buttons = ['btnProcurement', 'btnProcurementResults', 'btnAverage', 'btnProcurementPlan',
+            'btnWinnerAnnouncement'
+        ];
+        const topics = ['จัดซื้อจัดจ้าง', 'ผลประกาศจัดซื้อจัดจ้างประจำปี', 'สรุปผลการจัดซื้อจัดจ้าง',
+            'แผนการจัดซื้อจัดจ้าง', 'ประกาศผู้ชนะการเสนอราคา'
+        ];
 
         // รีเซ็ตสถานะ active ของทุกปุ่ม
         buttons.forEach(buttonId => document.getElementById(buttonId).classList.remove('active'));
@@ -217,32 +215,34 @@
     let currentPage = 1;
     const itemsPerPage = 6;
     let allItems = [];
+    const bookmarkIcon = "{{ asset('images/section-7/bookmark.png') }}";
+    const timeIcon = "{{ asset('images/section-7/fast-time.png') }}";
 
     function displayItems() {
-    const startIndex = (currentPage - 1) * itemsPerPage;
-    const endIndex = currentPage * itemsPerPage;
+        const startIndex = (currentPage - 1) * itemsPerPage;
+        const endIndex = currentPage * itemsPerPage;
+        const itemsToDisplay = allItems.slice(startIndex, endIndex);
 
-    const itemsToDisplay = allItems.slice(startIndex, endIndex);
-    let contentArea = document.getElementById('contentArea');
-    contentArea.innerHTML = '';
+        let contentArea = document.getElementById('contentArea');
+        contentArea.innerHTML = '';
 
-    itemsToDisplay.forEach((item, i) => {
-        let newContent = document.createElement('a');
-        newContent.href = "#";
-        newContent.className = "w-100";
-        newContent.style.textDecoration = "none";
+        itemsToDisplay.forEach((item, i) => {
+            let newContent = document.createElement('a');
+            newContent.href = "#";
+            newContent.className = "w-100";
+            newContent.style.textDecoration = "none";
 
-        newContent.innerHTML = `
-            <div class="card p-3 egp-card text-black w-100">
+            newContent.innerHTML = `
+            <div class="card p-3 egp-card text-black w-100" ">
                 <div class="d-flex align-items-center">
-                    <img src="{{ asset('images/section-7/bookmark.png') }}" alt="รูปภาพ"
+                    <img src="${bookmarkIcon}" alt="รูปภาพ"
                         class="rounded me-3" style="width: 45px; height: 45px; object-fit: contain;">
                     <div class="flex-grow-1">
                         <div class="card-text lh-1">
                             ${truncateText(item.title_name, 180)}
                         </div>
                         <div class="card-text text-muted">
-                            <img src="{{ asset('images/section-7/fast-time.png') }}" alt="icon"
+                            <img src="${timeIcon}" alt="icon"
                                 class="me-1" width="18">
                             ${item.date}
                         </div>
@@ -251,20 +251,16 @@
             </div>
         `;
 
-        contentArea.appendChild(newContent);
-    });
-}
+            contentArea.appendChild(newContent);
+        });
+    }
 
-// ฟังก์ชันตัดข้อความ
-function truncateText(text, maxLength) {
-    return text.length > maxLength ? text.substring(0, maxLength) + '...' : text;
-}
-
-
-
-
+    // ฟังก์ชันตัดข้อความ
+    function truncateText(text, maxLength) {
+        return text.length > maxLength ? text.substring(0, maxLength) + '...' : text;
+    }
 </script>
-<script>
+{{-- <script>
     document.addEventListener("DOMContentLoaded", function() {
         console.log('start fun');
 
@@ -273,4 +269,4 @@ function truncateText(text, maxLength) {
 
         changeContent('จัดซื้อจัดจ้าง', procurementData);
     });
-</script>
+</script> --}}

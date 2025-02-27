@@ -3,24 +3,24 @@
 
 <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.min.css">
 
-<h3 class="text-center">ประกาศผู้ชนะการเสนอราคา</h3>
+<h3 class="text-center">แผนการจัดซื้อจัดจ้าง</h3>
 
 <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal">
-    สร้างประกาศ
+    สร้างแผน
 </button>
 
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg" style="margin-top: 5%;">
         <div class="modal-content">
             <div class="modal-header">
-                <h1 class="modal-title fs-5" id="exampleModalLabel">สร้างประกาศผู้ชนะการเสนอราคา</h1>
+                <h1 class="modal-title fs-5" id="exampleModalLabel">สร้างแผน</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <form action="{{ route('AveragePriceCreate') }}" method="POST" enctype="multipart/form-data">
+            <form action="{{ route('ProcurementPlanCreate') }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="modal-body">
                     <div class="mb-3">
-                        <input type="hidden" name="post_type_id" value="{{ $postTypes->firstWhere('type_name', 'ประกาศผู้ชนะการเสนอราคา')->id }}">
+                        <input type="hidden" name="post_type_id" value="{{ $postTypes->firstWhere('type_name', 'แผนการจัดซื้อจัดจ้าง')->id }}">
                         <label for="date" class="form-label">วันที่</label>
                         <input type="date" class="form-control" id="date" name="date">
                     </div>
@@ -65,7 +65,7 @@
         </tr>
     </thead>
     <tbody class="text-center">
-        @forelse ($postDetails as $index => $postDetail)
+        @foreach ($postDetails as $index => $postDetail)
         <tr>
             <td>{{ $index + 1 }}</td>
             <td>{{ $postDetail->postType->type_name ?? 'N/A' }}</td>
@@ -82,7 +82,7 @@
                 <button type="button" class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#editModal{{ $postDetail->id }}">
                     <i class="bi bi-pencil-square"></i>
                 </button>
-                <form action="{{ route('AveragePriceDelete', $postDetail->id) }}" method="POST" style="display:inline;">
+                <form action="{{ route('ProcurementPlanDelete', $postDetail->id) }}" method="POST" style="display:inline;">
                 @csrf
                 @method('DELETE')
                 <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure?')"><i class="bi bi-trash"></i></button>
@@ -97,7 +97,7 @@
 <div class="modal fade" id="editModal{{ $postDetail->id }}" tabindex="-1" aria-labelledby="editModalLabel{{ $postDetail->id }}" aria-hidden="true">
     <div class="modal-dialog modal-lg" style="margin-top: 5%;">
         <div class="modal-content">
-            <form action="{{ route('AveragePriceUpdate', $postDetail->id) }}" method="POST" enctype="multipart/form-data">
+            <form action="{{ route('ProcurementPlanUpdate', $postDetail->id) }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 @method('PUT')
                 <div class="modal-header">

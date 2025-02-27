@@ -15,7 +15,7 @@ class ProcurementResultsController extends Controller
     {
         $postTypes = PostType::all();
 
-        $postTypeId = $postTypes->firstWhere('type_name', 'ผลจัดซื้อจัดจ้าง')->id;
+        $postTypeId = $postTypes->firstWhere('type_name', 'ผลประกาศจัดซื้อจัดจ้างประจำปี')->id;
         $postDetails = PostDetail::with('postType', 'pdfs')
             ->where('post_type_id', $postTypeId)
             ->orderBy('created_at', 'desc')

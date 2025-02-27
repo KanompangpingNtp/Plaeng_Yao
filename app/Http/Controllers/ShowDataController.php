@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\PostDetail;
+use App\Models\PersonnelAgency;
 
 class ShowDataController extends Controller
 {
@@ -97,6 +98,8 @@ class ShowDataController extends Controller
             ->orderBy('created_at', 'desc')
             ->get();
 
+        //เมนูบุคลากร
+        $personnelAgencies = PersonnelAgency::with('ranks')->get();
 
         return view('pages.home.app', compact(
             'pressRelease',
@@ -109,7 +112,8 @@ class ShowDataController extends Controller
             'awardsPride',
             'noticeBoard',
             'officialDocuments',
-            'recommendPlaces'
+            'recommendPlaces',
+            'personnelAgencies'
         ));
     }
 }

@@ -43,7 +43,15 @@
                     <li>
                         <hr class="dropdown-divider" />
                     </li>
-                    <li><a class="dropdown-item" href="#!">Logout</a></li>
+                    <li>
+                        <a class="dropdown-item" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                            Logout
+                        </a>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                            @csrf
+                        </form>
+                    </li>
+
                 </ul>
             </li>
         </ul>
@@ -106,6 +114,12 @@
                                 <i class="bi bi-database-add"></i>
                             </div>
                             หนังสือราชการ
+                        </a>
+                        <a class="nav-link" href="{{route('ManagePersonnel')}}">
+                            <div class="sb-nav-link-icon">
+                                <i class="bi bi-database-add"></i>
+                            </div>
+                            จัดการบุคลากร
                         </a>
 
                         {{-- <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">

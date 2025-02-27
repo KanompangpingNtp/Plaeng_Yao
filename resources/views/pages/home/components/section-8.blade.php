@@ -8,7 +8,7 @@
         padding: 2rem 0px;
     }
 
-    .link-8{
+    .link-8 {
         text-decoration: none;
         background: linear-gradient(to bottom, rgba(74, 131, 0, 0.9), rgba(74, 131, 0, 0.9));
         color: #ffffff;
@@ -24,7 +24,7 @@
         box-shadow: 0 0 10px white, 0 0 15px white, 0 0 15px white, 0 0 15px white;
     }
 
-    .link-8:hover{
+    .link-8:hover {
         background: linear-gradient(to bottom, rgba(163, 245, 12, 0.9), rgba(74, 131, 0, 0.9));
         box-shadow: 0 0 10px white, 0 0 15px white, 0 0 15px white, 0 0 15px white;
     }
@@ -34,27 +34,32 @@
     }
 
     .link-dowload:hover img {
-        transform: scale(1.1);  /* ขยายขนาดภาพเมื่อ hover */
-        filter: brightness(0.8);  /* ลดความสว่างเมื่อ hover */
+        transform: scale(1.1);
+        /* ขยายขนาดภาพเมื่อ hover */
+        filter: brightness(0.8);
+        /* ลดความสว่างเมื่อ hover */
     }
-    .link-all {
-    text-decoration: none;
-    background: linear-gradient(to bottom, rgba(163, 245, 12, 0.9), rgba(74, 131, 0, 0.9));
-    color: black;
-    font-size: 1.5rem; /* เทียบเท่ากับ fs-4 */
-    padding: 0.7rem 1.25rem;
-    margin: 0;
-    border-top-left-radius: 20px;
-    border-top-right-radius: 20px;
-    transition: all 0.3s ease-in-out;
-    display: inline-block;
-}
 
-.link-all:hover {
-    background: linear-gradient(to bottom, rgba(74, 131, 0, 0.9), rgba(163, 245, 12, 0.9));
-    color: white;
-    box-shadow: 0 0 10px white, 0 0 15px white;
-}
+    .link-all {
+        text-decoration: none;
+        background: linear-gradient(to bottom, rgba(163, 245, 12, 0.9), rgba(74, 131, 0, 0.9));
+        color: black;
+        font-size: 1.5rem;
+        /* เทียบเท่ากับ fs-4 */
+        padding: 0.7rem 1.25rem;
+        margin: 0;
+        border-top-left-radius: 20px;
+        border-top-right-radius: 20px;
+        transition: all 0.3s ease-in-out;
+        display: inline-block;
+    }
+
+    .link-all:hover {
+        background: linear-gradient(to bottom, rgba(74, 131, 0, 0.9), rgba(163, 245, 12, 0.9));
+        color: white;
+        box-shadow: 0 0 10px white, 0 0 15px white;
+    }
+
 </style>
 
 <main class="d-flex align-items-center justify-content-center bg-page8">
@@ -78,38 +83,31 @@
                 <div class="bg-white px-4 pt-4 pb-0 d-flex flex-column justify-content-center align-items-center " style="border-radius: 20px; gap: 1rem 0;">
 
                     @foreach($officialDocuments as $index => $document)
-    <div class="d-flex justify-content-center align-items-center gap-2">
-        <div class="d-flex flex-column justify-content-center align-items-center ">
-            <div class="p-1 lh-1 text-center fw-bold" style="background: linear-gradient(to bottom, rgba(163, 245, 12, 0.9),rgba(74, 131, 0, 0.9)); border-radius:20px;">
-                <span class="fs-2 text-black">{{ $index + 1 }}</span> <br>
-                <span class="fs-5 text-white" style="white-space: nowrap;">
-                    {{ \Carbon\Carbon::parse($document->date)->format('M Y') }}
-                </span>
-            </div>
-            <a href="{{ $document->pdfs->isNotEmpty() ? asset('storage/' . $document->pdfs->first()->post_pdf_file) : '#' }}"
-               class="link-dowload d-block d-sm-none mt-1"
-               target="_blank">
-                <img src="{{ asset('images/section-8/download.png') }}" alt="icon-dowload" height="55">
-            </a>
-        </div>
+                    <div class="d-flex justify-content-center align-items-center gap-2">
+                        <div class="d-flex flex-column justify-content-center align-items-center ">
+                            <div class="p-1 lh-1 text-center fw-bold" style="background: linear-gradient(to bottom, rgba(163, 245, 12, 0.9),rgba(74, 131, 0, 0.9)); border-radius:20px;">
+                                <span class="fs-2 text-black">{{ $index + 1 }}</span> <br>
+                                <span class="fs-5 text-white" style="white-space: nowrap;">
+                                    {{ \Carbon\Carbon::parse($document->date)->format('M Y') }}
+                                </span>
+                            </div>
+                            <a href="{{ $document->pdfs->isNotEmpty() ? asset('storage/' . $document->pdfs->first()->post_pdf_file) : '#' }}" class="link-dowload d-block d-sm-none mt-1" target="_blank">
+                                <img src="{{ asset('images/section-8/download.png') }}" alt="icon-dowload" height="55">
+                            </a>
+                        </div>
 
-        <div class="lh-1 p-2" style="background-color: #e4e4e4; width: 300px;">
-            {{ Str::limit($document->title_name, 180, '...') }}
-        </div>
+                        <div class="lh-1 p-2" style="background-color: #e4e4e4; width: 300px;">
+                            {{ Str::limit($document->title_name, 180, '...') }}
+                        </div>
 
-        <a href="{{ $document->pdfs->isNotEmpty() ? asset('storage/' . $document->pdfs->first()->post_pdf_file) : '#' }}"
-           class="link-dowload d-none d-sm-block"
-           target="_blank">
-            <img src="{{ asset('images/section-8/download.png') }}" alt="icon-dowload" height="55">
-        </a>
-    </div>
-@endforeach
-
-
+                        <a href="{{ $document->pdfs->isNotEmpty() ? asset('storage/' . $document->pdfs->first()->post_pdf_file) : '#' }}" class="link-dowload d-none d-sm-block" target="_blank">
+                            <img src="{{ asset('images/section-8/download.png') }}" alt="icon-dowload" height="55">
+                        </a>
+                    </div>
+                    @endforeach
                     <a href="#" class="link-all">ดูทั้งหมด</a>
                 </div>
             </div>
-
 
         </div>
     </div>
@@ -124,4 +122,5 @@
         // เพิ่มคลาส active ให้กับลิงก์ที่คลิก
         element.classList.add('active');
     }
+
 </script>

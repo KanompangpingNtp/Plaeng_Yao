@@ -240,7 +240,7 @@
                                     class="navbar-icon">
                                 <div class="navbar-text ">ข้อมูลพื้นฐาน</div>
                             </a>
-                            <ul class="dropdown-menu" aria-labelledby="basicInfoDropdown">
+                            {{-- <ul class="dropdown-menu" aria-labelledby="basicInfoDropdown">
                                 <li><a class="dropdown-item" href="">ประวัติความเป็นมา</a>
                                 </li>
                                 <li><a class="dropdown-item"
@@ -258,7 +258,7 @@
                                 <li><a class="dropdown-item"
                                         href="">นโยบายการบริหาร/เจตจำนงสุจริต</a>
                                 </li>
-                            </ul>
+                            </ul> --}}
                         </li>
 
                         <!-- 2. บุคลากร -->
@@ -270,8 +270,8 @@
                                     class="navbar-icon">
                                 <div class="navbar-text">บุคลากร</div>
                             </a>
-                            {{-- <ul class="dropdown-menu" aria-labelledby="personnelDropdown">
-                                <li><a class="dropdown-item" href="{{ route('AgencyPage') }}">แผนผังองค์กรรวม</a>
+                            <ul class="dropdown-menu" aria-labelledby="personnelDropdown">
+                                <li><a class="dropdown-item" href="#">แผนผังองค์กรรวม</a>
                                 </li>
                                 @foreach ($personnelAgencies as $agency)
                                     <li>
@@ -281,7 +281,7 @@
                                         </a>
                                     </li>
                                 @endforeach
-                            </ul> --}}
+                            </ul>
                         </li>
 
                         <!-- 3. ผลการดำเนินงาน -->

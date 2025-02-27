@@ -14,43 +14,57 @@ class ShowDataController extends Controller
         $pressRelease = PostDetail::with('postType', 'videos', 'photos', 'pdfs')
             ->whereHas('postType', function ($query) {
                 $query->where('type_name', 'ข่าวประชาสัมพันธ์');
-            })->get();
+            })
+            ->orderBy('created_at', 'desc')
+            ->get();
 
         //กิจกรรม
         $activity = PostDetail::with('postType', 'videos', 'photos', 'pdfs')
             ->whereHas('postType', function ($query) {
                 $query->where('type_name', 'กิจกรรม');
-            })->get();
+            })
+            ->orderBy('created_at', 'desc')
+            ->get();
 
         //ประกาศจัดซื้อจัดจ้าง
         $procurement = PostDetail::with('postType', 'pdfs')
             ->whereHas('postType', function ($query) {
                 $query->where('type_name', 'ประกาศจัดซื้อจัดจ้าง');
-            })->get();
+            })
+            ->orderBy('created_at', 'desc')
+            ->get();
 
         //ผลประกาศจัดซื้อจัดจ้างประจำปี
         $procurementResults = PostDetail::with('postType', 'pdfs')
             ->whereHas('postType', function ($query) {
                 $query->where('type_name', 'ผลประกาศจัดซื้อจัดจ้างประจำปี');
-            })->get();
+            })
+            ->orderBy('created_at', 'desc')
+            ->get();
 
         //สรุปผลการจัดซื้อจัดจ้าง
         $average = PostDetail::with('postType', 'pdfs')
             ->whereHas('postType', function ($query) {
                 $query->where('type_name', 'สรุปผลการจัดซื้อจัดจ้าง');
-            })->get();
+            })
+            ->orderBy('created_at', 'desc')
+            ->get();
 
         //แผนการจัดซื้อจัดจ้าง
         $revenue = PostDetail::with('postType', 'pdfs')
             ->whereHas('postType', function ($query) {
                 $query->where('type_name', 'แผนการจัดซื้อจัดจ้าง');
-            })->get();
+            })
+            ->orderBy('created_at', 'desc')
+            ->get();
 
         //ประกาศผู้ชนะการเสนอราคา
         $announcement = PostDetail::with('postType', 'pdfs')
             ->whereHas('postType', function ($query) {
                 $query->where('type_name', 'ประกาศผู้ชนะการเสนอราคา');
-            })->get();
+            })
+            ->orderBy('created_at', 'desc')
+            ->get();
 
         //แนะนำห้องเรียน
         // $classroom = PostDetail::with('postType', 'videos', 'photos', 'pdfs')

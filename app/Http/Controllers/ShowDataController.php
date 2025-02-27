@@ -14,55 +14,89 @@ class ShowDataController extends Controller
         $pressRelease = PostDetail::with('postType', 'videos', 'photos', 'pdfs')
             ->whereHas('postType', function ($query) {
                 $query->where('type_name', 'ข่าวประชาสัมพันธ์');
-            })->get();
+            })
+            ->orderBy('created_at', 'desc')
+            ->get();
 
         //กิจกรรม
         $activity = PostDetail::with('postType', 'videos', 'photos', 'pdfs')
             ->whereHas('postType', function ($query) {
                 $query->where('type_name', 'กิจกรรม');
-            })->get();
+            })
+            ->orderBy('created_at', 'desc')
+            ->get();
 
         //ประกาศจัดซื้อจัดจ้าง
         $procurement = PostDetail::with('postType', 'pdfs')
             ->whereHas('postType', function ($query) {
                 $query->where('type_name', 'ประกาศจัดซื้อจัดจ้าง');
-            })->get();
+            })
+            ->orderBy('created_at', 'desc')
+            ->get();
 
         //ผลประกาศจัดซื้อจัดจ้างประจำปี
         $procurementResults = PostDetail::with('postType', 'pdfs')
             ->whereHas('postType', function ($query) {
                 $query->where('type_name', 'ผลประกาศจัดซื้อจัดจ้างประจำปี');
-            })->get();
+            })
+            ->orderBy('created_at', 'desc')
+            ->get();
 
         //สรุปผลการจัดซื้อจัดจ้าง
         $average = PostDetail::with('postType', 'pdfs')
             ->whereHas('postType', function ($query) {
                 $query->where('type_name', 'สรุปผลการจัดซื้อจัดจ้าง');
-            })->get();
+            })
+            ->orderBy('created_at', 'desc')
+            ->get();
 
         //แผนการจัดซื้อจัดจ้าง
         $revenue = PostDetail::with('postType', 'pdfs')
             ->whereHas('postType', function ($query) {
                 $query->where('type_name', 'แผนการจัดซื้อจัดจ้าง');
-            })->get();
+            })
+            ->orderBy('created_at', 'desc')
+            ->get();
 
         //ประกาศผู้ชนะการเสนอราคา
         $announcement = PostDetail::with('postType', 'pdfs')
             ->whereHas('postType', function ($query) {
                 $query->where('type_name', 'ประกาศผู้ชนะการเสนอราคา');
-            })->get();
+            })
+            ->orderBy('created_at', 'desc')
+            ->get();
 
-        //แนะนำห้องเรียน
-        // $classroom = PostDetail::with('postType', 'videos', 'photos', 'pdfs')
-        //     ->whereHas('postType', function ($query) {
-        //         $query->where('type_name', 'แนะนำห้องเรียน');
-        //     })->get();
+        //รางวัลแห่งความภาคภูมิใจ
+        $awardsPride = PostDetail::with('postType', 'photos')
+            ->whereHas('postType', function ($query) {
+                $query->where('type_name', 'รางวัลแห่งความภาคภูมิใจ');
+            })
+            ->orderBy('created_at', 'desc')
+            ->get();
 
-        // //อาคารและสถานทื่
-        // $building = PostDetail::with('postType', 'videos', 'photos', 'pdfs')
-        //     ->whereHas('postType', function ($query) {
-        //         $query->where('type_name', 'อาคารและสถานทื่');
-        //     })->get();
+        //ป้ายประกาศ
+        $noticeBoard = PostDetail::with('postType', 'photos')
+            ->whereHas('postType', function ($query) {
+                $query->where('type_name', 'ป้ายประกาศ');
+            })
+            ->orderBy('created_at', 'desc')
+            ->get();
+
+        //หนังสือราชการ
+        $officialDocuments = PostDetail::with('postType', 'pdfs')
+            ->whereHas('postType', function ($query) {
+                $query->where('type_name', 'หนังสือราชการ');
+            })
+            ->orderBy('created_at', 'desc')
+            ->get();
+
+        $recommendPlaces = PostDetail::with('postType', 'photos')
+            ->whereHas('postType', function ($query) {
+                $query->where('type_name', 'แนะนำสถานที่');
+            })
+            ->orderBy('created_at', 'desc')
+            ->get();
+
 
         return view('pages.home.app', compact(
             'pressRelease',
@@ -71,129 +105,11 @@ class ShowDataController extends Controller
             'procurementResults',
             'average',
             'revenue',
-            'announcement'
-        ));
-    }
-
-    public function PressReleaseShowDetails($id)
-    {
-        //ข่าวประชาสัมพันธ์
-        $pressRelease = PostDetail::with(['postType', 'videos', 'photos', 'pdfs'])
-            ->whereHas('postType', function ($query) {
-                $query->where('type_name', 'ข่าวประชาสัมพันธ์');
-            })
-            ->findOrFail($id);
-
-        return view('user.press-release.detail-data.index', compact('pressRelease'));
-    }
-
-    public function ActivityShowDetails($id)
-    {
-        //กิจกรรม
-        $activity = PostDetail::with(['postType', 'videos', 'photos', 'pdfs'])
-            ->whereHas('postType', function ($query) {
-                $query->where('type_name', 'กิจกรรม');
-            })
-            ->findOrFail($id);
-
-        return view('user.activity.detail-data.index', compact('activity'));
-    }
-
-    public function ClassRoomShowDetails($id)
-    {
-        //แนะนำห้องเรียน
-        $classroom = PostDetail::with(['postType', 'videos', 'photos', 'pdfs'])
-            ->whereHas('postType', function ($query) {
-                $query->where('type_name', 'แนะนำห้องเรียน');
-            })
-            ->findOrFail($id);
-
-        return view('user.classroom.detail-data.index', compact('classroom'));
-    }
-
-    public function BuildingShowDetails($id)
-    {
-        //อาคารและสถานทื่
-        $building = PostDetail::with(['postType', 'videos', 'photos', 'pdfs'])
-            ->whereHas('postType', function ($query) {
-                $query->where('type_name', 'อาคารและสถานทื่');
-            })
-            ->findOrFail($id);
-
-        return view('user.building-places.detail-data.index', compact('building'));
-    }
-
-    public function PressReleaseShowData()
-    {
-        $pressRelease = PostDetail::with('postType', 'videos', 'photos', 'pdfs')
-            ->whereHas('postType', function ($query) {
-                $query->where('type_name', 'ข่าวประชาสัมพันธ์');
-            })->get();
-
-        return view('user.press-release.show-data.index', compact('pressRelease'));
-    }
-
-    public function ActivityShowData()
-    {
-        $activity = PostDetail::with('postType', 'videos', 'photos', 'pdfs')
-            ->whereHas('postType', function ($query) {
-                $query->where('type_name', 'กิจกรรม');
-            })->get();
-
-        return view('user.activity.show-data.index', compact('activity'));
-    }
-
-    public function BuildingShowData()
-    {
-        $building = PostDetail::with('postType', 'videos', 'photos', 'pdfs')
-            ->whereHas('postType', function ($query) {
-                $query->where('type_name', 'อาคารและสถานทื่');
-            })->get();
-
-        return view('user.building-places.show-data.index', compact('building'));
-    }
-
-    public function ClassRoomShowData()
-    {
-        $classroom = PostDetail::with('postType', 'videos', 'photos', 'pdfs')
-            ->whereHas('postType', function ($query) {
-                $query->where('type_name', 'แนะนำห้องเรียน');
-            })->get();
-
-        return view('user.classroom.show-data.index', compact('classroom'));
-    }
-
-    public function AnnounceShowData()
-    {
-        //ประกาศจัดซื้อจัดจ้าง
-        $procurement = PostDetail::with('postType', 'pdfs')
-            ->whereHas('postType', function ($query) {
-                $query->where('type_name', 'ประกาศจัดซื้อจัดจ้าง');
-            })->get();
-
-        //ผลจัดซื้อจัดจ้าง
-        $procurementResults = PostDetail::with('postType', 'pdfs')
-            ->whereHas('postType', function ($query) {
-                $query->where('type_name', 'ผลจัดซื้อจัดจ้าง');
-            })->get();
-
-        //ประกาศราคากลาง
-        $average = PostDetail::with('postType', 'pdfs')
-            ->whereHas('postType', function ($query) {
-                $query->where('type_name', 'ประกาศราคากลาง');
-            })->get();
-
-        //งานเก็บรายได้
-        $revenue = PostDetail::with('postType', 'pdfs')
-            ->whereHas('postType', function ($query) {
-                $query->where('type_name', 'งานเก็บรายได้');
-            })->get();
-
-        return view('user.announce.show-data.index', compact(
-            'procurement',
-            'procurementResults',
-            'average',
-            'revenue',
+            'announcement',
+            'awardsPride',
+            'noticeBoard',
+            'officialDocuments',
+            'recommendPlaces'
         ));
     }
 }

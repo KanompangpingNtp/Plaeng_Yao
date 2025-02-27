@@ -89,7 +89,7 @@
             </div>
             <div class="bg-carousel-sectioon-2">
                 <!-- ภาพสไลด์ -->
-                <div id="carousel-sectioon-2" class="carousel slide" style="border-radius: 20px;"
+                {{-- <div id="carousel-sectioon-2" class="carousel slide" style="border-radius: 20px;"
                     data-bs-ride="carousel">
                     <!-- Indicators -->
                     <div class="carousel-indicators">
@@ -128,8 +128,36 @@
                         <span class="carousel-control-next-icon" aria-hidden="true"></span>
                         <span class="visually-hidden">Next</span>
                     </button>
-                </div>
+                </div> --}}
+                <div id="carousel-sectioon-2" class="carousel slide" style="border-radius: 20px;" data-bs-ride="carousel">
+                    <!-- Indicators -->
+                    <div class="carousel-indicators">
+                        @foreach ($awardsPride as $index => $award)
+                            <button type="button" data-bs-target="#carousel-sectioon-2" data-bs-slide-to="{{ $index }}" class="{{ $index == 0 ? 'active' : '' }}" aria-current="{{ $index == 0 ? 'true' : 'false' }}" aria-label="Slide {{ $index + 1 }}"></button>
+                        @endforeach
+                    </div>
 
+                    <!-- Images -->
+                    <div class="carousel-inner">
+                        @foreach ($awardsPride as $index => $award)
+                            @foreach ($award->photos as $photo)
+                                <div class="carousel-item {{ $loop->first && $index == 0 ? 'active' : '' }}">
+                                    <img src="{{ asset('storage/' . $photo->post_photo_file) }}" class="d-block w-100 img-fluid" alt="{{ $award->topic_name }}">
+                                </div>
+                            @endforeach
+                        @endforeach
+                    </div>
+
+                    <!-- Navigation Buttons -->
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carousel-sectioon-2" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carousel-sectioon-2" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
             </div>
 
         </div>

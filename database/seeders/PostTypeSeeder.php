@@ -13,7 +13,6 @@ class PostTypeSeeder extends Seeder
      */
     public function run(): void
     {
-        //
         $data = [
             ['type_name' => 'ข่าวประชาสัมพันธ์'],
             ['type_name' => 'กิจกรรม'],
@@ -23,6 +22,11 @@ class PostTypeSeeder extends Seeder
             ['type_name' => 'สรุปผลการจัดซื้อจัดจ้าง'],
             ['type_name' => 'แผนการจัดซื้อจัดจ้าง'],
             ['type_name' => 'ประกาศผู้ชนะการเสนอราคา'],
+
+            ['type_name' => 'รางวัลแห่งความภาคภูมิใจ'],
+            ['type_name' => 'ป้ายประกาศ'],
+            ['type_name' => 'แนะนำสถานที่'],
+            ['type_name' => 'หนังสือราชการ'],
         ];
 
         foreach ($data as $item) {

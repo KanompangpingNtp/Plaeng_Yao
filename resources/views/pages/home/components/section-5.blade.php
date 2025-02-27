@@ -377,7 +377,7 @@
                 </div>
 
             </div>
-            <div class="carousel-container">
+            {{-- <div class="carousel-container">
                 <img id="carousel-image" class="carousel-image" src="{{ asset('images/section-5/image1.png') }}"
                     alt="Image 1">
 
@@ -393,10 +393,68 @@
                     </button>
                 </div>
 
+            </div> --}}
+            <div class="carousel-container">
+                @php
+                    $firstPlace = $recommendPlaces->first();
+                    $firstImage = $firstPlace && $firstPlace->photos->isNotEmpty()
+                        ? asset('storage/' . $firstPlace->photos->first()->post_photo_file)
+                        : asset('images/default.png');
+                    $firstCaption = $firstPlace->topic_name ?? 'No Caption';
+                @endphp
+
+                <img id="carousel-image" class="carousel-image" src="{{ $firstImage }}" alt="{{ $firstCaption }}">
+
+                <div class="carousel-buttons mt-3">
+                    <button class="carousel-button prev-button mt-2" onclick="prevImage()">
+                        <i class="fa-solid fa-circle-chevron-left"></i>
+                    </button>
+
+                    <div id="carousel-caption">{{ $firstCaption }}</div>
+
+                    <button class="carousel-button next-button mt-2" onclick="nextImage()">
+                        <i class="fa-solid fa-circle-chevron-right"></i>
+                    </button>
+                </div>
             </div>
         </div>
     </div>
     <script>
+        const images = @json($recommendPlaces->map(function ($place) {
+            return [
+                'src' => asset('storage/' . ($place->photos->first()->post_photo_file ?? 'images/default.png')),
+                'caption' => $place->topic_name,
+            ];
+        }));
+
+        let currentIndex = 0;
+
+        function updateCarousel() {
+            const imageElement = document.getElementById('carousel-image');
+            const captionElement = document.getElementById('carousel-caption');
+
+            if (images.length > 0) {
+                imageElement.src = images[currentIndex].src;
+                imageElement.alt = images[currentIndex].caption;
+                captionElement.textContent = images[currentIndex].caption;
+            }
+        }
+
+        function prevImage() {
+            currentIndex = (currentIndex - 1 + images.length) % images.length;
+            updateCarousel();
+        }
+
+        function nextImage() {
+            currentIndex = (currentIndex + 1) % images.length;
+            updateCarousel();
+        }
+
+        // โหลดภาพแรกให้แน่ใจว่าแสดงจากลำดับที่กำหนด
+        window.onload = updateCarousel;
+    </script>
+
+    {{-- <script>
         const images = [{
                 src: "{{ asset('images/section-5/image1.png') }}",
                 caption: "บ้านใหญ่"
@@ -434,5 +492,5 @@
             currentIndex = (currentIndex + 1) % images.length;
             updateCarousel();
         }
-    </script>
+    </script> --}}
 </main>

@@ -83,12 +83,30 @@
                                 <a class="nav-link" href="{{route('ProcurementPlanHome')}}">แผนการจัดซื้อจัดจ้าง</a>
                             </nav>
                         </div>
-                        {{-- <a class="nav-link" href="">
+                        <a class="nav-link" href="{{route('AwardsofPrideHome')}}">
                             <div class="sb-nav-link-icon">
                                 <i class="bi bi-database-add"></i>
                             </div>
-                            จัดการบุคลากร
-                        </a> --}}
+                            รางวัลแห่งความภาคภูมิใจ
+                        </a>
+                        <a class="nav-link" href="{{route('NoticeBoardHome')}}">
+                            <div class="sb-nav-link-icon">
+                                <i class="bi bi-database-add"></i>
+                            </div>
+                            ป้ายประกาศ
+                        </a>
+                        <a class="nav-link" href="{{route('RecommendPlacesHome')}}">
+                            <div class="sb-nav-link-icon">
+                                <i class="bi bi-database-add"></i>
+                            </div>
+                            แนะนำสถานที่
+                        </a>
+                        <a class="nav-link" href="{{route('OfficialDocumentsHome')}}">
+                            <div class="sb-nav-link-icon">
+                                <i class="bi bi-database-add"></i>
+                            </div>
+                            หนังสือราชการ
+                        </a>
 
                         {{-- <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
                             <div class="sb-nav-link-icon">

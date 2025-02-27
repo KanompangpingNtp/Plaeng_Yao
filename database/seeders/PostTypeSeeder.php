@@ -13,7 +13,6 @@ class PostTypeSeeder extends Seeder
      */
     public function run(): void
     {
-        //
         $data = [
             ['type_name' => 'ข่าวประชาสัมพันธ์'],
             ['type_name' => 'กิจกรรม'],
@@ -27,6 +26,7 @@ class PostTypeSeeder extends Seeder
             ['type_name' => 'รางวัลแห่งความภาคภูมิใจ'],
             ['type_name' => 'ป้ายประกาศ'],
             ['type_name' => 'แนะนำสถานที่'],
+            ['type_name' => 'หนังสือราชการ'],
         ];
 
         foreach ($data as $item) {

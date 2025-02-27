@@ -11,6 +11,10 @@ use App\Http\Controllers\RevenueController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ProcurementPlanController;
 use App\Http\Controllers\ShowDataController;
+use App\Http\Controllers\AwardsofPrideController;
+use App\Http\Controllers\NoticeBoardController;
+use App\Http\Controllers\RecommendPlacesController;
+use App\Http\Controllers\OfficialDocumentsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -79,4 +83,25 @@ Route::middleware(['check.auth'])->group(function () {
     Route::post('/ProcurementPlan/create', [ProcurementPlanController::class, 'ProcurementPlanCreate'])->name('ProcurementPlanCreate');
     Route::delete('/ProcurementPlan/delete{id}', [ProcurementPlanController::class, 'ProcurementPlanDelete'])->name('ProcurementPlanDelete');
     Route::put('/ProcurementPlan/update/{id}', [ProcurementPlanController::class, 'ProcurementPlanUpdate'])->name('ProcurementPlanUpdate');
+
+    //admin NoticeBoard
+    Route::get('/AwardsofPride/page', [AwardsofPrideController::class, 'AwardsofPrideHome'])->name('AwardsofPrideHome');
+    Route::post('/AwardsofPride/create', [AwardsofPrideController::class, 'AwardsofPrideCreate'])->name('AwardsofPrideCreate');
+    Route::delete('/AwardsofPride/delete{id}', [AwardsofPrideController::class, 'AwardsofPrideDelete'])->name('AwardsofPrideDelete');
+
+    //admin NoticeBoard
+    Route::get('/NoticeBoard/page', [NoticeBoardController::class, 'NoticeBoardHome'])->name('NoticeBoardHome');
+    Route::post('/NoticeBoard/create', [NoticeBoardController::class, 'NoticeBoardCreate'])->name('NoticeBoardCreate');
+    Route::delete('/NoticeBoard/delete{id}', [NoticeBoardController::class, 'NoticeBoardDelete'])->name('NoticeBoardDelete');
+
+    //admin RecommendPlaces
+    Route::get('/RecommendPlaces/page', [RecommendPlacesController::class, 'RecommendPlacesHome'])->name('RecommendPlacesHome');
+    Route::post('/RecommendPlaces/create', [RecommendPlacesController::class, 'RecommendPlacesCreate'])->name('RecommendPlacesCreate');
+    Route::delete('/RecommendPlaces/delete{id}', [RecommendPlacesController::class, 'RecommendPlacesDelete'])->name('RecommendPlacesDelete');
+
+    //admin OfficialDocuments
+    Route::get('/OfficialDocuments/page', [OfficialDocumentsController::class, 'OfficialDocumentsHome'])->name('OfficialDocumentsHome');
+    Route::post('/OfficialDocuments/create', [OfficialDocumentsController::class, 'OfficialDocumentsCreate'])->name('OfficialDocumentsCreate');
+    Route::put('/OfficialDocuments/update/{id}', [OfficialDocumentsController::class, 'OfficialDocumentsUpdate'])->name('OfficialDocumentsUpdate');
+    Route::delete('/OfficialDocuments/delete/{id}', [OfficialDocumentsController::class, 'OfficialDocumentsDelete'])->name('OfficialDocumentsDelete');
 });

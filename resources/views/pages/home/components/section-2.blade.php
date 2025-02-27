@@ -11,7 +11,7 @@
     #carousel-sectioon-2 {
         height: 500px;
         /* ตั้งค่าความสูงที่ต้องการ */
-        overflow: hidden;
+        overflow: visible;
     }
 
     #carousel-sectioon-2 img {

@@ -11,7 +11,7 @@
     #carousel-section-3 {
         height: 500px;
         /* ตั้งค่าความสูงที่ต้องการ */
-        overflow: hidden;
+        overflow: visible;
     }
 
     #carousel-section-3 img {
@@ -123,12 +123,12 @@
                     </div>
 
                     <!-- Navigation Buttons -->
-                    <button class="carousel-control-prev" type="button" data-bs-target="#carousel-section-4"
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carousel-section-3"
                         data-bs-slide="prev">
                         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                         <span class="visually-hidden">Previous</span>
                     </button>
-                    <button class="carousel-control-next" type="button" data-bs-target="#carousel-section-4"
+                    <button class="carousel-control-next" type="button" data-bs-target="#carousel-section-3"
                         data-bs-slide="next">
                         <span class="carousel-control-next-icon" aria-hidden="true"></span>
                         <span class="visually-hidden">Next</span>

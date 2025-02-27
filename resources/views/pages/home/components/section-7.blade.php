@@ -1,3 +1,63 @@
+<?php
+$procurement = [
+    [
+        'title_name' => 'จัดซื้อวัสดุสำนักงานปี 2025',
+        'date' => '12-01-2025',
+        'pdfs' => [['post_pdf_file' => 'procurement_2025_1.pdf'], ['post_pdf_file' => 'procurement_2025_2.pdf']],
+    ],
+    [
+        'title_name' => 'จัดซื้อเครื่องมือแพทย์',
+        'date' => '11-01-2025',
+        'pdfs' => [['post_pdf_file' => 'medical_tools_2025.pdf']],
+    ],
+    [
+        'title_name' => 'จัดซื้อรถบรรทุกน้ำ',
+        'date' => '10-01-2025',
+        'pdfs' => [],
+    ],
+];
+
+$procurementResults = [
+    [
+        'title_name' => 'ประกาศผลจัดซื้อวัสดุสำนักงาน',
+        'date' => '09-01-2025',
+        'pdfs' => [['post_pdf_file' => 'result_procurement_2025.pdf']],
+    ],
+    [
+        'title_name' => 'ผลจัดซื้อเครื่องมือแพทย์',
+        'date' => '08-01-2025',
+        'pdfs' => [],
+    ],
+];
+
+$average = [
+    [
+        'title_name' => 'ราคากลางวัสดุสำนักงาน',
+        'date' => '07-01-2025',
+        'pdfs' => [['post_pdf_file' => 'average_price_office_2025.pdf']],
+    ],
+    [
+        'title_name' => 'ราคากลางเครื่องมือแพทย์',
+        'date' => '06-01-2025',
+        'pdfs' => [],
+    ],
+];
+
+$procurementPlan = [
+    [
+        'title_name' => 'งานเก็บรายได้ปี 2025',
+        'date' => '05-01-2025',
+        'pdfs' => [['post_pdf_file' => 'procurementPlan_2025_1.pdf'], ['post_pdf_file' => 'procurementPlan_2025_2.pdf']],
+    ],
+];
+$winnerAnnouncement = [
+    [
+        'title_name' => 'งานเก็บรายได้ปี 2025',
+        'date' => '05-01-2025',
+        'pdfs' => [['post_pdf_file' => 'winnerAnnouncement_2025_1.pdf'], ['post_pdf_file' => 'winnerAnnouncement_2025_2.pdf']],
+    ],
+];
+?>
 <style>
     .bg-page7 {
         background-image: url('{{ asset('images/section-7/BG.png') }}');
@@ -23,10 +83,11 @@
         gap: 0.6rem 0;
     }
 
-    .bg-menu-egp a {
+    .bg-menu-egp div {
         text-decoration: none;
         color: #ffffff;
         font-size: 25px;
+        cursor: pointer;
         border-top-left-radius: 20px;
         border-bottom-left-radius: 20px;
         /* ขนาดตัวอักษรปกติ */
@@ -36,14 +97,14 @@
     @media (max-width: 991px) {
 
         /* เมื่อหน้าจอมีความกว้างน้อยกว่าหรือเท่ากับ 991px */
-        .bg-menu-egp a {
+        .bg-menu-egp div {
             font-size: 23px;
             border-radius: 20px;
             /* ปรับขนาดตัวอักษรให้เล็กลง */
         }
     }
 
-    .bg-menu-egp a:hover {
+    .bg-menu-egp div:hover {
         color: black;
         background: #f3f3f3;
     }
@@ -78,32 +139,32 @@
                 <span class="fs-4 ">องค์การบริหารส่วนตำบลแปลงยาว</span>
             </div>
             <div class="row bg-egp justify-content-center shadow-lg w-100">
-                <div class="col-lg-4 d-flex flex-column justify-content-center align-items-center bg-menu-egp  ps-0 ps-lg-3 py-2 py-lg-5 fw-bold pe-0">
-                    <a href="#" class="w-100 text-center text-lg-start px-4 py-1">ประกาศจัดซื้อจัดจ้าง</a>
-                    <a href="#" class="w-100 text-center text-lg-start px-4 py-1">ผลประกาศจัดซื้อจัดจ้างประจำปี</a>
-                    <a href="#" class="w-100 text-center text-lg-start px-4 py-1">สรุปผลการจัดซื้อจัดจ้าง</a>
-                    <a href="#" class="w-100 text-center text-lg-start px-4 py-1">แผนการจัดซื้อจัดจ้าง</a>
-                    <a href="#" class="w-100 text-center text-lg-start px-4 py-1">ประกาศผู้ชนะการเสนอราคา</a>
+                <div
+                    class="col-lg-4 d-flex flex-column justify-content-center align-items-center bg-menu-egp  ps-0 ps-lg-3 py-2 py-lg-5 fw-bold pe-0">
+                    <div id="btnProcurement" onclick="changeContent('จัดซื้อจัดจ้าง', {{ json_encode($procurement) }}" class="w-100 text-center text-lg-start px-4 py-1">ประกาศจัดซื้อจัดจ้าง
+                    </div>
+                    <div id="btnProcurementResults" onclick="changeContent('ผลประกาศจัดซื้อจัดจ้างประจำปี', {{ json_encode($procurementResults) }})" class="w-100 text-center text-lg-start px-4 py-1">
+                        ผลประกาศจัดซื้อจัดจ้างประจำปี</div>
+                    <div id="btnAverage" onclick="changeContent('สรุปผลการจัดซื้อจัดจ้าง', {{ json_encode($average) }})" class="w-100 text-center text-lg-start px-4 py-1">สรุปผลการจัดซื้อจัดจ้าง</div>
+                    <div id="btnProcurementPlan" onclick="changeContent('แผนการจัดซื้อจัดจ้าง', {{ json_encode($procurementPlan) }})" class="w-100 text-center text-lg-start px-4 py-1">แผนการจัดซื้อจัดจ้าง
+                    </div>
+                    <div id="btnWinnerAnnouncement" onclick="changeContent('ประกาศผู้ชนะการเสนอราคา', {{ json_encode($winnerAnnouncement) }})" class="w-100 text-center text-lg-start px-4 py-1">
+                        ประกาศผู้ชนะการเสนอราคา</div>
+
                 </div>
                 <div
-                    class="col-lg-8 d-flex flex-column justify-content-center align-items-center px-3 py-5 "style="gap: 1rem 0;">
-                    <?php
-                    // วนลูปเพื่อแสดงการ์ด 4 อัน
-                    for ($i = 1; $i <= 5; $i++): 
-                    ?>
-                    <a href="#" class="w-100" style="text-decoration: none; ">
+                    class="col-lg-8 d-flex flex-column justify-content-center align-items-center px-3 py-5 " style="gap: 1rem 0;" id="contentArea">
+
+                    {{-- <a href="#" class="w-100" style="text-decoration: none; ">
                         <div class="card p-3 egp-card text-black w-100">
                             <div class="d-flex align-items-center">
                                 <!-- รูปภาพด้านซ้าย -->
-                                <img src="{{asset('images/section-7/bookmark.png')}}" alt="รูปภาพ" class="rounded me-3"
-                                    style="width: 45px; height: 45px; object-fit: contain;">
+                                <img src="{{ asset('images/section-7/bookmark.png') }}" alt="รูปภาพ"
+                                    class="rounded me-3" style="width: 45px; height: 45px; object-fit: contain;">
                                 <!-- ข้อความด้านขวา -->
                                 <div class="flex-grow-1">
                                     <div class="card-text lh-1">
-                                        <?php
-                                        $text = 'This is card number ' . $i . ' with sample text.This is card number ' . $i . ' with sample text.This is card number ' . $i . ' with sample text.This is card number ' . $i . ' with sample text.This is card number ' . $i . ' with sample text.This is card number ' . $i . ' with sample text.'; // สร้างข้อความให้แตกต่างกันตามลูป
-                                        echo mb_strimwidth($text, 0, 180, '...');
-                                        ?>
+                                       
                                     </div>
                                     <div class="card-text text-muted">
                                         <img src="{{ asset('images/section-7/fast-time.png') }}" alt="icon"
@@ -113,8 +174,8 @@
                                 </div>
                             </div>
                         </div>
-                    </a>
-                    <?php endfor; ?>
+                    </a> --}}
+
                 </div>
             </div>
             <div class="d-flex justify-content-end align-items-center w-100 me-2 mt-2">
@@ -125,3 +186,91 @@
         </div>
     </div>
 </main>
+<script>
+    // ฟังก์ชันที่ใช้แสดงเนื้อหา
+    function changeContent(topic, data) {
+        // เก็บข้อมูลทั้งหมด
+        allItems = data;
+
+        // เรียกใช้ฟังก์ชันเพื่อแสดงข้อมูลตามหน้า
+        displayItems();
+
+        // ทำการเปลี่ยนปุ่มที่ถูกคลิกเป็น active และรีเซ็ตปุ่มอื่นๆ
+        setActiveButton(topic);
+    }
+
+    function setActiveButton(topic) {
+        // กำหนดชื่อปุ่มตามหัวข้อ
+        const buttons = ['btnProcurement', 'btnProcurementResults', 'btnAverage', 'btnProcurementPlan', 'btnWinnerAnnouncement'];
+        const topics = ['จัดซื้อจัดจ้าง', 'ผลประกาศจัดซื้อจัดจ้างประจำปี', 'สรุปผลการจัดซื้อจัดจ้าง', 'แผนการจัดซื้อจัดจ้าง','ประกาศผู้ชนะการเสนอราคา'];
+
+        // รีเซ็ตสถานะ active ของทุกปุ่ม
+        buttons.forEach(buttonId => document.getElementById(buttonId).classList.remove('active'));
+
+        // ทำให้ปุ่มที่ถูกเลือกมีสถานะ active
+        const activeButtonIndex = topics.indexOf(topic);
+        if (activeButtonIndex !== -1) {
+            document.getElementById(buttons[activeButtonIndex]).classList.add('active');
+        }
+    }
+
+    let currentPage = 1;
+    const itemsPerPage = 5;
+    let allItems = [];
+
+    function displayItems() {
+    const startIndex = (currentPage - 1) * itemsPerPage;
+    const endIndex = currentPage * itemsPerPage;
+
+    const itemsToDisplay = allItems.slice(startIndex, endIndex);
+    let contentArea = document.getElementById('contentArea');
+    contentArea.innerHTML = '';
+
+    itemsToDisplay.forEach((item, i) => {
+        let newContent = document.createElement('a');
+        newContent.href = "#";
+        newContent.className = "w-100";
+        newContent.style.textDecoration = "none";
+
+        newContent.innerHTML = `
+            <div class="card p-3 egp-card text-black w-100">
+                <div class="d-flex align-items-center">
+                    <img src="{{ asset('images/section-7/bookmark.png') }}" alt="รูปภาพ"
+                        class="rounded me-3" style="width: 45px; height: 45px; object-fit: contain;">
+                    <div class="flex-grow-1">
+                        <div class="card-text lh-1">
+                            ${truncateText(item.title_name, 180)}
+                        </div>
+                        <div class="card-text text-muted">
+                            <img src="{{ asset('images/section-7/fast-time.png') }}" alt="icon"
+                                class="me-1" width="18">
+                            ${item.date}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        `;
+
+        contentArea.appendChild(newContent);
+    });
+}
+
+// ฟังก์ชันตัดข้อความ
+function truncateText(text, maxLength) {
+    return text.length > maxLength ? text.substring(0, maxLength) + '...' : text;
+}
+
+
+
+
+</script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        console.log('start fun');
+
+        let procurementData = @json($procurement);
+        console.log('Loaded Data:', procurementData);
+
+        changeContent('จัดซื้อจัดจ้าง', procurementData);
+    });
+</script>

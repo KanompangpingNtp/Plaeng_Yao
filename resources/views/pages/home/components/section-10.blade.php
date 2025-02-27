@@ -21,7 +21,7 @@
 
     .logo-footer {
         width: 10rem;
-        hight: 10rem;
+        height: 10rem;
         z-index: 5;
     }
 
@@ -82,87 +82,71 @@
     }
 
     .bg-coute {
-        background: linear-gradient(to right, #d1f541b7, #70c020b2);
+        background: linear-gradient(to bottom, #d1f541b7, #70c020b2);
         padding: 10px 20px;
-        width: 100%;
+        border-top-left-radius: 20px;
+        border-top-right-radius: 20px;
     }
 </style>
 <!-- Content Section -->
-<main class="bg-page10 d-flex">
-    <div class="d-flex flex-column justify-content-end align-items-center w-100 ">
-        <div class="bg-coute mb-4">
-            <div class="container d-flex flex-column flex-lg-row justify-content-center align-items-center">
-                <div class="text-center py-3 px-4 border-3 border-light border-end lh-1">
+<main class="bg-page10 d-flex pt-3">
+    <div class="d-flex flex-column justify-content-end align-items-center align-items-md-end w-100">
+        <div class="bg-coute shadow-lg">
+            <div class=" d-flex flex-column justify-content-center align-items-center">
+                <div class="text-center py-3 px-4 border-3 lh-1">
                     <span class="fw-bold fs-3">จำนวนผู้เข้าชมเว็บไซต์</span> <br>
                     number of website visitors
                 </div>
-                <div class="text-center py-3 px-5 border-3 border-light border-end lh-1">
+                <div class="text-center py-3 px-5 border-3 lh-1">
                     <span class=" fs-1">1</span> <br>
-                    <span class="fw-bold">ขณะนี้</span>
+                    <span class="fw-bold text-white">ขณะนี้</span>
                 </div>
-                <div class="text-center py-3 px-5 border-3 border-light border-end lh-1">
+                <div class="text-center py-3 px-5 border-3 lh-1">
                     <span class=" fs-1">1</span> <br>
-                    <span class="fw-bold">วันนี้</span>
+                    <span class="fw-bold text-white">วันนี้</span>
                 </div>
-                <div class="text-center py-3 px-5 border-3 border-light border-end lh-1">
+                <div class="text-center py-3 px-5 border-3 lh-1">
                     <span class=" fs-1">1</span> <br>
-                    <span class="fw-bold">เดือนนี้</span>
+                    <span class="fw-bold text-white">เดือนนี้</span>
                 </div>
                 <div class="text-center py-3 px-5 lh-1">
                     <span class=" fs-1">1</span> <br>
-                    <span class="fw-bold">ปีนี้</span>
+                    <span class="fw-bold text-white">ปีนี้</span>
                 </div>
-                <div class="text-center py-3 px-5 border-3 border-light border-start lh-1">
+                <div class="text-center py-3 px-5 lh-1">
                     <span class=" fs-1">1</span> <br>
-                    <span class="fw-bold">ทั้งหมด</span>
+                    <span class="fw-bold text-white">ทั้งหมด</span>
                 </div>
             </div>
         </div>
         <div class="bg-footer d-flex w-100">
             <div
-                class="container d-flex flex-column flex-lg-row justify-content-around align-items-center w-100 gap-3 py-3">
+                class="container d-flex flex-column flex-lg-row justify-content-around align-items-center gap-3 py-3">
                 <img src="{{ asset('images/section-10/logo.png') }}" alt="logo" class="logo-footer"
                     style="margin-top: -4rem;">
                 <div class="d-flex flex-column justify-content-center align-items-start">
                     <div class="lh-1">
-                        <span class="fw-bold fs-4">องค์การบริหารส่วนตำบลพระอาจารย์</span> <br>
-                        <span class="fw-bold fs-5">Phra Achan Subdistrict Administrative Organization</span> <br>
+                        <span class="fw-bold fs-4">องค์การบริหารส่วนตำบลแปลงยาว</span> <br>
+                        <span class="fw-bold fs-5">Plaeng Yao Subdistrict Administrative Organization</span> <br>
                         <span class="text-muted">
-                            ถนนคลองหกวา หมู่ที่ 5 ตำบลพระอาจารย์ <br>
-                            อำเภอองครักษ์ จังหวัดนครนายก <br>
-                            รหัสไปรษณีย์ 26120
-                        </span>
+                            เลขที่ 86 หมู่ที่ 7 ตำบลแปลงยาว อำเภอแปลงยาว <br>
+                            จังหวัดฉะเชิงเทรา รหัสไปรษณีย์ : 24190
                     </div>
                 </div>
                 <div class="d-flex flex-column justify-content-center align-items-start lh-1">
                     <div class="d-flex justify-content-center align-items-start gap-2 mb-1">
                         <img src="{{ asset('images/section-10/phone-call.png') }}" alt="phone" width="20"
                             height="20">
-                        <div>โทรศัพท์ : 037-610559</div>
-                    </div>
-                    <div class="d-flex justify-content-center align-items-start gap-2 mb-1">
-                        <img src="{{ asset('images/section-10/fax.png') }}" alt="phone" width="20"
-                            height="20">
-                        <div>โทรสาร : 037-610559</div>
-                    </div>
-                    <div class="d-flex justify-content-center align-items-start gap-2 mb-1">
-                        <img src="{{ asset('images/section-10/gold.png') }}" alt="phone" width="20"
-                            height="20">
-                        <div>การคลัง : 086-7802324</div>
-                    </div>
-                    <div class="d-flex justify-content-center align-items-start gap-2 mb-1">
-                        <img src="{{ asset('images/section-10/stole.png') }}" alt="phone" width="20"
-                            height="20">
-                        <div>สำนักงานปลัด : 085-0422553</div>
+                        <div>โทรศัพท์ : 038-852-556</div>
                     </div>
                     <div class="d-flex justify-content-center align-items-start gap-2 mb-1">
                         <img src="{{ asset('images/section-10/email.png') }}" alt="phone" width="23"
                             height="20">
-                        <div>Email : prajan2565@gmail.com</div>
+                        <div>Email : Saraban_06240907@dla.go.th</div>
                     </div>
                 </div>
                 <div class="d-flex flex-column justify-content-center align-items-start lh-1">
-                    <span class="bg-dataweb px-2 py-1 mb-1">ข้อมูลเว็บไซด์</span>
+                    {{-- <span class="bg-dataweb px-2 py-1 mb-1">ข้อมูลเว็บไซด์</span> --}}
                     <ul class="no-bullets">
                         <li><a href="#" class="text-decoration-none ">หน้าแรก</a></li>
                         <li><a href="#" class="text-decoration-none ">กระดานกระทู้</a></li>

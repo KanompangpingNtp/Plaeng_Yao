@@ -171,7 +171,6 @@
                     </div>
                 </a>
             </div>
-
         </div>
     </div>
     <div class="bg-dark-section-1 d-flex align-items-start justify-content-center lh-1 text-light fw-bold">

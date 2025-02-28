@@ -293,7 +293,7 @@
                                     class="navbar-icon">
                                 <div class="navbar-text">ผลการดำเนินงาน</div>
                             </a>
-                            <ul class="dropdown-menu" aria-labelledby="performanceDropdown">
+                            {{-- <ul class="dropdown-menu" aria-labelledby="performanceDropdown">
                                 <li><a class="dropdown-item"
                                         href="">รายงานงบการเงิน</a></li>
                                 <li><a class="dropdown-item"
@@ -326,7 +326,7 @@
                                         href="">รายงานแสดงฐานะการเงิน</a></li>
                                 <li><a class="dropdown-item"
                                         href="">การลดขั้นตอนการปฏิบัติงาน</a></li>
-                            </ul>
+                            </ul> --}}
                         </li>
 
                         <!-- 4. อำนาจหน้าที่ -->

@@ -102,7 +102,6 @@
                                     ? asset('storage/' . $post->photos->first()->post_photo_file)
                                     : asset('images/navbar/Logo-601.png')
                                 }}" alt="Image {{ $index + 1 }}" style="width: 100%; height: 100%; object-fit: cover;">
-
                             </div>
 
                             <!-- ข้อความด้านขวา -->

@@ -33,10 +33,20 @@ use App\Http\Controllers\Personnel\PersonnelAgencyController;
 //     return view('pages.home.app');
 // });
 
+// /procurement/detail/{id}
+// /procurementResults/detail/{id}
+// /average/detail/{id}
+// /revenue/detail/{id}
+// /announcement/detail/{id}
+
 Route::get('/', [ShowDataController::class, 'Home'])->name('Home');
 
 //เมนูบุคลากร
 Route::get('/agency/{id}', [PersonnelAgencyController::class, 'AgencyShow'])->name('AgencyShow');
+
+//ประกาศจัดซื้อจัดจ้าง
+// Route::get('/PressRelease/ShowData', [PressReleaseController::class, 'PressReleaseShowData'])->name('PressReleaseShowData');
+Route::get('/procurement/detail/{id}', [ProcurementController::class, 'ProcurementDetail'])->name('ProcurementDetail');
 
 //กิจกรรม
 Route::get('/Activity/ShowData', [ActivityController::class, 'ActivityShowData'])->name('ActivityShowData');

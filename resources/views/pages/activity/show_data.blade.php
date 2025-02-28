@@ -97,9 +97,11 @@
                             <!-- รูปภาพด้านซ้าย -->
                             <div style="flex: 0 0 100px; height: 100px; overflow: hidden; border-radius: 10px;">
                                 {{-- <img src="{{ asset('storage/' . ($post->photos->first()->post_photo_file ?? 'images/default.jpg')) }}" alt="Image {{ $index + 1 }}" style="width: 100%; height: 100%; object-fit: cover;"> --}}
-                                <img src="{{ asset('storage/' . ($post->photos->first()->post_photo_file ?? 'images/navbar/Logo-601.png')) }}"
-     alt="Image {{ $index + 1 }}"
-     style="width: 100%; height: 100%; object-fit: cover;">
+                                <img src="{{
+                                    $post->photos->first() && $post->photos->first()->post_photo_file
+                                    ? asset('storage/' . $post->photos->first()->post_photo_file)
+                                    : asset('images/navbar/Logo-601.png')
+                                }}" alt="Image {{ $index + 1 }}" style="width: 100%; height: 100%; object-fit: cover;">
 
                             </div>
 

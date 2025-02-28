@@ -154,20 +154,23 @@
                     <div id="btnProcurementResults"
                         onclick="changeContent('ผลประกาศจัดซื้อจัดจ้างประจำปี', {{ json_encode($procurementResults) }})"
                         class="w-100 text-center text-lg-start px-4 py-1"
-                        data-link="">
+                        data-link="{{ route('ProcurementResultsDetail', ['id' => ':id']) }}">
                         ผลประกาศจัดซื้อจัดจ้างประจำปี
                     </div>
                     <div id="btnAverage" onclick="changeContent('สรุปผลการจัดซื้อจัดจ้าง', {{ json_encode($average) }})"
-                        class="w-100 text-center text-lg-start px-4 py-1" data-link="/average/detail/">
+                        class="w-100 text-center text-lg-start px-4 py-1" 
+                        data-link="{{ route('AveragePriceDetail', ['id' => ':id']) }}">
                         สรุปผลการจัดซื้อจัดจ้าง</div>
                     <div id="btnProcurementPlan"
                         onclick="changeContent('แผนการจัดซื้อจัดจ้าง', {{ json_encode($revenue) }})"
-                        class="w-100 text-center text-lg-start px-4 py-1" data-link="/revenue/detail/">
+                        class="w-100 text-center text-lg-start px-4 py-1" 
+                        data-link="{{ route('ProcurementDetail', ['id' => ':id']) }}">
                         แผนการจัดซื้อจัดจ้าง
                     </div>
                     <div id="btnWinnerAnnouncement"
                         onclick="changeContent('ประกาศผู้ชนะการเสนอราคา', {{ json_encode($announcement) }})"
-                        class="w-100 text-center text-lg-start px-4 py-1" data-link="/announcement/detail/">
+                        class="w-100 text-center text-lg-start px-4 py-1" 
+                        data-link="{{ route('ProcurementDetail', ['id' => ':id']) }}">
                         ประกาศผู้ชนะการเสนอราคา</div>
                 </div>
                 <div class="col-lg-8 d-flex flex-column justify-content-center align-items-center px-3 py-5 "

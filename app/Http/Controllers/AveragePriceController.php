@@ -132,6 +132,6 @@ class AveragePriceController extends Controller
                 $query->where('type_name', 'ประกาศผู้ชนะการเสนอราคา');
             })->findOrFail($id);
 
-        return view('pages.procurement.show_detail', compact('averageprice','personnelAgencies'));
+        return view('pages.averageprice.show_detail', compact('averageprice','personnelAgencies'));
     }
 }

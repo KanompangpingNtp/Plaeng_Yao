@@ -137,6 +137,6 @@ class ProcurementResultsController extends Controller
                 $query->where('type_name', 'ผลประกาศจัดซื้อจัดจ้างประจำปี');
             })->findOrFail($id);
 
-        return view('pages.procurement.show_detail', compact('procurementResults','personnelAgencies'));
+        return view('pages.procurementResults.show_detail', compact('procurementResults','personnelAgencies'));
     }
 }

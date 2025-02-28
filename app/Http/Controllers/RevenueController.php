@@ -135,6 +135,6 @@ class RevenueController extends Controller
                 $query->where('type_name', 'สรุปผลการจัดซื้อจัดจ้าง');
             })->findOrFail($id);
 
-        return view('pages.procurement.show_detail', compact('revenue','personnelAgencies'));
+        return view('pages.revenue.show_detail', compact('revenue','personnelAgencies'));
     }
 }

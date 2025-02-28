@@ -131,6 +131,6 @@ class ProcurementPlanController extends Controller
                 $query->where('type_name', 'แผนการจัดซื้อจัดจ้าง');
             })->findOrFail($id);
 
-        return view('pages.procurement.show_detail', compact('procurement','personnelAgencies'));
+        return view('pages.procurementPlan.show_detail', compact('procurementPlan','personnelAgencies'));
     }
 }

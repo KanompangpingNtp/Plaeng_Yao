@@ -39,7 +39,6 @@ Route::get('/', [ShowDataController::class, 'Home'])->name('Home');
 Route::get('/agency/{id}', [PersonnelAgencyController::class, 'AgencyShow'])->name('AgencyShow');
 
 //ประกาศจัดซื้อจัดจ้าง
-// Route::get('/PressRelease/ShowData', [PressReleaseController::class, 'PressReleaseShowData'])->name('PressReleaseShowData');
 Route::get('/procurement/detail/{id}', [ProcurementController::class, 'ProcurementDetail'])->name('ProcurementDetail');
 
 //ผลประกาศจัดซื้อจัดจ้างประจำปี

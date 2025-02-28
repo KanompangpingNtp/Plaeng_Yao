@@ -82,7 +82,7 @@
             <div class="p-2" style="background: linear-gradient(to bottom, rgba(74, 131, 0, 0.9),rgba(163, 245, 12, 0.9),rgba(74, 131, 0, 0.9)); border-radius:20px;">
                 <div class="bg-white px-4 pt-4 pb-0 d-flex flex-column justify-content-center align-items-center " style="border-radius: 20px; gap: 1rem 0;">
 
-                    @foreach($officialDocuments as $index => $document)
+                    @foreach($officialDocuments->take(5) as $index => $document)
                     <div class="d-flex justify-content-center align-items-center gap-2">
                         <div class="d-flex flex-column justify-content-center align-items-center ">
                             <div class="p-1 lh-1 text-center fw-bold" style="background: linear-gradient(to bottom, rgba(163, 245, 12, 0.9),rgba(74, 131, 0, 0.9)); border-radius:20px;">

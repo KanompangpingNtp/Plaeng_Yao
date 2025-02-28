@@ -96,8 +96,9 @@
                             </a>
                         </div>
 
-                        <div class="lh-1 p-2" style="background-color: #e4e4e4; width: 300px;">
+                        <div class="lh-1 p-2" style="background-color: #e4e4e4; ">
                             {{ Str::limit($document->title_name, 180, '...') }}
+
                         </div>
 
                         <a href="{{ $document->pdfs->isNotEmpty() ? asset('storage/' . $document->pdfs->first()->post_pdf_file) : '#' }}" class="link-dowload d-none d-sm-block" target="_blank">

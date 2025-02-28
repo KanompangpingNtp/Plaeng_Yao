@@ -395,18 +395,22 @@
 
             </div> --}}
             <div class="carousel-container">
-                @php
+                {{-- @php
                     $firstPlace = $recommendPlaces->first();
                     $firstImage = $firstPlace && $firstPlace->photos->isNotEmpty()
                         ? asset('storage/' . $firstPlace->photos->first()->post_photo_file)
                         : asset('images/default.png');
                     $firstCaption = $firstPlace->topic_name ?? 'No Caption';
-                @endphp
+                @endphp --}}
+                @php
+$firstPlace = $recommendPlaces->first();
+$firstImage = $firstPlace && $firstPlace->photos->isNotEmpty()
+    ? asset('storage/' . $firstPlace->photos->first()->post_photo_file)
+    : asset('images/navbar/Logo-601.png');
+$firstCaption = $firstPlace->topic_name ?? 'No Caption';
+@endphp
 
-                {{-- <img id="carousel-image" class="carousel-image" src="{{ $firstImage }}" alt="{{ $firstCaption }}"> --}}
-                <img id="carousel-image" class="carousel-image"
-     src="{{ isset($firstImage) && $firstImage ? $firstImage : asset('images/navbar/Logo-601.png') }}"
-     alt="{{ $firstCaption }}">
+<img id="carousel-image" class="carousel-image" src="{{ $firstImage }}" alt="{{ $firstCaption }}">
 
                 <div class="carousel-buttons mt-3">
                     <button class="carousel-button prev-button mt-2" onclick="prevImage()">
@@ -423,6 +427,51 @@
         </div>
     </div>
     <script>
+        const images = @json($recommendPlaces->map(function ($place) {
+            return [
+                'src' => $place->photos->isNotEmpty()
+                    ? asset('storage/' . $place->photos->first()->post_photo_file)
+                    : asset('images/navbar/Logo-601.png'), // ใช้ภาพเริ่มต้นถ้าไม่มีรูป
+                'caption' => $place->topic_name ?? 'No Caption',
+            ];
+        })->toArray()); // ใช้ toArray() เพื่อให้ JavaScript ใช้งานได้
+
+        let currentIndex = 0;
+
+        function updateCarousel() {
+            const imageElement = document.getElementById('carousel-image');
+            const captionElement = document.getElementById('carousel-caption');
+
+            if (images.length > 0) {
+                imageElement.src = images[currentIndex].src || '{{ asset('images/navbar/Logo-601.png') }}'; // ป้องกันค่าที่ว่าง
+                imageElement.alt = images[currentIndex].caption || 'No Caption';
+                captionElement.textContent = images[currentIndex].caption || 'No Caption';
+            } else {
+                // กรณีไม่มีข้อมูลเลย ใช้ภาพเริ่มต้น
+                imageElement.src = '{{ asset('images/navbar/Logo-601.png') }}';
+                imageElement.alt = 'No Caption';
+                captionElement.textContent = 'No Caption';
+            }
+        }
+
+        function prevImage() {
+            if (images.length > 0) {
+                currentIndex = (currentIndex - 1 + images.length) % images.length;
+                updateCarousel();
+            }
+        }
+
+        function nextImage() {
+            if (images.length > 0) {
+                currentIndex = (currentIndex + 1) % images.length;
+                updateCarousel();
+            }
+        }
+
+        window.onload = updateCarousel; // โหลดภาพแรกให้แน่ใจว่าแสดงจากลำดับที่กำหนด
+    </script>
+
+    {{-- <script>
         const images = @json($recommendPlaces->map(function ($place) {
             return [
                 'src' => asset('storage/' . ($place->photos->first()->post_photo_file ?? 'images/default.png')),
@@ -455,7 +504,7 @@
 
         // โหลดภาพแรกให้แน่ใจว่าแสดงจากลำดับที่กำหนด
         window.onload = updateCarousel;
-    </script>
+    </script> --}}
 
     {{-- <script>
         const images = [{

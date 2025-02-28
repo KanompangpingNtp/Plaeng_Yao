@@ -403,7 +403,10 @@
                     $firstCaption = $firstPlace->topic_name ?? 'No Caption';
                 @endphp
 
-                <img id="carousel-image" class="carousel-image" src="{{ $firstImage }}" alt="{{ $firstCaption }}">
+                {{-- <img id="carousel-image" class="carousel-image" src="{{ $firstImage }}" alt="{{ $firstCaption }}"> --}}
+                <img id="carousel-image" class="carousel-image"
+     src="{{ isset($firstImage) && $firstImage ? $firstImage : asset('images/navbar/Logo-601.png') }}"
+     alt="{{ $firstCaption }}">
 
                 <div class="carousel-buttons mt-3">
                     <button class="carousel-button prev-button mt-2" onclick="prevImage()">

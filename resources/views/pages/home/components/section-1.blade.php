@@ -142,7 +142,7 @@
         <div class="d-flex flex-column flex-lg-row gap-3 ">
             <div class="col-lg-6 d-flex">
                 {{-- <img src="{{ asset('images/section-1/persernals.png') }}" alt="persernals" class="responsive-image"> --}}
-                <img src="{{ asset('images/section-1/Nayok02.png') }}" alt="persernals" class="responsive-image">
+                <img src="{{ asset('images/section-1/nayok.gif') }}" alt="persernals" class="responsive-image">
             </div>
 
             <div

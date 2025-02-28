@@ -84,14 +84,14 @@
 <div class="bg py-5">
     <div class="container py-5 custom-gradient-shadow">
         <div class=" d-flex flex-column justify-content-center p-5">
-            <div class="fs-1 fw-bold mb-4 text-center" style="color: #77b329;">ประกาศจัดซื้อจัดจ้าง <br><span class="fs-3">{{$pressRelease->title_name}}</div>
+            <div class="fs-1 fw-bold mb-4 text-center" style="color: #77b329;">ประกาศจัดซื้อจัดจ้าง <br><span class="fs-3">{{$procurement->title_name}}</div>
 
-                <p class="text-muted">วันที่เผยแพร่: {{ \Carbon\Carbon::parse($pressRelease->date)->format('d-m-Y') }}</p>
+                <p class="text-muted">วันที่เผยแพร่: {{ \Carbon\Carbon::parse($procurement->date)->format('d-m-Y') }}</p>
 
                 <!-- ไฟล์แนบ: PDF -->
-                @if ($pressRelease->pdfs->count() > 0)
+                @if ($procurement->pdfs->count() > 0)
                 <h5 class="text-secondary mt-4">ไฟล์เอกสาร</h5>
-                @foreach ($pressRelease->pdfs as $pdf)
+                @foreach ($procurement->pdfs as $pdf)
                 <div class="mb-3">
                     <iframe src="{{ asset('storage/' . $pdf->post_pdf_file) }}" width="100%" height="700px"></iframe>
                 </div>

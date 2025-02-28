@@ -7,6 +7,7 @@ use App\Models\PostType;
 use App\Models\PostDetail;
 use App\Models\PostPdf;
 use Illuminate\Support\Facades\Storage;
+use App\Models\PersonnelAgency;
 
 class ProcurementPlanController extends Controller
 {
@@ -119,5 +120,17 @@ class ProcurementPlanController extends Controller
         $postDetail->delete();
 
         return redirect()->back()->with('success', 'โพสถูกลบแล้ว');
+    }
+
+    public function ProcurementPlanDetail($id)
+    {
+        $personnelAgencies = PersonnelAgency::with('ranks')->get();
+
+        $procurementPlan = PostDetail::with(['pdfs'])
+            ->whereHas('postType', function ($query) {
+                $query->where('type_name', 'แผนการจัดซื้อจัดจ้าง');
+            })->findOrFail($id);
+
+        return view('pages.procurement.show_detail', compact('procurement','personnelAgencies'));
     }
 }

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\PostType;
 use App\Models\PostDetail;
 use App\Models\PostPdf;
+use App\Models\PersonnelAgency;
 use Illuminate\Support\Facades\Storage;
 
 class RevenueController extends Controller
@@ -123,5 +124,17 @@ class RevenueController extends Controller
         $postDetail->delete();
 
         return redirect()->back()->with('success', 'โพสถูกลบแล้ว');
+    }
+
+    public function RevenueDetail($id)
+    {
+        $personnelAgencies = PersonnelAgency::with('ranks')->get();
+
+        $revenue = PostDetail::with(['pdfs'])
+            ->whereHas('postType', function ($query) {
+                $query->where('type_name', 'สรุปผลการจัดซื้อจัดจ้าง');
+            })->findOrFail($id);
+
+        return view('pages.procurement.show_detail', compact('revenue','personnelAgencies'));
     }
 }

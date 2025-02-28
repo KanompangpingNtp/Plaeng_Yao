@@ -33,12 +33,6 @@ use App\Http\Controllers\Personnel\PersonnelAgencyController;
 //     return view('pages.home.app');
 // });
 
-// /procurement/detail/{id}
-// /procurementResults/detail/{id}
-// /average/detail/{id}
-// /revenue/detail/{id}
-// /announcement/detail/{id}
-
 Route::get('/', [ShowDataController::class, 'Home'])->name('Home');
 
 //เมนูบุคลากร
@@ -47,6 +41,18 @@ Route::get('/agency/{id}', [PersonnelAgencyController::class, 'AgencyShow'])->na
 //ประกาศจัดซื้อจัดจ้าง
 // Route::get('/PressRelease/ShowData', [PressReleaseController::class, 'PressReleaseShowData'])->name('PressReleaseShowData');
 Route::get('/procurement/detail/{id}', [ProcurementController::class, 'ProcurementDetail'])->name('ProcurementDetail');
+
+//ผลประกาศจัดซื้อจัดจ้างประจำปี
+Route::get('/procurement-results/detail/{id}', [ProcurementResultsController::class, 'ProcurementResultsDetail'])->name('ProcurementResultsDetail');
+
+//ประกาศผู้ชนะการเสนอราคา
+Route::get('/average-price/detail/{id}', [AveragePriceController::class, 'AveragePriceDetail'])->name('AveragePriceDetail');
+
+//สรุปผลการจัดซื้อจัดจ้าง
+Route::get('/revenue/detail/{id}', [RevenueController::class, 'RevenueDetail'])->name('RevenueDetail');
+
+//แผนการจัดซื้อจัดจ้าง
+Route::get('/procurement-plan/detail/{id}', [ProcurementPlanController::class, 'ProcurementPlanDetail'])->name('ProcurementPlanDetail');
 
 //กิจกรรม
 Route::get('/Activity/ShowData', [ActivityController::class, 'ActivityShowData'])->name('ActivityShowData');

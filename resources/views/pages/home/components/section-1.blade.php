@@ -141,7 +141,8 @@
     <div class="container d-flex flex-column align-items-center ">
         <div class="d-flex flex-column flex-lg-row gap-3 ">
             <div class="col-lg-6 d-flex">
-                <img src="{{ asset('images/section-1/persernals.png') }}" alt="persernals" class="responsive-image">
+                {{-- <img src="{{ asset('images/section-1/persernals.png') }}" alt="persernals" class="responsive-image"> --}}
+                <img src="{{ asset('images/section-1/Nayok02.png') }}" alt="persernals" class="responsive-image">
             </div>
 
             <div
@@ -185,7 +186,7 @@
                 <img src="{{ asset('images/section-1/telephone-call.png') }}" alt="phone" width="30"
                     height="30">
                 <div>
-                    สายด่วนนายก : 000-000-0000
+                    สายด่วนนายก : 063-265-9742
                 </div>
             </div>
         </div>

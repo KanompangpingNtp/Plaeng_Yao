@@ -133,7 +133,9 @@
                 วิดีทัศน์แนะนำ
             </div>
             <div class="bg-video-sectioon-4">
-                <video src="{{ asset('images/section-4/video.mp4') }}" autoplay loop muted></video>
+                {{-- <video src="{{ asset('images/section-4/video.mp4') }}" autoplay loop muted></video> --}}
+                <iframe width="100%" height="470px" src="https://www.youtube.com/embed/QvZVOhDrBPI?autoplay=1&mute=1" frameborder="0"
+                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
 
             <div class="d-flex align-items-center justify-content-end mt-3 fs-3 fw-bold ">

@@ -147,23 +147,27 @@
                 <div
                     class="col-lg-4 d-flex flex-column justify-content-center align-items-center bg-menu-egp  ps-0 ps-lg-3 py-2 py-lg-5 fw-bold pe-0">
                     <div id="btnProcurement" onclick="changeContent('จัดซื้อจัดจ้าง', {{ json_encode($procurement) }})"
-                        class="w-100 text-center text-lg-start px-4 py-1">ประกาศจัดซื้อจัดจ้าง
+                        class="w-100 text-center text-lg-start px-4 py-1" data-link="/procurement/detail/">
+                        ประกาศจัดซื้อจัดจ้าง
                     </div>
                     <div id="btnProcurementResults"
                         onclick="changeContent('ผลประกาศจัดซื้อจัดจ้างประจำปี', {{ json_encode($procurementResults) }})"
-                        class="w-100 text-center text-lg-start px-4 py-1">
-                        ผลประกาศจัดซื้อจัดจ้างประจำปี</div>
+                        class="w-100 text-center text-lg-start px-4 py-1"
+                        data-link="{{ route('procurementResults.detail', ['id' => '']) }}">
+                        ผลประกาศจัดซื้อจัดจ้างประจำปี
+                    </div>
                     <div id="btnAverage" onclick="changeContent('สรุปผลการจัดซื้อจัดจ้าง', {{ json_encode($average) }})"
-                        class="w-100 text-center text-lg-start px-4 py-1">สรุปผลการจัดซื้อจัดจ้าง</div>
+                        class="w-100 text-center text-lg-start px-4 py-1" data-link="/average/detail/">
+                        สรุปผลการจัดซื้อจัดจ้าง</div>
                     <div id="btnProcurementPlan"
                         onclick="changeContent('แผนการจัดซื้อจัดจ้าง', {{ json_encode($revenue) }})"
-                        class="w-100 text-center text-lg-start px-4 py-1">แผนการจัดซื้อจัดจ้าง
+                        class="w-100 text-center text-lg-start px-4 py-1" data-link="/revenue/detail/">
+                        แผนการจัดซื้อจัดจ้าง
                     </div>
                     <div id="btnWinnerAnnouncement"
                         onclick="changeContent('ประกาศผู้ชนะการเสนอราคา', {{ json_encode($announcement) }})"
-                        class="w-100 text-center text-lg-start px-4 py-1">
+                        class="w-100 text-center text-lg-start px-4 py-1" data-link="/announcement/detail/">
                         ประกาศผู้ชนะการเสนอราคา</div>
-
                 </div>
                 <div class="col-lg-8 d-flex flex-column justify-content-center align-items-center px-3 py-5 "
                     style="gap: 1rem 0;" id="contentArea">
@@ -189,8 +193,13 @@
     // ฟังก์ชันที่ใช้แสดงเนื้อหา
     function changeContent(topic, data) {
         allItems = data;
+
+        // ดึง data-link จากปุ่มที่ถูกคลิก
+        let activeButton = document.querySelector(`[onclick*="changeContent('${topic}'"]`);
+        baseLink = activeButton ? activeButton.getAttribute('data-link') : "#";
+
         displayItems();
-        setActiveButton(topic); // เปลี่ยนปุ่มให้ Active
+        setActiveButton(topic);
     }
 
     function setActiveButton(topic) {
@@ -215,45 +224,52 @@
     let currentPage = 1;
     const itemsPerPage = 6;
     let allItems = [];
+    let baseLink = "#"; // เก็บ URL พื้นฐานจากปุ่มที่ถูกคลิก
     const bookmarkIcon = "{{ asset('images/section-7/bookmark.png') }}";
     const timeIcon = "{{ asset('images/section-7/fast-time.png') }}";
 
     function displayItems() {
-        const startIndex = (currentPage - 1) * itemsPerPage;
-        const endIndex = currentPage * itemsPerPage;
-        const itemsToDisplay = allItems.slice(startIndex, endIndex);
+    const startIndex = (currentPage - 1) * itemsPerPage;
+    const endIndex = currentPage * itemsPerPage;
+    const itemsToDisplay = allItems.slice(startIndex, endIndex);
 
-        let contentArea = document.getElementById('contentArea');
-        contentArea.innerHTML = '';
+    let contentArea = document.getElementById('contentArea');
+    contentArea.innerHTML = '';
 
-        itemsToDisplay.forEach((item, i) => {
-            let newContent = document.createElement('a');
-            newContent.href = "#";
-            newContent.className = "w-100";
-            newContent.style.textDecoration = "none";
+    itemsToDisplay.forEach((item) => {
+        let newContent = document.createElement('a');
 
-            newContent.innerHTML = `
-            <div class="card p-3 egp-card text-black w-100" ">
-                <div class="d-flex align-items-center">
-                    <img src="${bookmarkIcon}" alt="รูปภาพ"
-                        class="rounded me-3" style="width: 45px; height: 45px; object-fit: contain;">
-                    <div class="flex-grow-1">
-                        <div class="card-text lh-1">
-                            ${truncateText(item.title_name, 180)}
-                        </div>
-                        <div class="card-text text-muted">
-                            <img src="${timeIcon}" alt="icon"
-                                class="me-1" width="18">
-                            ${item.date}
-                        </div>
+        // ดึง data-link จากปุ่มที่ active
+        let activeButton = document.querySelector('.bg-menu-egp .active');
+        let baseLink = activeButton ? activeButton.getAttribute('data-link') : "#";
+        baseLink = baseLink.replace(/\/$/, ''); // ลบ `/` ท้าย URL ถ้ามี
+
+        newContent.href = baseLink + '/' + item.id; // เติม ID ของรายการ
+        newContent.className = "w-100";
+        newContent.style.textDecoration = "none";
+
+        newContent.innerHTML = `
+        <div class="card p-3 egp-card text-black w-100">
+            <div class="d-flex align-items-center">
+                <img src="${bookmarkIcon}" alt="รูปภาพ"
+                    class="rounded me-3" style="width: 45px; height: 45px; object-fit: contain;">
+                <div class="flex-grow-1">
+                    <div class="card-text lh-1">
+                        ${truncateText(item.title_name, 180)}
+                    </div>
+                    <div class="card-text text-muted">
+                        <img src="${timeIcon}" alt="icon"
+                            class="me-1" width="18">
+                        ${item.date}
                     </div>
                 </div>
             </div>
-        `;
+        </div>`;
 
-            contentArea.appendChild(newContent);
-        });
-    }
+        contentArea.appendChild(newContent);
+    });
+}
+
 
     // ฟังก์ชันตัดข้อความ
     function truncateText(text, maxLength) {

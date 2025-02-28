@@ -10,19 +10,19 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
     <style>
         @font-face {
-            font-family: 'th-krub';
-            src: url('/fonts/TH-Krub.ttf') format('woff2');
+            font-family: 'RSU';
+            src: url('/fonts/RSU_Regular.ttf') format('woff2');
             font-weight: normal;
         }
 
         @font-face {
-            font-family: 'th-krub';
-            src: url('/fonts/TH-Krub-Bold.ttf') format('woff2');
+            font-family: 'RSU';
+            src: url('/fonts/RSU_BOLD.ttf') format('woff2');
             font-weight: bold;
         }
 
         body {
-            font-family: 'th-krub', sans-serif;
+            font-family: 'RSU', sans-serif;
             font-size: 20px;
         }
 

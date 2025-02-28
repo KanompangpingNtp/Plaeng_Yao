@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.sub-layout')
 @section('content')
 <style>
     .bg {
@@ -7,6 +7,7 @@
         background-position: center;
         background-repeat: no-repeat;
         min-height: 100vh;
+        padding: 2rem 0px;
     }
 
     .custom-gradient-shadow {

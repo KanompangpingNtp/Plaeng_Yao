@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.sub-layout')
 @section('content')
 <style>
     .bg {
@@ -7,6 +7,7 @@
         background-position: center;
         background-repeat: no-repeat;
         min-height: 100vh;
+        padding: 2rem 0px;
     }
 
     .custom-gradient-shadow {
@@ -39,7 +40,7 @@
 
 </style>
 <div class="bg">
-    <div class="container  py-5 my-5 custom-gradient-shadow">
+    <div class="container custom-gradient-shadow">
         <div class="d-flex flex-column justify-content-center align-items-center">
             <div class="fs-1 fw-bold mb-4">{{ $agency->personnel_agency_name }}</div>
 

@@ -133,19 +133,33 @@
         box-shadow: 0 0 5px 3px rgba(255, 255, 255, 0.5);
 
     }
+
+    .video-container {
+        position: relative;
+        width: 100%;
+        min-height: 105vh;
+        overflow: visible;
+    }
+
+    .video-container video {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
 </style>
 <main class="d-flex flex-column align-items-center justify-content-start bg-header">
-    <section class="hero-section">
-        <div class="carousel">
-            <div class="carousel-slide active" style="background-image: url({{ asset('images/header/BG.png') }});">
-            </div>
-            <div class="carousel-slide" style="background-image: url('image2.jpg');"></div>
-            <div class="carousel-slide" style="background-image: url('image3.jpg');"></div>
-            <button class="carousel-btn left" onclick="prevSlide()">&#8249;</button>
-            <button class="carousel-btn right" onclick="nextSlide()">&#8250;</button>
-        </div>
-    </section>
+    <div class="video-container">
+        <video autoplay loop muted playsinline >
+            <source src="{{ asset('images/video/Vdoเเปลงยาว.webm') }}" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
 
+    </div>
+        
 
     <div class="bg-runtext w-100 d-flex align-items-center">
         <div class="container d-flex align-items-center gap-3">
@@ -176,29 +190,4 @@
 
 
 </main>
-<script>
-    let currentSlide = 0;
-    const slides = document.querySelectorAll('.carousel-slide');
 
-    function showSlide(index) {
-        slides.forEach((slide, i) => {
-            slide.classList.remove('active');
-            if (i === index) {
-                slide.classList.add('active');
-            }
-        });
-    }
-
-    function nextSlide() {
-        currentSlide = (currentSlide + 1) % slides.length;
-        showSlide(currentSlide);
-    }
-
-    function prevSlide() {
-        currentSlide = (currentSlide - 1 + slides.length) % slides.length;
-        showSlide(currentSlide);
-    }
-
-    // Optional: Auto-play functionality
-    setInterval(nextSlide, 5000); // Change slide every 5 seconds
-</script>

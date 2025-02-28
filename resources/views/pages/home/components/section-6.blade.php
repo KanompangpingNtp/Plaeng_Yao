@@ -49,7 +49,7 @@
                     </div>
 
                     <!-- ปุ่มดูทั้งหมด -->
-                    <a href="#" class="btn btn-light fs-4 px-4" style="text-decoration: none; border-radius: 15px;">ดูทั้งหมด</a>
+                    <a href="{{route('PressReleaseShowData')}}" class="btn btn-light fs-4 px-4" style="text-decoration: none; border-radius: 15px;">ดูทั้งหมด</a>
                 </div>
                 <div class="px-3 pb-5 pt-2" style="background: linear-gradient(to left, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2));
             border-bottom-left-radius: 30px; border-bottom-right-radius: 30px;">
@@ -60,7 +60,7 @@
                     $imageToShow = asset('storage/' . $imagePath);
                     @endphp --}}
 
-                    <a href="#" style="text-decoration: none;">
+                    <a href="{{route('PressReleaseShowDetails',$post->id)}}" style="text-decoration: none;">
                         <div class="card p-3 press-card text-black">
                             <div class="d-flex align-items-center">
 

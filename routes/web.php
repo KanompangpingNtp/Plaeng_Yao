@@ -38,6 +38,14 @@ Route::get('/', [ShowDataController::class, 'Home'])->name('Home');
 //เมนูบุคลากร
 Route::get('/agency/{id}', [PersonnelAgencyController::class, 'AgencyShow'])->name('AgencyShow');
 
+//กิจกรรม
+Route::get('/Activity/ShowData', [ActivityController::class, 'ActivityShowData'])->name('ActivityShowData');
+Route::get('/Activity/ShowDetails/{id}', [ActivityController::class, 'ActivityShowDetails'])->name('ActivityShowDetails');
+
+//ประชาสัมพันธ์
+Route::get('/PressRelease/ShowData', [PressReleaseController::class, 'PressReleaseShowData'])->name('PressReleaseShowData');
+Route::get('/PressRelease/ShowDetails/{id}', [PressReleaseController::class, 'PressReleaseShowDetails'])->name('PressReleaseShowDetails');
+
 Route::get('/showLoginForm', [AuthController::class, 'showLoginForm'])->name('showLoginForm');
 Route::post('/login', [AuthController::class, 'login'])->name('Login');
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');

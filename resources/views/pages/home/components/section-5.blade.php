@@ -204,7 +204,7 @@
                                 <div class="row">
                                     @foreach ($chunkedActivities as $post)
                                         <div class="col-4" id="card-carousel">
-                                            <a href="#" class="text-decoration-none text-dark">
+                                            <a href="{{route('ActivityShowDetails',$post->id)}}" class="text-decoration-none text-dark">
                                                 <div class="card bg-card-section-5">
                                                     <div class="img-container">
                                                         <?php
@@ -351,7 +351,7 @@
                 </div>
 
                 <div class="d-flex align-items-center justify-content-end mt-3 fs-3 fw-bold w-100">
-                    <a href="#" class="bg-link-button px-4 py-1">
+                    <a href="{{route('ActivityShowData')}}" class="bg-link-button px-4 py-1">
                         ดูทั้งหมด
                     </a>
                 </div>

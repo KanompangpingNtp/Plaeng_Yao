@@ -147,13 +147,14 @@
                 <div
                     class="col-lg-4 d-flex flex-column justify-content-center align-items-center bg-menu-egp  ps-0 ps-lg-3 py-2 py-lg-5 fw-bold pe-0">
                     <div id="btnProcurement" onclick="changeContent('จัดซื้อจัดจ้าง', {{ json_encode($procurement) }})"
-                        class="w-100 text-center text-lg-start px-4 py-1" data-link="/procurement/detail/">
+                        class="w-100 text-center text-lg-start px-4 py-1" 
+                        data-link="{{ route('ProcurementDetail', ['id' => ':id']) }}">
                         ประกาศจัดซื้อจัดจ้าง
                     </div>
                     <div id="btnProcurementResults"
                         onclick="changeContent('ผลประกาศจัดซื้อจัดจ้างประจำปี', {{ json_encode($procurementResults) }})"
                         class="w-100 text-center text-lg-start px-4 py-1"
-                        data-link="{{ route('procurementResults.detail', ['id' => '']) }}">
+                        data-link="">
                         ผลประกาศจัดซื้อจัดจ้างประจำปี
                     </div>
                     <div id="btnAverage" onclick="changeContent('สรุปผลการจัดซื้อจัดจ้าง', {{ json_encode($average) }})"
@@ -242,9 +243,11 @@
         // ดึง data-link จากปุ่มที่ active
         let activeButton = document.querySelector('.bg-menu-egp .active');
         let baseLink = activeButton ? activeButton.getAttribute('data-link') : "#";
-        baseLink = baseLink.replace(/\/$/, ''); // ลบ `/` ท้าย URL ถ้ามี
 
-        newContent.href = baseLink + '/' + item.id; // เติม ID ของรายการ
+        // แทนค่าพารามิเตอร์ :id ด้วย item.id
+        baseLink = baseLink.replace(':id', item.id);
+
+        newContent.href = baseLink; // ใช้ route ที่มี id แล้ว
         newContent.className = "w-100";
         newContent.style.textDecoration = "none";
 

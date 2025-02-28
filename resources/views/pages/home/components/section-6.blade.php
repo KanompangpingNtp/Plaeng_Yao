@@ -55,19 +55,18 @@
             border-bottom-left-radius: 30px; border-bottom-right-radius: 30px;">
 
                     @foreach($pressRelease->take(4) as $post)
-                    @php
-                    // ตรวจสอบว่ามีรูปภาพที่อัปโหลดมาหรือไม่
+                    {{-- @php
                     $imagePath = $post->photos->first()->post_photo_file ?? 'images/section-6/logo.png';
                     $imageToShow = asset('storage/' . $imagePath);
-                    @endphp
+                    @endphp --}}
 
                     <a href="#" style="text-decoration: none;">
                         <div class="card p-3 press-card text-black">
                             <div class="d-flex align-items-center">
-                                <!-- รูปภาพด้านซ้าย -->
-                                <img src="{{ $imageToShow }}" alt="รูปภาพ" class="rounded me-3" style="width: 100px; height: 100px; object-fit: cover;">
 
-                                <!-- ข้อความด้านขวา -->
+                                <img src="{{ isset($post->photos->first()->post_photo_file) ? asset('storage/' . $post->photos->first()->post_photo_file) : asset('images/navbar/Logo-601.png') }}"
+                                    alt="รูปภาพ" class="rounded me-3" style="width: 100px; height: 100px; object-fit: cover;">
+
                                 <div class="flex-grow-1">
                                     <div class="card-text">
                                         {{ Str::limit($post->title_name, 120, '...') }}

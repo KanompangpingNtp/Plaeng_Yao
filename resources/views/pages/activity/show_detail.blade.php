@@ -93,25 +93,49 @@
                     <p>{{ $activity->details ?? 'ไม่มีรายละเอียด' }}</p>
                 </div>
 
-                @if ($activity->photos->whereIn('post_photo_status', ['1', '2'])->count() > 0)
+                @php
+                // รีเซ็ต index ให้แน่นอน
+                $photos = $activity->photos->where('post_photo_status', '2')->values();
+                @endphp
+
+                @if ($photos->count() > 0)
                 <h5 class="text-secondary">รูปภาพ</h5>
                 <div class="row">
-                    @foreach ($activity->photos->whereIn('post_photo_status', ['1', '2']) as $index => $photo)
+                    @foreach ($photos as $index => $photo)
                     <div class="col-lg-1 col-md-2 col-sm-3 col-4 mb-3 text-center">
-                        <img src="{{ asset('storage/' . $photo->post_photo_file) }}" class="img-thumbnail rounded shadow-sm" alt="รูปแนบ" style="max-width: 100px; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#photoModal{{ $index }}">
+                        <img src="{{ asset('storage/' . $photo->post_photo_file) }}" class="img-thumbnail rounded shadow-sm" alt="รูปแนบ" style="max-width: 100px; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#photoModal" data-bs-slide-to="{{ $index }}">
                     </div>
+                    @endforeach
+                </div>
 
-                    <!-- Modal สำหรับแต่ละรูป -->
-                    <div class="modal fade" id="photoModal{{ $index }}" tabindex="-1" aria-labelledby="photoModalLabel{{ $index }}" aria-hidden="true">
-                        <div class="modal-dialog modal-lg modal-dialog-centered">
-                            <div class="modal-content">
-                                <div class="modal-body text-center">
-                                    <img src="{{ asset('storage/' . $photo->post_photo_file) }}" class="img-fluid rounded">
+                <!-- Modal แสดงภาพแบบ Carousel -->
+                <div class="modal fade" id="photoModal" tabindex="-1" aria-labelledby="photoModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-lg modal-dialog-centered">
+                        <div class="modal-content">
+                            <div class="modal-body p-0">
+                                <div id="carouselPhotos" class="carousel slide" data-bs-ride="carousel">
+                                    <div class="carousel-inner">
+                                        @foreach ($photos as $index => $photo)
+                                        <div class="carousel-item {{ $index == 0 ? 'active' : '' }}">
+                                            <img src="{{ asset('storage/' . $photo->post_photo_file) }}" class="d-block w-100 rounded">
+                                        </div>
+                                        @endforeach
+                                    </div>
+
+                                    <!-- ปุ่ม Previous -->
+                                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselPhotos" data-bs-slide="prev">
+                                        <span class="carousel-control-prev-icon" aria-hidden="true" style="filter: invert(100%);"></span>
+                                    </button>
+
+                                    <!-- ปุ่ม Next -->
+                                    <button class="carousel-control-next" type="button" data-bs-target="#carouselPhotos" data-bs-slide="next">
+                                        <span class="carousel-control-next-icon" aria-hidden="true" style="filter: invert(100%);"></span>
+                                    </button>
+
                                 </div>
                             </div>
                         </div>
                     </div>
-                    @endforeach
                 </div>
                 @endif
 

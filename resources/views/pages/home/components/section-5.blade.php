@@ -181,6 +181,14 @@
         color: #000000;
         /* สีข้อความ */
     }
+
+    .hover-scale img {
+    transition: transform 0.3s ease-in-out;
+}
+.hover-scale:hover img {
+    transform: scale(1.05);
+}
+
 </style>
 <main class="d-flex flex-column align-items-center justify-content-center bg-page5">
     <div class="container py-5">
@@ -204,15 +212,15 @@
                                 <div class="row">
                                     @foreach ($chunkedActivities as $post)
                                         <div class="col-4" id="card-carousel">
-                                            <a href="{{route('ActivityShowDetails',$post->id)}}" class="text-decoration-none text-dark">
+                                            <a href="{{ route('ActivityShowDetails', $post->id) }}"
+                                                class="text-decoration-none text-dark">
                                                 <div class="card bg-card-section-5">
                                                     <div class="img-container">
                                                         <?php
-                                                        $imageToShow = $post->photos->isNotEmpty()
-                                                            ? asset('storage/' . $post->photos->first()->post_photo_file)
-                                                            : asset('images/section-5/logo.png');
+                                                        $imageToShow = $post->photos->isNotEmpty() ? asset('storage/' . $post->photos->first()->post_photo_file) : asset('images/section-5/logo.png');
                                                         ?>
-                                                        <img src="{{ $imageToShow }}" class="card-img-top" alt="Post Image">
+                                                        <img src="{{ $imageToShow }}" class="card-img-top"
+                                                            alt="Post Image">
                                                     </div>
                                                     <div class="card-body bg-white mt-2" style="border-radius: 20px;">
                                                         <h5 class="card-title" style="font-size: 18px;">
@@ -232,11 +240,13 @@
                     </div>
 
                     <!-- Controls -->
-                    <button class="carousel-control-prev" type="button" data-bs-target="#cardCarousel1" data-bs-slide="prev">
+                    <button class="carousel-control-prev" type="button" data-bs-target="#cardCarousel1"
+                        data-bs-slide="prev">
                         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                         <span class="visually-hidden">Previous</span>
                     </button>
-                    <button class="carousel-control-next" type="button" data-bs-target="#cardCarousel1" data-bs-slide="next">
+                    <button class="carousel-control-next" type="button" data-bs-target="#cardCarousel1"
+                        data-bs-slide="next">
                         <span class="carousel-control-next-icon" aria-hidden="true"></span>
                         <span class="visually-hidden">Next</span>
                     </button>
@@ -246,10 +256,12 @@
 
                     <!-- Carousel Items -->
                     <div class="carousel-inner">
-                        @for ($i = 0; $i < 3; $i++) <!-- จำนวนหน้าสไลด์ที่ต้องการ -->
+                        @for ($i = 0; $i < 3; $i++)
+                            <!-- จำนวนหน้าสไลด์ที่ต้องการ -->
                             <div class="carousel-item {{ $i === 0 ? 'active' : '' }} py-2 px-3">
                                 <div class="row">
-                                    @for ($j = 1; $j <= 2; $j++) <!-- จำนวนการ์ดที่ต้องการแสดงในแต่ละสไลด์ -->
+                                    @for ($j = 1; $j <= 2; $j++)
+                                        <!-- จำนวนการ์ดที่ต้องการแสดงในแต่ละสไลด์ -->
                                         <div class="col-6" id="card-carousel"> <!-- เปลี่ยนจาก col-4 เป็น col-6 -->
                                             <a href="#" class="text-decoration-none text-dark">
                                                 <div class="card bg-card-section-5">
@@ -259,7 +271,8 @@
                                                         $defaultImage = asset('images/section-5/logo.png'); // ไฟล์สำรอง
                                                         $imageToShow = file_exists($imagePath) ? asset('images/section-5/logo.png') : $defaultImage;
                                                         ?>
-                                                        <img src="{{ $imageToShow }}" class="card-img-top" alt="Default Image">
+                                                        <img src="{{ $imageToShow }}" class="card-img-top"
+                                                            alt="Default Image">
                                                     </div>
 
                                                     <div class="card-body bg-white mt-2" style=" border-radius: 20px;">
@@ -287,11 +300,13 @@
                     </div>
 
                     <!-- Controls -->
-                    <button class="carousel-control-prev" type="button" data-bs-target="#cardCarousel2" data-bs-slide="prev">
+                    <button class="carousel-control-prev" type="button" data-bs-target="#cardCarousel2"
+                        data-bs-slide="prev">
                         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                         <span class="visually-hidden">Previous</span>
                     </button>
-                    <button class="carousel-control-next" type="button" data-bs-target="#cardCarousel2" data-bs-slide="next">
+                    <button class="carousel-control-next" type="button" data-bs-target="#cardCarousel2"
+                        data-bs-slide="next">
                         <span class="carousel-control-next-icon" aria-hidden="true"></span>
                         <span class="visually-hidden">Next</span>
                     </button>
@@ -313,7 +328,8 @@
                                                     $defaultImage = asset('images/section-5/logo.png'); // ไฟล์สำรอง
                                                     $imageToShow = file_exists($imagePath) ? asset('images/section-5/logo.png') : $defaultImage;
                                                     ?>
-                                                    <img src="{{ $imageToShow }}" class="card-img-top" alt="Default Image">
+                                                    <img src="{{ $imageToShow }}" class="card-img-top"
+                                                        alt="Default Image">
                                                 </div>
 
                                                 <div class="card-body bg-white mt-2" style=" border-radius: 20px;">
@@ -340,18 +356,20 @@
                     </div>
 
                     <!-- Controls -->
-                    <button class="carousel-control-prev" type="button" data-bs-target="#cardCarousel3" data-bs-slide="prev">
+                    <button class="carousel-control-prev" type="button" data-bs-target="#cardCarousel3"
+                        data-bs-slide="prev">
                         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                         <span class="visually-hidden">Previous</span>
                     </button>
-                    <button class="carousel-control-next" type="button" data-bs-target="#cardCarousel3" data-bs-slide="next">
+                    <button class="carousel-control-next" type="button" data-bs-target="#cardCarousel3"
+                        data-bs-slide="next">
                         <span class="carousel-control-next-icon" aria-hidden="true"></span>
                         <span class="visually-hidden">Next</span>
                     </button>
                 </div>
 
                 <div class="d-flex align-items-center justify-content-end mt-3 fs-3 fw-bold w-100">
-                    <a href="{{route('ActivityShowData')}}" class="bg-link-button px-4 py-1">
+                    <a href="{{ route('ActivityShowData') }}" class="bg-link-button px-4 py-1">
                         ดูทั้งหมด
                     </a>
                 </div>
@@ -361,8 +379,13 @@
         <hr style=" border: none; border-top: 2px solid white; margin: 1rem 0;  width: 100%;">
         <div class="container d-flex flex-column flex-lg-row ">
             <div class="d-flex flex-column justify-content-center align-items-center">
+                <a href="https://www.facebook.com/xbt.p.lng.yaw.chacheingthera/?locale=th_TH" class="hover-scale">
+                    <img src="{{ asset('images/section-5/Group_19.png') }}" alt="facebook" class="mb-4">
+                </a>
+                
                 <div class="d-flex flex-column align-items-start justify-content-center mb-3  lh-1"
                     style="text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.8);">
+
                     <div class=" fs-1 fw-bold text-light ">
                         แนะนำสถานที่ <img src="{{ asset('images/section-5/branch.png') }}" alt="icon">
                     </div>
@@ -403,14 +426,16 @@
                     $firstCaption = $firstPlace->topic_name ?? 'No Caption';
                 @endphp --}}
                 @php
-                $firstPlace = $recommendPlaces->first();
-                $firstImage = $firstPlace && $firstPlace->photos->isNotEmpty()
-                    ? asset('storage/' . $firstPlace->photos->first()->post_photo_file)
-                    : asset('images/navbar/Logo-601.png');
-                $firstCaption = $firstPlace->topic_name ?? 'No Caption';
+                    $firstPlace = $recommendPlaces->first();
+                    $firstImage =
+                        $firstPlace && $firstPlace->photos->isNotEmpty()
+                            ? asset('storage/' . $firstPlace->photos->first()->post_photo_file)
+                            : asset('images/navbar/Logo-601.png');
+                    $firstCaption = $firstPlace->topic_name ?? 'No Caption';
                 @endphp
 
-                <img id="carousel-image" class="carousel-image" src="{{ $firstImage }}" alt="{{ $firstCaption }}">
+                <img id="carousel-image" class="carousel-image" src="{{ $firstImage }}"
+                    alt="{{ $firstCaption }}">
 
                 <div class="carousel-buttons mt-3">
                     <button class="carousel-button prev-button mt-2" onclick="prevImage()">
@@ -427,14 +452,15 @@
         </div>
     </div>
     <script>
-        const images = @json($recommendPlaces->map(function ($place) {
-            return [
-                'src' => $place->photos->isNotEmpty()
-                    ? asset('storage/' . $place->photos->first()->post_photo_file)
-                    : asset('images/navbar/Logo-601.png'), // ใช้ภาพเริ่มต้นถ้าไม่มีรูป
-                'caption' => $place->topic_name ?? 'No Caption',
-            ];
-        })->toArray()); // ใช้ toArray() เพื่อให้ JavaScript ใช้งานได้
+        const images = @json(
+            $recommendPlaces->map(function ($place) {
+                    return [
+                        'src' => $place->photos->isNotEmpty()
+                            ? asset('storage/' . $place->photos->first()->post_photo_file)
+                            : asset('images/navbar/Logo-601.png'), // ใช้ภาพเริ่มต้นถ้าไม่มีรูป
+                        'caption' => $place->topic_name ?? 'No Caption',
+                    ];
+                })->toArray()); // ใช้ toArray() เพื่อให้ JavaScript ใช้งานได้
 
         let currentIndex = 0;
 
@@ -443,7 +469,8 @@
             const captionElement = document.getElementById('carousel-caption');
 
             if (images.length > 0) {
-                imageElement.src = images[currentIndex].src || '{{ asset('images/navbar/Logo-601.png') }}'; // ป้องกันค่าที่ว่าง
+                imageElement.src = images[currentIndex].src ||
+                '{{ asset('images/navbar/Logo-601.png') }}'; // ป้องกันค่าที่ว่าง
                 imageElement.alt = images[currentIndex].caption || 'No Caption';
                 captionElement.textContent = images[currentIndex].caption || 'No Caption';
             } else {

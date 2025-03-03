@@ -145,7 +145,7 @@
             </div>
             <div class="row bg-egp justify-content-center shadow-lg w-100">
                 <div
-                    class="col-lg-4 d-flex flex-column justify-content-center align-items-center bg-menu-egp  ps-0 ps-lg-3 py-2 py-lg-5 fw-bold pe-0">
+                    class="col-lg-4 d-flex flex-column justify-content-start align-items-center bg-menu-egp  ps-0 ps-lg-3 py-2 py-lg-5 fw-bold pe-0">
                     <div id="btnProcurement" onclick="changeContent('จัดซื้อจัดจ้าง', {{ json_encode($procurement) }})"
                         class="w-100 text-center text-lg-start px-4 py-1"
                         data-link="{{ route('ProcurementDetail', ['id' => ':id']) }}">
@@ -219,24 +219,24 @@
     });
 
     function changeContent(topic, data) {
-        allItems = data;
+    allItems = data;
 
-        // หา id แรกของข้อมูล
-        let firstId = data.length > 0 ? data[0].id : 1;
-
-        // ดึง data-link จากปุ่มที่ถูกคลิก
+    if (data.length > 0) {
+        let firstId = data[0].id;
         let activeButton = document.querySelector(`[onclick*="changeContent('${topic}'"]`);
+        
         if (activeButton) {
-            let link = activeButton.getAttribute('data-link').replace(':id', firstId);
-            activeButton.setAttribute('data-link', link); // อัปเดตลิงก์ให้ปุ่ม
-            baseLink = link;
-        } else {
-            baseLink = "#";
+            let linkTemplate = activeButton.getAttribute('data-link');
+            baseLink = linkTemplate.replace(':id', firstId);
         }
-
-        displayItems();
-        setActiveButton(topic);
+    } else {
+        baseLink = "#";
     }
+
+    displayItems(); 
+    setActiveButton(topic);
+}
+
 
     function setActiveButton(topic) {
         const buttons = ['btnProcurement', 'btnProcurementResults', 'btnAverage', 'btnProcurementPlan',
@@ -262,48 +262,45 @@
     const timeIcon = "{{ asset('images/section-7/fast-time.png') }}";
 
     function displayItems() {
-        const startIndex = (currentPage - 1) * itemsPerPage;
-        const endIndex = currentPage * itemsPerPage;
-        const itemsToDisplay = allItems.slice(startIndex, endIndex);
+    const startIndex = (currentPage - 1) * itemsPerPage;
+    const endIndex = currentPage * itemsPerPage;
+    const itemsToDisplay = allItems.slice(startIndex, endIndex);
 
-        let contentArea = document.getElementById('contentArea');
-        contentArea.innerHTML = '';
+    let contentArea = document.getElementById('contentArea');
+    contentArea.innerHTML = '';
 
-        itemsToDisplay.forEach((item) => {
-            let newContent = document.createElement('a');
+    itemsToDisplay.forEach((item) => {
+        let newContent = document.createElement('a');
 
-            // ดึง data-link จากปุ่มที่ active
-            let activeButton = document.querySelector('.bg-menu-egp .active');
-            let baseLink = activeButton ? activeButton.getAttribute('data-link') : "#";
+        // ใช้ baseLink ที่ตั้งไว้จาก changeContent() แล้วแทนค่า :id ด้วย item.id
+        let itemLink = baseLink.replace(/\d+$/, item.id);
 
-            // แทนค่าพารามิเตอร์ :id ด้วย item.id
-            baseLink = baseLink.replace(':id', item.id);
+        newContent.href = itemLink;
+        newContent.className = "w-100";
+        newContent.style.textDecoration = "none";
 
-            newContent.href = baseLink;
-            newContent.className = "w-100";
-            newContent.style.textDecoration = "none";
-
-            newContent.innerHTML = `
-                <div class="card p-3 egp-card text-black w-100">
-                    <div class="d-flex align-items-center">
-                        <img src="${bookmarkIcon}" alt="รูปภาพ"
-                            class="rounded me-3" style="width: 45px; height: 45px; object-fit: contain;">
-                        <div class="flex-grow-1">
-                            <div class="card-text lh-1">
-                                ${truncateText(item.title_name, 180)}
-                            </div>
-                            <div class="card-text text-muted">
-                                <img src="${timeIcon}" alt="icon"
-                                    class="me-1" width="18">
-                                ${item.date}
-                            </div>
+        newContent.innerHTML = `
+            <div class="card p-3 egp-card text-black w-100">
+                <div class="d-flex align-items-center">
+                    <img src="${bookmarkIcon}" alt="รูปภาพ"
+                        class="rounded me-3" style="width: 45px; height: 45px; object-fit: contain;">
+                    <div class="flex-grow-1">
+                        <div class="card-text lh-1">
+                            ${truncateText(item.title_name, 180)}
+                        </div>
+                        <div class="card-text text-muted">
+                            <img src="${timeIcon}" alt="icon"
+                                class="me-1" width="18">
+                            ${item.date}
                         </div>
                     </div>
-                </div>`;
+                </div>
+            </div>`;
 
-            contentArea.appendChild(newContent);
-        });
-    }
+        contentArea.appendChild(newContent);
+    });
+}
+
 
     function truncateText(text, maxLength) {
         return text.length > maxLength ? text.substring(0, maxLength) + '...' : text;

@@ -8,58 +8,47 @@
         padding: 2rem 0px;
     }
 
-    .link-8 {
+    .circle {
+        width: 20px;
+        height: 20px;
+        background: linear-gradient(to top, rgba(74, 131, 0, 0.9), rgba(163, 245, 12, 0.9));
+        /* สีของวงกลม */
+        border-radius: 50%;
+        /* ทำให้เป็นวงกลม */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .link-button-section8 {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
         text-decoration: none;
-        background: linear-gradient(to bottom, rgba(74, 131, 0, 0.9), rgba(74, 131, 0, 0.9));
-        color: #ffffff;
-        font-size: 25px;
-        border-top-left-radius: 20px;
-        border-top-right-radius: 20px;
-        font-weight: bold;
-        transition: all 0.3s ease-in-out;
-    }
-
-    .link-8.active {
-        background: linear-gradient(to bottom, rgba(163, 245, 12, 0.9), rgba(74, 131, 0, 0.9));
-        box-shadow: 0 0 10px white, 0 0 15px white, 0 0 15px white, 0 0 15px white;
-    }
-
-    .link-8:hover {
-        background: linear-gradient(to bottom, rgba(163, 245, 12, 0.9), rgba(74, 131, 0, 0.9));
-        box-shadow: 0 0 10px white, 0 0 15px white, 0 0 15px white, 0 0 15px white;
-    }
-
-    .link-dowload img {
-        transition: transform 0.3s ease, filter 0.3s ease;
-    }
-
-    .link-dowload:hover img {
-        transform: scale(1.1);
-        /* ขยายขนาดภาพเมื่อ hover */
-        filter: brightness(0.8);
-        /* ลดความสว่างเมื่อ hover */
-    }
-
-    .link-all {
-        text-decoration: none;
-        background: linear-gradient(to bottom, rgba(163, 245, 12, 0.9), rgba(74, 131, 0, 0.9));
+        background: linear-gradient(to left, rgba(255, 255, 255, 0.226), rgba(163, 245, 12, 0.9));
+        border-radius: 20px;
+        padding: 8px 16px;
         color: black;
-        font-size: 1.5rem;
-        /* เทียบเท่ากับ fs-4 */
-        padding: 0.7rem 1.25rem;
-        margin: 0;
-        border-top-left-radius: 20px;
-        border-top-right-radius: 20px;
-        transition: all 0.3s ease-in-out;
-        display: inline-block;
+        transition: all 0.3s;
     }
 
-    .link-all:hover {
-        background: linear-gradient(to bottom, rgba(74, 131, 0, 0.9), rgba(163, 245, 12, 0.9));
-        color: white;
-        box-shadow: 0 0 10px white, 0 0 15px white;
+    /* เมื่อ Hover */
+    .link-button-section8:hover {
+        background: linear-gradient(to left, rgba(163, 245, 12, 1), rgba(255, 255, 255, 0.4));
+        transform: translateY(-3px); /* ยกปุ่มขึ้นเล็กน้อย */
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); /* เพิ่มเงา */
     }
 
+    /* เอฟเฟกต์ให้ไอคอนขยับ */
+    .link-button-section8:hover .arrow-icon {
+        transform: translateX(-5px); /* ขยับไอคอนลูกศรไปทางซ้าย */
+        transition: all 0.3s;
+    }
+
+    .link-button-section8:hover .home-icon {
+        transform: scale(1.1); /* ขยายขนาดไอคอนบ้าน */
+        transition: all 0.3s;
+    }
 </style>
 
 <main class="d-flex align-items-center justify-content-center bg-page8">
@@ -70,58 +59,106 @@
                 <img src="{{ asset('images/section-8/open-book.png') }}" alt="icon" height="50"> <br>
                 <span class="fs-4 ">องค์การบริหารส่วนตำบลแปลงยาว</span>
             </div>
-            <div class="d-flex flex-column-reverse flex-md-row justify-content-center align-items-center gap-sm-2">
-                <a href="#" class="link-8 py-2 px-4 active" onclick="setActive(this)">
-                    จากกรมส่งเสริมการปกครองท้องถิ่น
-                </a>
-                <a href="#" target="_blank" class="link-8 py-2 px-4" onclick="setActive(this)">
-                    จากท้องถิ่นจังหวัด
-                </a>
-            </div>
-
-            <div class="p-2 " style="background: linear-gradient(to bottom, rgba(74, 131, 0, 0.9),rgba(163, 245, 12, 0.9),rgba(74, 131, 0, 0.9)); border-radius:20px;">
-                <div class="bg-white px-4 pt-4 pb-0 d-flex flex-column justify-content-center align-items-center  " style="border-radius: 20px; gap: 1rem 0;">
-
-                    @foreach($officialDocuments->take(5) as $index => $document)
-                    <div class="d-flex justify-content-center align-items-center gap-2 ">
-                        <div class="d-flex flex-column justify-content-center align-items-center ">
-                            <div class="p-1 lh-1 text-center fw-bold" style="background: linear-gradient(to bottom, rgba(163, 245, 12, 0.9),rgba(74, 131, 0, 0.9)); border-radius:20px;">
-                                <span class="fs-2 text-black">{{ $index + 1 }}</span> <br>
-                                <span class="fs-5 text-white" style="white-space: nowrap;">
-                                    {{ \Carbon\Carbon::parse($document->date)->format('M Y') }}
-                                </span>
-                            </div>
-                            <a href="{{ $document->pdfs->isNotEmpty() ? asset('storage/' . $document->pdfs->first()->post_pdf_file) : '#' }}" class="link-dowload d-block d-sm-none mt-1" target="_blank">
-                                <img src="{{ asset('images/section-8/download.png') }}" alt="icon-dowload" height="55">
+            <div class="row w-100">
+                <div class="col-lg-6 d-flex flex-column align-items-center justify-content-start mb-3">
+                    <div class="p-3 w-100"
+                        style="background: linear-gradient(to top, rgba(74, 131, 0, 0.9), rgba(163, 245, 12, 0.9));  border-top-right-radius:20px; border-top-left-radius:20px;">
+                        <div class="py-2 px-4 bg-white d-flex justify-content-center align-items-center fw-bold" style="border-radius: 20px;">
+                            <div class="circle me-2"></div>
+                            จากกรมส่งเสริมการปกครองท้องถิ่น
+                        </div>
+                    </div>
+                    <div class="py-3 px-2 w-100" style="background: linear-gradient(to top, rgba(74, 131, 0, 0.9), rgba(163, 245, 12, 0.9),rgba(74, 131, 0, 0.9));  border-bottom-right-radius:20px; border-bottom-left-radius:20px;">
+                        <div class="py-2 px-2 bg-white d-flex flex-column justify-content-center align-items-center fw-bold" style="border-radius: 20px;">
+                            <a href="#" class="link-button-section8 w-100 mb-2">
+                                <div class="d-flex justify-content-start align-items-center lh-1">
+                                    <img src="{{asset('images/section-8/กล่องซ้าย/ลูกศรน้ำเงิน.png')}}" alt="arrow-left" class="arrow-icon me-0 me-md-2" width="30">
+                                    หน้าแรก
+                                </div>
+                                <img src="{{asset('images/section-8/กล่องซ้าย/home.png')}}" alt="icon" class="home-icon" width="23">
+                            </a>
+                            <a href="#" class="link-button-section8 w-100 mb-2">
+                                <div class="d-flex justify-content-start align-items-center lh-1">
+                                    <img src="{{asset('images/section-8/กล่องซ้าย/ลูกศรน้ำเงิน.png')}}" alt="arrow-left" class="arrow-icon me-0 me-md-2" width="30">
+                                    หนังสือราชการของ สถ.
+                                </div>
+                                <img src="{{asset('images/section-8/กล่องซ้าย/agenda.png')}}" alt="icon" class="agenda-icon" width="23">
+                            </a>
+                            <a href="#" class="link-button-section8 w-100 mb-2">
+                                <div class="d-flex justify-content-start align-items-center lh-1">
+                                    <img src="{{asset('images/section-8/กล่องซ้าย/ลูกศรน้ำเงิน.png')}}" alt="arrow-left" class="arrow-icon me-0 me-md-2" width="30">
+                                    กฏหมาย ระเบียบ และมติ ก.กลาง
+                                </div>
+                                <img src="{{asset('images/section-8/กล่องซ้าย/auction.png')}}" alt="icon" class="auction-icon me-0 me-md-2" width="23">
+                            </a>
+                            <a href="#" class="link-button-section8 w-100 mb-2">
+                                <div class="d-flex justify-content-start align-items-center lh-1">
+                                    <img src="{{asset('images/section-8/กล่องซ้าย/ลูกศรน้ำเงิน.png')}}" alt="arrow-left" class="arrow-icon me-0 me-md-2" width="30">
+                                    บทความที่น่าสนใจ
+                                </div>
+                                <img src="{{asset('images/section-8/กล่องซ้าย/article.png')}}" alt="icon" class="article-icon me-0 me-md-2" width="23">
+                            </a>
+                            <a href="#" class="link-button-section8 w-100 mb-2">
+                                <div class="d-flex justify-content-start align-items-center lh-1">
+                                    <img src="{{asset('images/section-8/กล่องซ้าย/ลูกศรน้ำเงิน.png')}}" alt="arrow-left" class="arrow-icon me-0 me-md-2" width="30">
+                                    พรบ. และประกาศเกี่ยวกับ<br>เทคโนโลยีสารสนเทศ
+                                </div>
+                                <img src="{{asset('images/section-8/กล่องซ้าย/it-service.png')}}" alt="icon" class="it-service-icon" width="23">
                             </a>
                         </div>
-
-                        <div class="lh-1 p-2" style="background-color: #e4e4e4; ">
-                            {{ Str::limit($document->title_name, 180, '...') }}
-
-                        </div>
-
-                        <a href="{{ $document->pdfs->isNotEmpty() ? asset('storage/' . $document->pdfs->first()->post_pdf_file) : '#' }}" class="link-dowload d-none d-sm-block" target="_blank">
-                            <img src="{{ asset('images/section-8/download.png') }}" alt="icon-dowload" height="55">
-                        </a>
                     </div>
-                    @endforeach
-                    <a href="#" class="link-all">ดูทั้งหมด</a>
+                </div>
+
+                <div class="col-lg-6 d-flex flex-column align-items-center justify-content-start">
+                    <div class="p-3  w-100"
+                        style="background: linear-gradient(to top, rgba(74, 131, 0, 0.9), rgba(163, 245, 12, 0.9));  border-top-right-radius:20px; border-top-left-radius:20px;">
+                        <div class="py-2 px-4 bg-white d-flex justify-content-center align-items-center fw-bold" style="border-radius: 20px;">
+                            <div class="circle me-2"></div>
+                            จากท้องถิ่นจังหวัด
+                        </div>
+                    </div>
+                    <div class="p-3 w-100" style="background: linear-gradient(to top, rgba(74, 131, 0, 0.9), rgba(163, 245, 12, 0.9),rgba(74, 131, 0, 0.9));  border-bottom-right-radius:20px; border-bottom-left-radius:20px;">
+                        <div class="py-3 px-2 bg-white d-flex flex-column justify-content-center align-items-center fw-bold" style="border-radius: 20px;">
+                            <a href="#" class="link-button-section8 w-100 mb-2">
+                                <div class="d-flex justify-content-start align-items-center lh-1">
+                                    <img src="{{asset('images/section-8/กล่องขวา/next.png')}}" alt="arrow-left" class="arrow-icon me-0 me-md-2" width="30">
+                                    หน้าแรก
+                                </div>
+                                <img src="{{asset('images/section-8/กล่องขวา/home.png')}}" alt="icon" class="home-icon" width="23">
+                            </a>
+                            <a href="#" class="link-button-section8 w-100 mb-2">
+                                <div class="d-flex justify-content-start align-items-center lh-1">
+                                    <img src="{{asset('images/section-8/กล่องขวา/next.png')}}" alt="arrow-left" class="arrow-icon me-0 me-md-2" width="30">
+                                    ข่าวประชาสัมพันธ์
+                                </div>
+                                <img src="{{asset('images/section-8/กล่องขวา/announcement.png')}}" alt="icon" class="announcement-icon" width="23">
+                            </a>
+                            <a href="#" class="link-button-section8 w-100 mb-2">
+                                <div class="d-flex justify-content-start align-items-center lh-1">
+                                    <img src="{{asset('images/section-8/กล่องขวา/next.png')}}" alt="arrow-left" class="arrow-icon me-0 me-md-2" width="30">
+                                    หนังสือสั่งราชการ
+                                </div>
+                                <img src="{{asset('images/section-8/กล่องขวา/open-book.png')}}" alt="icon" class="open-book-icon" width="23">
+                            </a>
+                            <a href="#" class="link-button-section8 w-100 mb-2">
+                                <div class="d-flex justify-content-start align-items-center lh-1">
+                                    <img src="{{asset('images/section-8/กล่องขวา/next.png')}}" alt="arrow-left" class="arrow-icon me-0 me-md-2" width="30">
+                                    กระดานข่าว
+                                </div>
+                                <img src="{{asset('images/section-8/กล่องขวา/bulletin-board.png')}}" alt="icon" class="bulletin-board-icon" width="23">
+                            </a>
+                            <a href="#" class="link-button-section8 w-100 mb-2">
+                                <div class="d-flex justify-content-start align-items-center lh-1">
+                                    <img src="{{asset('images/section-8/กล่องขวา/next.png')}}" alt="arrow-left" class="arrow-icon me-0 me-md-2" width="30">
+                                    ติดต่อหน่วยงาน
+                                </div>
+                                <img src="{{asset('images/section-8/กล่องขวา/customer-service.png')}}" alt="icon" class="customer-service-icon" width="23">
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </div>
 
         </div>
     </div>
 </main>
-
-<script>
-    function setActive(element) {
-        // ลบคลาส active จากทุกลิงก์
-        const links = document.querySelectorAll('.link-8');
-        links.forEach(link => link.classList.remove('active'));
-
-        // เพิ่มคลาส active ให้กับลิงก์ที่คลิก
-        element.classList.add('active');
-    }
-
-</script>

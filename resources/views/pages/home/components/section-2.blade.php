@@ -162,7 +162,7 @@
 
         </div>
         <div class="col-lg-6  col-xl-4 d-flex justify-content-center mt-lg-5 pt-lg-4">
-            <img src="{{ asset('images/section-2/126805.png') }}" alt="img-right"
+            <img src="{{ asset('images/section-2/N.png') }}" alt="img-right"
                 style="filter: drop-shadow(2px 2px 10px rgba(0, 0, 0, 0.5));">
         </div>
     </div>

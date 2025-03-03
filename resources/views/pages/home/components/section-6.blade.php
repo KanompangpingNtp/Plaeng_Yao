@@ -92,7 +92,7 @@
                         <span class="fs-4">องค์การบริหารส่วนตำบลแปลงยาว</span><br>
 
                         <!-- ตัวเลือก Radio Button เรียงลง -->
-                        <div class="my-1 text-start ps-1">
+                        <div class="mt-2 mb-3 text-start ps-1">
                             <div class="form-check">
                                 <input type="radio" class="form-check-input" name="survey" value="option1">
                                 <label class="form-check-label pt-1">ตัวเลือกที่ 1</label>
@@ -110,8 +110,8 @@
                                 <label class="form-check-label pt-1">ตัวเลือกที่ 4</label>
                             </div>
                         </div>
-                        <a href="#" class="bg-link-button px-4 py-1 my-1">
-                            ดูทั้งหมด
+                        <a href="#" class="bg-link-button px-4 py-1 my-3">
+                            ยืนยัน
                         </a>
                     </div>
                 </div>

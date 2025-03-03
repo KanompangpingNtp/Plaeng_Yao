@@ -132,6 +132,63 @@
                                     <span class="carousel-control-next-icon" aria-hidden="true" style="filter: invert(100%);"></span>
                                 </button>
 
+                                <!-- ปรับสไตล์ปุ่ม -->
+                                <style>
+                                    .carousel-control-prev,
+                                    .carousel-control-next {
+                                        width: 40px;
+                                        /* ความกว้างของปุ่ม */
+                                        height: 40px;
+                                        /* ความสูงของปุ่ม */
+                                        background-color: #007bff;
+                                        /* พื้นหลังปุ่ม */
+                                        border-radius: 5px;
+                                        /* มุมปุ่มสี่เหลี่ยมมน */
+                                        display: flex;
+                                        justify-content: center;
+                                        align-items: center;
+                                        border: none;
+                                        /* เอาขอบปุ่มออก */
+                                        position: absolute;
+                                        top: 50%;
+                                        transform: translateY(-50%);
+                                        z-index: 1050;
+                                    }
+
+                                    .carousel-control-prev {
+                                        left: 10px;
+                                        /* ระยะห่างจากซ้าย */
+                                    }
+
+                                    .carousel-control-next {
+                                        right: 10px;
+                                        /* ระยะห่างจากขวา */
+                                    }
+
+                                    .carousel-control-prev-icon,
+                                    .carousel-control-next-icon {
+                                        width: 20px;
+                                        /* ขนาดไอคอน */
+                                        height: 20px;
+                                        /* ขนาดไอคอน */
+                                    }
+
+                                    /* เปลี่ยนสีเมื่อ hover */
+                                    .carousel-control-prev:hover,
+                                    .carousel-control-next:hover {
+                                        background-color: #0056b3;
+                                        /* เปลี่ยนสีพื้นหลังเมื่อ hover */
+                                    }
+
+                                    /* เปลี่ยนสีเมื่อ active */
+                                    .carousel-control-prev:active,
+                                    .carousel-control-next:active {
+                                        background-color: #003f7f;
+                                        /* เปลี่ยนสีพื้นหลังเมื่อ active */
+                                    }
+
+                                </style>
+
                             </div>
                         </div>
                     </div>

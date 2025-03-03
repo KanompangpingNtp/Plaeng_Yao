@@ -159,18 +159,18 @@
                     </div>
                     <div id="btnAverage" onclick="changeContent('สรุปผลการจัดซื้อจัดจ้าง', {{ json_encode($average) }})"
                         class="w-100 text-center text-lg-start px-4 py-1"
-                        data-link="{{ route('AveragePriceDetail', ['id' => ':id']) }}">
+                        data-link="{{ route('RevenueDetail', ['id' => ':id']) }}">
                         สรุปผลการจัดซื้อจัดจ้าง</div>
                     <div id="btnProcurementPlan"
                         onclick="changeContent('แผนการจัดซื้อจัดจ้าง', {{ json_encode($revenue) }})"
                         class="w-100 text-center text-lg-start px-4 py-1"
-                        data-link="{{ route('RevenueDetail', ['id' => ':id']) }}">
+                        data-link="{{ route('ProcurementPlanDetail', ['id' => ':id']) }}">
                         แผนการจัดซื้อจัดจ้าง
                     </div>
                     <div id="btnWinnerAnnouncement"
                         onclick="changeContent('ประกาศผู้ชนะการเสนอราคา', {{ json_encode($announcement) }})"
                         class="w-100 text-center text-lg-start px-4 py-1"
-                        data-link="{{ route('ProcurementPlanDetail', ['id' => ':id']) }}">
+                        data-link="{{ route('AveragePriceDetail', ['id' => ':id']) }}">
                         ประกาศผู้ชนะการเสนอราคา</div>
                 </div>
                 <div class="col-lg-8 d-flex flex-column justify-content-center align-items-center px-3 py-5 "
@@ -224,7 +224,7 @@
     if (data.length > 0) {
         let firstId = data[0].id;
         let activeButton = document.querySelector(`[onclick*="changeContent('${topic}'"]`);
-        
+
         if (activeButton) {
             let linkTemplate = activeButton.getAttribute('data-link');
             baseLink = linkTemplate.replace(':id', firstId);
@@ -233,7 +233,7 @@
         baseLink = "#";
     }
 
-    displayItems(); 
+    displayItems();
     setActiveButton(topic);
 }
 

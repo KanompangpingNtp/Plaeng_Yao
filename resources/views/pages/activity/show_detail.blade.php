@@ -86,50 +86,50 @@
         <div class=" d-flex flex-column justify-content-center p-5">
             <div class="fs-1 fw-bold mb-4 text-center" style="color: #77b329;">กิจกรรม <br><span class="fs-3">{{$activity->title_name}}</div>
 
-                <p class="text-muted">วันที่เผยแพร่: {{ \Carbon\Carbon::parse($activity->date)->format('d-m-Y') }}</p>
+            <p class="text-muted">วันที่เผยแพร่: {{ \Carbon\Carbon::parse($activity->date)->format('d-m-Y') }}</p>
 
-                <div class="mb-4">
-                    <h5 class="text-secondary">รายละเอียด</h5>
-                    <p>{{ $activity->details ?? 'ไม่มีรายละเอียด' }}</p>
+            <div class="mb-4">
+                <h5 class="text-secondary">รายละเอียด</h5>
+                <p>{{ $activity->details ?? 'ไม่มีรายละเอียด' }}</p>
+            </div>
+
+            @php
+            // รีเซ็ต index ให้แน่นอน
+            $photos = $activity->photos->where('post_photo_status', '2')->values();
+            @endphp
+
+            @if ($photos->count() > 0)
+            <h5 class="text-secondary">รูปภาพ</h5>
+            <div class="row">
+                @foreach ($photos as $index => $photo)
+                <div class="col-lg-1 col-md-2 col-sm-3 col-4 mb-3 text-center">
+                    <img src="{{ asset('storage/' . $photo->post_photo_file) }}" class="img-thumbnail rounded shadow-sm" alt="รูปแนบ" style="max-width: 100px; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#photoModal" data-bs-slide-to="{{ $index }}">
                 </div>
+                @endforeach
+            </div>
 
-                @php
-                // รีเซ็ต index ให้แน่นอน
-                $photos = $activity->photos->where('post_photo_status', '2')->values();
-                @endphp
-
-                @if ($photos->count() > 0)
-                <h5 class="text-secondary">รูปภาพ</h5>
-                <div class="row">
-                    @foreach ($photos as $index => $photo)
-                    <div class="col-lg-1 col-md-2 col-sm-3 col-4 mb-3 text-center">
-                        <img src="{{ asset('storage/' . $photo->post_photo_file) }}" class="img-thumbnail rounded shadow-sm" alt="รูปแนบ" style="max-width: 100px; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#photoModal" data-bs-slide-to="{{ $index }}">
-                    </div>
-                    @endforeach
-                </div>
-
-                <!-- Modal แสดงภาพแบบ Carousel -->
-                <div class="modal fade" id="photoModal" tabindex="-1" aria-labelledby="photoModalLabel" aria-hidden="true">
-                    <div class="modal-dialog modal-lg modal-dialog-centered">
-                        <div class="modal-content">
-                            <div class="modal-body p-0">
-                                <div id="carouselPhotos" class="carousel slide" data-bs-ride="carousel">
-                                    <div class="carousel-inner">
-                                        @foreach ($photos as $index => $photo)
-                                        <div class="carousel-item {{ $index == 0 ? 'active' : '' }}">
-                                            <img src="{{ asset('storage/' . $photo->post_photo_file) }}" class="d-block w-100 rounded">
-                                        </div>
-                                        @endforeach
+            <!-- Modal แสดงภาพแบบ Carousel -->
+            <div class="modal fade" id="photoModal" tabindex="-1" aria-labelledby="photoModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-body p-0">
+                            <div id="carouselPhotos" class="carousel slide" data-bs-ride="carousel">
+                                <div class="carousel-inner">
+                                    @foreach ($photos as $index => $photo)
+                                    <div class="carousel-item {{ $index == 0 ? 'active' : '' }}">
+                                        <img src="{{ asset('storage/' . $photo->post_photo_file) }}" class="d-block w-100 rounded">
                                     </div>
+                                    @endforeach
+                                </div>
 
-                                         <!-- ปุ่ม Previous -->
+                                <!-- ปุ่ม Previous -->
                                 <button class="carousel-control-prev" type="button" data-bs-target="#carouselPhotos" data-bs-slide="prev">
-                                    <span class="carousel-control-prev-icon" aria-hidden="true" style="filter: invert(100%);"></span>
+                                    <span class="carousel-control-prev-icon" aria-hidden="true" style="color: white;"></span>
                                 </button>
 
                                 <!-- ปุ่ม Next -->
                                 <button class="carousel-control-next" type="button" data-bs-target="#carouselPhotos" data-bs-slide="next">
-                                    <span class="carousel-control-next-icon" aria-hidden="true" style="filter: invert(100%);"></span>
+                                    <span class="carousel-control-next-icon" aria-hidden="true" style="color: white;"></span>
                                 </button>
 
                                 <!-- ปรับสไตล์ปุ่ม -->
@@ -189,35 +189,35 @@
 
                                 </style>
 
-                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                @endif
+            </div>
+            @endif
 
-                <!-- ไฟล์แนบ: PDF -->
-                @if ($activity->pdfs->count() > 0)
-                <h5 class="text-secondary mt-4">ไฟล์เอกสาร</h5>
-                @foreach ($activity->pdfs as $pdf)
-                <div class="mb-3">
-                    <iframe src="{{ asset('storage/' . $pdf->post_pdf_file) }}" width="100%" height="700px"></iframe>
-                </div>
-                @endforeach
-                @endif
+            <!-- ไฟล์แนบ: PDF -->
+            @if ($activity->pdfs->count() > 0)
+            <h5 class="text-secondary mt-4">ไฟล์เอกสาร</h5>
+            @foreach ($activity->pdfs as $pdf)
+            <div class="mb-3">
+                <iframe src="{{ asset('storage/' . $pdf->post_pdf_file) }}" width="100%" height="700px"></iframe>
+            </div>
+            @endforeach
+            @endif
 
-                <!-- วิดีโอแนบ -->
-                @if ($activity->videos->count() > 0)
-                <h5 class="text-secondary mt-4">วิดีโอ</h5>
-                @foreach ($activity->videos as $video)
-                <div class="mb-4">
-                    <video width="500" height="300" controls>
-                        <source src="{{ asset('storage/' . $video->post_video_file) }}" type="video/mp4">
-                        Your browser does not support the video tag.
-                    </video>
-                </div>
-                @endforeach
-                @endif
+            <!-- วิดีโอแนบ -->
+            @if ($activity->videos->count() > 0)
+            <h5 class="text-secondary mt-4">วิดีโอ</h5>
+            @foreach ($activity->videos as $video)
+            <div class="mb-4">
+                <video width="500" height="300" controls>
+                    <source src="{{ asset('storage/' . $video->post_video_file) }}" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+            @endforeach
+            @endif
 
         </div>
     </div>

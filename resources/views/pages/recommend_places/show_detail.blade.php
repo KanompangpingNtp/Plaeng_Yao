@@ -124,12 +124,12 @@
 
                                          <!-- ปุ่ม Previous -->
                                 <button class="carousel-control-prev" type="button" data-bs-target="#carouselPhotos" data-bs-slide="prev">
-                                    <span class="carousel-control-prev-icon" aria-hidden="true" style="filter: invert(100%);"></span>
+                                    <span class="carousel-control-prev-icon" aria-hidden="true" style="color: white;"></span>
                                 </button>
 
                                 <!-- ปุ่ม Next -->
                                 <button class="carousel-control-next" type="button" data-bs-target="#carouselPhotos" data-bs-slide="next">
-                                    <span class="carousel-control-next-icon" aria-hidden="true" style="filter: invert(100%);"></span>
+                                    <span class="carousel-control-next-icon" aria-hidden="true" style="color: white;"></span>
                                 </button>
 
                                 <!-- ปรับสไตล์ปุ่ม -->

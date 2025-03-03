@@ -61,6 +61,10 @@ Route::get('/Activity/ShowDetails/{id}', [ActivityController::class, 'ActivitySh
 Route::get('/PressRelease/ShowData', [PressReleaseController::class, 'PressReleaseShowData'])->name('PressReleaseShowData');
 Route::get('/PressRelease/ShowDetails/{id}', [PressReleaseController::class, 'PressReleaseShowDetails'])->name('PressReleaseShowDetails');
 
+//แนะนำสถานที่
+Route::get('/RecommendPlaces/ShowData', [RecommendPlacesController::class, 'RecommendPlacesShowData'])->name('RecommendPlacesShowData');
+Route::get('/RecommendPlaces/ShowDetails/{id}', [RecommendPlacesController::class, 'RecommendPlacesShowDetails'])->name('RecommendPlacesShowDetails');
+
 Route::get('/showLoginForm', [AuthController::class, 'showLoginForm'])->name('showLoginForm');
 Route::post('/login', [AuthController::class, 'login'])->name('Login');
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');

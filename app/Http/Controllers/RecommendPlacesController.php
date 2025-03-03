@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\PostType;
 use App\Models\PostDetail;
 use App\Models\PostPhoto;
+use App\Models\PersonnelAgency;
 use Illuminate\Support\Facades\Storage;
 
 class RecommendPlacesController extends Controller
@@ -105,5 +106,32 @@ class RecommendPlacesController extends Controller
         $postDetail->delete();
 
         return redirect()->back()->with('success', 'โพสถูกลบแล้ว');
+    }
+
+    public function RecommendPlacesShowData()
+    {
+        $personnelAgencies = PersonnelAgency::with('ranks')->get();
+
+        $RecommendPlaces = PostDetail::with('postType', 'videos', 'photos')
+            ->whereHas('postType', function ($query) {
+                $query->where('type_name', 'แนะนำสถานที่');
+            })
+            ->orderBy('created_at', 'desc')
+            ->paginate(14); // กำหนดจำนวนรายการที่แสดงต่อหน้าเป็น 14
+
+        return view('pages.recommend_places.show_data', compact('RecommendPlaces','personnelAgencies'));
+    }
+
+    public function RecommendPlacesShowDetails($id)
+    {
+        $personnelAgencies = PersonnelAgency::with('ranks')->get();
+
+        $RecommendPlaces = PostDetail::with(['postType', 'videos', 'photos'])
+            ->whereHas('postType', function ($query) {
+                $query->where('type_name', 'แนะนำสถานที่');
+            })
+            ->findOrFail($id);
+
+        return view('pages.recommend_places.show_detail', compact('RecommendPlaces','personnelAgencies'));
     }
 }

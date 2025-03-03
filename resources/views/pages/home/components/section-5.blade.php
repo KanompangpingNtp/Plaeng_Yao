@@ -370,7 +370,7 @@
                         องค์การบริหารส่วนตำบลแปลงยาว
                     </div>
                     <div class="d-flex align-items-center justify-content-start mt-3 fs-3 fw-bold w-100">
-                        <a href="#" class="bg-link-button px-4 py-1">
+                        <a href="{{route('RecommendPlacesShowData')}}" class="bg-link-button px-4 py-1">
                             ดูสถานที่ทั้งหมด
                         </a>
                     </div>

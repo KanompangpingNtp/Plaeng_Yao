@@ -86,11 +86,11 @@
         <div class=" d-flex flex-column justify-content-center p-5">
             <div class="fs-1 fw-bold mb-4 text-center" style="color: #77b329;">แนะนำสถานที่ <br><span class="fs-3">{{$RecommendPlaces->title_name}}</div>
 
-                <p class="text-muted">วันที่เผยแพร่: {{ \Carbon\Carbon::parse($RecommendPlaces->date)->format('d-m-Y') }}</p>
+                <p class="text-muted"><strong>วันที่เผยแพร่ : </strong> {{ \Carbon\Carbon::parse($RecommendPlaces->date)->format('d-m-Y') }}</p>
 
                 <div class="mb-4">
-                    <h5 class="text-secondary">รายละเอียด</h5>
-                    <p>{{ $RecommendPlaces->details ?? 'ไม่มีรายละเอียด' }}</p>
+                    {{-- <h5 class="text-secondary">รายละเอียด</h5> --}}
+                    <p>{{ $RecommendPlaces->details ?? '' }}</p>
                 </div>
 
                 @php

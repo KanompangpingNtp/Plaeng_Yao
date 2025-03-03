@@ -70,35 +70,35 @@
                     </div>
                     <div class="p-3 w-100" style="background: linear-gradient(to top, rgba(74, 131, 0, 0.9), rgba(163, 245, 12, 0.9),rgba(74, 131, 0, 0.9));  border-bottom-right-radius:20px; border-bottom-left-radius:20px; box-shadow: 3px 4px 20px rgba(255, 255, 255, 0.9);">
                         <div class="py-2 px-2 bg-white d-flex flex-column justify-content-center align-items-center fw-bold" style="border-radius: 20px;">
-                            <a href="#" class="link-button-section8 w-100 mb-2">
+                            <a href="https://www.dla.go.th/index.jsp" class="link-button-section8 w-100 mb-2" target="_blank">
                                 <div class="d-flex justify-content-start align-items-center lh-1">
                                     <img src="{{asset('images/section-8/กล่องซ้าย/ลูกศรน้ำเงิน.png')}}" alt="arrow-left" class="arrow-icon me-0 me-md-2" width="30">
                                     หน้าแรก
                                 </div>
                                 <img src="{{asset('images/section-8/กล่องซ้าย/home.png')}}" alt="icon" class="home-icon" width="23">
                             </a>
-                            <a href="#" class="link-button-section8 w-100 mb-2">
+                            <a href="https://www.dla.go.th/servlet/DocumentServlet?documentType=2&isSbpac=N" class="link-button-section8 w-100 mb-2" target="_blank">
                                 <div class="d-flex justify-content-start align-items-center lh-1">
                                     <img src="{{asset('images/section-8/กล่องซ้าย/ลูกศรน้ำเงิน.png')}}" alt="arrow-left" class="arrow-icon me-0 me-md-2" width="30">
                                     หนังสือราชการของ สถ.
                                 </div>
                                 <img src="{{asset('images/section-8/กล่องซ้าย/agenda.png')}}" alt="icon" class="agenda-icon" width="23">
                             </a>
-                            <a href="#" class="link-button-section8 w-100 mb-2">
+                            <a href="https://www.dla.go.th/servlet/LawServlet?regType=1" class="link-button-section8 w-100 mb-2" target="_blank">
                                 <div class="d-flex justify-content-start align-items-center lh-1">
                                     <img src="{{asset('images/section-8/กล่องซ้าย/ลูกศรน้ำเงิน.png')}}" alt="arrow-left" class="arrow-icon me-0 me-md-2" width="30">
                                     กฏหมาย ระเบียบ และมติ ก.กลาง
                                 </div>
                                 <img src="{{asset('images/section-8/กล่องซ้าย/auction.png')}}" alt="icon" class="auction-icon me-0 me-md-2" width="23">
                             </a>
-                            <a href="#" class="link-button-section8 w-100 mb-2">
+                            <a href="https://www.dla.go.th/servlet/DocumentServlet?documentType=4" class="link-button-section8 w-100 mb-2" target="_blank">
                                 <div class="d-flex justify-content-start align-items-center lh-1">
                                     <img src="{{asset('images/section-8/กล่องซ้าย/ลูกศรน้ำเงิน.png')}}" alt="arrow-left" class="arrow-icon me-0 me-md-2" width="30">
                                     บทความที่น่าสนใจ
                                 </div>
                                 <img src="{{asset('images/section-8/กล่องซ้าย/article.png')}}" alt="icon" class="article-icon me-0 me-md-2" width="23">
                             </a>
-                            <a href="#" class="link-button-section8 w-100 mb-2">
+                            <a href="https://www.dla.go.th/visit/it_royal.jsp" class="link-button-section8 w-100 mb-2" target="_blank">
                                 <div class="d-flex justify-content-start align-items-center lh-1">
                                     <img src="{{asset('images/section-8/กล่องซ้าย/ลูกศรน้ำเงิน.png')}}" alt="arrow-left" class="arrow-icon me-0 me-md-2" width="30">
                                     พรบ. และประกาศเกี่ยวกับ<br>เทคโนโลยีสารสนเทศ
@@ -119,35 +119,35 @@
                     </div>
                     <div class="p-3 w-100" style="background: linear-gradient(to top, rgba(74, 131, 0, 0.9), rgba(163, 245, 12, 0.9),rgba(74, 131, 0, 0.9));  border-bottom-right-radius:20px; border-bottom-left-radius:20px; box-shadow: 3px 4px 20px rgba(255, 255, 255, 0.9);">
                         <div class="py-3 px-2 bg-white d-flex flex-column justify-content-center align-items-center fw-bold" style="border-radius: 20px;">
-                            <a href="#" class="link-button-section8 w-100 mb-2">
+                            <a href="https://www.chacheongsaolocal.go.th/frontpage" class="link-button-section8 w-100 mb-2" target="_blank">
                                 <div class="d-flex justify-content-start align-items-center lh-1">
                                     <img src="{{asset('images/section-8/กล่องขวา/next.png')}}" alt="arrow-left" class="arrow-icon me-0 me-md-2" width="30">
                                     หน้าแรก
                                 </div>
                                 <img src="{{asset('images/section-8/กล่องขวา/home.png')}}" alt="icon" class="home-icon" width="23">
                             </a>
-                            <a href="#" class="link-button-section8 w-100 mb-2">
+                            <a href="https://www.chacheongsaolocal.go.th/news/cate/2" class="link-button-section8 w-100 mb-2" target="_blank">
                                 <div class="d-flex justify-content-start align-items-center lh-1">
                                     <img src="{{asset('images/section-8/กล่องขวา/next.png')}}" alt="arrow-left" class="arrow-icon me-0 me-md-2" width="30">
                                     ข่าวประชาสัมพันธ์
                                 </div>
                                 <img src="{{asset('images/section-8/กล่องขวา/announcement.png')}}" alt="icon" class="announcement-icon" width="23">
                             </a>
-                            <a href="#" class="link-button-section8 w-100 mb-2">
+                            <a href="https://www.chacheongsaolocal.go.th/order" class="link-button-section8 w-100 mb-2" target="_blank">
                                 <div class="d-flex justify-content-start align-items-center lh-1">
                                     <img src="{{asset('images/section-8/กล่องขวา/next.png')}}" alt="arrow-left" class="arrow-icon me-0 me-md-2" width="30">
                                     หนังสือสั่งราชการ
                                 </div>
                                 <img src="{{asset('images/section-8/กล่องขวา/open-book.png')}}" alt="icon" class="open-book-icon" width="23">
                             </a>
-                            <a href="#" class="link-button-section8 w-100 mb-2">
+                            <a href="https://www.chacheongsaolocal.go.th/webboard" class="link-button-section8 w-100 mb-2" target="_blank">
                                 <div class="d-flex justify-content-start align-items-center lh-1">
                                     <img src="{{asset('images/section-8/กล่องขวา/next.png')}}" alt="arrow-left" class="arrow-icon me-0 me-md-2" width="30">
                                     กระดานข่าว
                                 </div>
                                 <img src="{{asset('images/section-8/กล่องขวา/bulletin-board.png')}}" alt="icon" class="bulletin-board-icon" width="23">
                             </a>
-                            <a href="#" class="link-button-section8 w-100 mb-2">
+                            <a href="https://www.chacheongsaolocal.go.th/contactus" class="link-button-section8 w-100 mb-2" target="_blank">
                                 <div class="d-flex justify-content-start align-items-center lh-1">
                                     <img src="{{asset('images/section-8/กล่องขวา/next.png')}}" alt="arrow-left" class="arrow-icon me-0 me-md-2" width="30">
                                     ติดต่อหน่วยงาน

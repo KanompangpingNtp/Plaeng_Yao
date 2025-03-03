@@ -86,7 +86,7 @@
         <div class=" d-flex flex-column justify-content-center p-5">
             <div class="fs-1 fw-bold mb-4 text-center" style="color: #77b329;">ประกาศผู้ชนะการเสนอราคา <br><span class="fs-3">{{$averageprice->title_name}}</div>
 
-                <p class="text-muted">วันที่เผยแพร่: {{ \Carbon\Carbon::parse($revenue->date)->format('d-m-Y') }}</p>
+                <p class="text-muted">วันที่เผยแพร่: {{ \Carbon\Carbon::parse($averageprice->date)->format('d-m-Y') }}</p>
 
                 <!-- ไฟล์แนบ: PDF -->
                 @if ($averageprice->pdfs->count() > 0)

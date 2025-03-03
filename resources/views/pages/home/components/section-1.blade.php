@@ -148,14 +148,12 @@
             <div
                 class="col-lg-6 d-flex flex-column align-items-center align-items-lg-start justify-content-center gap-2 gap-lg-5">
                 <a href="#" class="banner-section-1 d-flex margin-a1">
-                    <img class="icon-attach" src="{{ asset('images/section-1/attach.png') }}" alt="attach">
                     <img class="icon" src="{{ asset('images/section-1/businessman.png') }}" alt="icon">
                     <div class="text-content lh-1">
                         สารจากนายก
                     </div>
                 </a>
                 <a href="#" class="banner-section-1 d-flex">
-                    <img class="icon-attach" src="{{ asset('images/section-1/attach.png') }}" alt="attach">
                     <img class="icon" src="{{ asset('images/section-1/goal.png') }}" alt="icon">
                     <div class="text-content lh-1">
                         เจตจำนงสุจริต <br>
@@ -163,7 +161,6 @@
                     </div>
                 </a>
                 <a href="#" class="banner-section-1 d-flex">
-                    <img class="icon-attach" src="{{ asset('images/section-1/attach.png') }}" alt="attach">
                     <img class="icon" src="{{ asset('images/section-1/ita.png') }}" alt="icon">
                     <div class="text-content lh-1">
                         การประเมินคุณธรรม <br>

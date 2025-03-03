@@ -267,7 +267,7 @@
                 </button>
                 <!-- เมนูทั้งหมด -->
                 <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                    <ul class="navbar-nav w-100 d-flex flex-wrap justify-content-evenly">
+                    <ul class="navbar-nav w-100 d-flex flex-wrap justify-content-evenly fw-bold">
                         <!-- 1. ข้อมูลพื้นฐาน -->
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle d-flex flex-column align-items-center "

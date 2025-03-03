@@ -4,7 +4,6 @@
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
-        min-height: 100vh;
         /* ใช้ min-height เพื่อให้พื้นที่ครอบคลุมหน้าจอ */
 
     }
@@ -90,9 +89,9 @@
 </style>
 <!-- Content Section -->
 <main class="bg-page10 d-flex pt-3">
-    <div class="d-flex flex-column justify-content-end align-items-center align-items-md-end w-100">
-        <div class="bg-coute shadow-lg">
-            <div class=" d-flex flex-column justify-content-center align-items-center">
+    <div class="d-flex flex-column justify-content-end align-items-center w-100">
+        <div class="bg-coute shadow-lg w-100 mb-3">
+            <div class=" d-flex flex-column flex-lg-row justify-content-center align-items-center">
                 <div class="text-center py-3 px-4 border-3 lh-1">
                     <span class="fw-bold fs-3">จำนวนผู้เข้าชมเว็บไซต์</span> <br>
                     number of website visitors

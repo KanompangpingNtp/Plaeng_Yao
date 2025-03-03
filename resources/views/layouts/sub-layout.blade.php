@@ -9,20 +9,20 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
     <style>
-         @font-face {
-            font-family: 'RSU';
-            src: url('/fonts/RSU_Regular.ttf') format('woff2');
+          @font-face {
+            font-family: 'Chula';
+            src: url('/fonts/ChulaCharasNewReg.ttf') format('woff2');
             font-weight: normal;
         }
 
         @font-face {
-            font-family: 'RSU';
-            src: url('/fonts/RSU_BOLD.ttf') format('woff2');
+            font-family: 'Chula';
+            src: url('/fonts/ChulaCharasNewBold.ttf') format('woff2');
             font-weight: bold;
         }
 
         body {
-            font-family: 'RSU', sans-serif;
+            font-family: 'Chula', sans-serif;
             font-size: 20px;
         }
 

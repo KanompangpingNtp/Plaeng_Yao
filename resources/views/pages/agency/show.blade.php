@@ -42,7 +42,7 @@
 <div class="bg">
     <div class="container custom-gradient-shadow">
         <div class="d-flex flex-column justify-content-center align-items-center">
-            <div class="fs-1 fw-bold mb-4">{{ $agency->personnel_agency_name }}</div>
+            <div class="fs-1 fw-bold mb-4 mt-5">{{ $agency->personnel_agency_name }}</div>
 
             @if ($agency->ranks->count() > 0)
             <!-- จัดกลุ่มข้อมูลตาม status และเรียงลำดับ -->
@@ -159,7 +159,45 @@
             @endif
 
             {{-- <a href="{{ url()->previous() }}" class="mt-3">Back</a> --}}
+
+            <div class="text-center">
+                @if ($photos->count() > 0)
+                    <!-- Carousel แสดงภาพ -->
+                    <div id="photoCarousel" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-inner">
+                            @foreach ($photos as $index => $photo)
+                                <div class="carousel-item {{ $index == 0 ? 'active' : '' }}">
+                                    <img src="{{ asset('storage/' . $photo->group_photo_file) }}" class="d-block rounded" alt="รูปแนบ">
+                                </div>
+                            @endforeach
+                        </div>
+                        <!-- ปุ่มเลื่อนซ้าย -->
+                        <button class="carousel-control-prev" type="button" data-bs-target="#photoCarousel" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <!-- ปุ่มเลื่อนขวา -->
+                        <button class="carousel-control-next" type="button" data-bs-target="#photoCarousel" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
+                @endif
+
+                <br>
+                <br>
+            </div>
+
         </div>
+
+        <style>
+            .carousel-item img {
+                width: 655px;
+                height: 437px;
+                object-fit: cover;
+            }
+        </style>
+
     </div>
 </div>
 </div>

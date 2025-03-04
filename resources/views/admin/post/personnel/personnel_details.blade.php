@@ -11,6 +11,8 @@
     สร้างข้อมูลบุคลากร
 </button>
 
+<a href="{{route('PersonnelGroupPhotoPage',$PersonnelRank->id )}}" class="btn btn-primary btn-sm">เพิ่มรูปกลุ่ม</a>
+
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">

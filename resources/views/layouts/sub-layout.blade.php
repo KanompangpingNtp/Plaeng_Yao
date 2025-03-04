@@ -381,7 +381,7 @@
                             <a class="nav-link d-flex flex-column align-items-center" href="#">
                                 <img src="{{ asset('images/header/growth.png') }}" alt="แผนพัฒนนาท้องถิ่น"
                                     class="navbar-icon">
-                                <div class="navbar-text">แผนพัฒนนาท้องถิ่น</div>
+                                <div class="navbar-text">แผนพัฒนาท้องถิ่น</div>
                             </a>
                         </li>
 

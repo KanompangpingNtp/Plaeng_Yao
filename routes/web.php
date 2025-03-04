@@ -19,6 +19,8 @@ use App\Http\Controllers\Personnel\ManagePersonnelController;
 use App\Http\Controllers\Personnel\PersonnelAgencyController;
 use App\Http\Controllers\TreasuryAnnouncementController;
 
+
+use App\Http\Controllers\TestController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -33,6 +35,8 @@ use App\Http\Controllers\TreasuryAnnouncementController;
 // Route::get('/', function () {
 //     return view('pages.home.app');
 // });
+
+Route::get('/details', [TestController::class, 'testPage'])->name('testPage');
 
 Route::get('/', [ShowDataController::class, 'Home'])->name('Home');
 

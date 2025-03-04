@@ -19,7 +19,7 @@ class ActivityController extends Controller
         $postTypes = PostType::all();
 
         $postTypeId = $postTypes->firstWhere('type_name', 'กิจกรรม')->id;
-        $postDetails = PostDetail::with('postType','photos','pdfs','videos')
+        $postDetails = PostDetail::with('postType', 'photos', 'pdfs', 'videos')
             ->where('post_type_id', $postTypeId)
             ->orderBy('created_at', 'desc')
             ->get();
@@ -263,5 +263,28 @@ class ActivityController extends Controller
             ->findOrFail($id);
 
         return view('pages.activity.show_detail', compact('activity', 'personnelAgencies'));
+    }
+
+    public function ActivitySearchData(Request $request)
+    {
+        // รับค่าจาก input ค้นหาที่ชื่อ query
+        $searchQuery = $request->input('query');
+
+        // เรียกข้อมูลจากฐานข้อมูล พร้อมกับการกรองการค้นหาหากมี
+        $personnelAgencies = PersonnelAgency::with('ranks')->get();
+
+        $activity = PostDetail::with('postType', 'videos', 'photos', 'pdfs')
+            ->whereHas('postType', function ($query) {
+                $query->where('type_name', 'กิจกรรม');
+            })
+            // ตรวจสอบว่า query ค้นหามีค่า และกรองข้อมูลตามที่ค้นหา
+            ->when($searchQuery, function ($query) use ($searchQuery) {
+                return $query->where('title_name', 'like', '%' . $searchQuery . '%')
+                    ->orWhere('details', 'like', '%' . $searchQuery . '%'); // เปลี่ยนเป็น 'details' แทน 'description'
+            })
+            ->orderBy('created_at', 'desc')
+            ->paginate(14);
+
+        return view('pages.activity.show_data', compact('activity', 'personnelAgencies'));
     }
 }

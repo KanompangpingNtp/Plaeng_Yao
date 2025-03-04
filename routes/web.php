@@ -56,6 +56,7 @@ Route::get('/procurement-plan/detail/{id}', [ProcurementPlanController::class, '
 //กิจกรรม
 Route::get('/Activity/ShowData', [ActivityController::class, 'ActivityShowData'])->name('ActivityShowData');
 Route::get('/Activity/ShowDetails/{id}', [ActivityController::class, 'ActivityShowDetails'])->name('ActivityShowDetails');
+Route::get('/Activity/Search', [ActivityController::class, 'ActivitySearchData'])->name('ActivitySearchData');
 
 //ประชาสัมพันธ์
 Route::get('/PressRelease/ShowData', [PressReleaseController::class, 'PressReleaseShowData'])->name('PressReleaseShowData');

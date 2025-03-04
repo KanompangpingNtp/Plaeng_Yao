@@ -402,9 +402,7 @@
                                 <div class="navbar-text">เมนูสำหรับประชาชน</div>
                             </a>
                         </li>
-
                     </ul>
-
                 </div>
             </div>
         </nav>

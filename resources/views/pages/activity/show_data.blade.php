@@ -85,6 +85,23 @@
         <div class=" d-flex flex-column justify-content-center p-5">
             <div class="fs-1 fw-bold mb-4 text-center">กิจกรรม</div>
 
+            <div>
+                <form action="{{route('ActivitySearchData')}}" method="GET" class="d-flex justify-content-end">
+                    <div class="input-group mb-3" style="width: 50%;">
+                        <input type="text" class="form-control" placeholder="ค้นหาข้อมูล..." name="query" value="{{ request()->query('query') }}">
+                        <button class="btn btn-outline-secondary" type="submit">ค้นหา</button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- ผลลัพธ์การค้นห -->
+            @if (request()->query('query'))
+            <p>ผลการค้นหาสำหรับ: <strong>{{ request()->query('query') }}</strong></p>
+            @else
+            <p>แสดงข้อมูลทั้งหมด</p>
+            @endif
+
+            <!-- แสดงข้อมูลที่ค้นหา -->
             <div class="row">
                 @foreach ($activity as $index => $post)
                 @php
@@ -94,19 +111,13 @@
                 <div class="col-lg-6 p-2">
                     <a href="{{ route('ActivityShowDetails', $post->id) }}" class="text-decoration-none">
                         <div class="d-flex align-items-center p-3 {{ $cardBackgroundClass }}" style="height: 150px; border-radius: 10px; box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1); display: block;">
-
-                            <!-- รูปภาพด้านซ้าย -->
                             <div style="flex: 0 0 100px; height: 100px; overflow: hidden; border-radius: 10px;">
-                                {{-- <img src="{{ asset('storage/' . ($post->photos->first()->post_photo_file ?? 'images/default.jpg')) }}" alt="Image {{ $index + 1 }}" style="width: 100%; height: 100%; object-fit: cover;"> --}}
                                 <img src="{{
-                                    $post->photos->first() && $post->photos->first()->post_photo_file
-                                    ? asset('storage/' . $post->photos->first()->post_photo_file)
-                                    : asset('images/navbar/Logo-601.png')
-                                }}" alt="Image {{ $index + 1 }}" style="width: 100%; height: 100%; object-fit: cover;">
-
+                    $post->photos->first() && $post->photos->first()->post_photo_file
+                    ? asset('storage/' . $post->photos->first()->post_photo_file)
+                    : asset('images/navbar/Logo-601.png')
+                }}" alt="Image {{ $index + 1 }}" style="width: 100%; height: 100%; object-fit: cover;">
                             </div>
-
-                            <!-- ข้อความด้านขวา -->
                             <div class="ms-3 bg-white h-100 rounded p-1" style="flex: 1; position: relative; height: 100%;">
                                 <div class="card-text text-dark">
                                     {{ Str::limit($post->title_name ?? 'No Title', 60, '...') }}
@@ -153,4 +164,3 @@
 </div>
 </div>
 @endsection
-

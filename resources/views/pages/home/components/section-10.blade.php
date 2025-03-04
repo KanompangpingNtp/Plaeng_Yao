@@ -170,7 +170,7 @@
                             height="20">
                         <div style="font-size: 16px;">เว็บมาสเตอร์</div>
                     </a>
-                    <a href="#" class="d-flex justify-content-center align-items-start gap-2">
+                    <a href="{{route('showLoginForm')}}" class="d-flex justify-content-center align-items-start gap-2">
                         <img src="{{ asset('images/section-10/enter.png') }}" alt="phone" width="20"
                             height="20">
                         <div style="font-size: 16px;">เข้าสู่ระบบ Admin</div>

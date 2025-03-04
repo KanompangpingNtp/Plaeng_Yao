@@ -85,6 +85,22 @@
         <div class=" d-flex flex-column justify-content-center p-5">
             <div class="fs-1 fw-bold mb-4 text-center">ข่าวประชาสัมพันธ์</div>
 
+            <div>
+                <form action="{{route('PressReleaseSearchData')}}" method="GET" class="d-flex justify-content-end">
+                    <div class="input-group mb-3" style="width: 50%;">
+                        <input type="text" class="form-control" placeholder="ค้นหาข้อมูล..." name="query" value="{{ request()->query('query') }}">
+                        <button class="btn btn-success" type="submit">ค้นหา</button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- ผลลัพธ์การค้นห -->
+            @if (request()->query('query'))
+            <p>ผลการค้นหาสำหรับ: <strong>{{ request()->query('query') }}</strong></p>
+            @else
+            <p>แสดงข้อมูลทั้งหมด</p>
+            @endif
+
             <div class="row">
                 @foreach ($pressRelease as $index => $post)
                 @php

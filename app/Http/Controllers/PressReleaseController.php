@@ -266,4 +266,26 @@ class PressReleaseController extends Controller
 
         return view('pages.press_release.show_detail', compact('pressRelease','personnelAgencies'));
     }
+
+    public function PressReleaseSearchData(Request $request)
+    {
+        $searchQuery = $request->input('query');
+
+        $personnelAgencies = PersonnelAgency::with('ranks')->get();
+
+        $pressRelease = PostDetail::with('postType', 'videos', 'photos', 'pdfs')
+            ->whereHas('postType', function ($query) {
+                $query->where('type_name', 'ข่าวประชาสัมพันธ์');
+            })
+            ->when($searchQuery, function ($query) use ($searchQuery) {
+                return $query->where(function ($q) use ($searchQuery) {
+                    $q->where('title_name', 'like', '%' . $searchQuery . '%')
+                        ->orWhere('details', 'like', '%' . $searchQuery . '%');
+                });
+            })
+            ->orderBy('created_at', 'desc')
+            ->paginate(14);
+
+        return view('pages.press_release.show_data', compact('pressRelease', 'personnelAgencies'));
+    }
 }

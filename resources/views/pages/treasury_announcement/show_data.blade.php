@@ -64,7 +64,6 @@
         background: #fff;
         padding: 15px;
         border-top: 2px solid #46c700;
-        /* เส้นสีฟ้าที่ด้านบน */
     }
 
     .card-title {
@@ -83,20 +82,59 @@
 </style>
 <div class="bg py-5">
     <div class="container py-5 custom-gradient-shadow">
-        <div class=" d-flex flex-column justify-content-center p-5">
-            <div class="fs-1 fw-bold mb-4 text-center">ประกาศผู้ชนะการเสนอราคา <br><span class="fs-3">{{$averageprice->title_name}}</div>
+        <div class=" d-flex flex-column justify-content-center align-items-center p-5 ">
+            <div class="fs-1 fw-bold mb-4 text-center">ประกาศของคลัง</div>
 
-            <p class="text-muted">วันที่เผยแพร่: {{ \Carbon\Carbon::parse($averageprice->date)->format('d-m-Y') }}</p>
+            <style>
+                .table td:hover {
+                    background-color: #28a745;
+                    color: white;
+                }
 
-            <!-- ไฟล์แนบ: PDF -->
-            @if ($averageprice->pdfs->count() > 0)
-            <h5 class="text-secondary mt-4">ไฟล์เอกสาร</h5>
-            @foreach ($averageprice->pdfs as $pdf)
-            <div class="mb-3">
-                <iframe src="{{ asset('storage/' . $pdf->post_pdf_file) }}" width="100%" height="700px"></iframe>
-            </div>
-            @endforeach
-            @endif
+                table {
+                    border-collapse: collapse;
+                }
+
+                table td,
+                table th {
+                    border: none;
+                }
+
+                table tr:nth-child(odd) {
+                    background-color: #dcf5bc;
+                }
+
+                table tr:nth-child(even) {
+                    background-color: #ffffff;
+                }
+
+                a {
+                    text-decoration: none;
+                    color: #333;
+                }
+
+            </style>
+
+            <table class="table">
+
+                <tr>
+                    <td><a href="{{route('ProcurementShowData')}}">ประกาศจัดซื้อจัดจ้าง</a></td>
+                </tr>
+                <tr>
+                    <td><a href="{{route('ProcurementResultsShowData')}}">ผลประกาศจัดซื้อจัดจ้างประจำปี</a></td>
+                </tr>
+                <tr>
+                    <td><a href="{{route('RevenueShowData')}}">สรุปผลการจัดซื้อจัดจ้าง</a></td>
+                </tr>
+                <tr>
+                    <td><a href="{{route('ProcurementPlanShowData')}}">แผนการจัดซื้อจัดจ้าง</a></td>
+                </tr>
+                <tr>
+                    <td><a href="{{route('AveragePriceShowData')}}">ประกาศผู้ชนะการเสนอราคา</a></td>
+                </tr>
+
+            </table>
+
         </div>
     </div>
 </div>

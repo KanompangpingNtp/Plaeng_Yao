@@ -139,4 +139,38 @@ class ProcurementResultsController extends Controller
 
         return view('pages.procurementResults.show_detail', compact('procurementResults','personnelAgencies'));
     }
+
+    public function ProcurementResultsShowData()
+    {
+        $personnelAgencies = PersonnelAgency::with('ranks')->get();
+
+        $ProcurementResults = PostDetail::with('postType','photos')
+            ->whereHas('postType', function ($query) {
+                $query->where('type_name', 'ผลประกาศจัดซื้อจัดจ้างประจำปี');
+            })->paginate(14);
+
+        return view('pages.procurementResults.show_data', compact('ProcurementResults','personnelAgencies'));
+    }
+
+    public function ProcurementResultsSearchData(Request $request)
+    {
+        $searchQuery = $request->input('query');
+
+        $personnelAgencies = PersonnelAgency::with('ranks')->get();
+
+        $ProcurementResults = PostDetail::with('postType', 'videos', 'photos', 'pdfs')
+            ->whereHas('postType', function ($query) {
+                $query->where('type_name', 'ผลประกาศจัดซื้อจัดจ้างประจำปี');
+            })
+            ->when($searchQuery, function ($query) use ($searchQuery) {
+                return $query->where(function ($q) use ($searchQuery) {
+                    $q->where('title_name', 'like', '%' . $searchQuery . '%')
+                        ->orWhere('details', 'like', '%' . $searchQuery . '%');
+                });
+            })
+            ->orderBy('created_at', 'desc')
+            ->paginate(14);
+
+        return view('pages.procurementResults.show_data', compact('ProcurementResults', 'personnelAgencies'));
+    }
 }

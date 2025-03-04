@@ -330,7 +330,7 @@
 
                         <!-- 4. อำนาจหน้าที่ -->
                         <li class="nav-item">
-                            <a class="nav-link d-flex flex-column align-items-center" href="">
+                            <a class="nav-link d-flex flex-column align-items-center">
                                 <img src="{{ asset('images/header/certificate-authority.png') }}" alt="อำนาจหน้าที่" class="navbar-icon">
                                 <div class="navbar-text">อำนาจหน้าที่</div>
                             </a>

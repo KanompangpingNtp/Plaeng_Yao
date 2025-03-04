@@ -86,17 +86,17 @@
         <div class=" d-flex flex-column justify-content-center p-5">
             <div class="fs-1 fw-bold mb-4 text-center" style="color: #77b329;">ประกาศผู้ชนะการเสนอราคา <br><span class="fs-3">{{$averageprice->title_name}}</div>
 
-                <p class="text-muted">วันที่เผยแพร่: {{ \Carbon\Carbon::parse($averageprice->date)->format('d-m-Y') }}</p>
+            <p class="text-muted">วันที่เผยแพร่: {{ \Carbon\Carbon::parse($averageprice->date)->format('d-m-Y') }}</p>
 
-                <!-- ไฟล์แนบ: PDF -->
-                @if ($averageprice->pdfs->count() > 0)
-                <h5 class="text-secondary mt-4">ไฟล์เอกสาร</h5>
-                @foreach ($averageprice->pdfs as $pdf)
-                <div class="mb-3">
-                    <iframe src="{{ asset('storage/' . $pdf->post_pdf_file) }}" width="100%" height="700px"></iframe>
-                </div>
-                @endforeach
-                @endif
+            <!-- ไฟล์แนบ: PDF -->
+            @if ($averageprice->pdfs->count() > 0)
+            <h5 class="text-secondary mt-4">ไฟล์เอกสาร</h5>
+            @foreach ($averageprice->pdfs as $pdf)
+            <div class="mb-3">
+                <iframe src="{{ asset('storage/' . $pdf->post_pdf_file) }}" width="100%" height="700px"></iframe>
+            </div>
+            @endforeach
+            @endif
         </div>
     </div>
 </div>

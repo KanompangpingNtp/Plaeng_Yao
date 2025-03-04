@@ -9,7 +9,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
     <style>
-         @font-face {
+        @font-face {
             font-family: 'PROMPT';
             src: url('/fonts/PROMPT-LIGHT.ttf') format('woff2');
             font-weight: normal;
@@ -75,8 +75,8 @@
         }
 
         .button-blue {
-            background: linear-gradient(to bottom, rgba(135, 255, 36, 0.8), rgba(5, 143, 0, 0.8));
-            font-size: 25px;
+            background: linear-gradient(to bottom, #cbfc89, #93961d);
+            font-size: 16px;
             font-weight: bold;
             padding: 2px 20px;
             border: 0px solid black;
@@ -134,50 +134,123 @@
         }
 
         .bg-black-opacity {
-            background: linear-gradient(to bottom, rgba(29, 29, 29, 0.4), rgb(29, 29, 29, 0.4));
+            background: linear-gradient(to bottom, rgba(29, 29, 29, 0.6), rgba(29, 29, 29, 0.6));
             padding: 10px 5px;
             border-radius: 12px;
         }
 
         .navbar .dropdown-toggle::after {
-        display: none !important;
-    }
+            display: none !important;
+        }
 
-    .dropdown-menu {
-        background-color: rgba(58, 175, 22, 0.8);
-        border: 1px solid rgb(27, 116, 0);
-        border-radius: 8px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        padding: 10px 0;
-        margin: 0;
-        font-size: 23px;
-        transition: all 0.3s ease;
-    }
+        .dropdown-menu {
+            background-color: rgba(58, 175, 22, 0.8);
+            border: 1px solid rgb(27, 116, 0);
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 10px 0;
+            margin: 0;
+            font-size: 23px;
+            transition: all 0.3s ease;
+        }
 
 
-    .dropdown-menu a {
-        color: #e4e4e4;
-        transition: all 0.3s ease;
-    }
+        .dropdown-menu a {
+            color: #e4e4e4;
+            transition: all 0.3s ease;
+        }
 
-    .dropdown-menu a:hover {
-        color: rgb(0, 0, 0);
-        background-color: rgb(27, 116, 0);
-    }
+        .dropdown-menu a:hover {
+            color: rgb(0, 0, 0);
+            background-color: rgb(27, 116, 0);
+        }
 
-    .navbar-nav .nav-item .nav-link {
-        transition: transform 0.3s ease-in-out, filter 0.3s ease-in-out;
-    }
+        .navbar-nav .nav-item .nav-link {
+            transition: transform 0.3s ease-in-out, filter 0.3s ease-in-out;
+        }
 
-    .navbar-nav .nav-item .nav-link:hover {
-        transform: scale(1.1);
-        /* ขยายขึ้น 10% */
-        filter: drop-shadow(0 0 8px rgb(27, 116, 0, 0.9));
-        /* เรืองแสงสีฟ้า */
-    }
+        .navbar-nav .nav-item .nav-link:hover {
+            transform: scale(1.1);
+            /* ขยายขึ้น 10% */
+            filter: drop-shadow(0 0 8px rgb(27, 116, 0, 0.9));
+            /* เรืองแสงสีฟ้า */
+        }
 
-     /* สำหรับ scrollbar ทุกประเภท */
-     ::-webkit-scrollbar {
+        .navbar-text {
+            font-size: 16px;
+        }
+
+        .maintitle-text {
+            font-size: 14px;
+        }
+
+        .subtitle-text {
+            font-size: 12px;
+            /* ขนาดใหญ่ขึ้นเมื่อหน้าจอ ≥ 640px */
+        }
+
+        @media (min-width: 640px) {
+            .maintitle-text {
+                font-size: 18px;
+            }
+
+            .subtitle-text {
+                font-size: 16px;
+                /* ขนาดใหญ่ขึ้นเมื่อหน้าจอ ≥ 640px */
+            }
+
+            .button-blue {
+                font-size: 16px;
+            }
+        }
+
+        @media (min-width: 768px) {
+            .maintitle-text {
+                font-size: 18px;
+            }
+
+            .subtitle-text {
+                font-size: 16px;
+                /* ขนาดใหญ่ขึ้นเมื่อหน้าจอ ≥ 640px */
+            }
+
+            .button-blue {
+                font-size: 18px;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .maintitle-text {
+                font-size: 20px;
+            }
+
+            .subtitle-text {
+                font-size: 18px;
+                /* ขนาดใหญ่ขึ้นเมื่อหน้าจอ ≥ 640px */
+            }
+
+            .button-blue {
+                font-size: 20px;
+            }
+        }
+
+        @media (min-width: 1280px) {
+            .maintitle-text {
+                font-size: 26px;
+            }
+
+            .subtitle-text {
+                font-size: 24px;
+                /* ขนาดใหญ่ขึ้นเมื่อหน้าจอ ≥ 640px */
+            }
+
+            .button-blue {
+                font-size: 26px;
+            }
+        }
+
+        /* สำหรับ scrollbar ทุกประเภท */
+        ::-webkit-scrollbar {
             width: 5px;
             /* กำหนดความกว้างของ scrollbar */
             height: 12px;
@@ -212,6 +285,22 @@
             background-color: rgb(148, 228, 0);
             /* เปลี่ยนสีเมื่อ hover */
         }
+
+        .flag-link {
+            display: inline-block;
+            margin: 2px;
+            transition: filter 0.3s ease-in-out;
+        }
+
+        .flag-link:hover img {
+            filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.8));
+        }
+
+        .bg-menu {
+            background: linear-gradient(to right, #d2f26e, #95dc38);
+            z-index: 2;
+            transition: transform 0.3s ease;
+        }
     </style>
 </head>
 
@@ -219,44 +308,70 @@
 
     <!-- Content Section -->
     <header class="bg-nav d-flex">
-        <div class="container d-flex justify-content-center justify-content-md-between align-items-center">
-            <div class="d-flex  justify-content-start align-items-center">
+        <div
+            class="container d-flex flex-column flex-xxl-row justify-content-center justify-content-md-between align-items-center">
+            <div class="d-flex justify-content-start align-items-center">
                 <img src="{{ asset('images/navbar/Logo-601.png') }}" alt="logo" class="logo d-none d-md-block"
                     style="margin-right:-35px; z-index: 3;">
                 <div class="text-title-nav lh-1 text-center text-md-start py-2 px-5">
-                    <span class="me-1" style="font-size: 30px;">องค์การบริหารส่วนตำบลแปลงยาว <br> อำเภอแปลงยาว
+                    <span class="me-1 maintitle-text">องค์การบริหารส่วนตำบลแปลงยาว <br> อำเภอแปลงยาว
                         จังหวัดฉะเชิงเทรา</span><br>
-                    <span style="font-size: 25px;">Plaeng Yao Subdistrict Administrative Oraganization</span>
+                    <span class="subtitle-text">Plaeng Yao Subdistrict Administrative Oraganization</span>
                 </div>
             </div>
             <div class="d-flex gap-2">
-                <div class="d-flex flex-column justify-content-start align-items-center d-none d-lg-block">
+                <div class="d-flex flex-column justify-content-start align-items-center mt-2 mt-md-0">
                     <div class="d-flex justify-content-end align-items-center gap-2">
-                        <a class="button-blue" href="{{route('Home')}}"><i class="fa-solid fa-house fs-5"></i> หน้าหลัก</a>
-                        <a class="button-blue" href="{{route('showLoginForm')}}"><i class="fa-solid fa-user fs-5"></i> เข้าสู่ระบบ</a>
+                        <a class="button-blue" href="{{ route('Home') }}"><i class="fa-solid fa-house text-black"></i>
+                            หน้าหลัก</a>
+                        <a class="button-blue" href="{{ route('showLoginForm') }}"><i
+                                class="fa-solid fa-user  text-black"></i> เข้าสู่ระบบ</a>
                     </div>
-                    <div class="d-flex justify-content-end align-items-center gap-2 button-img mt-2">
-                        <div
-                            class="d-flex justify-content-start align-items-start button-img gap-1 d-none d-lg-flex bg-black-opacity">
+                    <div class="d-flex justify-content-evenly align-items-center gap-2 button-img my-1">
+                        <div class="d-flex justify-content-start align-items-start button-img gap-1 bg-black-opacity">
                             <img src="{{ asset('images/navbar/text-minus.png') }}" alt="text-minus">
                             <img src="{{ asset('images/navbar/text-normal.png') }}" alt="text-normal">
                             <img src="{{ asset('images/navbar/text-plus.png') }}" alt="text-plus">
                         </div>
                         <img src="{{ asset('images/navbar/disability.png') }}" alt="btn-disability" width="42"
                             height="42">
-                        <div class="bg-black-opacity">
-                            <img src="{{ asset('images/navbar/th.png') }}" alt="thailand" width="30">
-                            <img src="{{ asset('images/navbar/en.png') }}" alt="english" width="30">
+                    </div>
+                    <div class="bg-black-opacity d-flex justify-content-center align-items-center">
+                        <div class="text-white d-none d-sm-block">
+                            เปลี่ยนภาษา
                         </div>
-
-
+                        <a href="#" class="flag-link"><img src="{{ asset('images/navbar/country/thailand.png') }}"
+                                alt="Thailand" width="23"></a>
+                        <a href="#" class="flag-link"><img src="{{ asset('images/navbar/country/Brunei.png') }}"
+                                alt="Brunei" width="23"></a>
+                        <a href="#" class="flag-link"><img src="{{ asset('images/navbar/country/Myanmar.png') }}"
+                                alt="Myanmar" width="23"></a>
+                        <a href="#" class="flag-link"><img src="{{ asset('images/navbar/country/Laos.png') }}"
+                                alt="Laos" width="23"></a>
+                        <a href="#" class="flag-link"><img
+                                src="{{ asset('images/navbar/country/Indonesia.png') }}" alt="Indonesia"
+                                width="23"></a>
+                        <a href="#" class="flag-link"><img
+                                src="{{ asset('images/navbar/country/Malaysia.png') }}" alt="Malaysia"
+                                width="23"></a>
+                        <a href="#" class="flag-link"><img
+                                src="{{ asset('images/navbar/country/Philippines.png') }}" alt="Philippines"
+                                width="23"></a>
+                        <a href="#" class="flag-link"><img
+                                src="{{ asset('images/navbar/country/Cambodia.png') }}" alt="Cambodia"
+                                width="23"></a>
+                        <a href="#" class="flag-link"><img
+                                src="{{ asset('images/navbar/country/Singapore.png') }}" alt="Singapore"
+                                width="23"></a>
+                        <a href="#" class="flag-link"><img src="{{ asset('images/navbar/country/Vietnam.png') }}"
+                                alt="Vietnam" width="23"></a>
                     </div>
                 </div>
 
             </div>
         </div>
     </header>
-    <div class="bg-menu w-100 pb-2 pt-3">
+    <div class=" w-100">
         <nav class="navbar navbar-expand-lg bg-menu pb-2 pt-3">
             <div class="container">
                 <!-- ปุ่ม Toggle สำหรับหน้าจอเล็ก -->
@@ -270,11 +385,10 @@
                     <ul class="navbar-nav w-100 d-flex flex-wrap justify-content-evenly fw-bold">
                         <!-- 1. ข้อมูลพื้นฐาน -->
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle d-flex flex-column align-items-center "
-                                href="#" id="basicInfoDropdown" role="button" data-bs-toggle="dropdown"
+                            <a class="nav-link dropdown-toggle d-flex flex-column align-items-center " href="#"
+                                id="basicInfoDropdown" role="button" data-bs-toggle="dropdown"
                                 aria-expanded="false">
-                                <img src="{{ asset('images/header/info.png') }}" alt="house"
-                                    class="navbar-icon">
+                                <img src="{{ asset('images/header/info.png') }}" alt="house" class="navbar-icon">
                                 <div class="navbar-text ">ข้อมูลพื้นฐาน</div>
                             </a>
                             {{-- <ul class="dropdown-menu" aria-labelledby="basicInfoDropdown">
@@ -326,8 +440,8 @@
                             <a class="nav-link dropdown-toggle d-flex flex-column align-items-center" href="#"
                                 id="performanceDropdown" role="button" data-bs-toggle="dropdown"
                                 aria-expanded="false">
-                                <img src="{{ asset('images/header/key-performance-indicator.png') }}" alt="online survey"
-                                    class="navbar-icon">
+                                <img src="{{ asset('images/header/key-performance-indicator.png') }}"
+                                    alt="online survey" class="navbar-icon">
                                 <div class="navbar-text">ผลการดำเนินงาน</div>
                             </a>
                             {{-- <ul class="dropdown-menu" aria-labelledby="performanceDropdown">
@@ -368,8 +482,7 @@
 
                         <!-- 4. อำนาจหน้าที่ -->
                         <li class="nav-item">
-                            <a class="nav-link d-flex flex-column align-items-center"
-                                href="">
+                            <a class="nav-link d-flex flex-column align-items-center" href="">
                                 <img src="{{ asset('images/header/certificate-authority.png') }}" alt="อำนาจหน้าที่"
                                     class="navbar-icon">
                                 <div class="navbar-text">อำนาจหน้าที่</div>
@@ -399,7 +512,7 @@
                             <a class="nav-link d-flex flex-column align-items-center" href="#">
                                 <img src="{{ asset('images/header/crowd.png') }}" alt="เมนูสำหรับประชาชน"
                                     class="navbar-icon">
-                                <div class="navbar-text">เมนูหรับประชาชน</div>
+                                <div class="navbar-text">เมนูสำหรับประชาชน</div>
                             </a>
                         </li>
 
@@ -453,7 +566,7 @@
             </div>
         </div> --}}
     </div>
-    @include('layouts.components.sub-header.sub-header')
+    @include('layouts.components.header')
 
     @yield('content')
 

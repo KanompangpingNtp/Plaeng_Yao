@@ -15,9 +15,8 @@
         justify-content: center;
         padding: 10px 20px;
         text-decoration: none;
-
-        color: #ffffff;
-        background: linear-gradient(to right, rgba(5, 143, 0, 0.8), rgba(135, 255, 36, 0.8), rgba(5, 143, 0, 0.8));
+        color: #000000;
+        background: linear-gradient(to right, #94dc38, #cff16b, #94dc38);
         box-shadow: 0 0 5px 3px rgba(255, 255, 255, 0.5);
         border-radius: 20px;
         overflow: visible;
@@ -26,7 +25,7 @@
     }
 
     .banner-section-1:hover {
-        background: linear-gradient(to right, rgba(135, 255, 36, 0.8), rgba(5, 143, 0, 0.8), rgba(135, 255, 36, 0.8));
+        background: linear-gradient(to right, #cff16b, #94dc38, #cff16b);
         box-shadow: 0 0 15px 5px rgba(255, 255, 255, 0.7);
         transform: scale(1.05);
         /* เพิ่มการขยาย */
@@ -61,14 +60,14 @@
     }
 
     .banner-section-1 .text-content {
-        font-size: 30px;
+        font-size: 21px;
         font-weight: bold;
         transition: color 0.3s ease-in-out;
         /* เพิ่มทรานซิชันสำหรับข้อความ */
     }
 
     .banner-section-1:hover .text-content {
-        color: #ffbb00;
+        color: #ffa600;
         /* เปลี่ยนสีข้อความเมื่อ hover */
     }
 
@@ -84,11 +83,15 @@
 
     .responsive-image {
         width: 100%;
-        max-width: 250px;
+        max-width: 400px;
         height: auto;
     }
 
-    @media (min-width: 992px) {
+    .margin-control {
+        margin-bottom: 13rem;
+    }
+
+    @media (min-width: 1199px) {
 
         /* สำหรับจอ lg หรือใหญ่กว่า */
         .responsive-image {
@@ -113,14 +116,26 @@
     }
 
     /* Media Queries สำหรับ Responsive */
-    @media (max-width: 992px) {
+    @media (max-width:1399px) {
+
+        .margin-control {
+            margin-bottom: 4rem;
+        }
+
+    }
+
+    @media (max-width:1199px) {
 
         /* สำหรับหน้าจอขนาดกลาง (tablet) */
         .name-title,
         .position-title,
         .contact-info {
-            margin-left: 10rem;
+            margin-left: 0rem;
             /* ลดระยะขอบ */
+        }
+
+        .margin-control {
+            margin-bottom: 12rem;
         }
     }
 
@@ -130,7 +145,7 @@
         .name-title,
         .position-title,
         .contact-info {
-            margin-left: 2rem;
+            margin-left: 0rem;
             /* ลดระยะขอบให้เหลือน้อยที่สุด */
             text-align: center;
             /* จัดข้อความให้อยู่กลาง */
@@ -139,34 +154,50 @@
 </style>
 <main class="d-flex bg-page1">
     <div class="container d-flex flex-column align-items-center ">
-        <div class="d-flex flex-column flex-lg-row gap-3 ">
-            <div class="col-lg-6 d-flex">
+        <div class="d-flex flex-column flex-xl-row gap-3 ">
+            <div class="col-xl-6 d-flex justify-content-center">
                 {{-- <img src="{{ asset('images/section-1/persernals.png') }}" alt="persernals" class="responsive-image"> --}}
                 <img src="{{ asset('images/section-1/nayok.gif') }}" alt="persernals" class="responsive-image">
             </div>
 
-            <div
-                class="col-lg-6 d-flex flex-column align-items-center align-items-lg-start justify-content-center gap-2 gap-lg-5">
-                <a href="#" class="banner-section-1 d-flex margin-a1">
-                    <img class="icon" src="{{ asset('images/section-1/businessman.png') }}" alt="icon">
-                    <div class="text-content lh-1">
-                        สารจากนายก
-                    </div>
-                </a>
-                <a href="#" class="banner-section-1 d-flex">
-                    <img class="icon" src="{{ asset('images/section-1/goal.png') }}" alt="icon">
-                    <div class="text-content lh-1">
-                        เจตจำนงสุจริต <br>
-                        ของผู้บริหาร
-                    </div>
-                </a>
-                <a href="#" class="banner-section-1 d-flex">
-                    <img class="icon" src="{{ asset('images/section-1/ita.png') }}" alt="icon">
-                    <div class="text-content lh-1">
-                        การประเมินคุณธรรม <br>
-                        และ ความโปร่งใส
-                    </div>
-                </a>
+            <div class="col-xl-6 d-flex align-items-end margin-control">
+                <div class="row p-1 ">
+                    <a href="#" class="col-xl-6 banner-section-1 d-flex mx-1 my-2">
+                        <img class="icon" src="{{ asset('images/section-1/businessman.png') }}" alt="icon">
+                        <div class="text-content lh-1">
+                            สารจากนายก
+                        </div>
+                    </a>
+                    <a href="#" class="col-xl-5 banner-section-1 d-flex mx-1 my-2">
+                        <img class="icon" src="{{ asset('images/section-1/4.png') }}" alt="icon">
+                        <div class="text-content lh-1">
+                            รับแจ้งเรื่องราว <br>
+                            ร้องทุกข์
+                        </div>
+                    </a>
+                    <a href="#" class="col-xl-6 banner-section-1 d-flex mx-1 my-2">
+                        <img class="icon" src="{{ asset('images/section-1/5.png') }}" alt="icon">
+                        <div class="text-content lh-1">
+                            รับเรื่องร้องเรียนทุจริต <br>
+                            ประพฤติมิชอบ
+                        </div>
+                    </a>
+                    <a href="#" class="col-xl-5 banner-section-1 d-flex mx-1 my-2">
+                        <img class="icon" src="{{ asset('images/section-1/goal.png') }}" alt="icon">
+                        <div class="text-content lh-1">
+                            เจตจำนงสุจริต <br>
+                            ของผู้บริหาร
+                        </div>
+                    </a>
+                    <a href="#" class="col-xl-6 banner-section-1 d-flex mx-1 my-2">
+                        <img class="icon" src="{{ asset('images/section-1/ita.png') }}" alt="icon">
+                        <div class="text-content lh-1">
+                            การประเมินคุณธรรม <br>
+                            และ ความโปร่งใส
+                        </div>
+                    </a>
+                </div>
+
             </div>
         </div>
     </div>

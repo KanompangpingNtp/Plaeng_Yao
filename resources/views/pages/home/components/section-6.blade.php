@@ -28,12 +28,30 @@
         /* เปลี่ยนสีข้อความเมื่อ hover */
     }
 
+    .bg-link-button6 {
+        background: linear-gradient(to bottom, #d0f06d, #4f8506);
+        box-shadow: 2px 2px 10px rgba(255, 255, 255, 0.9);
+        border-radius: 5px;
+        text-decoration: none;
+        color: #ffffff;
+        transition: all 0.3s ease;
+        /* เพิ่มการเปลี่ยนแปลงที่นุ่มนวล */
+    }
+
+    .bg-link-button6:hover {
+        background: linear-gradient(to top, #4f8506, #d0f06d);
+        /* เปลี่ยนสีเมื่อ hover */
+        box-shadow: 4px 4px 20px rgba(255, 255, 255, 0.7);
+        /* ทำให้เงาลึกขึ้น */
+        transform: scale(1.05);
+        /* ขยายขนาดเล็กน้อย */
+    }
 </style>
 <main class="d-flex align-items-center justify-content-center bg-page6">
     <div class="container">
         <div class="row" style="gap: 1rem 0;">
             <div class="col-xl-7 d-flex flex-column">
-                <div class="p-3 d-flex justify-content-between align-items-center gap-2" style="background: linear-gradient(to top, rgba(74, 131, 0, 0.9), rgba(163, 245, 12, 0.9));
+                <div class="p-3 d-flex flex-column flex-md-row justify-content-between align-items-center gap-2" style="background: linear-gradient(to bottom, #d1f26d, #4c8305);
                            border-top-left-radius: 30px; border-top-right-radius: 30px;">
 
                     <!-- ส่วนข้อความและโลโก้ -->
@@ -49,7 +67,7 @@
                     </div>
 
                     <!-- ปุ่มดูทั้งหมด -->
-                    <a href="{{route('PressReleaseShowData')}}" class="btn btn-light fs-4 px-4" style="text-decoration: none; border-radius: 15px;">ดูทั้งหมด</a>
+                    <a href="{{route('PressReleaseShowData')}}" class="btn btn-light fs-5 px-3" style="text-decoration: none; border-radius: 15px;">ดูทั้งหมด</a>
                 </div>
                 <div class="px-3 pb-5 pt-2" style="background: linear-gradient(to left, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2));
             border-bottom-left-radius: 30px; border-bottom-right-radius: 30px;">
@@ -85,7 +103,7 @@
             </div>
 
             <div class="col-xl-5 d-flex flex-column justify-content-center align-items-center">
-                <div class="px-2 py-3 " style="background: linear-gradient(to left, rgba(74, 131, 0, 0.9), rgba(163, 245, 12, 0.9),rgba(74, 131, 0, 0.9));
+                <div class="px-2 py-3 " style="background: linear-gradient(to top, #497f01, #92b428, #497f01);
                 border-radius: 20px; ">
                     <div class="bg-white py-3 px-5 lh-1 text-center fw-bold" style="border-radius: 20px;">
                         <span class="fs-2">แบบสำรวจความคิดเห็น</span><br>
@@ -110,8 +128,8 @@
                                 <label class="form-check-label pt-1">ตัวเลือกที่ 4</label>
                             </div>
                         </div>
-                        <a href="#" class="bg-link-button px-4 py-1 my-3">
-                            ยืนยัน
+                        <a href="#" class="bg-link-button6 px-4 py-1 my-3">
+                            กดโหวต
                         </a>
                     </div>
                 </div>

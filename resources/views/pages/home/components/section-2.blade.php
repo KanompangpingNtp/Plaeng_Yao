@@ -22,7 +22,7 @@
     }
 
     .bg-carousel-sectioon-2 {
-        background: linear-gradient(to top, rgba(5, 143, 0, 0.8), rgba(135, 255, 36, 0.8));
+        background: linear-gradient(to bottom, #cff16b, #94dc38);
         box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
         border-radius: 20px;
         padding: 15px;
@@ -33,7 +33,7 @@
         background-color: white;
         box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
         border-radius: 30px;
-        font-size: 22px;
+        font-size: 18px;
         font-weight: bold;
         text-decoration: none;
         color: #000;
@@ -49,7 +49,7 @@
     }
 
     .banner-section-2 .bg-inbanner {
-        background: linear-gradient(to bottom, rgba(5, 143, 0, 0.8), rgba(135, 255, 36, 0.8));
+        background: linear-gradient(to bottom, #558a0b, #a3cb49);
         border-radius: 30px 0 0 30px;
         width: 70px;
         z-index: 1;
@@ -59,7 +59,7 @@
     }
 
     .banner-section-2:hover .bg-inbanner {
-        background: linear-gradient(to bottom, rgba(5, 200, 50, 0.9), rgba(135, 255, 80, 0.9));
+        background: linear-gradient(to top, #558a0b, #a3cb49);
         /* เปลี่ยนสีเมื่อ hover */
     }
 
@@ -81,11 +81,12 @@
     }
 </style>
 <main class="d-flex flex-column align-items-center justify-content-center bg-page2">
-    <div class="container d-flex flex-column flex-lg-row align-items-center w-100 gap-2">
-        <div class="col-lg-6 col-xl-8 d-flex flex-column">
-            <div class="d-flex align-items-center justify-content-center mb-3 gap-2 fs-1 fw-bold">
-                รางวัลแห่งความภาคภูมิใจ <img src="{{ asset('images/section-2/trophy.png') }}" alt="icon" width="50"
-                    height="50">
+    <div class="container d-flex flex-column flex-xl-row align-items-center w-100 gap-2">
+        <div class=" col-xl-8 d-flex flex-column">
+            <div class="d-flex align-items-center justify-content-center mb-3 gap-2 fs-2 fw-bold" >
+                <span style="text-shadow: 10px 10px 22px rgba(255, 255, 255, 0.8);">รางวัลแห่งความภาคภูมิใจ</span>
+                <img src="{{ asset('images/section-2/trophy.png') }}" alt="icon" width="50"
+                    height="60">
             </div>
             <div class="bg-carousel-sectioon-2">
                 <!-- ภาพสไลด์ -->
@@ -138,7 +139,7 @@
                     </div>
 
                     <!-- Images -->
-                    <div class="carousel-inner">
+                    <div class="carousel-inner rounded">
                         @foreach ($awardsPride as $index => $award)
                             @foreach ($award->photos as $photo)
                                 <div class="carousel-item {{ $loop->first && $index == 0 ? 'active' : '' }}">
@@ -161,26 +162,37 @@
             </div>
 
         </div>
-        <div class="col-lg-6  col-xl-4 d-flex justify-content-center mt-lg-5 pt-lg-4">
+        <div class="  col-xl-4 d-flex justify-content-center ms-0 ms-sm-3 mt-lg-5 pt-lg-4">
             <img src="{{ asset('images/section-2/N.png') }}" alt="img-right"
                 style="filter: drop-shadow(2px 2px 10px rgba(0, 0, 0, 0.5));">
         </div>
     </div>
     <div class="container mt-3 mt-sm-5">
-        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-3 justify-content-center">
-            <div class="col">
-                <a href="#" class="banner-section-2 d-flex border lh-1 p-0">
+        <div class="row g-4 justify-content-center">
+            <div class="col-sm-6 col-xl-3">
+                <a href="#" class="banner-section-2 d-flex lh-1 p-0">
                     <div class="bg-inbanner">
-                        <img src="{{ asset('images/section-2/knowledge.png') }}" alt="icon">
+                        <img src="{{ asset('images/section-2/engagement.png') }}" alt="icon">
                     </div>
                     <div class="m-auto py-3 py-sm-2">
-                        การจัดการองค์ความรู้ <br class="d-none d-sm-block">
-                        อบต.แปลงยาว
+                        เพิ่มประมวล <br class="d-none d-sm-block">
+                        จริยธรรม
                     </div>
                 </a>
             </div>
-            <div class="col">
-                <a href="#" class="banner-section-2 d-flex border lh-1 p-0">
+            <div class="col-sm-6 col-xl-3">
+                <a href="#" class="banner-section-2 d-flex lh-1 p-0">
+                    <div class="bg-inbanner">
+                        <img src="{{ asset('images/section-2/knowledge.png') }}" alt="icon">
+                    </div>
+                    <div class="m-auto py-3 py-sm-2"  style="font-size: 16px;">
+                        การจัดการองค์ความรู้ <br >
+                        อบต.แปลงยาว(KM)
+                    </div>
+                </a>
+            </div>
+            <div class="col-sm-6 col-xl-3">
+                <a href="#" class="banner-section-2 d-flex lh-1 p-0">
                     <div class="bg-inbanner">
                         <img src="{{ asset('images/section-2/public-service.png') }}" alt="icon">
                     </div>
@@ -190,58 +202,58 @@
                     </div>
                 </a>
             </div>
-            <div class="col">
-                <a href="#" class="banner-section-2 d-flex border lh-1 p-0">
+            <div class="col-sm-6 col-xl-3">
+                <a href="#" class="banner-section-2 d-flex lh-1 p-0">
                     <div class="bg-inbanner">
-                        <img src="{{ asset('images/section-2/facebook.png') }}" alt="icon">
+                        <img src="{{ asset('images/section-2/Polygon.png') }}" alt="icon">
                     </div>
                     <div class="m-auto py-3 py-sm-2">
-                        Facebook <br class="d-none d-sm-block">
-                        อบต.แปลงยาว
+                        รายการ<br class="d-none d-sm-block">กิจการสภา
                     </div>
                 </a>
             </div>
-            <div class="col">
-                <a href="#" class="banner-section-2 d-flex border lh-1 p-0">
+            <div class="col-sm-6 col-xl-3">
+                <a href="#" class="banner-section-2 d-flex lh-1 p-0">
                     <div class="bg-inbanner">
-                        <img src="{{ asset('images/section-2/documentation.png') }}" alt="icon">
+                        <img src="{{ asset('images/section-2/survey.png') }}" alt="icon" style="width: 60px;">
                     </div>
                     <div class="m-auto py-3 py-sm-2">
-                        ระบบสารบรรณ <br class="d-none d-sm-block">
-                        อบต.แปลงยาว
+                        แบบสอบถาม <br class="d-none d-sm-block">
+                        ความพึงพอใจ
                     </div>
                 </a>
             </div>
-            <div class="col">
-                <a href="#" class="banner-section-2 d-flex border lh-1 p-0">
+            <div class="col-sm-6 col-xl-3">
+                <a href="#" class="banner-section-2 d-flex lh-1 p-0">
                     <div class="bg-inbanner">
                         <img src="{{ asset('images/section-2/resources.png') }}" alt="icon">
                     </div>
-                    <div class="m-auto py-3 py-sm-2">
-                        ระบบสารสนเทศ <br class="d-none d-sm-block">
-                        อบต.แปลงยาว
+                    <div class="m-auto py-3 py-sm-2" style="font-size: 14px;">
+                        ศูยน์ข้อมูลข่าวสาร <br class="d-none d-sm-block">
+                        อิเล็กทรอนิกส์ของราชการ <br>
+                        (OIC) อบต.แปลงยาว
                     </div>
                 </a>
             </div>
-            <div class="col">
-                <a href="#" class="banner-section-2 d-flex border lh-1 p-0">
+            <div class="col-sm-6 col-xl-3">
+                <a href="#" class="banner-section-2 d-flex lh-1 p-0">
                     <div class="bg-inbanner">
                         <img src="{{ asset('images/section-2/accounting.png') }}" alt="icon">
                     </div>
-                    <div class="m-auto py-3 py-sm-2">
-                        ระบบบันทึกบัญชี <br class="d-none d-sm-block">
-                        อบต.แปลงยาว
+                    <div class="m-auto py-3 py-sm-2" style="font-size: 16px;">
+                        ระบบบันทึกบัญชี <br >
+                        อบต.แปลงยาว(e-LAAS)
                     </div>
                 </a>
             </div>
-            <div class="col">
-                <a href="#" class="banner-section-2 d-flex border lh-1 p-0">
+            <div class="col-sm-6 col-xl-3">
+                <a href="#" class="banner-section-2 d-flex lh-1 p-0">
                     <div class="bg-inbanner">
-                        <img src="{{ asset('images/section-2/mail.png') }}" alt="icon">
+                        <img src="{{ asset('images/section-2/loupe.png') }}" alt="icon">
                     </div>
                     <div class="m-auto py-3 py-sm-2">
-                        เช็ค E - mail <br class="d-none d-sm-block">
-                        อบต.แปลงยาว
+                        ลิ้งค์ตรวจสอบ <br class="d-none d-sm-block">
+                        ภายนอก
                     </div>
                 </a>
             </div>

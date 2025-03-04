@@ -85,8 +85,8 @@
     }
 
     .bg-card-section-5 {
-        background: linear-gradient(to top, rgba(5, 143, 0, 0.8), rgba(135, 255, 36, 0.8), rgba(5, 143, 0, 0.8));
-        box-shadow: 2px 2px 8px rgba(255, 255, 255, 0.5);
+        background: linear-gradient(to top, #497f01, #92b428, #497f01);
+        box-shadow: 2px 2px 8px rgba(255, 255, 255, 0.9);
         border-radius: 20px;
         text-decoration: none;
         color: #000;
@@ -106,24 +106,6 @@
         transform: rotate(5deg) scale(1.01);
     }
 
-    .bg-link-button {
-        background: linear-gradient(to top, rgba(5, 143, 0, 0.8), rgba(135, 255, 36, 0.8));
-        box-shadow: 2px 2px 10px rgba(255, 255, 255, 0.5);
-        border-radius: 20px;
-        text-decoration: none;
-        color: #ffffff;
-        transition: all 0.3s ease;
-        /* เพิ่มการเปลี่ยนแปลงที่นุ่มนวล */
-    }
-
-    .bg-link-button:hover {
-        background: linear-gradient(to top, rgba(0, 100, 0, 0.8), rgba(255, 255, 0, 0.8));
-        /* เปลี่ยนสีเมื่อ hover */
-        box-shadow: 4px 4px 20px rgba(255, 255, 255, 0.7);
-        /* ทำให้เงาลึกขึ้น */
-        transform: scale(1.05);
-        /* ขยายขนาดเล็กน้อย */
-    }
 
     .carousel-container {
         display: flex;
@@ -188,7 +170,24 @@
 .hover-scale:hover img {
     transform: scale(1.05);
 }
+.bg-link-button {
+        background: linear-gradient(to bottom, #d0f06d, #4f8506);
+        box-shadow: 2px 2px 10px rgba(255, 255, 255, 0.9);
+        border-radius: 20px;
+        text-decoration: none;
+        color: #000;
+        transition: all 0.3s ease;
+        /* เพิ่มการเปลี่ยนแปลงที่นุ่มนวล */
+    }
 
+    .bg-link-button:hover {
+        background: linear-gradient(to top, #4f8506, #d0f06d);
+        /* เปลี่ยนสีเมื่อ hover */
+        box-shadow: 4px 4px 20px rgba(255, 255, 255, 0.7);
+        /* ทำให้เงาลึกขึ้น */
+        transform: scale(1.05);
+        /* ขยายขนาดเล็กน้อย */
+    }
 </style>
 <main class="d-flex flex-column align-items-center justify-content-center bg-page5">
     <div class="container py-5">
@@ -393,7 +392,7 @@
                         องค์การบริหารส่วนตำบลแปลงยาว
                     </div>
                     <div class="d-flex align-items-center justify-content-start mt-3 fs-3 fw-bold w-100">
-                        <a href="{{route('RecommendPlacesShowData')}}" class="bg-link-button px-4 py-1">
+                        <a href="{{route('RecommendPlacesShowData')}}" class="bg-link-button px-4 py-3">
                             ดูสถานที่ทั้งหมด
                         </a>
                     </div>

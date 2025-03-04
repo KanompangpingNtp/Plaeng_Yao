@@ -11,25 +11,49 @@
 
 
     .bg-video-sectioon-4 {
-        background: linear-gradient(to top, rgba(5, 143, 0, 0.5), rgba(135, 255, 36, 0.5));
-        box-shadow: 2px 2px 10px rgba(255, 255, 255, 0.5);
+        background: linear-gradient(to top, #558a0b, #a3cb49);
+        box-shadow: 3px 3px 10px rgba(255, 255, 255, 0.9);
         border-radius: 20px;
         padding: 15px;
         width: 100%;
-        height: 500px;
         overflow: hidden;
     }
 
-    .bg-video-sectioon-4 video {
+    .bg-video-sectioon-4 iframe {
         width: 100%;
         height: 470px;
         object-fit: cover;
         border-radius: 20px;
     }
 
-    .bg-link-button {
-        background: linear-gradient(to left, rgba(5, 143, 0, 0.8), rgba(135, 255, 36, 0.8));
-        box-shadow: 2px 2px 10px rgba(255, 255, 255, 0.5);
+    @media (max-width:991px) {
+        .bg-video-sectioon-4 iframe {
+        width: 650px;
+        height: 470px;
+        object-fit: cover;
+        border-radius: 20px;
+    }
+}
+    @media (max-width:750px) {
+        .bg-video-sectioon-4 iframe {
+        width: 400px;
+        height: 350px;
+        object-fit: cover;
+        border-radius: 20px;
+    }
+}
+    @media (max-width:456px) {
+        .bg-video-sectioon-4 iframe {
+        width: 300px;
+        height: 250px;
+        object-fit: cover;
+        border-radius: 20px;
+    }
+    }
+
+    .bg-link-buttons {
+        background: linear-gradient(to left, #488001, #d2f16e);
+        box-shadow: 2px 2px 10px rgba(255, 255, 255, 0.9);
         border-radius: 20px;
         text-decoration: none;
         color: #000;
@@ -37,8 +61,8 @@
         /* เพิ่มการเปลี่ยนแปลงที่นุ่มนวล */
     }
 
-    .bg-link-button:hover {
-        background: linear-gradient(to left, rgba(0, 100, 0, 0.8), rgba(255, 255, 0, 0.8));
+    .bg-link-buttons:hover {
+        background: linear-gradient(to left, #d2f16e, #488001);
         /* เปลี่ยนสีเมื่อ hover */
         box-shadow: 4px 4px 20px rgba(255, 255, 255, 0.7);
         /* ทำให้เงาลึกขึ้น */
@@ -124,22 +148,66 @@
         cursor: pointer;
         /* เปลี่ยนเป็นรูปมือ */
     }
+
+    .image-link-section4 {
+        position: relative;
+        display: inline-block;
+        width: 100%;
+        /* หรือกำหนดตามต้องการ */
+    }
+
+    .image-link-section4 img {
+        width: 100%;
+        display: block;
+        transition: transform 0.3s ease, opacity 0.3s ease;
+    }
+
+    .image-link-section4 img:hover {
+        transform: scale(1.02);
+        /* ซูมเข้า 10% */
+        opacity: 0.9;
+        /* ลดความทึบเล็กน้อย */
+    }
+
+    .image-text-section4 {
+        position: absolute;
+        top: 15%;
+        /* ปรับให้ตัวอักษรอยู่ด้านบน */
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: rgb(0, 0, 0);
+        /* เปลี่ยนสีข้อความตามต้องการ */
+        font-size: 22px;
+        /* ปรับขนาดตัวอักษร */
+        font-weight: bold;
+        text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.9);
+        /* เพิ่มเงาให้ชัดขึ้น */
+        white-space: nowrap;
+        /* ป้องกันข้อความขึ้นบรรทัดใหม่ */
+    }
 </style>
 <main class="d-flex flex-column align-items-center justify-content-center bg-page4">
     <div class="container d-flex flex-column flex-lg-row align-items-center w-100 gap-3">
-        <div class="col-lg-6 col-xl-8 d-flex flex-column">
-            <div class="d-flex align-items-center justify-content-start mb-3 fs-1 fw-bold"
+        <div class="col-lg-6 col-xl-8 d-flex flex-column align-items-center">
+
+            <div class="d-flex flex-column align-items-start justify-content-center mb-3  lh-1"
                 style="text-shadow: 2px 2px 3px rgba(255, 255, 255, 0.8);">
-                วิดีทัศน์แนะนำ
+                <div class=" fs-1 fw-bold text-dark ">
+                    วิดีทัศน์แนะนำ <img src="{{ asset('images/section-5/news.png') }}" alt="icon">
+                </div>
+                <div class="fs-4 text-dark">
+                    องค์การบริหารส่วนตำบลแปลงยาว
+                </div>
             </div>
             <div class="bg-video-sectioon-4">
                 {{-- <video src="{{ asset('images/section-4/video.mp4') }}" autoplay loop muted></video> --}}
-                <iframe width="100%" height="470px" src="https://www.youtube.com/embed/QvZVOhDrBPI?autoplay=1&mute=1" frameborder="0"
-                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <iframe src="https://www.youtube.com/embed/QvZVOhDrBPI?autoplay=1&mute=1" frameborder="0"
+                    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen
+                    style="border-radius: 10px;"></iframe>
             </div>
 
-            <div class="d-flex align-items-center justify-content-end mt-3 fs-3 fw-bold ">
-                <a href="#" class="bg-link-button px-4 py-1">
+            <div class="d-flex align-items-center justify-content-end mt-3 fs-4 fw-bold w-100">
+                <a href="#" class="bg-link-buttons px-4 py-1">
                     วิดีทัศน์เพิ่มเติม
                 </a>
             </div>
@@ -177,13 +245,105 @@
                     </div>
                 </a>
                 <div class="bg-brown"></div>
-                <div class="d-flex align-items-center justify-content-end mt-3 fs-3 fw-bold ">
-                    <a href="#" class="bg-link-button px-4 py-1">
+                <div class="d-flex align-items-center justify-content-end mt-3 fs-4 fw-bold ">
+                    <a href="#" class="bg-link-buttons px-4 py-1">
                         อ่านเพิ่มเติม
                     </a>
                 </div>
             </div>
         </div>
     </div>
-
+    <div class="container mt-3 mt-sm-5">
+        <div class="row g-4 justify-content-center">
+            <div class="col-sm-6 col-xl-4">
+                <a href="#" class="banner-section-2 d-flex lh-1 p-0">
+                    <div class="bg-inbanner">
+                        <img src="{{ asset('images/section-4/การจัดซื้อจัดจ้างหรือจัดหาพัสดุ.png') }}" alt="icon"
+                            style="width: 65px;">
+                    </div>
+                    <div class="m-auto py-3 py-sm-2">
+                        การจัดซื้อจัดจ้าง <br class="d-none d-sm-block">
+                        หรือจัดหาพัสดุ
+                    </div>
+                </a>
+            </div>
+            <div class="col-sm-6 col-xl-4">
+                <a href="#" class="banner-section-2 d-flex lh-1 p-0">
+                    <div class="bg-inbanner">
+                        <img src="{{ asset('images/section-4/การจัดการเรื่องร้องเรียนทุจริต.png') }}" alt="icon"
+                            style="width: 65px;">
+                    </div>
+                    <div class="m-auto py-3 py-sm-2">
+                        การจัดการเรื่อง<br class="d-none d-sm-block">ร้องเรียนทุจริต
+                    </div>
+                </a>
+            </div>
+            <div class="col-sm-6 col-xl-4">
+                <a href="#" class="banner-section-2 d-flex lh-1 p-0">
+                    <div class="bg-inbanner">
+                        <img src="{{ asset('images/section-4/การเสริมสร้างวัฒนธรรมองค์กร.png') }}" alt="icon"
+                            style="width: 60px;">
+                    </div>
+                    <div class="m-auto py-3 py-sm-2">
+                        การเสริมสร้าง<br class="d-none d-sm-block">วัฒนธรรมองค์กร
+                    </div>
+                </a>
+            </div>
+            <div class="col-sm-6 col-xl-4">
+                <a href="#" class="banner-section-2 d-flex lh-1 p-0">
+                    <div class="bg-inbanner">
+                        <img src="{{ asset('images/section-4/การบริหารและพัฒนาทรัพยากรบุคคล.png') }}" alt="icon"
+                            style="width: 65px;">
+                    </div>
+                    <div class="m-auto py-3 py-sm-2">
+                        การบริหารและพัฒนา<br class="d-none d-sm-block">ทรัพยากรบุคคล
+                    </div>
+                </a>
+            </div>
+            <div class="col-sm-6 col-xl-4">
+                <a href="#" class="banner-section-2 d-flex lh-1 p-0">
+                    <div class="bg-inbanner">
+                        <img src="{{ asset('images/section-4/ส่งเสริมความโปร่งใสและแผนป้องกันการทุจริต.png') }}"
+                            alt="icon" style="width: 60px;">
+                    </div>
+                    <div class="m-auto py-3 py-sm-2">
+                        ส่งเสริมความโปร่งใส<br class="d-none d-sm-block">และแผนป้องกันการทุจริต
+                    </div>
+                </a>
+            </div>
+            <div class="col-sm-6 col-xl-4">
+                <a href="#" class="banner-section-2 d-flex lh-1 p-0">
+                    <div class="bg-inbanner">
+                        <img src="{{ asset('images/section-4/ดาวน์โหลดแบบฟอร์ม.png') }}" alt="icon"
+                            style="width: 60px;">
+                    </div>
+                    <div class="m-auto py-3">
+                        ดาวน์โหลดแบบฟอร์ม
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="container mt-3 mt-sm-5">
+        <div class="row g-4 justify-content-center">
+            <div class="col-sm-6 col-xl-4">
+                <a href="#" class="image-link-section4">
+                    <img src="{{ asset('images/section-4/ข้อปฏิทินกิจกรรม.png') }}" alt="icon">
+                    <span class="image-text-section4">ข้อปฏิทินกิจกรรม</span>
+                </a>
+            </div>
+            <div class="col-sm-6 col-xl-4">
+                <a href="#" class="image-link-section4">
+                    <img src="{{ asset('images/section-4/ปั้มน้ำมันโรงทานในพื้นที่.png') }}" alt="icon">
+                    <span class="image-text-section4">ปั้มน้ำมันโรงทานในพื้นที่</span>
+                </a>
+            </div>
+            <div class="col-sm-6 col-xl-4">
+                <a href="#" class="image-link-section4">
+                    <img src="{{ asset('images/section-4/ระบบสารบรรณแปลงยาว.png') }}" alt="icon">
+                    <span class="image-text-section4">ระบบสารบรรณแปลงยาว</span>
+                </a>
+            </div>
+        </div>
+    </div>
 </main>

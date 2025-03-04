@@ -62,13 +62,13 @@
             <div class="row w-100" >
                 <div class="col-lg-6 d-flex flex-column align-items-center justify-content-start mb-3 p-0" >
                     <div class="p-3 w-100"
-                        style="background: linear-gradient(to top, rgba(74, 131, 0, 0.9), rgba(163, 245, 12, 0.9));  border-top-right-radius:20px; border-top-left-radius:20px; box-shadow: 3px 4px 20px rgba(255, 255, 255, 0.9);">
+                        style="background: linear-gradient(to bottom, #d1f16d, #4c8204);  border-top-right-radius:20px; border-top-left-radius:20px; box-shadow: 3px 4px 20px rgba(255, 255, 255, 0.9);">
                         <div class="py-2 px-4 bg-white d-flex justify-content-center align-items-center fw-bold" style="border-radius: 20px;">
                             <div class="circle me-2"></div>
                             จากกรมส่งเสริมการปกครองท้องถิ่น
                         </div>
                     </div>
-                    <div class="p-3 w-100" style="background: linear-gradient(to top, rgba(74, 131, 0, 0.9), rgba(163, 245, 12, 0.9),rgba(74, 131, 0, 0.9));  border-bottom-right-radius:20px; border-bottom-left-radius:20px; box-shadow: 3px 4px 20px rgba(255, 255, 255, 0.9);">
+                    <div class="p-3 w-100" style="background: linear-gradient(to top, #4c8204, #d1f16d,#4c8204);  border-bottom-right-radius:20px; border-bottom-left-radius:20px; box-shadow: 3px 4px 20px rgba(255, 255, 255, 0.9);">
                         <div class="py-2 px-2 bg-white d-flex flex-column justify-content-center align-items-center fw-bold" style="border-radius: 20px;">
                             <a href="https://www.dla.go.th/index.jsp" class="link-button-section8 w-100 mb-2" target="_blank">
                                 <div class="d-flex justify-content-start align-items-center lh-1">
@@ -111,13 +111,13 @@
 
                 <div class="col-lg-6 d-flex flex-column align-items-center justify-content-start pe-0 pb-1">
                     <div class="p-3  w-100 "
-                        style="background: linear-gradient(to top, rgba(74, 131, 0, 0.9), rgba(163, 245, 12, 0.9));  border-top-right-radius:20px; border-top-left-radius:20px; box-shadow: 3px 4px 20px rgba(255, 255, 255, 0.9);">
+                        style="background: linear-gradient(to bottom, #d1f16d, #4c8204);  border-top-right-radius:20px; border-top-left-radius:20px; box-shadow: 3px 4px 20px rgba(255, 255, 255, 0.9);">
                         <div class="py-2 px-4 bg-white d-flex justify-content-center align-items-center fw-bold" style="border-radius: 20px;">
                             <div class="circle me-2"></div>
                             จากท้องถิ่นจังหวัด
                         </div>
                     </div>
-                    <div class="p-3 w-100" style="background: linear-gradient(to top, rgba(74, 131, 0, 0.9), rgba(163, 245, 12, 0.9),rgba(74, 131, 0, 0.9));  border-bottom-right-radius:20px; border-bottom-left-radius:20px; box-shadow: 3px 4px 20px rgba(255, 255, 255, 0.9);">
+                    <div class="p-3 w-100" style="background: linear-gradient(to top, #4c8204, #d1f16d,#4c8204);  border-bottom-right-radius:20px; border-bottom-left-radius:20px; box-shadow: 3px 4px 20px rgba(255, 255, 255, 0.9);">
                         <div class="py-3 px-2 bg-white d-flex flex-column justify-content-center align-items-center fw-bold" style="border-radius: 20px;">
                             <a href="https://www.chacheongsaolocal.go.th/frontpage" class="link-button-section8 w-100 mb-2" target="_blank">
                                 <div class="d-flex justify-content-start align-items-center lh-1">

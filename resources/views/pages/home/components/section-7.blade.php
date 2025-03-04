@@ -133,6 +133,25 @@
         color: #f1f1f1;
         /* เปลี่ยนสีข้อความเมื่อ hover */
     }
+
+    .bg-link-button7 {
+        background: linear-gradient(to left, #508607, #c2e461, #508607);
+        box-shadow: 2px 2px 10px rgba(255, 255, 255, 0.9);
+        border-radius: 20px;
+        text-decoration: none;
+        color: #000000;
+        transition: all 0.3s ease;
+        /* เพิ่มการเปลี่ยนแปลงที่นุ่มนวล */
+    }
+
+    .bg-link-button7:hover {
+        background: linear-gradient(to left, #c2e461, #508607, #c2e461);
+        /* เปลี่ยนสีเมื่อ hover */
+        box-shadow: 4px 4px 20px rgba(255, 255, 255, 0.7);
+        /* ทำให้เงาลึกขึ้น */
+        transform: scale(1.05);
+        /* ขยายขนาดเล็กน้อย */
+    }
 </style>
 <main class="d-flex align-items-center justify-content-center bg-page7">
     <div class="container">
@@ -179,7 +198,7 @@
                 </div>
             </div>
             <div class="d-flex justify-content-end align-items-center w-100 me-2 mt-2">
-                <a href="#" class="bg-link-button px-4 py-1 my-1 ">
+                <a href="#" class="bg-link-button7 px-4 py-1 my-1 ">
                     ดูทั้งหมด
                 </a>
             </div>

@@ -18,11 +18,7 @@
     }
 
 
-    .bg-menu {
-        background: linear-gradient(to right, rgba(159, 255, 81, 0.8), rgba(76, 163, 5, 0.8));
-        z-index: 2;
-        transition: transform 0.3s ease;
-    }
+    
 
     .navbar-item {
         color: white;

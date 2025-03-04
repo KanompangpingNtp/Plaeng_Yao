@@ -22,7 +22,7 @@
     }
 
     .bg-carousel-section-3 {
-        background: linear-gradient(to top, rgba(5, 143, 0, 0.5), rgba(135, 255, 36, 0.5));
+        background: linear-gradient(to top, #558a0b, #a3cb49);
         box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
         border-radius: 20px;
         padding: 15px;
@@ -35,18 +35,20 @@
     }
 
     .banner-section-3 {
-        background-color: white;
-        box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
-        border-radius: 30px;
-        font-size: 22px;
-        font-weight: bold;
-        width: 100%;
-        text-decoration: none;
-        color: #000;
-        position: relative;
-        overflow: visible;
-        transition: box-shadow 0.3s, transform 0.3s;
-    }
+    background-color: white;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+    border-radius: 30px;
+    font-size: 20px;
+    font-weight: bold;
+    width: 100%;
+    text-decoration: none;
+    color: #000;
+    position: relative;
+    overflow: visible;
+    transition: box-shadow 0.3s, transform 0.3s;
+}
+
+
 
     .banner-section-3:hover {
         box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.7);
@@ -55,7 +57,7 @@
     }
 
     .banner-section-3 .bg-inbanner-3 {
-        background: linear-gradient(to bottom, rgba(5, 143, 0, 0.8), rgba(135, 255, 36, 0.8));
+        background: linear-gradient(to bottom, #558a0b, #a3cb49);
         border-radius: 30px 0 0 30px;
         width: 70px;
         z-index: 1;
@@ -65,7 +67,7 @@
     }
 
     .banner-section-3:hover .bg-inbanner-3 {
-        background: linear-gradient(to bottom, rgba(5, 200, 50, 0.9), rgba(135, 255, 80, 0.9));
+        background: linear-gradient(to top, #558a0b, #a3cb49);
         /* เปลี่ยนสีเมื่อ hover */
     }
 
@@ -87,11 +89,17 @@
     }
 </style>
 <main class="d-flex flex-column align-items-center justify-content-center bg-page3">
-    <div class="container d-flex flex-column flex-lg-row align-items-center w-100 gap-3">
-        <div class="col-lg-6 col-xl-8 d-flex flex-column">
-            <div class="d-flex align-items-center justify-content-center mb-3 fs-1 fw-bold">
-                ป้ายประกาศ
+    <div class="container d-flex flex-column flex-xl-row align-items-center w-100 gap-3">
+        <div class=" col-xl-8 d-flex flex-column align-items-center">
+            <div class="d-flex flex-column align-items-start justify-content-center mb-3  lh-1"
+            style="text-shadow: 2px 2px 3px rgba(255, 255, 255, 0.8);">
+            <div class=" fs-1 fw-bold text-dark ">
+                ป้ายประกาศ <img src="{{ asset('images/section-5/news.png') }}" alt="icon">
             </div>
+            <div class="fs-4 text-dark">
+                องค์การบริหารส่วนตำบลแปลงยาว
+            </div>
+        </div>
             <div class="bg-carousel-section-3">
                 <!-- ภาพสไลด์ -->
                 {{-- <div id="carousel-section-3" class="carousel slide" style="border-radius: 20px;"
@@ -143,7 +151,7 @@
                     </div>
 
                     <!-- Images -->
-                    <div class="carousel-inner">
+                    <div class="carousel-inner rounded">
                         @foreach ($noticeBoard as $index => $notice)
                             @foreach ($notice->photos as $photo)
                                 <div class="carousel-item {{ $loop->first && $index == 0 ? 'active' : '' }}">
@@ -167,9 +175,9 @@
             </div>
 
         </div>
-        <div class="col-12 col-lg-6 col-xl-4 mt-lg-5 pt-lg-4 bg-black-section-3 ">
+        <div class="col-12 col-xl-4 mt-xl-5 pt-lg-4 bg-black-section-3 ">
             <div class="d-flex flex-column justifly-content-center align-items-center gap-4 ">
-                <a href="#" class="banner-section-3 d-flex border lh-1 p-0">
+                <a href="#" class="banner-section-3 d-flex lh-1 p-0">
                     <div class="bg-inbanner-3">
                         <img src="{{ asset('images/section-3/1.png') }}" alt="icon" style=" width: 55px;">
                     </div>
@@ -177,16 +185,16 @@
                         สาระดีๆจากศาลการปกครอง
                     </div>
                 </a>
-                <a href="#" class="banner-section-3 d-flex border lh-1 p-0">
+                <a href="#" class="banner-section-3 d-flex lh-1 p-0">
                     <div class="bg-inbanner-3">
                         <img src="{{ asset('images/section-3/2.png') }}" alt="icon" style=" width: 50px; ">
                     </div>
-                    <div class="m-auto py-3 py-sm-1">
+                    <div class="m-auto py-3 py-sm-2">
                         สำนักงานคณะกรรมการป้องกัน <br>
                         และปราบปรามการทุจริตแห่งชาติ
                     </div>
                 </a>
-                <a href="#" class="banner-section-3 d-flex border lh-1 p-0">
+                <a href="#" class="banner-section-3 d-flex lh-1 p-0">
                     <div class="bg-inbanner-3">
                         <img src="{{ asset('images/section-3/3.png') }}" alt="icon" style=" width: 65px; top: -7px; left: 0px;">
                     </div>
@@ -194,7 +202,7 @@
                         ระบบจัดซื้อจัดจ้างภาครัฐ (EGP)
                     </div>
                 </a>
-                <a href="#" class="banner-section-3 d-flex border lh-1 p-0">
+                <a href="#" class="banner-section-3 d-flex lh-1 p-0">
                     <div class="bg-inbanner-3">
                         <img src="{{ asset('images/section-3/4.png') }}" alt="icon">
                     </div>
@@ -202,12 +210,77 @@
                         E - Social
                     </div>
                 </a>
-                <a href="#" class="banner-section-3 d-flex border lh-1 p-0">
+                <a href="#" class="banner-section-3 d-flex lh-1 p-0">
                     <div class="bg-inbanner-3">
                         <img src="{{ asset('images/section-3/5.png') }}" alt="icon">
                     </div>
                     <div class="m-auto py-3">
                         One Stop Service
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="container mt-3 mt-sm-5">
+        <div class="row g-4 justify-content-center">
+            <div class="col-sm-6 col-xl-4">
+                <a href="#" class="banner-section-2 d-flex lh-1 p-0">
+                    <div class="bg-inbanner">
+                        <img src="{{ asset('images/section-3/กระดานกระทู้.png') }}" alt="icon" style="width: 65px;">
+                    </div>
+                    <div class="m-auto py-3 ">
+                        กระดานกระทู้
+                    </div>
+                </a>
+            </div>
+            <div class="col-sm-6 col-xl-4">
+                <a href="#" class="banner-section-2 d-flex lh-1 p-0">
+                    <div class="bg-inbanner">
+                        <img src="{{ asset('images/section-3/เบี้ยยังชีพผู้สูงอายุ.png') }}" alt="icon" style="width: 65px;">
+                    </div>
+                    <div class="m-auto py-3 ">
+                        เบี้ยยังชีพผู้สูงอายุ
+                    </div>
+                </a>
+            </div>
+            <div class="col-sm-6 col-xl-4">
+                <a href="#" class="banner-section-2 d-flex lh-1 p-0">
+                    <div class="bg-inbanner">
+                        <img src="{{ asset('images/section-3/เบี้ยยังชีพคนพิการ.png') }}" alt="icon" style="width: 60px;">
+                    </div>
+                    <div class="m-auto py-3">
+                        เบี้ยยังชีพคนพิการ
+                    </div>
+                </a>
+            </div>
+            <div class="col-sm-6 col-xl-4">
+                <a href="#" class="banner-section-2 d-flex lh-1 p-0">
+                    <div class="bg-inbanner">
+                        <img src="{{ asset('images/section-3/แผนการใช้จ่ายงบประมาณประจำปี.png') }}" alt="icon" style="width: 65px;">
+                    </div>
+                    <div class="m-auto py-3 py-sm-2">
+                        แผนการใช้จ่ายงบ <br class="d-none d-sm-block">
+                        ประมาณประจำปี
+                    </div>
+                </a>
+            </div>
+            <div class="col-sm-6 col-xl-4">
+                <a href="#" class="banner-section-2 d-flex lh-1 p-0">
+                    <div class="bg-inbanner">
+                        <img src="{{ asset('images/section-3/คู่มือการปฎิบัติงาน.png') }}" alt="icon" style="width: 60px;">
+                    </div>
+                    <div class="m-auto py-3 ">
+                        คู่มือการปฎิบัติงาน
+                    </div>
+                </a>
+            </div>
+            <div class="col-sm-6 col-xl-4">
+                <a href="#" class="banner-section-2 d-flex lh-1 p-0">
+                    <div class="bg-inbanner">
+                        <img src="{{ asset('images/section-3/การให้บริการ.png') }}" alt="icon" style="width: 60px;">
+                    </div>
+                    <div class="m-auto py-3 ">
+                        การให้บริการ
                     </div>
                 </a>
             </div>

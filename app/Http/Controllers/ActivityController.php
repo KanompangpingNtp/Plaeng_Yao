@@ -265,6 +265,28 @@ class ActivityController extends Controller
         return view('pages.activity.show_detail', compact('activity', 'personnelAgencies'));
     }
 
+    // public function ActivitySearchData(Request $request)
+    // {
+    //     // รับค่าจาก input ค้นหาที่ชื่อ query
+    //     $searchQuery = $request->input('query');
+
+    //     // เรียกข้อมูลจากฐานข้อมูล พร้อมกับการกรองการค้นหาหากมี
+    //     $personnelAgencies = PersonnelAgency::with('ranks')->get();
+
+    //     $activity = PostDetail::with('postType', 'videos', 'photos', 'pdfs')
+    //         ->whereHas('postType', function ($query) {
+    //             $query->where('type_name', 'กิจกรรม');
+    //         })
+    //         // ตรวจสอบว่า query ค้นหามีค่า และกรองข้อมูลตามที่ค้นหา
+    //         ->when($searchQuery, function ($query) use ($searchQuery) {
+    //             return $query->where('title_name', 'like', '%' . $searchQuery . '%')
+    //                 ->orWhere('details', 'like', '%' . $searchQuery . '%'); // เปลี่ยนเป็น 'details' แทน 'description'
+    //         })
+    //         ->orderBy('created_at', 'desc')
+    //         ->paginate(14);
+
+    //     return view('pages.activity.show_data', compact('activity', 'personnelAgencies'));
+    // }
     public function ActivitySearchData(Request $request)
     {
         // รับค่าจาก input ค้นหาที่ชื่อ query
@@ -277,10 +299,12 @@ class ActivityController extends Controller
             ->whereHas('postType', function ($query) {
                 $query->where('type_name', 'กิจกรรม');
             })
-            // ตรวจสอบว่า query ค้นหามีค่า และกรองข้อมูลตามที่ค้นหา
+            // ค้นหาเฉพาะโพสต์ที่เป็น 'กิจกรรม' และมี keyword ตรงกับ title_name หรือ details
             ->when($searchQuery, function ($query) use ($searchQuery) {
-                return $query->where('title_name', 'like', '%' . $searchQuery . '%')
-                    ->orWhere('details', 'like', '%' . $searchQuery . '%'); // เปลี่ยนเป็น 'details' แทน 'description'
+                return $query->where(function ($q) use ($searchQuery) {
+                    $q->where('title_name', 'like', '%' . $searchQuery . '%')
+                        ->orWhere('details', 'like', '%' . $searchQuery . '%');
+                });
             })
             ->orderBy('created_at', 'desc')
             ->paginate(14);

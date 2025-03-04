@@ -137,4 +137,38 @@ class RevenueController extends Controller
 
         return view('pages.revenue.show_detail', compact('revenue','personnelAgencies'));
     }
+
+    public function RevenueShowData()
+    {
+        $personnelAgencies = PersonnelAgency::with('ranks')->get();
+
+        $revenue = PostDetail::with('postType','photos')
+            ->whereHas('postType', function ($query) {
+                $query->where('type_name', 'สรุปผลการจัดซื้อจัดจ้าง');
+            })->paginate(14);
+
+        return view('pages.revenue.show_data', compact('revenue','personnelAgencies'));
+    }
+
+    public function RevenueSearchData(Request $request)
+    {
+        $searchQuery = $request->input('query');
+
+        $personnelAgencies = PersonnelAgency::with('ranks')->get();
+
+        $revenue = PostDetail::with('postType', 'videos', 'photos', 'pdfs')
+            ->whereHas('postType', function ($query) {
+                $query->where('type_name', 'สรุปผลการจัดซื้อจัดจ้าง');
+            })
+            ->when($searchQuery, function ($query) use ($searchQuery) {
+                return $query->where(function ($q) use ($searchQuery) {
+                    $q->where('title_name', 'like', '%' . $searchQuery . '%')
+                        ->orWhere('details', 'like', '%' . $searchQuery . '%');
+                });
+            })
+            ->orderBy('created_at', 'desc')
+            ->paginate(14);
+
+        return view('pages.revenue.show_data', compact('revenue', 'personnelAgencies'));
+    }
 }

@@ -17,6 +17,7 @@ use App\Http\Controllers\RecommendPlacesController;
 use App\Http\Controllers\OfficialDocumentsController;
 use App\Http\Controllers\Personnel\ManagePersonnelController;
 use App\Http\Controllers\Personnel\PersonnelAgencyController;
+use App\Http\Controllers\TreasuryAnnouncementController;
 
 /*
 |--------------------------------------------------------------------------
@@ -38,21 +39,6 @@ Route::get('/', [ShowDataController::class, 'Home'])->name('Home');
 //เมนูบุคลากร
 Route::get('/agency/{id}', [PersonnelAgencyController::class, 'AgencyShow'])->name('AgencyShow');
 
-//ประกาศจัดซื้อจัดจ้าง
-Route::get('/procurement/detail/{id}', [ProcurementController::class, 'ProcurementDetail'])->name('ProcurementDetail');
-
-//ผลประกาศจัดซื้อจัดจ้างประจำปี
-Route::get('/procurement-results/detail/{id}', [ProcurementResultsController::class, 'ProcurementResultsDetail'])->name('ProcurementResultsDetail');
-
-//ประกาศผู้ชนะการเสนอราคา
-Route::get('/average-price/detail/{id}', [AveragePriceController::class, 'AveragePriceDetail'])->name('AveragePriceDetail');
-
-//สรุปผลการจัดซื้อจัดจ้าง
-Route::get('/revenue/detail/{id}', [RevenueController::class, 'RevenueDetail'])->name('RevenueDetail');
-
-//แผนการจัดซื้อจัดจ้าง
-Route::get('/procurement-plan/detail/{id}', [ProcurementPlanController::class, 'ProcurementPlanDetail'])->name('ProcurementPlanDetail');
-
 //กิจกรรม
 Route::get('/Activity/ShowData', [ActivityController::class, 'ActivityShowData'])->name('ActivityShowData');
 Route::get('/Activity/ShowDetails/{id}', [ActivityController::class, 'ActivityShowDetails'])->name('ActivityShowDetails');
@@ -61,10 +47,39 @@ Route::get('/Activity/Search', [ActivityController::class, 'ActivitySearchData']
 //ประชาสัมพันธ์
 Route::get('/PressRelease/ShowData', [PressReleaseController::class, 'PressReleaseShowData'])->name('PressReleaseShowData');
 Route::get('/PressRelease/ShowDetails/{id}', [PressReleaseController::class, 'PressReleaseShowDetails'])->name('PressReleaseShowDetails');
+Route::get('/PressRelease/Search', [PressReleaseController::class, 'PressReleaseSearchData'])->name('PressReleaseSearchData');
 
 //แนะนำสถานที่
 Route::get('/RecommendPlaces/ShowData', [RecommendPlacesController::class, 'RecommendPlacesShowData'])->name('RecommendPlacesShowData');
 Route::get('/RecommendPlaces/ShowDetails/{id}', [RecommendPlacesController::class, 'RecommendPlacesShowDetails'])->name('RecommendPlacesShowDetails');
+
+//ประกาศของคลัง
+Route::get('/TreasuryAnnouncement/ShowData', [TreasuryAnnouncementController::class, 'TreasuryAnnouncementData'])->name('TreasuryAnnouncementData');
+
+//ประกาศจัดซื้อจัดจ้าง
+Route::get('/procurement/detail/{id}', [ProcurementController::class, 'ProcurementDetail'])->name('ProcurementDetail');
+Route::get('/procurement/ShowData', [ProcurementController::class, 'ProcurementShowData'])->name('ProcurementShowData');
+Route::get('/procurement/SearchData', [ProcurementController::class, 'ProcurementSearchData'])->name('ProcurementSearchData');
+
+//ผลประกาศจัดซื้อจัดจ้างประจำปี
+Route::get('/procurement-results/detail/{id}', [ProcurementResultsController::class, 'ProcurementResultsDetail'])->name('ProcurementResultsDetail');
+Route::get('/procurement-results/ShowData', [ProcurementResultsController::class, 'ProcurementResultsShowData'])->name('ProcurementResultsShowData');
+Route::get('/procurement-results/SearchData', [ProcurementResultsController::class, 'ProcurementResultsSearchData'])->name('ProcurementResultsSearchData');
+
+//ประกาศผู้ชนะการเสนอราคา
+Route::get('/average-price/detail/{id}', [AveragePriceController::class, 'AveragePriceDetail'])->name('AveragePriceDetail');
+Route::get('/average-price/ShowData', [AveragePriceController::class, 'AveragePriceShowData'])->name('AveragePriceShowData');
+Route::get('/average-price/SearchData', [AveragePriceController::class, 'AveragePriceSearchData'])->name('AveragePriceSearchData');
+
+//สรุปผลการจัดซื้อจัดจ้าง
+Route::get('/revenue/detail/{id}', [RevenueController::class, 'RevenueDetail'])->name('RevenueDetail');
+Route::get('/revenue/ShowData', [RevenueController::class, 'RevenueShowData'])->name('RevenueShowData');
+Route::get('/revenue/SearchData', [RevenueController::class, 'RevenueSearchData'])->name('RevenueSearchData');
+
+//แผนการจัดซื้อจัดจ้าง
+Route::get('/procurement-plan/detail/{id}', [ProcurementPlanController::class, 'ProcurementPlanDetail'])->name('ProcurementPlanDetail');
+Route::get('/procurement-plan/ShowData', [ProcurementPlanController::class, 'ProcurementPlanShowData'])->name('ProcurementPlanShowData');
+Route::get('/procurement-plan/SearchData', [ProcurementPlanController::class, 'ProcurementPlanSearchData'])->name('ProcurementPlanSearchData');
 
 Route::get('/showLoginForm', [AuthController::class, 'showLoginForm'])->name('showLoginForm');
 Route::post('/login', [AuthController::class, 'login'])->name('Login');

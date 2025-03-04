@@ -179,7 +179,7 @@
                 </div>
             </div>
             <div class="d-flex justify-content-end align-items-center w-100 me-2 mt-2">
-                <a href="#" class="bg-link-button px-4 py-1 my-1 ">
+                <a href="{{route('TreasuryAnnouncementData')}}" class="bg-link-button px-4 py-1 my-1 ">
                     ดูทั้งหมด
                 </a>
             </div>

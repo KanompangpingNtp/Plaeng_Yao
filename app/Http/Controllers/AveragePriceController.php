@@ -132,6 +132,40 @@ class AveragePriceController extends Controller
                 $query->where('type_name', 'ประกาศผู้ชนะการเสนอราคา');
             })->findOrFail($id);
 
-        return view('pages.averageprice.show_detail', compact('averageprice','personnelAgencies'));
+        return view('pages.averageprice.show_detail', compact('averageprice', 'personnelAgencies'));
+    }
+
+    public function AveragePriceShowData()
+    {
+        $personnelAgencies = PersonnelAgency::with('ranks')->get();
+
+        $averageprice = PostDetail::with('postType', 'pdfs')
+            ->whereHas('postType', function ($query) {
+                $query->where('type_name', 'ประกาศผู้ชนะการเสนอราคา');
+            })->paginate(14);
+
+        return view('pages.averageprice.show_data', compact('averageprice', 'personnelAgencies'));
+    }
+
+    public function AveragePriceSearchData(Request $request)
+    {
+        $searchQuery = $request->input('query');
+
+        $personnelAgencies = PersonnelAgency::with('ranks')->get();
+
+        $averageprice = PostDetail::with('postType', 'videos', 'photos', 'pdfs')
+            ->whereHas('postType', function ($query) {
+                $query->where('type_name', 'ประกาศผู้ชนะการเสนอราคา');
+            })
+            ->when($searchQuery, function ($query) use ($searchQuery) {
+                return $query->where(function ($q) use ($searchQuery) {
+                    $q->where('title_name', 'like', '%' . $searchQuery . '%')
+                        ->orWhere('details', 'like', '%' . $searchQuery . '%');
+                });
+            })
+            ->orderBy('created_at', 'desc')
+            ->paginate(14);
+
+        return view('pages.averageprice.show_data', compact('averageprice', 'personnelAgencies'));
     }
 }

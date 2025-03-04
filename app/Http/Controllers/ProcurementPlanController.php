@@ -133,4 +133,38 @@ class ProcurementPlanController extends Controller
 
         return view('pages.procurementPlan.show_detail', compact('procurementPlan','personnelAgencies'));
     }
+
+    public function ProcurementPlanShowData()
+    {
+        $personnelAgencies = PersonnelAgency::with('ranks')->get();
+
+        $procurementPlan = PostDetail::with('postType','photos')
+            ->whereHas('postType', function ($query) {
+                $query->where('type_name', 'แผนการจัดซื้อจัดจ้าง');
+            })->paginate(14);
+
+        return view('pages.procurementPlan.show_data', compact('procurementPlan','personnelAgencies'));
+    }
+
+    public function ProcurementPlanSearchData(Request $request)
+    {
+        $searchQuery = $request->input('query');
+
+        $personnelAgencies = PersonnelAgency::with('ranks')->get();
+
+        $procurementPlan = PostDetail::with('postType', 'videos', 'photos', 'pdfs')
+            ->whereHas('postType', function ($query) {
+                $query->where('type_name', 'แผนการจัดซื้อจัดจ้าง');
+            })
+            ->when($searchQuery, function ($query) use ($searchQuery) {
+                return $query->where(function ($q) use ($searchQuery) {
+                    $q->where('title_name', 'like', '%' . $searchQuery . '%')
+                        ->orWhere('details', 'like', '%' . $searchQuery . '%');
+                });
+            })
+            ->orderBy('created_at', 'desc')
+            ->paginate(14);
+
+        return view('pages.procurementPlan.show_data', compact('procurementPlan', 'personnelAgencies'));
+    }
 }

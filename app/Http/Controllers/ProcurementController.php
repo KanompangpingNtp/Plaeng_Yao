@@ -139,4 +139,38 @@ class ProcurementController extends Controller
 
         return view('pages.procurement.show_detail', compact('procurement','personnelAgencies'));
     }
+
+    public function ProcurementShowData()
+    {
+        $personnelAgencies = PersonnelAgency::with('ranks')->get();
+
+        $Procurement = PostDetail::with('postType','photos')
+            ->whereHas('postType', function ($query) {
+                $query->where('type_name', 'ประกาศจัดซื้อจัดจ้าง');
+            })->paginate(14);
+
+        return view('pages.procurement.show_data', compact('Procurement','personnelAgencies'));
+    }
+
+    public function ProcurementSearchData(Request $request)
+    {
+        $searchQuery = $request->input('query');
+
+        $personnelAgencies = PersonnelAgency::with('ranks')->get();
+
+        $Procurement = PostDetail::with('postType', 'videos', 'photos', 'pdfs')
+            ->whereHas('postType', function ($query) {
+                $query->where('type_name', 'ประกาศจัดซื้อจัดจ้าง');
+            })
+            ->when($searchQuery, function ($query) use ($searchQuery) {
+                return $query->where(function ($q) use ($searchQuery) {
+                    $q->where('title_name', 'like', '%' . $searchQuery . '%')
+                        ->orWhere('details', 'like', '%' . $searchQuery . '%');
+                });
+            })
+            ->orderBy('created_at', 'desc')
+            ->paginate(14);
+
+        return view('pages.procurement.show_data', compact('Procurement', 'personnelAgencies'));
+    }
 }

@@ -89,7 +89,7 @@
                 <form action="{{route('ActivitySearchData')}}" method="GET" class="d-flex justify-content-end">
                     <div class="input-group mb-3" style="width: 50%;">
                         <input type="text" class="form-control" placeholder="ค้นหาข้อมูล..." name="query" value="{{ request()->query('query') }}">
-                        <button class="btn btn-outline-secondary" type="submit">ค้นหา</button>
+                        <button class="btn btn-success" type="submit">ค้นหา</button>
                     </div>
                 </form>
             </div>

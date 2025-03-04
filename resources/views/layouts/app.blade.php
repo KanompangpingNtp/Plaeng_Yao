@@ -10,19 +10,19 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
     <style>
         @font-face {
-            font-family: 'Chula';
-            src: url('/fonts/ChulaCharasNewReg.ttf') format('woff2');
+            font-family: 'Montserrat';
+            src: url('/fonts/Montserrat-Black.ttf') format('woff2');
             font-weight: normal;
         }
 
         @font-face {
-            font-family: 'Chula';
-            src: url('/fonts/ChulaCharasNewBold.ttf') format('woff2');
+            font-family: 'Montserrat';
+            src: url('/fonts/Montserrat-ExtraBold.ttf') format('woff2');
             font-weight: bold;
         }
 
         body {
-            font-family: 'Chula', sans-serif;
+            font-family: 'Montserrat', sans-serif;
             font-size: 20px;
         }
 

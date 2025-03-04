@@ -127,7 +127,7 @@
                     <div class="lh-1">
                         <span class="fw-bold fs-4">องค์การบริหารส่วนตำบลแปลงยาว</span> <br>
                         <span class="fw-bold fs-5">Plaeng Yao Subdistrict Administrative Organization</span> <br>
-                        <span class="text-muted">
+                        <span class="fw-bold fs-5">
                             เลขที่ 86 หมู่ที่ 7 ตำบลแปลงยาว อำเภอแปลงยาว <br>
                             จังหวัดฉะเชิงเทรา รหัสไปรษณีย์ : 24190
                     </div>
@@ -136,12 +136,12 @@
                     <div class="d-flex justify-content-center align-items-start gap-2 mb-1">
                         <img src="{{ asset('images/section-10/phone-call.png') }}" alt="phone" width="20"
                             height="20">
-                        <div>โทรศัพท์ : 038-852-556</div>
+                        <div class="fw-bold fs-5">โทรศัพท์ : 038-852-556</div>
                     </div>
                     <div class="d-flex justify-content-center align-items-start gap-2 mb-1">
                         <img src="{{ asset('images/section-10/email.png') }}" alt="phone" width="23"
                             height="20">
-                        <div>Email : Saraban_06240907@dla.go.th</div>
+                        <div class="fw-bold fs-5">Email : Saraban_06240907@dla.go.th</div>
                     </div>
                 </div>
                 <div class="d-flex flex-column justify-content-center align-items-start lh-1">

@@ -20,4 +20,9 @@ class PersonnelRank extends Model
     {
         return $this->hasMany(PersonnelDetail::class);
     }
+
+    public function groupPhotos()
+    {
+        return $this->hasMany(PersonnelGroupPhoto::class, 'personnel_rank_id');
+    }
 }

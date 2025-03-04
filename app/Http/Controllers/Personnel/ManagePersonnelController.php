@@ -8,6 +8,7 @@ use App\Models\PersonnelAgency;
 use App\Models\PersonnelRank;
 use App\Models\PersonnelDetail;
 use App\Models\PersonnelImage;
+use App\Models\PersonnelGroupPhoto;
 use Illuminate\Support\Facades\Storage;
 
 class ManagePersonnelController extends Controller
@@ -207,4 +208,57 @@ class ManagePersonnelController extends Controller
 
         return redirect()->back()->with('success', 'โพสถูกลบแล้ว');
     }
+
+    public function PersonnelGroupPhotoPage($id)
+    {
+        $PersonnelRank = PersonnelRank::findOrFail($id);
+        $PersonnelGroupPhoto = PersonnelGroupPhoto::where('personnel_rank_id', $id)->get();
+
+        return view('admin.post.personnel.personnel_group_photo', compact('PersonnelRank', 'PersonnelGroupPhoto'));
+    }
+
+    public function PersonnelGroupPhotoCreate(Request $request, $id)
+    {
+        $request->validate([
+            'file_post' => 'nullable|array',
+            'file_post.*' => 'file|mimes:jpg,jpeg,png',
+        ]);
+
+        // dd($request);
+
+        if ($request->hasFile('file_post')) {
+            foreach ($request->file('file_post') as $file) {
+                $filename = time() . '_' . $file->getClientOriginalName();
+                $path = $file->storeAs('personnel_group_photo', $filename, 'public');
+
+                // บันทึกข้อมูลไฟล์ลงฐานข้อมูล
+                PersonnelGroupPhoto::create([
+                    'personnel_rank_id' => $id,
+                    'group_photo_file' => $path,
+                ]);
+            }
+        }
+
+        return redirect()->back()->with('success', 'สร้างข้อมูลสำเร็จ');
+    }
+
+    public function PersonnelGroupPhotoDelete($id)
+    {
+        $photo = PersonnelGroupPhoto::find($id);
+
+        if ($photo) {
+            // ลบไฟล์รูปภาพจาก storage
+            if ($photo->group_photo_file && Storage::disk('public')->exists($photo->group_photo_file)) {
+                Storage::disk('public')->delete($photo->group_photo_file);
+            }
+
+            // ลบข้อมูลออกจากฐานข้อมูล
+            $photo->delete();
+
+            return redirect()->back()->with('success', 'โพสถูกลบแล้ว');
+        }
+
+        return redirect()->back()->with('error', 'ไม่พบข้อมูลที่ต้องการลบ');
+    }
+
 }

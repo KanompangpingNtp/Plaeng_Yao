@@ -77,6 +77,29 @@
                 @endforeach
             </table>
 
+            @if($revenue && $revenue->count() > 0)
+            <nav aria-label="Page navigation example">
+                <ul class="pagination justify-content-center mt-5">
+                    <!-- Previous button -->
+                    <li class="page-item {{ $revenue->onFirstPage() ? 'disabled' : '' }}">
+                        <a class="page-link" href="{{ $revenue->previousPageUrl() }}">ก่อนหน้า</a>
+                    </li>
+
+                    <!-- Page number buttons -->
+                    @foreach ($revenue->getUrlRange(1, $revenue->lastPage()) as $page => $url)
+                    <li class="page-item {{ $page == $revenue->currentPage() ? 'active' : '' }}">
+                        <a class="page-link" href="{{ $url }}">{{ $page }}</a>
+                    </li>
+                    @endforeach
+
+                    <!-- Next button -->
+                    <li class="page-item {{ !$revenue->hasMorePages() ? 'disabled' : '' }}">
+                        <a class="page-link" href="{{ $revenue->nextPageUrl() }}">ต่อไป</a>
+                    </li>
+                </ul>
+            </nav>
+            @endif
+
         </div>
     </div>
 </div>

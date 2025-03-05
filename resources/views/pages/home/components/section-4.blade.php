@@ -333,9 +333,9 @@
                 </a>
             </div>
             <div class="col-sm-6 col-xl-4">
-                <a href="#" class="image-link-section4">
+                <a href="https://www.google.com/maps/d/edit?mid=1qn3WQ_gycFEDXfV3VvFIBWBds1E4x3A&usp=sharing" class="image-link-section4">
                     <img src="{{ asset('images/section-4/ปั้มน้ำมันโรงทานในพื้นที่.png') }}" alt="icon">
-                    <span class="image-text-section4">ปั้มน้ำมันโรงทานในพื้นที่</span>
+                    <span class="image-text-section4">ปั้มน้ำมันโรงงานในพื้นที่</span>
                 </a>
             </div>
             <div class="col-sm-6 col-xl-4">

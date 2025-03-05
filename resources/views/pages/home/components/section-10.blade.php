@@ -143,6 +143,9 @@
                             height="20">
                         <div class="fw-bold" style="font-size: 16px;">Email : Saraban_06240907@dla.go.th</div>
                     </div>
+                    <div class="d-flex justify-content-center align-items-start gap-2 mb-1 mt-3">
+                        <div class="fw-bold" style="font-size: 14px;">Copyright &copy; บริษัท So Smart Solution สงวนสิทธิ์ 2025</div>
+                    </div>
                 </div>
                 <div class="d-flex flex-column justify-content-center align-items-start lh-1">
                     {{-- <span class="bg-dataweb px-2 py-1 mb-1">ข้อมูลเว็บไซด์</span> --}}

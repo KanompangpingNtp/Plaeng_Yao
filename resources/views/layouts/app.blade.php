@@ -301,6 +301,12 @@
             z-index: 2;
             transition: transform 0.3s ease;
         }
+
+        .goog-te-banner-frame { display: none !important; }
+.goog-te-gadget { font-size: 0; }
+.goog-te-gadget span { display: none; }
+.goog-te-gadget-simple { background: none; border: none; }
+
     </style>
 </head>
 
@@ -341,6 +347,21 @@
                         <div class="text-white d-none d-sm-block">
                             เปลี่ยนภาษา
                         </div>
+                        <div id="google_translate_element"></div>
+
+                        <script type="text/javascript">
+                            function googleTranslateElementInit() {
+                              new google.translate.TranslateElement({
+                                pageLanguage: 'en', // ภาษาเริ่มต้นของเว็บไซต์
+                                includedLanguages: 'en,th,id,ms,vi,lo,my,kh,ph,sg', // ภาษาในอาเซียน
+                                layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+                                autoDisplay: false // ปิดการแสดงผลอัตโนมัติ
+                              }, 'google_translate_element');
+                            }
+                          </script>
+                          <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+                          
+  
                         <a href="#" class="flag-link"><img src="{{ asset('images/navbar/country/thailand.png') }}"
                                 alt="Thailand" width="23"></a>
                         <a href="#" class="flag-link"><img src="{{ asset('images/navbar/country/Brunei.png') }}"
@@ -402,6 +423,7 @@
                                 </li>
                                 <li><a class="dropdown-item" href="{{route('testPage')}}">นโยบายการบริหาร/เจตจำนงสุจริต</a>
                                 </li>
+                                
                             </ul>
                         </li>
 

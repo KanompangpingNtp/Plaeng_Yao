@@ -10,7 +10,8 @@
     @include('pages.home.components.section-6')
     @include('pages.home.components.section-7')
     @include('pages.home.components.section-8')
-    @include('pages.home.components.section-9')
+    {{-- @include('pages.home.components.section-9') --}}
+    @include('pages.home.components.section-95')
     @include('pages.home.components.video-bottom')
     @include('pages.home.components.section-10')
 @endsection

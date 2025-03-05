@@ -153,7 +153,7 @@
         /* ขยายขนาดเล็กน้อย */
     }
 </style>
-<main class="d-flex align-items-center justify-content-center bg-page7">
+<main class="d-flex flex-column align-items-center justify-content-center bg-page7">
     <div class="container">
         <div class="d-flex flex-column align-items-center justify-content-center">
             <div class="lh-1 fw-bold w-100 ms-2 mb-4">
@@ -200,6 +200,54 @@
             <div class="d-flex justify-content-end align-items-center w-100 me-2 mt-2">
                 <a href="#" class="bg-link-button7 px-4 py-1 my-1 ">
                     ดูทั้งหมด
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="container mt-3 mt-sm-5">
+        <div class="row g-4 justify-content-center">
+            <div class="col-sm-6 col-xl-3">
+                <a href="#" class="banner-section-2 d-flex lh-1 p-0">
+                    <div class="bg-inbanner">
+                        <img src="{{ asset('images/section-7/อาสาสมัครป้องกันภัยฝ่ายพลเรือน.png') }}" alt="icon"
+                            style="width: 65px;">
+                    </div>
+                    <div class="m-auto py-3 py-sm-2">
+                        อาสาสมัครป้องกันภัย<br class="d-none d-sm-block">ฝ่ายพลเรือน 
+                    </div>
+                </a>
+            </div>
+            <div class="col-sm-6 col-xl-3">
+                <a href="#" class="banner-section-2 d-flex lh-1 p-0">
+                    <div class="bg-inbanner">
+                        <img src="{{ asset('images/section-7/รางวัลแห่งความภาคภูมิใจ.png') }}" alt="icon"
+                            style="width: 60px;">
+                    </div>
+                    <div class="m-auto py-3 py-sm-2">
+                        รางวัลแห่งความ<br class="d-none d-sm-block">ภาคภูมิใจ
+                    </div>
+                </a>
+            </div>
+            <div class="col-sm-6 col-xl-3">
+                <a href="#" class="banner-section-2 d-flex lh-1 p-0">
+                    <div class="bg-inbanner">
+                        <img src="{{ asset('images/section-7/การประเมินประสิทธิภาพขององค์กรปกครอง ส่วนท้องถิ่น.png') }}" alt="icon"
+                            style="width: 70px;">
+                    </div>
+                    <div class="m-auto py-3 py-sm-1" style="font-size: 14px;">
+                        การประเมินประสิทธิ<br>ภาพขององค์กรปกครอง<br >ส่วนท้องถิ่น
+                    </div>
+                </a>
+            </div>
+            <div class="col-sm-6 col-xl-3">
+                <a href="#" class="banner-section-2 d-flex lh-1 p-0">
+                    <div class="bg-inbanner">
+                        <img src="{{ asset('images/section-7/พรบ.อำนวยความสะดวก.png') }}" alt="icon"
+                            style="width: 65px;">
+                    </div>
+                    <div class="m-auto py-3 py-sm-2">
+                        พรบ.อำนวย<br class="d-none d-sm-block">ความสะดวก
+                    </div>
                 </a>
             </div>
         </div>

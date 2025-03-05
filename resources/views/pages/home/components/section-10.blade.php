@@ -106,6 +106,10 @@
                 </div>
                 <div class="text-center py-3 px-5 border-3 lh-1">
                     <span class=" fs-1">1</span> <br>
+                    <span class="fw-bold text-white">สัปดาห์นี้</span>
+                </div>
+                <div class="text-center py-3 px-5 border-3 lh-1">
+                    <span class=" fs-1">1</span> <br>
                     <span class="fw-bold text-white">เดือนนี้</span>
                 </div>
                 <div class="text-center py-3 px-5 lh-1">

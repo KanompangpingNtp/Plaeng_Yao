@@ -80,8 +80,8 @@
                             <p>No images available for this person.</p>
                             @endif
 
-                            <!-- แสดงข้อมูลของแต่ละรายการ -->
-                            <div class="fs-4 mt-2">
+                            <!-- แสดงข้อมูลของแต่ละรายการ fs-4-->
+                            <div class="mt-2" style="font-size: 15px;">
                                 {{ $detail->full_name }}<br>
                                 {{ $detail->department ?? '' }}<br>
                                 {{ $detail->phone }}
@@ -101,7 +101,7 @@
                                 @else
                                 <p>No images available for this person.</p>
                                 @endif
-                                <div class="fs-4 mt-2">
+                                <div class="mt-2" style="font-size: 15px;">
                                     {{ $chunk->first()->full_name }}<br>
                                     {{ $chunk->first()->department ?? '' }}<br>
                                     {{ $chunk->first()->phone }}
@@ -118,7 +118,7 @@
                                 @else
                                 <p>No images available for this person.</p>
                                 @endif
-                                <div class="fs-4 mt-2">
+                                <div class="mt-2" style="font-size: 15px;">
                                     {{ $chunk->last()->full_name }}<br>
                                     {{ $chunk->last()->department ?? '' }}<br>
                                     {{ $chunk->last()->phone }}
@@ -140,7 +140,7 @@
                             @endif
 
                             <!-- แสดงข้อมูลของแต่ละรายการ -->
-                            <div class="fs-4 mt-2">
+                            <div class="mt-2" style="font-size: 15px;">
                                 {{ $detail->full_name }}<br>
                                 {{ $detail->department ?? '' }}<br>
                                 {{ $detail->phone }}

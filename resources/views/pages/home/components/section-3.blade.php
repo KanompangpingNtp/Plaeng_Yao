@@ -177,7 +177,7 @@
         </div>
         <div class="col-12 col-xl-4 mt-xl-5 pt-lg-4 bg-black-section-3 ">
             <div class="d-flex flex-column justifly-content-center align-items-center gap-4 ">
-                <a href="#" class="banner-section-3 d-flex lh-1 p-0">
+                <a href="https://www.admincourt.go.th/admincourt/site/09illustration.html" class="banner-section-3 d-flex lh-1 p-0" target="_blank">
                     <div class="bg-inbanner-3">
                         <img src="{{ asset('images/section-3/1.png') }}" alt="icon" style=" width: 55px;">
                     </div>
@@ -185,7 +185,7 @@
                         สาระดีๆจากศาลการปกครอง
                     </div>
                 </a>
-                <a href="#" class="banner-section-3 d-flex lh-1 p-0">
+                <a href="https://www.nacc.go.th/NACCPPWFC?" class="banner-section-3 d-flex lh-1 p-0" target="_blank">
                     <div class="bg-inbanner-3">
                         <img src="{{ asset('images/section-3/2.png') }}" alt="icon" style=" width: 50px; ">
                     </div>
@@ -194,7 +194,7 @@
                         และปราบปรามการทุจริตแห่งชาติ
                     </div>
                 </a>
-                <a href="#" class="banner-section-3 d-flex lh-1 p-0">
+                <a href="http://www.gprocurement.go.th/new_index.html" class="banner-section-3 d-flex lh-1 p-0" target="_blank">
                     <div class="bg-inbanner-3">
                         <img src="{{ asset('images/section-3/3.png') }}" alt="icon" style=" width: 65px; top: -7px; left: 0px;">
                     </div>
@@ -210,7 +210,7 @@
                         E - Social
                     </div>
                 </a>
-                <a href="#" class="banner-section-3 d-flex lh-1 p-0">
+                <a href="https://www.dla.go.th/oss.htm" class="banner-section-3 d-flex lh-1 p-0" target="_blank">
                     <div class="bg-inbanner-3">
                         <img src="{{ asset('images/section-3/6.png') }}" alt="icon">
                     </div>

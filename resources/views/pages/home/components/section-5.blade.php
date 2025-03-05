@@ -223,7 +223,7 @@
                                                     </div>
                                                     <div class="card-body bg-white mt-2" style="border-radius: 20px;">
                                                         <h5 class="card-title" style="font-size: 18px;">
-                                                            {{ $post->title_name }}
+                                                            {{ Str::limit($post->title_name, 65, '...') }}
                                                         </h5>
                                                         <p class="card-text text-muted" style="font-size: 16px;">
                                                             {{ Str::limit($post->details, 90, '...') }}

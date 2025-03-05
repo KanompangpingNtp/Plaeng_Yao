@@ -209,8 +209,8 @@
             <div class="col-sm-6 col-xl-3">
                 <a href="#" class="banner-section-2 d-flex lh-1 p-0">
                     <div class="bg-inbanner">
-                        <img src="{{ asset('images/section-7/อาสาสมัครป้องกันภัยฝ่ายพลเรือน.png') }}" alt="icon"
-                            style="width: 65px;">
+                        <img src="{{ asset('images/section-7/รางวัลแห่งความภาคภูมิใจ.png') }}" alt="icon"
+                            style="width: 60px;">
                     </div>
                     <div class="m-auto py-3 py-sm-2">
                         อาสาสมัครป้องกันภัย<br class="d-none d-sm-block">ฝ่ายพลเรือน 
@@ -220,8 +220,8 @@
             <div class="col-sm-6 col-xl-3">
                 <a href="#" class="banner-section-2 d-flex lh-1 p-0">
                     <div class="bg-inbanner">
-                        <img src="{{ asset('images/section-7/รางวัลแห่งความภาคภูมิใจ.png') }}" alt="icon"
-                            style="width: 60px;">
+                        <img src="{{ asset('images/section-7/อาสาสมัครป้องกันภัยฝ่ายพลเรือน.png') }}" alt="icon"
+                            style="width: 65px;">
                     </div>
                     <div class="m-auto py-3 py-sm-2">
                         รางวัลแห่งความ<br class="d-none d-sm-block">ภาคภูมิใจ

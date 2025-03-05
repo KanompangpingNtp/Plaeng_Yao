@@ -231,17 +231,6 @@
             <div class="col-sm-6 col-xl-3">
                 <a href="#" class="banner-section-2 d-flex lh-1 p-0">
                     <div class="bg-inbanner">
-                        <img src="{{ asset('images/section-7/การประเมินประสิทธิภาพขององค์กรปกครอง ส่วนท้องถิ่น.png') }}" alt="icon"
-                            style="width: 70px;">
-                    </div>
-                    <div class="m-auto py-3 py-sm-1" style="font-size: 14px;">
-                        การประเมินประสิทธิ<br>ภาพขององค์กรปกครอง<br >ส่วนท้องถิ่น
-                    </div>
-                </a>
-            </div>
-            <div class="col-sm-6 col-xl-3">
-                <a href="#" class="banner-section-2 d-flex lh-1 p-0">
-                    <div class="bg-inbanner">
                         <img src="{{ asset('images/section-7/พรบ.อำนวยความสะดวก.png') }}" alt="icon"
                             style="width: 65px;">
                     </div>

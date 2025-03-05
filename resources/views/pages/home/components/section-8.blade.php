@@ -51,7 +51,7 @@
     }
 </style>
 
-<main class="d-flex align-items-center justify-content-center bg-page8">
+<main class="d-flex flex-column align-items-center justify-content-center bg-page8">
     <div class="container">
         <div class="d-flex flex-column align-items-center justify-content-center" >
             <div class="lh-1 fw-bold w-100 ms-2 mb-4 text-white">
@@ -159,6 +159,43 @@
                 </div>
             </div>
 
+        </div>
+    </div>
+    <div class="container mt-3 mt-sm-5">
+        <div class="row g-4 justify-content-center">
+            <div class="col-sm-6 col-xl-3">
+                <a href="#" class="banner-section-2 d-flex lh-1 p-0">
+                    <div class="bg-inbanner">
+                        <img src="{{ asset('images/section-8/กลุ่มสตรี.png') }}" alt="icon"
+                            style="width: 65px;">
+                    </div>
+                    <div class="m-auto py-3">
+                       กลุ่มสตรี
+                    </div>
+                </a>
+            </div>
+            <div class="col-sm-6 col-xl-3">
+                <a href="#" class="banner-section-2 d-flex lh-1 p-0">
+                    <div class="bg-inbanner">
+                        <img src="{{ asset('images/section-8/แนะนำร้านอาหาร.png') }}" alt="icon"
+                            style="width: 60px;">
+                    </div>
+                    <div class="m-auto py-3">
+                        แนะนำร้านอาหาร
+                    </div>
+                </a>
+            </div>
+            <div class="col-sm-6 col-xl-3">
+                <a href="#" class="banner-section-2 d-flex lh-1 p-0">
+                    <div class="bg-inbanner">
+                        <img src="{{ asset('images/section-8/โรงพยาบาลส่งเสริมสุขภาพตำบล.png') }}" alt="icon"
+                            style="width: 65px;">
+                    </div>
+                    <div class="m-auto py-3 py-sm-2">
+                        โรงพยาบาลส่งเสริม<br class="d-none d-sm-block">สุขภาพตำบล
+                    </div>
+                </a>
+            </div>
         </div>
     </div>
 </main>

@@ -175,7 +175,7 @@
                         <img src="{{ asset('images/section-2/engagement.png') }}" alt="icon">
                     </div>
                     <div class="m-auto py-3 py-sm-2">
-                        เพิ่มประมวล <br class="d-none d-sm-block">
+                        ประมวล <br class="d-none d-sm-block">
                         จริยธรรม
                     </div>
                 </a>

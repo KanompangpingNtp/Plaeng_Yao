@@ -193,7 +193,7 @@
             <div class="d-flex flex-column align-items-start justify-content-center mb-3  lh-1"
                 style="text-shadow: 2px 2px 3px rgba(255, 255, 255, 0.8);">
                 <div class=" fs-1 fw-bold text-dark ">
-                    วิดีทัศน์แนะนำ <img src="{{ asset('images/section-5/news.png') }}" alt="icon">
+                    วิดีทัศน์แนะนำ <img src="{{ asset('images/section-4/icony.png') }}" alt="icon">
                 </div>
                 <div class="fs-4 text-dark">
                     องค์การบริหารส่วนตำบลแปลงยาว
@@ -327,15 +327,15 @@
     <div class="container mt-3 mt-sm-5">
         <div class="row g-4 justify-content-center">
             <div class="col-sm-6 col-xl-4">
-                <a href="#" class="image-link-section4">
+                <a href="https://calendar.google.com/calendar/u/0/r?pli=1" class="image-link-section4">
                     <img src="{{ asset('images/section-4/ข้อปฏิทินกิจกรรม.png') }}" alt="icon">
-                    <span class="image-text-section4">ข้อปฏิทินกิจกรรม</span>
+                    <span class="image-text-section4">ปฏิทินกิจกรรม</span>
                 </a>
             </div>
             <div class="col-sm-6 col-xl-4">
-                <a href="#" class="image-link-section4">
+                <a href="https://www.google.com/maps/d/edit?mid=1qn3WQ_gycFEDXfV3VvFIBWBds1E4x3A&usp=sharing" class="image-link-section4">
                     <img src="{{ asset('images/section-4/ปั้มน้ำมันโรงทานในพื้นที่.png') }}" alt="icon">
-                    <span class="image-text-section4">ปั้มน้ำมันโรงทานในพื้นที่</span>
+                    <span class="image-text-section4">ปั้มน้ำมันโรงงานในพื้นที่</span>
                 </a>
             </div>
             <div class="col-sm-6 col-xl-4">

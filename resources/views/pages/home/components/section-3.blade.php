@@ -94,7 +94,7 @@
             <div class="d-flex flex-column align-items-start justify-content-center mb-3  lh-1"
             style="text-shadow: 2px 2px 3px rgba(255, 255, 255, 0.8);">
             <div class=" fs-1 fw-bold text-dark ">
-                ป้ายประกาศ <img src="{{ asset('images/section-5/news.png') }}" alt="icon">
+                ป้ายประกาศ <img src="{{ asset('images/section-3/iconx.png') }}" alt="icon">
             </div>
             <div class="fs-4 text-dark">
                 องค์การบริหารส่วนตำบลแปลงยาว
@@ -212,7 +212,7 @@
                 </a>
                 <a href="https://www.dla.go.th/oss.htm" class="banner-section-3 d-flex lh-1 p-0" target="_blank">
                     <div class="bg-inbanner-3">
-                        <img src="{{ asset('images/section-3/5.png') }}" alt="icon">
+                        <img src="{{ asset('images/section-3/6.png') }}" alt="icon">
                     </div>
                     <div class="m-auto py-3">
                         One Stop Service

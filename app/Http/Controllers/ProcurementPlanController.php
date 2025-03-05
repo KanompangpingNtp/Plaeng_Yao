@@ -162,7 +162,7 @@ class ProcurementPlanController extends Controller
                         ->orWhere('details', 'like', '%' . $searchQuery . '%');
                 });
             })
-            ->orderBy('created_at', 'desc')
+            ->orderBy('date', 'desc')
             ->paginate(14);
 
         return view('pages.procurementPlan.show_data', compact('procurementPlan', 'personnelAgencies'));

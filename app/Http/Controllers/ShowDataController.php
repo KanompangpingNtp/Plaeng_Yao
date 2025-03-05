@@ -16,7 +16,7 @@ class ShowDataController extends Controller
             ->whereHas('postType', function ($query) {
                 $query->where('type_name', 'ข่าวประชาสัมพันธ์');
             })
-            ->orderBy('created_at', 'desc')
+            ->orderBy('date', 'desc')
             ->get();
 
         //กิจกรรม
@@ -24,7 +24,7 @@ class ShowDataController extends Controller
             ->whereHas('postType', function ($query) {
                 $query->where('type_name', 'กิจกรรม');
             })
-            ->orderBy('created_at', 'desc')
+            ->orderBy('date', 'desc')
             ->get();
 
         //ประกาศจัดซื้อจัดจ้าง
@@ -32,7 +32,7 @@ class ShowDataController extends Controller
             ->whereHas('postType', function ($query) {
                 $query->where('type_name', 'ประกาศจัดซื้อจัดจ้าง');
             })
-            ->orderBy('created_at', 'desc')
+            ->orderBy('date', 'desc')
             ->get();
 
         //ผลประกาศจัดซื้อจัดจ้างประจำปี
@@ -40,7 +40,7 @@ class ShowDataController extends Controller
             ->whereHas('postType', function ($query) {
                 $query->where('type_name', 'ผลประกาศจัดซื้อจัดจ้างประจำปี');
             })
-            ->orderBy('created_at', 'desc')
+            ->orderBy('date', 'desc')
             ->get();
 
         //สรุปผลการจัดซื้อจัดจ้าง
@@ -48,7 +48,7 @@ class ShowDataController extends Controller
             ->whereHas('postType', function ($query) {
                 $query->where('type_name', 'สรุปผลการจัดซื้อจัดจ้าง');
             })
-            ->orderBy('created_at', 'desc')
+            ->orderBy('date', 'desc')
             ->get();
 
         //แผนการจัดซื้อจัดจ้าง
@@ -56,7 +56,7 @@ class ShowDataController extends Controller
             ->whereHas('postType', function ($query) {
                 $query->where('type_name', 'แผนการจัดซื้อจัดจ้าง');
             })
-            ->orderBy('created_at', 'desc')
+            ->orderBy('date', 'desc')
             ->get();
 
         //ประกาศผู้ชนะการเสนอราคา
@@ -64,7 +64,7 @@ class ShowDataController extends Controller
             ->whereHas('postType', function ($query) {
                 $query->where('type_name', 'ประกาศผู้ชนะการเสนอราคา');
             })
-            ->orderBy('created_at', 'desc')
+            ->orderBy('date', 'desc')
             ->get();
 
         //รางวัลแห่งความภาคภูมิใจ
@@ -72,7 +72,7 @@ class ShowDataController extends Controller
             ->whereHas('postType', function ($query) {
                 $query->where('type_name', 'รางวัลแห่งความภาคภูมิใจ');
             })
-            ->orderBy('created_at', 'desc')
+            ->orderBy('date', 'desc')
             ->get();
 
         //ป้ายประกาศ
@@ -80,7 +80,7 @@ class ShowDataController extends Controller
             ->whereHas('postType', function ($query) {
                 $query->where('type_name', 'ป้ายประกาศ');
             })
-            ->orderBy('created_at', 'desc')
+            ->orderBy('date', 'desc')
             ->get();
 
         //หนังสือราชการ
@@ -88,14 +88,15 @@ class ShowDataController extends Controller
             ->whereHas('postType', function ($query) {
                 $query->where('type_name', 'หนังสือราชการ');
             })
-            ->orderBy('created_at', 'desc')
+            ->orderBy('date', 'desc')
             ->get();
 
+        //แนะนำสถานที่
         $recommendPlaces = PostDetail::with('postType', 'photos')
             ->whereHas('postType', function ($query) {
                 $query->where('type_name', 'แนะนำสถานที่');
             })
-            ->orderBy('created_at', 'desc')
+            ->orderBy('date', 'desc')
             ->get();
 
         //เมนูบุคลากร

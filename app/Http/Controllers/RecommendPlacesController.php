@@ -116,7 +116,7 @@ class RecommendPlacesController extends Controller
             ->whereHas('postType', function ($query) {
                 $query->where('type_name', 'แนะนำสถานที่');
             })
-            ->orderBy('created_at', 'desc')
+            ->orderBy('date', 'desc')
             ->paginate(14); // กำหนดจำนวนรายการที่แสดงต่อหน้าเป็น 14
 
         return view('pages.recommend_places.show_data', compact('RecommendPlaces','personnelAgencies'));

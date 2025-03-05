@@ -198,7 +198,7 @@
                 </div>
             </div>
             <div class="d-flex justify-content-end align-items-center w-100 me-2 mt-2">
-                <a href="#" class="bg-link-button7 px-4 py-1 my-1 ">
+                <a href="{{route('TreasuryAnnouncementData')}}" class="bg-link-button7 px-4 py-1 my-1 ">
                     ดูทั้งหมด
                 </a>
             </div>
@@ -213,7 +213,7 @@
                             style="width: 60px;">
                     </div>
                     <div class="m-auto py-3 py-sm-2">
-                        อาสาสมัครป้องกันภัย<br class="d-none d-sm-block">ฝ่ายพลเรือน 
+                        อาสาสมัครป้องกันภัย<br class="d-none d-sm-block">ฝ่ายพลเรือน
                     </div>
                 </a>
             </div>

@@ -166,7 +166,7 @@ class RevenueController extends Controller
                         ->orWhere('details', 'like', '%' . $searchQuery . '%');
                 });
             })
-            ->orderBy('created_at', 'desc')
+            ->orderBy('date', 'desc')
             ->paginate(14);
 
         return view('pages.revenue.show_data', compact('revenue', 'personnelAgencies'));

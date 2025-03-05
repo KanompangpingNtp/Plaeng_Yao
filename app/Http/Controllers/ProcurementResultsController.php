@@ -168,7 +168,7 @@ class ProcurementResultsController extends Controller
                         ->orWhere('details', 'like', '%' . $searchQuery . '%');
                 });
             })
-            ->orderBy('created_at', 'desc')
+            ->orderBy('date', 'desc')
             ->paginate(14);
 
         return view('pages.procurementResults.show_data', compact('ProcurementResults', 'personnelAgencies'));

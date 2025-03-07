@@ -17,7 +17,7 @@ class OfficialDocumentsController extends Controller
         $postTypeId = $postTypes->firstWhere('type_name', 'หนังสือราชการ')->id;
         $postDetails = PostDetail::with('postType', 'pdfs')
             ->where('post_type_id', $postTypeId)
-            ->orderBy('date', 'desc')
+            ->orderBy('created_at', 'desc')
             ->get();
 
         return view('admin.post.official_documents.page', compact('postDetails', 'postTypes'));

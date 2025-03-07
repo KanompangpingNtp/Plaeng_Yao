@@ -196,7 +196,7 @@
                             และ ความโปร่งใส
                         </div>
                     </a>
-                    <a href="#" class="col-xl-5 banner-section-1 d-flex mx-1 my-2">
+                    <a href="https://lpa.dla.go.th/" class="col-xl-5 banner-section-1 d-flex mx-1 my-2">
                         <img class="icon" src="{{ asset('images/section-1/การประเมินประสิทธิภาพขององค์กรปกครอง ส่วนท้องถิ่น.png') }}" alt="icon">
                         <div class="text-content lh-1" style="font-size:16px;">
                             การประเมินประสิทธิภาพขององค์กรปกครอง <br class="d-none d-sm-block">

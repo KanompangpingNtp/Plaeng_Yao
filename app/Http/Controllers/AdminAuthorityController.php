@@ -27,7 +27,7 @@ class AdminAuthorityController extends Controller
     {
         $request->validate([
             'basic_info_type' => 'required|exists:basic_info_types,id',
-            'list_details_name' => 'required|string',
+            'list_details_name' => 'nullable|string',
         ]);
 
         // dd( $request);
@@ -74,7 +74,7 @@ class AdminAuthorityController extends Controller
     public function AuthorityDertailsCreate(Request $request, $DetailsId)
     {
         $request->validate([
-            'details' => 'required|string',
+            'details' => 'nullable|string',
             'file_post' => 'nullable|array',
             'file_post.*' => 'file|mimes:jpg,jpeg,png,pdf',
         ]);
@@ -112,7 +112,6 @@ class AdminAuthorityController extends Controller
                 }
             }
         }
-
 
         return redirect()->back()->with('success', 'เพิ่มข้อมูลสำเร็จ');
     }

@@ -90,7 +90,15 @@
         <div class=" d-flex flex-column justify-content-center align-items-center p-5 ">
             <div class="fs-1 fw-bold mb-4 text-center">การประเมินคุณธรรม และความโปร่งใส (ITA) พ.ศ.{{ Carbon::now()->year + 543 }} </div>
 
-
+            <table>
+                <thead>
+                    <tr>
+                        <th>ข้อ</th>
+                        <th>URL</th>
+                        <th>คำอธิบาย</th>
+                    </tr>
+                </thead>
+            </table>
 
         </div>
     </div>

@@ -8,6 +8,9 @@ use App\Models\PostDetail;
 use App\Models\PostPdf;
 use Illuminate\Support\Facades\Storage;
 use App\Models\PersonnelAgency;
+use App\Models\BasicInfoType;
+use App\Models\ListDetail;
+use App\Models\PerfResultsType;
 
 class ProcurementPlanController extends Controller
 {
@@ -126,24 +129,34 @@ class ProcurementPlanController extends Controller
     {
         $personnelAgencies = PersonnelAgency::with('ranks')->get();
 
+        $AuthorityInfoType = BasicInfoType::where('type_name', 'อำนาจหน้าที่')->first();
+        $AuthorityDetails = ListDetail::where('basic_info_type_id', $AuthorityInfoType->id)->get();
+
+        $PerfResultsMenu = PerfResultsType::all();
+
         $procurementPlan = PostDetail::with(['pdfs'])
             ->whereHas('postType', function ($query) {
                 $query->where('type_name', 'แผนการจัดซื้อจัดจ้าง');
             })->findOrFail($id);
 
-        return view('pages.procurementPlan.show_detail', compact('procurementPlan','personnelAgencies'));
+        return view('pages.procurementPlan.show_detail', compact('procurementPlan','personnelAgencies','AuthorityDetails','PerfResultsMenu'));
     }
 
     public function ProcurementPlanShowData()
     {
         $personnelAgencies = PersonnelAgency::with('ranks')->get();
 
+        $AuthorityInfoType = BasicInfoType::where('type_name', 'อำนาจหน้าที่')->first();
+        $AuthorityDetails = ListDetail::where('basic_info_type_id', $AuthorityInfoType->id)->get();
+
+        $PerfResultsMenu = PerfResultsType::all();
+
         $procurementPlan = PostDetail::with('postType','photos')
             ->whereHas('postType', function ($query) {
                 $query->where('type_name', 'แผนการจัดซื้อจัดจ้าง');
             })->paginate(14);
 
-        return view('pages.procurementPlan.show_data', compact('procurementPlan','personnelAgencies'));
+        return view('pages.procurementPlan.show_data', compact('procurementPlan','personnelAgencies','AuthorityDetails','PerfResultsMenu'));
     }
 
     public function ProcurementPlanSearchData(Request $request)
@@ -151,6 +164,11 @@ class ProcurementPlanController extends Controller
         $searchQuery = $request->input('query');
 
         $personnelAgencies = PersonnelAgency::with('ranks')->get();
+
+        $AuthorityInfoType = BasicInfoType::where('type_name', 'อำนาจหน้าที่')->first();
+        $AuthorityDetails = ListDetail::where('basic_info_type_id', $AuthorityInfoType->id)->get();
+
+        $PerfResultsMenu = PerfResultsType::all();
 
         $procurementPlan = PostDetail::with('postType', 'videos', 'photos', 'pdfs')
             ->whereHas('postType', function ($query) {
@@ -165,6 +183,6 @@ class ProcurementPlanController extends Controller
             ->orderBy('date', 'desc')
             ->paginate(14);
 
-        return view('pages.procurementPlan.show_data', compact('procurementPlan', 'personnelAgencies'));
+        return view('pages.procurementPlan.show_data', compact('procurementPlan', 'personnelAgencies','AuthorityDetails','PerfResultsMenu'));
     }
 }

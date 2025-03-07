@@ -8,6 +8,9 @@ use App\Models\PostDetail;
 use App\Models\PostPdf;
 use App\Models\PersonnelAgency;
 use Illuminate\Support\Facades\Storage;
+use App\Models\BasicInfoType;
+use App\Models\ListDetail;
+use App\Models\PerfResultsType;
 
 class RevenueController extends Controller
 {
@@ -130,24 +133,34 @@ class RevenueController extends Controller
     {
         $personnelAgencies = PersonnelAgency::with('ranks')->get();
 
+        $AuthorityInfoType = BasicInfoType::where('type_name', 'อำนาจหน้าที่')->first();
+        $AuthorityDetails = ListDetail::where('basic_info_type_id', $AuthorityInfoType->id)->get();
+
+        $PerfResultsMenu = PerfResultsType::all();
+
         $revenue = PostDetail::with(['pdfs'])
             ->whereHas('postType', function ($query) {
                 $query->where('type_name', 'สรุปผลการจัดซื้อจัดจ้าง');
             })->findOrFail($id);
 
-        return view('pages.revenue.show_detail', compact('revenue','personnelAgencies'));
+        return view('pages.revenue.show_detail', compact('revenue','personnelAgencies','AuthorityDetails','PerfResultsMenu'));
     }
 
     public function RevenueShowData()
     {
         $personnelAgencies = PersonnelAgency::with('ranks')->get();
 
+        $AuthorityInfoType = BasicInfoType::where('type_name', 'อำนาจหน้าที่')->first();
+        $AuthorityDetails = ListDetail::where('basic_info_type_id', $AuthorityInfoType->id)->get();
+
+        $PerfResultsMenu = PerfResultsType::all();
+
         $revenue = PostDetail::with('postType','photos')
             ->whereHas('postType', function ($query) {
                 $query->where('type_name', 'สรุปผลการจัดซื้อจัดจ้าง');
             })->paginate(14);
 
-        return view('pages.revenue.show_data', compact('revenue','personnelAgencies'));
+        return view('pages.revenue.show_data', compact('revenue','personnelAgencies','AuthorityDetails','PerfResultsMenu'));
     }
 
     public function RevenueSearchData(Request $request)
@@ -155,6 +168,11 @@ class RevenueController extends Controller
         $searchQuery = $request->input('query');
 
         $personnelAgencies = PersonnelAgency::with('ranks')->get();
+
+        $AuthorityInfoType = BasicInfoType::where('type_name', 'อำนาจหน้าที่')->first();
+        $AuthorityDetails = ListDetail::where('basic_info_type_id', $AuthorityInfoType->id)->get();
+
+        $PerfResultsMenu = PerfResultsType::all();
 
         $revenue = PostDetail::with('postType', 'videos', 'photos', 'pdfs')
             ->whereHas('postType', function ($query) {
@@ -169,6 +187,6 @@ class RevenueController extends Controller
             ->orderBy('date', 'desc')
             ->paginate(14);
 
-        return view('pages.revenue.show_data', compact('revenue', 'personnelAgencies'));
+        return view('pages.revenue.show_data', compact('revenue', 'personnelAgencies','AuthorityDetails','PerfResultsMenu'));
     }
 }

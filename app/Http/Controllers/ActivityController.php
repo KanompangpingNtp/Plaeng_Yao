@@ -10,6 +10,9 @@ use App\Models\PostPhoto;
 use App\Models\PostVideo;
 use App\Models\PersonnelAgency;
 use Illuminate\Support\Facades\Storage;
+use App\Models\BasicInfoType;
+use App\Models\ListDetail;
+use App\Models\PerfResultsType;
 
 class ActivityController extends Controller
 {
@@ -255,6 +258,11 @@ class ActivityController extends Controller
     {
         $personnelAgencies = PersonnelAgency::with('ranks')->get();
 
+        $AuthorityInfoType = BasicInfoType::where('type_name', 'อำนาจหน้าที่')->first();
+        $AuthorityDetails = ListDetail::where('basic_info_type_id', $AuthorityInfoType->id)->get();
+
+        $PerfResultsMenu = PerfResultsType::all();
+
         $activity = PostDetail::with('postType', 'videos', 'photos', 'pdfs')
             ->whereHas('postType', function ($query) {
                 $query->where('type_name', 'กิจกรรม');
@@ -262,12 +270,17 @@ class ActivityController extends Controller
             ->orderBy('date', 'desc')
             ->paginate(14);
 
-        return view('pages.activity.show_data', compact('activity', 'personnelAgencies'));
+        return view('pages.activity.show_data', compact('activity', 'personnelAgencies','AuthorityDetails','PerfResultsMenu'));
     }
 
     public function ActivityShowDetails($id)
     {
         $personnelAgencies = PersonnelAgency::with('ranks')->get();
+
+        $AuthorityInfoType = BasicInfoType::where('type_name', 'อำนาจหน้าที่')->first();
+        $AuthorityDetails = ListDetail::where('basic_info_type_id', $AuthorityInfoType->id)->get();
+
+        $PerfResultsMenu = PerfResultsType::all();
 
         $activity = PostDetail::with(['postType', 'videos', 'photos', 'pdfs'])
             ->whereHas('postType', function ($query) {
@@ -275,7 +288,7 @@ class ActivityController extends Controller
             })
             ->findOrFail($id);
 
-        return view('pages.activity.show_detail', compact('activity', 'personnelAgencies'));
+        return view('pages.activity.show_detail', compact('activity', 'personnelAgencies','AuthorityDetails','PerfResultsMenu'));
     }
 
     public function ActivitySearchData(Request $request)
@@ -285,6 +298,11 @@ class ActivityController extends Controller
 
         // เรียกข้อมูลจากฐานข้อมูล พร้อมกับการกรองการค้นหาหากมี
         $personnelAgencies = PersonnelAgency::with('ranks')->get();
+
+        $AuthorityInfoType = BasicInfoType::where('type_name', 'อำนาจหน้าที่')->first();
+        $AuthorityDetails = ListDetail::where('basic_info_type_id', $AuthorityInfoType->id)->get();
+
+        $PerfResultsMenu = PerfResultsType::all();
 
         $activity = PostDetail::with('postType', 'videos', 'photos', 'pdfs')
             ->whereHas('postType', function ($query) {
@@ -300,6 +318,6 @@ class ActivityController extends Controller
             ->orderBy('date', 'desc')
             ->paginate(14);
 
-        return view('pages.activity.show_data', compact('activity', 'personnelAgencies'));
+        return view('pages.activity.show_data', compact('activity', 'personnelAgencies','AuthorityDetails','PerfResultsMenu'));
     }
 }

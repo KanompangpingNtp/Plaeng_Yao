@@ -433,30 +433,31 @@
                                 <div class="navbar-text">ผลการดำเนินงาน</div>
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="performanceDropdown">
-                                <li><a class="dropdown-item" href="{{route('testPage')}}">รายงานงบการเงิน</a></li>
-                                <li><a class="dropdown-item" href="{{route('testPage')}}">รายผลการดำเนินงาน</a></li>
-                                <li><a class="dropdown-item" href="{{route('testPage')}}">รายงานการติดตามและประเมิน</a>
+                                @foreach ($PerfResultsMenu as $detail)
+                                <li>
+                                    <a class="dropdown-item" href="{{ route('PerformanceResultsSectionPages', ['id' => $detail->id]) }}">
+                                        {{ $detail->type_name }}
+                                    </a>
                                 </li>
-                                <li><a class="dropdown-item" href="{{route('testPage')}}">งบประมาณรายจ่ายประจำปี</a></li>
-                                <li><a class="dropdown-item" href="{{route('testPage')}}">รายงานผลการดำเนินงานรอบ 6เดือน</a></li>
-                                <li><a class="dropdown-item" href="{{route('testPage')}}">การปฏิบัติงาน</a></li>
-                                <li><a class="dropdown-item" href="{{route('testPage')}}">การบริหารเเละพัฒนาทรัพยากรบุคคล</a></li>
-                                <li><a class="dropdown-item" href="{{route('testPage')}}">มาตรการส่งเสริมความโปร่งใสและป้องกันการทุจริต</a>
-                                </li>
-                                <li><a class="dropdown-item" href="{{route('testPage')}}">รายงานแสดงฐานะการเงิน</a>
-                                </li>
-                                <li><a class="dropdown-item" href="{{route('testPage')}}">การลดขั้นตอนการปฏิบัติงาน</a>
-                                </li>
+                                @endforeach
                             </ul>
                         </li>
 
                         <!-- 4. อำนาจหน้าที่ -->
-                        <li class="nav-item">
-                            <a class="nav-link d-flex flex-column align-items-center" href="">
-                                <img src="{{ asset('images/header/certificate-authority.png') }}" alt="อำนาจหน้าที่"
-                                    class="navbar-icon">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle d-flex flex-column align-items-center" href="#" id="authorityDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <img src="{{ asset('images/header/certificate-authority.png') }}" alt="อำนาจหน้าที่" class="navbar-icon">
                                 <div class="navbar-text">อำนาจหน้าที่</div>
                             </a>
+                            <ul class="dropdown-menu" aria-labelledby="authorityDropdown">
+                                @foreach ($AuthorityDetails as $detail)
+                                <li>
+                                    <a class="dropdown-item" href="{{ route('AuthorityShowDetails', ['id' => $detail->id]) }}">
+                                        {{ $detail->list_details_name }}
+                                    </a>
+                                </li>
+                                @endforeach
+                            </ul>
                         </li>
 
                         <!-- 5. แผนพัฒนนาท้องถิ่น -->

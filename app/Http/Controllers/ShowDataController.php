@@ -105,6 +105,7 @@ class ShowDataController extends Controller
         //เมนูบุคลากร
         $personnelAgencies = PersonnelAgency::with('ranks')->get();
 
+        //เมนูอำนาจหน้าที่
         $AuthorityInfoType = BasicInfoType::where('type_name', 'อำนาจหน้าที่')->first();
         $AuthorityDetails = ListDetail::where('basic_info_type_id', $AuthorityInfoType->id)->get();
 

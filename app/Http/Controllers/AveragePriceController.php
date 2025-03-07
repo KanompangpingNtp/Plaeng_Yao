@@ -8,6 +8,9 @@ use App\Models\PostDetail;
 use App\Models\PostPdf;
 use App\Models\PersonnelAgency;
 use Illuminate\Support\Facades\Storage;
+use App\Models\ListDetail;
+use App\Models\BasicInfoType;
+use App\Models\PerfResultsType;
 
 class AveragePriceController extends Controller
 {
@@ -127,24 +130,34 @@ class AveragePriceController extends Controller
     {
         $personnelAgencies = PersonnelAgency::with('ranks')->get();
 
+        $AuthorityInfoType = BasicInfoType::where('type_name', 'อำนาจหน้าที่')->first();
+        $AuthorityDetails = ListDetail::where('basic_info_type_id', $AuthorityInfoType->id)->get();
+
+        $PerfResultsMenu = PerfResultsType::all();
+
         $averageprice = PostDetail::with(['pdfs'])
             ->whereHas('postType', function ($query) {
                 $query->where('type_name', 'ประกาศผู้ชนะการเสนอราคา');
             })->findOrFail($id);
 
-        return view('pages.averageprice.show_detail', compact('averageprice', 'personnelAgencies'));
+        return view('pages.averageprice.show_detail', compact('averageprice', 'personnelAgencies','AuthorityDetails','PerfResultsMenu'));
     }
 
     public function AveragePriceShowData()
     {
         $personnelAgencies = PersonnelAgency::with('ranks')->get();
 
+        $AuthorityInfoType = BasicInfoType::where('type_name', 'อำนาจหน้าที่')->first();
+        $AuthorityDetails = ListDetail::where('basic_info_type_id', $AuthorityInfoType->id)->get();
+
+        $PerfResultsMenu = PerfResultsType::all();
+
         $averageprice = PostDetail::with('postType', 'pdfs')
             ->whereHas('postType', function ($query) {
                 $query->where('type_name', 'ประกาศผู้ชนะการเสนอราคา');
             })->paginate(14);
 
-        return view('pages.averageprice.show_data', compact('averageprice', 'personnelAgencies'));
+        return view('pages.averageprice.show_data', compact('averageprice', 'personnelAgencies','AuthorityDetails','PerfResultsMenu'));
     }
 
     public function AveragePriceSearchData(Request $request)
@@ -152,6 +165,11 @@ class AveragePriceController extends Controller
         $searchQuery = $request->input('query');
 
         $personnelAgencies = PersonnelAgency::with('ranks')->get();
+
+        $AuthorityInfoType = BasicInfoType::where('type_name', 'อำนาจหน้าที่')->first();
+        $AuthorityDetails = ListDetail::where('basic_info_type_id', $AuthorityInfoType->id)->get();
+
+        $PerfResultsMenu = PerfResultsType::all();
 
         $averageprice = PostDetail::with('postType', 'videos', 'photos', 'pdfs')
             ->whereHas('postType', function ($query) {
@@ -166,6 +184,6 @@ class AveragePriceController extends Controller
             ->orderBy('date', 'desc')
             ->paginate(14);
 
-        return view('pages.averageprice.show_data', compact('averageprice', 'personnelAgencies'));
+        return view('pages.averageprice.show_data', compact('averageprice', 'personnelAgencies','AuthorityDetails','PerfResultsMenu'));
     }
 }

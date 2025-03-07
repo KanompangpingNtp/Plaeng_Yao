@@ -7,6 +7,7 @@ use App\Models\PersonnelAgency;
 use App\Models\ListDetail;
 use App\Models\BasicInfoType;
 use App\Models\PerfResultsType;
+use App\Models\OperationalPlanType;
 
 class AuthorityController extends Controller
 {
@@ -18,11 +19,12 @@ class AuthorityController extends Controller
         $AuthorityDetails = ListDetail::where('basic_info_type_id', $AuthorityInfoType->id)->get();
 
         $PerfResultsMenu = PerfResultsType::all();
+        $OperationalPlanMenu = OperationalPlanType::all();
 
 
         $listDetail = ListDetail::with('images','pdf')->findOrFail($id);
 
         // ส่งข้อมูลไปยังหน้า view
-        return view('pages.authority.show_details', compact('listDetail','personnelAgencies','AuthorityDetails','PerfResultsMenu'));
+        return view('pages.authority.show_details', compact('listDetail','personnelAgencies','AuthorityDetails','OperationalPlanMenu','PerfResultsMenu'));
     }
 }

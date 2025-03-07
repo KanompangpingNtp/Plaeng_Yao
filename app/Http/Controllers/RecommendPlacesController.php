@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Storage;
 use App\Models\BasicInfoType;
 use App\Models\ListDetail;
 use App\Models\PerfResultsType;
+use App\Models\OperationalPlanType;
 
 class RecommendPlacesController extends Controller
 {
@@ -119,6 +120,7 @@ class RecommendPlacesController extends Controller
         $AuthorityDetails = ListDetail::where('basic_info_type_id', $AuthorityInfoType->id)->get();
 
         $PerfResultsMenu = PerfResultsType::all();
+        $OperationalPlanMenu = OperationalPlanType::all();
 
         $RecommendPlaces = PostDetail::with('postType', 'videos', 'photos')
             ->whereHas('postType', function ($query) {
@@ -127,7 +129,7 @@ class RecommendPlacesController extends Controller
             ->orderBy('date', 'desc')
             ->paginate(14); // กำหนดจำนวนรายการที่แสดงต่อหน้าเป็น 14
 
-        return view('pages.recommend_places.show_data', compact('RecommendPlaces','personnelAgencies','AuthorityDetails','PerfResultsMenu'));
+        return view('pages.recommend_places.show_data', compact('RecommendPlaces','personnelAgencies','AuthorityDetails','PerfResultsMenu','OperationalPlanMenu'));
     }
 
     public function RecommendPlacesShowDetails($id)
@@ -138,6 +140,7 @@ class RecommendPlacesController extends Controller
         $AuthorityDetails = ListDetail::where('basic_info_type_id', $AuthorityInfoType->id)->get();
 
         $PerfResultsMenu = PerfResultsType::all();
+        $OperationalPlanMenu = OperationalPlanType::all();
 
         $RecommendPlaces = PostDetail::with(['postType', 'videos', 'photos'])
             ->whereHas('postType', function ($query) {
@@ -145,6 +148,6 @@ class RecommendPlacesController extends Controller
             })
             ->findOrFail($id);
 
-        return view('pages.recommend_places.show_detail', compact('RecommendPlaces','personnelAgencies','AuthorityDetails','PerfResultsMenu'));
+        return view('pages.recommend_places.show_detail', compact('RecommendPlaces','personnelAgencies','AuthorityDetails','PerfResultsMenu','OperationalPlanMenu'));
     }
 }

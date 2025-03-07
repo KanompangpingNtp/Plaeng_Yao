@@ -8,6 +8,7 @@ use App\Models\PersonnelAgency;
 use App\Models\BasicInfoType;
 use App\Models\ListDetail;
 use App\Models\PerfResultsType;
+use App\Models\OperationalPlanType;
 
 class ShowDataController extends Controller
 {
@@ -112,6 +113,9 @@ class ShowDataController extends Controller
         //ผลการดำเนินงานเมนู
         $PerfResultsMenu = PerfResultsType::all();
 
+        //เมนูแผนงานพัฒนาท้องถิ่น
+        $OperationalPlanMenu = OperationalPlanType::all();
+
         return view('pages.home.app', compact(
             'pressRelease',
             'activity',
@@ -126,7 +130,8 @@ class ShowDataController extends Controller
             'recommendPlaces',
             'personnelAgencies',
             'AuthorityDetails',
-            'PerfResultsMenu'
+            'PerfResultsMenu',
+            'OperationalPlanMenu'
         ));
     }
 }

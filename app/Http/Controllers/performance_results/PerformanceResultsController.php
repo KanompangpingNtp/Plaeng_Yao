@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Storage;
 use App\Models\PersonnelAgency;
 use App\Models\BasicInfoType;
 use App\Models\ListDetail;
+use App\Models\OperationalPlanType;
 
 class PerformanceResultsController extends Controller
 {
@@ -23,11 +24,12 @@ class PerformanceResultsController extends Controller
         $AuthorityDetails = ListDetail::where('basic_info_type_id', $AuthorityInfoType->id)->get();
 
         $PerfResultsMenu = PerfResultsType::all();
+        $OperationalPlanMenu = OperationalPlanType::all();
 
         $PerfResultsType = PerfResultsType::findOrFail($id);
         $PerfResultsSection = PerfResultsSection::where('type_id', $id)->get();
 
-        return view('pages.performance_results.page_section', compact('PerfResultsType', 'PerfResultsSection', 'personnelAgencies','AuthorityDetails','PerfResultsMenu'));
+        return view('pages.performance_results.page_section', compact('PerfResultsType', 'PerfResultsSection', 'OperationalPlanMenu','personnelAgencies','AuthorityDetails','PerfResultsMenu'));
     }
 
     public function PerfResultsSubTopicPages($id)

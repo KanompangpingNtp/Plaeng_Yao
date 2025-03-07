@@ -9,6 +9,7 @@ use App\Models\PersonnelGroupPhoto;
 use App\Models\BasicInfoType;
 use App\Models\ListDetail;
 use App\Models\PerfResultsType;
+use App\Models\OperationalPlanType;
 
 class PersonnelAgencyController extends Controller
 {
@@ -20,10 +21,11 @@ class PersonnelAgencyController extends Controller
         $AuthorityDetails = ListDetail::where('basic_info_type_id', $AuthorityInfoType->id)->get();
 
         $PerfResultsMenu = PerfResultsType::all();
+        $OperationalPlanMenu = OperationalPlanType::all();
 
         $agency = PersonnelAgency::with('ranks.details.images')->findOrFail($id);
         $photos = PersonnelGroupPhoto::whereIn('personnel_rank_id', $agency->ranks->pluck('id'))->get();
 
-        return view('pages.agency.show', compact('agency','personnelAgencies','photos','AuthorityDetails','PerfResultsMenu'));
+        return view('pages.agency.show', compact('agency','personnelAgencies','photos','AuthorityDetails','OperationalPlanMenu','PerfResultsMenu'));
     }
 }

@@ -8,6 +8,7 @@ use App\Models\PersonnelAgency;
 use App\Models\BasicInfoType;
 use App\Models\ListDetail;
 use App\Models\PerfResultsType;
+use App\Models\OperationalPlanType;
 
 class SatisfactionController extends Controller
 {
@@ -19,7 +20,8 @@ class SatisfactionController extends Controller
         $AuthorityDetails = ListDetail::where('basic_info_type_id', $AuthorityInfoType->id)->get();
 
         $PerfResultsMenu = PerfResultsType::all();
+        $OperationalPlanMenu = OperationalPlanType::all();
 
-        return view('pages.menu_for_public.survey.page_form',compact('personnelAgencies','AuthorityDetails','PerfResultsMenu'));
+        return view('pages.menu_for_public.survey.page_form',compact('personnelAgencies','AuthorityDetails','PerfResultsMenu','OperationalPlanMenu'));
     }
 }

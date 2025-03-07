@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Storage;
 use App\Models\BasicInfoType;
 use App\Models\ListDetail;
 use App\Models\PerfResultsType;
+use App\Models\OperationalPlanType;
 
 class RevenueController extends Controller
 {
@@ -137,13 +138,14 @@ class RevenueController extends Controller
         $AuthorityDetails = ListDetail::where('basic_info_type_id', $AuthorityInfoType->id)->get();
 
         $PerfResultsMenu = PerfResultsType::all();
+        $OperationalPlanMenu = OperationalPlanType::all();
 
         $revenue = PostDetail::with(['pdfs'])
             ->whereHas('postType', function ($query) {
                 $query->where('type_name', 'สรุปผลการจัดซื้อจัดจ้าง');
             })->findOrFail($id);
 
-        return view('pages.revenue.show_detail', compact('revenue','personnelAgencies','AuthorityDetails','PerfResultsMenu'));
+        return view('pages.revenue.show_detail', compact('revenue','personnelAgencies','AuthorityDetails','PerfResultsMenu','OperationalPlanMenu'));
     }
 
     public function RevenueShowData()
@@ -154,13 +156,14 @@ class RevenueController extends Controller
         $AuthorityDetails = ListDetail::where('basic_info_type_id', $AuthorityInfoType->id)->get();
 
         $PerfResultsMenu = PerfResultsType::all();
+        $OperationalPlanMenu = OperationalPlanType::all();
 
         $revenue = PostDetail::with('postType','photos')
             ->whereHas('postType', function ($query) {
                 $query->where('type_name', 'สรุปผลการจัดซื้อจัดจ้าง');
             })->paginate(14);
 
-        return view('pages.revenue.show_data', compact('revenue','personnelAgencies','AuthorityDetails','PerfResultsMenu'));
+        return view('pages.revenue.show_data', compact('revenue','personnelAgencies','AuthorityDetails','PerfResultsMenu','OperationalPlanMenu'));
     }
 
     public function RevenueSearchData(Request $request)
@@ -173,6 +176,7 @@ class RevenueController extends Controller
         $AuthorityDetails = ListDetail::where('basic_info_type_id', $AuthorityInfoType->id)->get();
 
         $PerfResultsMenu = PerfResultsType::all();
+        $OperationalPlanMenu = OperationalPlanType::all();
 
         $revenue = PostDetail::with('postType', 'videos', 'photos', 'pdfs')
             ->whereHas('postType', function ($query) {
@@ -187,6 +191,6 @@ class RevenueController extends Controller
             ->orderBy('date', 'desc')
             ->paginate(14);
 
-        return view('pages.revenue.show_data', compact('revenue', 'personnelAgencies','AuthorityDetails','PerfResultsMenu'));
+        return view('pages.revenue.show_data', compact('revenue', 'personnelAgencies','AuthorityDetails','PerfResultsMenu','OperationalPlanMenu'));
     }
 }

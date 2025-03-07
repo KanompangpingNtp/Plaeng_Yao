@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\Storage;
 use App\Models\BasicInfoType;
 use App\Models\ListDetail;
 use App\Models\PerfResultsType;
+use App\Models\OperationalPlanType;
 
 class ActivityController extends Controller
 {
@@ -262,6 +263,7 @@ class ActivityController extends Controller
         $AuthorityDetails = ListDetail::where('basic_info_type_id', $AuthorityInfoType->id)->get();
 
         $PerfResultsMenu = PerfResultsType::all();
+        $OperationalPlanMenu = OperationalPlanType::all();
 
         $activity = PostDetail::with('postType', 'videos', 'photos', 'pdfs')
             ->whereHas('postType', function ($query) {
@@ -270,7 +272,7 @@ class ActivityController extends Controller
             ->orderBy('date', 'desc')
             ->paginate(14);
 
-        return view('pages.activity.show_data', compact('activity', 'personnelAgencies','AuthorityDetails','PerfResultsMenu'));
+        return view('pages.activity.show_data', compact('activity', 'personnelAgencies','AuthorityDetails','PerfResultsMenu','OperationalPlanMenu'));
     }
 
     public function ActivityShowDetails($id)
@@ -281,6 +283,7 @@ class ActivityController extends Controller
         $AuthorityDetails = ListDetail::where('basic_info_type_id', $AuthorityInfoType->id)->get();
 
         $PerfResultsMenu = PerfResultsType::all();
+        $OperationalPlanMenu = OperationalPlanType::all();
 
         $activity = PostDetail::with(['postType', 'videos', 'photos', 'pdfs'])
             ->whereHas('postType', function ($query) {
@@ -288,7 +291,7 @@ class ActivityController extends Controller
             })
             ->findOrFail($id);
 
-        return view('pages.activity.show_detail', compact('activity', 'personnelAgencies','AuthorityDetails','PerfResultsMenu'));
+        return view('pages.activity.show_detail', compact('activity', 'personnelAgencies','AuthorityDetails','PerfResultsMenu','OperationalPlanMenu'));
     }
 
     public function ActivitySearchData(Request $request)
@@ -303,6 +306,7 @@ class ActivityController extends Controller
         $AuthorityDetails = ListDetail::where('basic_info_type_id', $AuthorityInfoType->id)->get();
 
         $PerfResultsMenu = PerfResultsType::all();
+        $OperationalPlanMenu = OperationalPlanType::all();
 
         $activity = PostDetail::with('postType', 'videos', 'photos', 'pdfs')
             ->whereHas('postType', function ($query) {
@@ -318,6 +322,6 @@ class ActivityController extends Controller
             ->orderBy('date', 'desc')
             ->paginate(14);
 
-        return view('pages.activity.show_data', compact('activity', 'personnelAgencies','AuthorityDetails','PerfResultsMenu'));
+        return view('pages.activity.show_data', compact('activity', 'personnelAgencies','AuthorityDetails','PerfResultsMenu','OperationalPlanMenu'));
     }
 }

@@ -220,7 +220,7 @@
                 <img src="{{ asset('images/section-1/telephone-call.png') }}" alt="phone" width="30"
                     height="30">
                 <div>
-                    สายด่วนนายก : 063-265-9742
+                    สายด่วนนายก : 098-050-2771
                 </div>
             </div>
         </div>

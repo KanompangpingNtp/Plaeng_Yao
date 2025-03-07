@@ -18,7 +18,9 @@ use App\Http\Controllers\OfficialDocumentsController;
 use App\Http\Controllers\Personnel\ManagePersonnelController;
 use App\Http\Controllers\Personnel\PersonnelAgencyController;
 use App\Http\Controllers\TreasuryAnnouncementController;
-
+use App\Http\Controllers\ITA\ITAController;
+use App\Http\Controllers\AdminAuthorityController;
+use App\Http\Controllers\AuthorityController;
 
 use App\Http\Controllers\TestController;
 /*
@@ -84,6 +86,12 @@ Route::get('/revenue/SearchData', [RevenueController::class, 'RevenueSearchData'
 Route::get('/procurement-plan/detail/{id}', [ProcurementPlanController::class, 'ProcurementPlanDetail'])->name('ProcurementPlanDetail');
 Route::get('/procurement-plan/ShowData', [ProcurementPlanController::class, 'ProcurementPlanShowData'])->name('ProcurementPlanShowData');
 Route::get('/procurement-plan/SearchData', [ProcurementPlanController::class, 'ProcurementPlanSearchData'])->name('ProcurementPlanSearchData');
+
+//ita
+Route::get('/ita/page', [ITAController::class, 'itaPage'])->name('itaPage');
+
+//อำนาจหน้าที่
+Route::get('/Authority/showdetails/index/{id}', [AuthorityController::class, 'AuthorityShowDetails'])->name('AuthorityShowDetails');
 
 Route::get('/showLoginForm', [AuthController::class, 'showLoginForm'])->name('showLoginForm');
 Route::post('/login', [AuthController::class, 'login'])->name('Login');
@@ -177,4 +185,12 @@ Route::middleware(['check.auth'])->group(function () {
     Route::post('/PersonnelGroupPhotoPage/create/{id}', [ManagePersonnelController::class, 'PersonnelGroupPhotoCreate'])->name('PersonnelGroupPhotoCreate');
     Route::delete('/PersonnelGroupPhotoPage/delete{id}', [ManagePersonnelController::class, 'PersonnelGroupPhotoDelete'])->name('PersonnelGroupPhotoDelete');
 
+    //Authority
+    Route::get('/Admin/Authority/page', [AdminAuthorityController::class, 'AuthorityAdmin'])->name('AuthorityAdmin');
+    Route::post('/Admin/Authority/create/name', [AdminAuthorityController::class, 'AuthorityCreate'])->name('AuthorityCreate');
+    Route::post('/Admin/Authority/{id}/update', [AdminAuthorityController::class, 'AuthorityNameUpdate'])->name('AuthorityNameUpdate');
+    Route::delete('/Admin/Authority/{id}/delete', [AdminAuthorityController::class, 'AuthorityNameDelete'])->name('AuthorityNameDelete');
+    Route::get('/Admin/Authority/show/details/{id}', [AdminAuthorityController::class, 'AuthorityShowDertails'])->name('AuthorityShowDertails');
+    Route::post('/Admin/Authority/show/details/{id}/create', [AdminAuthorityController::class, 'AuthorityDertailsCreate'])->name('AuthorityDertailsCreate');
+    Route::delete('/Admin/Authority/show/details/{id}/delete', [AdminAuthorityController::class, 'AuthorityDetailsDelete'])->name('AuthorityDetailsDelete');
 });

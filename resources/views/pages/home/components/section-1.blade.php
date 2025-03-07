@@ -189,7 +189,7 @@
                             ของผู้บริหาร
                         </div>
                     </a>
-                    <a href="#" class="col-xl-6 banner-section-1 d-flex mx-1 my-2">
+                    <a href="{{route('itaPage')}}" class="col-xl-6 banner-section-1 d-flex mx-1 my-2">
                         <img class="icon" src="{{ asset('images/section-1/ita.png') }}" alt="icon">
                         <div class="text-content lh-1">
                             การประเมินคุณธรรม <br>

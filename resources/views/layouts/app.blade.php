@@ -302,10 +302,22 @@
             transition: transform 0.3s ease;
         }
 
-        .goog-te-banner-frame { display: none !important; }
-.goog-te-gadget { font-size: 0; }
-.goog-te-gadget span { display: none; }
-.goog-te-gadget-simple { background: none; border: none; }
+        .goog-te-banner-frame {
+            display: none !important;
+        }
+
+        .goog-te-gadget {
+            font-size: 0;
+        }
+
+        .goog-te-gadget span {
+            display: none;
+        }
+
+        .goog-te-gadget-simple {
+            background: none;
+            border: none;
+        }
 
     </style>
 </head>
@@ -314,11 +326,9 @@
 
     <!-- Content Section -->
     <header class="bg-nav d-flex">
-        <div
-            class="container d-flex flex-column flex-xxl-row justify-content-center justify-content-md-between align-items-center">
+        <div class="container d-flex flex-column flex-xxl-row justify-content-center justify-content-md-between align-items-center">
             <div class="d-flex justify-content-start align-items-center">
-                <img src="{{ asset('images/navbar/Logo-601.png') }}" alt="logo" class="logo d-none d-md-block"
-                    style="margin-right:-35px; z-index: 3;">
+                <img src="{{ asset('images/navbar/Logo-601.png') }}" alt="logo" class="logo d-none d-md-block" style="margin-right:-35px; z-index: 3;">
                 <div class="text-title-nav lh-1 text-center text-md-start py-2 px-5">
                     <span class="me-1 maintitle-text">องค์การบริหารส่วนตำบลแปลงยาว <br> อำเภอแปลงยาว
                         จังหวัดฉะเชิงเทรา</span><br>
@@ -330,8 +340,7 @@
                     <div class="d-flex justify-content-end align-items-center gap-2">
                         <a class="button-blue" href="{{ route('Home') }}"><i class="fa-solid fa-house text-black"></i>
                             หน้าหลัก</a>
-                        <a class="button-blue" href="{{ route('showLoginForm') }}"><i
-                                class="fa-solid fa-user  text-black"></i> เข้าสู่ระบบ</a>
+                        <a class="button-blue" href="{{ route('showLoginForm') }}"><i class="fa-solid fa-user  text-black"></i> เข้าสู่ระบบ</a>
                         <a class="button-blue" href="#"><img src="{{asset('images/navbar/ติดต่อ.png')}}" alt="icon" height="21"> ติดต่อเรา</a>
                     </div>
                     <div class="d-flex justify-content-evenly align-items-center gap-2 button-img my-1">
@@ -340,8 +349,7 @@
                             <img src="{{ asset('images/navbar/text-normal.png') }}" alt="text-normal">
                             <img src="{{ asset('images/navbar/text-plus.png') }}" alt="text-plus">
                         </div>
-                        <img src="{{ asset('images/navbar/disability.png') }}" alt="btn-disability" width="42"
-                            height="42">
+                        <img src="{{ asset('images/navbar/disability.png') }}" alt="btn-disability" width="42" height="42">
                     </div>
                     <div class="bg-black-opacity d-flex justify-content-center align-items-center">
                         <div class="text-white d-none d-sm-block">
@@ -351,42 +359,28 @@
 
                         <script type="text/javascript">
                             function googleTranslateElementInit() {
-                              new google.translate.TranslateElement({
-                                pageLanguage: 'en', // ภาษาเริ่มต้นของเว็บไซต์
-                                includedLanguages: 'en,th,id,ms,vi,lo,my,kh,ph,sg', // ภาษาในอาเซียน
-                                layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
-                                autoDisplay: false // ปิดการแสดงผลอัตโนมัติ
-                              }, 'google_translate_element');
+                                new google.translate.TranslateElement({
+                                    pageLanguage: 'en', // ภาษาเริ่มต้นของเว็บไซต์
+                                    includedLanguages: 'en,th,id,ms,vi,lo,my,kh,ph,sg', // ภาษาในอาเซียน
+                                    layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+                                    , autoDisplay: false // ปิดการแสดงผลอัตโนมัติ
+                                }, 'google_translate_element');
                             }
-                          </script>
-                          <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-                          
-  
-                        <a href="#" class="flag-link"><img src="{{ asset('images/navbar/country/thailand.png') }}"
-                                alt="Thailand" width="23"></a>
-                        <a href="#" class="flag-link"><img src="{{ asset('images/navbar/country/Brunei.png') }}"
-                                alt="Brunei" width="23"></a>
-                        <a href="#" class="flag-link"><img src="{{ asset('images/navbar/country/Myanmar.png') }}"
-                                alt="Myanmar" width="23"></a>
-                        <a href="#" class="flag-link"><img src="{{ asset('images/navbar/country/Laos.png') }}"
-                                alt="Laos" width="23"></a>
-                        <a href="#" class="flag-link"><img
-                                src="{{ asset('images/navbar/country/Indonesia.png') }}" alt="Indonesia"
-                                width="23"></a>
-                        <a href="#" class="flag-link"><img
-                                src="{{ asset('images/navbar/country/Malaysia.png') }}" alt="Malaysia"
-                                width="23"></a>
-                        <a href="#" class="flag-link"><img
-                                src="{{ asset('images/navbar/country/Philippines.png') }}" alt="Philippines"
-                                width="23"></a>
-                        <a href="#" class="flag-link"><img
-                                src="{{ asset('images/navbar/country/Cambodia.png') }}" alt="Cambodia"
-                                width="23"></a>
-                        <a href="#" class="flag-link"><img
-                                src="{{ asset('images/navbar/country/Singapore.png') }}" alt="Singapore"
-                                width="23"></a>
-                        <a href="#" class="flag-link"><img src="{{ asset('images/navbar/country/Vietnam.png') }}"
-                                alt="Vietnam" width="23"></a>
+
+                        </script>
+                        <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+
+                        <a href="#" class="flag-link"><img src="{{ asset('images/navbar/country/thailand.png') }}" alt="Thailand" width="23"></a>
+                        <a href="#" class="flag-link"><img src="{{ asset('images/navbar/country/Brunei.png') }}" alt="Brunei" width="23"></a>
+                        <a href="#" class="flag-link"><img src="{{ asset('images/navbar/country/Myanmar.png') }}" alt="Myanmar" width="23"></a>
+                        <a href="#" class="flag-link"><img src="{{ asset('images/navbar/country/Laos.png') }}" alt="Laos" width="23"></a>
+                        <a href="#" class="flag-link"><img src="{{ asset('images/navbar/country/Indonesia.png') }}" alt="Indonesia" width="23"></a>
+                        <a href="#" class="flag-link"><img src="{{ asset('images/navbar/country/Malaysia.png') }}" alt="Malaysia" width="23"></a>
+                        <a href="#" class="flag-link"><img src="{{ asset('images/navbar/country/Philippines.png') }}" alt="Philippines" width="23"></a>
+                        <a href="#" class="flag-link"><img src="{{ asset('images/navbar/country/Cambodia.png') }}" alt="Cambodia" width="23"></a>
+                        <a href="#" class="flag-link"><img src="{{ asset('images/navbar/country/Singapore.png') }}" alt="Singapore" width="23"></a>
+                        <a href="#" class="flag-link"><img src="{{ asset('images/navbar/country/Vietnam.png') }}" alt="Vietnam" width="23"></a>
                     </div>
                 </div>
 
@@ -405,9 +399,7 @@
                     <ul class="navbar-nav w-100 d-flex flex-wrap justify-content-evenly fw-bold">
                         <!-- 1. ข้อมูลพื้นฐาน -->
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle d-flex flex-column align-items-center " href="#"
-                                id="basicInfoDropdown" role="button" data-bs-toggle="dropdown"
-                                aria-expanded="false">
+                            <a class="nav-link dropdown-toggle d-flex flex-column align-items-center " href="#" id="basicInfoDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 <img src="{{ asset('images/header/info.png') }}" alt="house" class="navbar-icon">
                                 <div class="navbar-text ">ข้อมูลพื้นฐาน</div>
                             </a>
@@ -423,7 +415,7 @@
                                 </li>
                                 <li><a class="dropdown-item" href="{{route('testPage')}}">นโยบายการบริหาร/เจตจำนงสุจริต</a>
                                 </li>
-                                
+
                             </ul>
                         </li>
 
@@ -448,11 +440,8 @@
 
                         <!-- 3. ผลการดำเนินงาน -->
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle d-flex flex-column align-items-center" href="#"
-                                id="performanceDropdown" role="button" data-bs-toggle="dropdown"
-                                aria-expanded="false">
-                                <img src="{{ asset('images/header/key-performance-indicator.png') }}"
-                                    alt="online survey" class="navbar-icon">
+                            <a class="nav-link dropdown-toggle d-flex flex-column align-items-center" href="#" id="performanceDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <img src="{{ asset('images/header/key-performance-indicator.png') }}" alt="online survey" class="navbar-icon">
                                 <div class="navbar-text">ผลการดำเนินงาน</div>
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="performanceDropdown">
@@ -474,13 +463,29 @@
                         </li>
 
                         <!-- 4. อำนาจหน้าที่ -->
-                        <li class="nav-item">
+                        {{-- <li class="nav-item">
                             <a class="nav-link d-flex flex-column align-items-center" href="">
                                 <img src="{{ asset('images/header/certificate-authority.png') }}" alt="อำนาจหน้าที่"
-                                    class="navbar-icon">
+                        class="navbar-icon">
+                        <div class="navbar-text">อำนาจหน้าที่</div>
+                        </a>
+                        </li> --}}
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle d-flex flex-column align-items-center" href="#" id="authorityDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <img src="{{ asset('images/header/certificate-authority.png') }}" alt="อำนาจหน้าที่" class="navbar-icon">
                                 <div class="navbar-text">อำนาจหน้าที่</div>
                             </a>
+                            <ul class="dropdown-menu" aria-labelledby="authorityDropdown">
+                                @foreach ($AuthorityDetails as $detail)
+                                <li>
+                                    <a class="dropdown-item" href="{{ route('AuthorityShowDetails', ['id' => $detail->id]) }}">
+                                        {{ $detail->list_details_name }}
+                                    </a>
+                                </li>
+                                @endforeach
+                            </ul>
                         </li>
+
 
                         <!-- 5. แผนพัฒนนาท้องถิ่น -->
                         {{-- <li class="nav-item">

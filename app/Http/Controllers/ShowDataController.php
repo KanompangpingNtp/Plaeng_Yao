@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\PostDetail;
 use App\Models\PersonnelAgency;
+use App\Models\BasicInfoType;
+use App\Models\ListDetail;
 
 class ShowDataController extends Controller
 {
@@ -102,6 +104,9 @@ class ShowDataController extends Controller
         //เมนูบุคลากร
         $personnelAgencies = PersonnelAgency::with('ranks')->get();
 
+        $AuthorityInfoType = BasicInfoType::where('type_name', 'อำนาจหน้าที่')->first();
+        $AuthorityDetails = ListDetail::where('basic_info_type_id', $AuthorityInfoType->id)->get();
+
         return view('pages.home.app', compact(
             'pressRelease',
             'activity',
@@ -114,7 +119,8 @@ class ShowDataController extends Controller
             'noticeBoard',
             'officialDocuments',
             'recommendPlaces',
-            'personnelAgencies'
+            'personnelAgencies',
+            'AuthorityDetails'
         ));
     }
 }

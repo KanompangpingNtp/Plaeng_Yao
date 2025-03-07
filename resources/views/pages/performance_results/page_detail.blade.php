@@ -80,31 +80,28 @@
     }
 
 </style>
-
-@php
-    use Carbon\Carbon;
-@endphp
-
 <div class="bg py-5">
     <div class="container py-5 custom-gradient-shadow">
-        <div class=" d-flex flex-column justify-content-center align-items-center p-5 ">
-            <div class="fs-1 fw-bold mb-4 text-center">การประเมินคุณธรรม และความโปร่งใส (ITA) พ.ศ.{{ Carbon::now()->year + 543 }} </div><br>
+        <div class=" d-flex flex-column justify-content-center p-5">
+            <div class="fs-1 fw-bold mb-4 text-center">
+                {{ $PerfResultsSubTopic->section->type->type_name }} <br>
+                <span style="font-size: 30px;">{{ $PerfResultsSubTopic->section->section_name }} <br> {{ $PerfResultsSubTopic->topic_name }}</span>
+            </div>
 
-            <table class="table table-bordered table-striped">
-                <thead>
-                    <tr>
-                        <th>ข้อ</th>
-                        <th>URL</th>
-                        <th>คำอธิบาย</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tbody>
-            </table>
+            <!-- ไฟล์แนบ: PDF -->
+            @if ($PerfResultsFile->count() > 0)
+            @foreach ($PerfResultsFile as $details)
+            <div class="mb-3">
+                <iframe src="{{ asset('storage/' . $details->files_path) }}" width="100%" height="800px"></iframe>
+            </div>
+            @endforeach
+            @endif
+
+            @foreach ($PerfResultsFile as $details)
+            <p class="text-muted">วันที่เผยแพร่: {{ \Carbon\Carbon::parse($details->created_at)->format('d-m-Y') }}</p>
+            @endforeach
         </div>
     </div>
+</div>
 </div>
 @endsection

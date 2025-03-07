@@ -168,14 +168,14 @@
                             สารจากนายก
                         </div>
                     </a>
-                    <a href="#" class="col-xl-5 banner-section-1 d-flex mx-1 my-2">
+                    <a href="{{route('ReceiveComplaintsForm')}}" class="col-xl-5 banner-section-1 d-flex mx-1 my-2">
                         <img class="icon" src="{{ asset('images/section-1/4.png') }}" alt="icon">
                         <div class="text-content lh-1">
                             รับแจ้งเรื่องราว <br>
                             ร้องทุกข์
                         </div>
                     </a>
-                    <a href="#" class="col-xl-6 banner-section-1 d-flex mx-1 my-2">
+                    <a href="{{route('SatisfactionForm')}}" class="col-xl-6 banner-section-1 d-flex mx-1 my-2">
                         <img class="icon" src="{{ asset('images/section-1/5.png') }}" alt="icon">
                         <div class="text-content lh-1">
                             รับเรื่องร้องเรียนทุจริต <br>

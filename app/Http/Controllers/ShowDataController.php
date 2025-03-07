@@ -7,6 +7,7 @@ use App\Models\PostDetail;
 use App\Models\PersonnelAgency;
 use App\Models\BasicInfoType;
 use App\Models\ListDetail;
+use App\Models\PerfResultsType;
 
 class ShowDataController extends Controller
 {
@@ -107,6 +108,9 @@ class ShowDataController extends Controller
         $AuthorityInfoType = BasicInfoType::where('type_name', 'อำนาจหน้าที่')->first();
         $AuthorityDetails = ListDetail::where('basic_info_type_id', $AuthorityInfoType->id)->get();
 
+        //ผลการดำเนินงานเมนู
+        $PerfResultsMenu = PerfResultsType::all();
+
         return view('pages.home.app', compact(
             'pressRelease',
             'activity',
@@ -120,7 +124,8 @@ class ShowDataController extends Controller
             'officialDocuments',
             'recommendPlaces',
             'personnelAgencies',
-            'AuthorityDetails'
+            'AuthorityDetails',
+            'PerfResultsMenu'
         ));
     }
 }

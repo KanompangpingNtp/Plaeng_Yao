@@ -80,31 +80,52 @@
     }
 
 </style>
-
-@php
-    use Carbon\Carbon;
-@endphp
-
 <div class="bg py-5">
     <div class="container py-5 custom-gradient-shadow">
-        <div class=" d-flex flex-column justify-content-center align-items-center p-5 ">
-            <div class="fs-1 fw-bold mb-4 text-center">การประเมินคุณธรรม และความโปร่งใส (ITA) พ.ศ.{{ Carbon::now()->year + 543 }} </div><br>
+        <div class=" d-flex flex-column justify-content-center p-5">
+            <div class="fs-1 fw-bold mb-4 text-center">{{ $PerfResultsType->type_name }}</div>
 
-            <table class="table table-bordered table-striped">
-                <thead>
-                    <tr>
-                        <th>ข้อ</th>
-                        <th>URL</th>
-                        <th>คำอธิบาย</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tbody>
+            <style>
+                .table td:hover {
+                    background-color: #28a745;
+                    color: white;
+                }
+
+                table {
+                    border-collapse: collapse;
+                }
+
+                table td,
+                table th {
+                    border: none;
+                }
+
+                table tr:nth-child(odd) {
+                    background-color: #dcf5bc;
+                }
+
+                table tr:nth-child(even) {
+                    background-color: #ffffff;
+                }
+
+                a {
+                    text-decoration: none;
+                    color: #333;
+                }
+
+            </style>
+
+            <table class="table">
+                @foreach($PerfResultsSection as $detail)
+                <tr>
+                    <td><a href="{{route('PerfResultsSubTopicPages',$detail->id)}}">{{ $detail->section_name }}</a></td>
+                </tr>
+                @endforeach
             </table>
+
         </div>
+
     </div>
+</div>
 </div>
 @endsection

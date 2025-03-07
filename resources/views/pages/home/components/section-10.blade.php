@@ -143,7 +143,7 @@
                         <div class="fw-bold" style="font-size: 16px;">โทรศัพท์ : 038-852-556</div>
                     </div>
                     <div class="d-flex justify-content-center align-items-start gap-2 mb-1">
-                        <img src="{{ asset('images/section-10/phone-call.png') }}" alt="phone" width="20"
+                        <img src="{{ asset('images/section-10/fax.png') }}" alt="phone" width="20"
                             height="20">
                         <div class="fw-bold" style="font-size: 16px;">เบอร์แฟกซ์ : 038-589630</div>
                     </div>

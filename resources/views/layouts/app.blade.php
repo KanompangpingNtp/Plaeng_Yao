@@ -499,7 +499,7 @@
                                 <li><a class="dropdown-item" href="{{route('testPage')}}">รายการการจัดซื้อจัดจ้างหรือจัดหาพัสดุ</a></li>
                                 <li><a class="dropdown-item" href="{{route('testPage')}}">การโอนเงินงบประมาณรายจ่าย</a></li>
                                 <li><a class="dropdown-item" href="{{route('testPage')}}">ข้อบัญญัติงบประมาณ</a></li>
-                                <li><a class="dropdown-item" href="{{route('testPage')}}">การเเก้ไขเปลี่ยนเเปลงคำชี้เเจ้งงบประมาณรายจ่าย</a></li>
+                                <li><a class="dropdown-item" href="{{route('testPage')}}">การเเก้ไขเปลี่ยนเเปลงคำชี้เเจงงบประมาณรายจ่าย</a></li>
                                 <li><a class="dropdown-item" href="{{route('testPage')}}">แผนยุทธศาสตร์การพัฒนา</a></li>
                                 <li><a class="dropdown-item" href="{{route('testPage')}}">แผนอัตรากำลัง</a></li>
                                 <li><a class="dropdown-item" href="{{route('testPage')}}">แผนการดำเนินงาน</a></li>

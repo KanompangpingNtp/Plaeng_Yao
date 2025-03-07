@@ -229,7 +229,7 @@
                         <img src="{{ asset('images/section-2/resources.png') }}" alt="icon">
                     </div>
                     <div class="m-auto py-3 py-sm-2" style="font-size: 14px;">
-                        ศูยน์ข้อมูลข่าวสาร <br class="d-none d-sm-block">
+                        ศูนย์ข้อมูลข่าวสาร <br class="d-none d-sm-block">
                         อิเล็กทรอนิกส์ของราชการ <br>
                         (OIC) อบต.แปลงยาว
                     </div>

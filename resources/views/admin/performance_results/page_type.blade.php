@@ -3,7 +3,7 @@
 
 <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.min.css">
 
-<h3 class="text-center">สร้างหัวข้อแผนการดำเนินงาน</h3><br>
+<h3 class="text-center">สร้างหัวข้อผลการดำเนินงาน</h3><br>
 
 <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal">
     สร้างหัวข้อ

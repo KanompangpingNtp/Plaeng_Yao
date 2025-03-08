@@ -29,7 +29,7 @@ class PerformanceResultsController extends Controller
         $PerfResultsType = PerfResultsType::findOrFail($id);
         $PerfResultsSection = PerfResultsSection::where('type_id', $id)->get();
 
-        return view('pages.performance_results.page_section', compact('PerfResultsType', 'PerfResultsSection', 'OperationalPlanMenu','personnelAgencies','AuthorityDetails','PerfResultsMenu'));
+        return view('pages.performance_results.page_section', compact('PerfResultsType', 'PerfResultsSection', 'OperationalPlanMenu','personnelAgencies','AuthorityDetails','PerfResultsMenu','OperationalPlanMenu'));
     }
 
     public function PerfResultsSubTopicPages($id)
@@ -40,11 +40,12 @@ class PerformanceResultsController extends Controller
         $AuthorityDetails = ListDetail::where('basic_info_type_id', $AuthorityInfoType->id)->get();
 
         $PerfResultsMenu = PerfResultsType::all();
+        $OperationalPlanMenu = OperationalPlanType::all();
 
         $PerfResultsSection = PerfResultsSection::with('type')->findOrFail($id);
         $PerfResultsSubTopic = PerfResultsSubTopic::where('section_id', $id)->get();
 
-        return view('pages.performance_results.page_sub_topic', compact('PerfResultsSection', 'PerfResultsSubTopic', 'personnelAgencies','AuthorityDetails','PerfResultsMenu'));
+        return view('pages.performance_results.page_sub_topic', compact('PerfResultsSection', 'PerfResultsSubTopic', 'personnelAgencies','AuthorityDetails','PerfResultsMenu','OperationalPlanMenu'));
     }
 
     public function PerfResultsShowDetailsPages($id)
@@ -55,10 +56,11 @@ class PerformanceResultsController extends Controller
         $AuthorityDetails = ListDetail::where('basic_info_type_id', $AuthorityInfoType->id)->get();
 
         $PerfResultsMenu = PerfResultsType::all();
+        $OperationalPlanMenu = OperationalPlanType::all();
 
         $PerfResultsSubTopic = PerfResultsSubTopic::with('section.type')->findOrFail($id);
         $PerfResultsFile = PerfResultsFile::where('sub_topic_id', $id)->get();
 
-        return view('pages.performance_results.page_detail', compact('PerfResultsSubTopic', 'PerfResultsFile', 'personnelAgencies','AuthorityDetails','PerfResultsMenu'));
+        return view('pages.performance_results.page_detail', compact('PerfResultsSubTopic', 'PerfResultsFile', 'personnelAgencies','AuthorityDetails','PerfResultsMenu','OperationalPlanMenu'));
     }
 }

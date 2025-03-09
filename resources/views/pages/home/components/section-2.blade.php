@@ -170,7 +170,7 @@
     <div class="container mt-3 mt-sm-5">
         <div class="row g-4 justify-content-center">
             <div class="col-sm-6 col-xl-3">
-                <a href="#" class="banner-section-2 d-flex lh-1 p-0">
+                <a href="https://plaengyao.go.th/PerformanceResults/show/section/11" class="banner-section-2 d-flex lh-1 p-0">
                     <div class="bg-inbanner">
                         <img src="{{ asset('images/section-2/engagement.png') }}" alt="icon">
                     </div>
@@ -203,7 +203,7 @@
                 </a>
             </div>
             <div class="col-sm-6 col-xl-3">
-                <a href="#" class="banner-section-2 d-flex lh-1 p-0">
+                <a href="https://plaengyao.go.th/PerformanceResults/show/section/topic/55" class="banner-section-2 d-flex lh-1 p-0">
                     <div class="bg-inbanner">
                         <img src="{{ asset('images/section-2/Polygon.png') }}" alt="icon">
                     </div>
@@ -236,7 +236,7 @@
                 </a>
             </div>
             <div class="col-sm-6 col-xl-3">
-                <a href="#" class="banner-section-2 d-flex lh-1 p-0">
+                <a href="https://www.laas.go.th/Default.aspx?ReturnUrl=%2f" class="banner-section-2 d-flex lh-1 p-0">
                     <div class="bg-inbanner">
                         <img src="{{ asset('images/section-2/accounting.png') }}" alt="icon">
                     </div>
@@ -247,12 +247,12 @@
                 </a>
             </div>
             <div class="col-sm-6 col-xl-3">
-                <a href="#" class="banner-section-2 d-flex lh-1 p-0">
+                <a href="{{route('BannserPages')}}" class="banner-section-2 d-flex lh-1 p-0">
                     <div class="bg-inbanner">
                         <img src="{{ asset('images/section-2/loupe.png') }}" alt="icon">
                     </div>
                     <div class="m-auto py-3 py-sm-2">
-                        ลิ้งค์ตรวจสอบ <br class="d-none d-sm-block">
+                        ลิ้งค์หน่วยงาน <br class="d-none d-sm-block">
                         ภายนอก
                     </div>
                 </a>

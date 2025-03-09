@@ -341,7 +341,7 @@
                         <a class="button-blue" href="{{ route('Home') }}"><i class="fa-solid fa-house text-black"></i>
                             หน้าหลัก</a>
                         <a class="button-blue" href="{{ route('showLoginForm') }}"><i class="fa-solid fa-user  text-black"></i> เข้าสู่ระบบ</a>
-                        <a class="button-blue" href="#"><img src="{{asset('images/navbar/ติดต่อ.png')}}" alt="icon" height="21"> ติดต่อเรา</a>
+                        <a class="button-blue" href="{{route('ContectPages')}}"><img src="{{asset('images/navbar/ติดต่อ.png')}}" alt="icon" height="21"> ติดต่อเรา</a>
                     </div>
                     <div class="d-flex justify-content-evenly align-items-center gap-2 button-img my-1">
                         <div class="d-flex justify-content-start align-items-start button-img gap-1 bg-black-opacity">

@@ -29,6 +29,7 @@ use App\Http\Controllers\operational_plan\AdminOperationalPlanController;
 use App\Http\Controllers\operational_plan\OperationalPlanController;
 use App\Http\Controllers\ITA\AdminITAController;
 use App\Http\Controllers\VisitorsController;
+use App\Http\Controllers\WebPagesController;
 
 use App\Http\Controllers\TestController;
 /*
@@ -45,6 +46,9 @@ use App\Http\Controllers\TestController;
 // Route::get('/', function () {
 //     return view('pages.home.app');
 // });
+
+Route::get('/Contect/Pages', [WebPagesController::class, 'ContectPages'])->name('ContectPages');
+Route::get('/Bannser/Pages', [WebPagesController::class, 'BannserPages'])->name('BannserPages');
 
 //ผลการดำเนินงาน
 Route::get('/PerformanceResults/show/section/{id}', [PerformanceResultsController::class, 'PerformanceResultsSectionPages'])->name('PerformanceResultsSectionPages');

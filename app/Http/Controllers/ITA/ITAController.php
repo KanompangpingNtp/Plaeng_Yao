@@ -9,7 +9,7 @@ use App\Models\BasicInfoType;
 use App\Models\ListDetail;
 use App\Models\PerfResultsType;
 use App\Models\OperationalPlanType;
-
+use App\Models\ITAType;
 
 class ITAController extends Controller
 {
@@ -21,9 +21,12 @@ class ITAController extends Controller
         $AuthorityDetails = ListDetail::where('basic_info_type_id', $AuthorityInfoType->id)->get();
 
         $PerfResultsMenu = PerfResultsType::all();
-
         $OperationalPlanMenu = OperationalPlanType::all();
 
-        return view('pages.ita.page',compact('personnelAgencies','PerfResultsMenu','AuthorityDetails','OperationalPlanMenu'));
+        $showITA = ITAType::with('itADetails')->get();
+
+        // dd($showITA);
+
+        return view('pages.ita.page',compact('showITA','personnelAgencies','PerfResultsMenu','AuthorityDetails','OperationalPlanMenu'));
     }
 }

@@ -535,16 +535,19 @@
                                 <div class="navbar-text">เมนูสำหรับประชาชน</div>
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="citizenMenuDropdown">
-                                <li><a class="dropdown-item" href="{{route('testPage')}}">รับเรื่องราวร้องทุกข์ </a></li>
-                                <li><a class="dropdown-item" href="{{route('testPage')}}">รับแจ้งร้องเรียนทุจริตประพฤติมิชอบ</a></li>
-                                <li><a class="dropdown-item" href="{{route('testPage')}}">รายงานผลสำรวจความพึงพอใจการให้บริการ</a></li>
+                                <li><a class="dropdown-item" href="{{route('ReceiveComplaintsForm')}}">รับเรื่องราวร้องทุกข์ </a></li>
+                                <li><a class="dropdown-item" href="{{route('SatisfactionForm')}}">รับแจ้งร้องเรียนทุจริตประพฤติมิชอบ</a></li>
                                 <li><a class="dropdown-item" href="{{route('testPage')}}">แบบสอบถามความพึงพอใจ </a></li>
-                                <li><a class="dropdown-item" href="{{route('testPage')}}">E-Service</a></li>
-                                <li><a class="dropdown-item" href="{{route('testPage')}}">คู่มือสำหรับประชาชน</a></li>
+                                <li><a class="dropdown-item" href="{{route('testPage')}}">คู่มือต่าง ๆ</a></li>
+                                <li><a class="dropdown-item" href="{{route('testPage')}}">การประปา</a></li>
+                                <li><a class="dropdown-item" href="{{route('testPage')}}">การชำระภาษี</a></li>
+                                <li><a class="dropdown-item" href="{{route('testPage')}}">การขออนุญาตก่อสร้าง</a></li>
+                                <li><a class="dropdown-item" href="https://welfare.dla.go.th/webview/">การลงทะเบียนผู้สูงอายุ/คนพิการ/ผู้ติดเชื้อ</a></li>
+                                <li><a class="dropdown-item" href="{{route('testPage')}}">การขอมีบัตรประจำตัวคนพิการ</a></li>
+                                <li><a class="dropdown-item" href="{{route('testPage')}}">เด็กแรกเกิด</a></li>
+                                <li><a class="dropdown-item" href="{{route('testPage')}}">บริการด้านงานทะเบียน</a></li>
+                                <li><a class="dropdown-item" href="{{route('testPage')}}">บริการจดทะเบียนพาณิชย์</a></li>
                                 <li><a class="dropdown-item" href="{{route('testPage')}}">ดาวน์โหลดแบบฟอร์ม</a></li>
-                                <li><a class="dropdown-item" href="{{route('testPage')}}">เบี้ยยังชีพผู้สูงอายุ</a></li>
-                                <li><a class="dropdown-item" href="{{route('testPage')}}">เบี้ยยังชีพคนพิการ</a></li>
-                                <li><a class="dropdown-item" href="{{route('testPage')}}">คำถามที่พบบ่อย</a></li>
                             </ul>
                         </li>
 

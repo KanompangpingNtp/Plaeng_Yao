@@ -162,7 +162,7 @@
 
             <div class="col-xl-6 d-flex align-items-end margin-control">
                 <div class="row p-1 ">
-                    <a href="#" class="col-xl-6 banner-section-1 d-flex mx-1 my-2">
+                    <a href="https://plaengyao.go.th/PerformanceResults/show/section/topic/54" class="col-xl-6 banner-section-1 d-flex mx-1 my-2">
                         <img class="icon" src="{{ asset('images/section-1/businessman.png') }}" alt="icon">
                         <div class="text-content lh-1">
                             สารจากนายก
@@ -182,7 +182,7 @@
                             ประพฤติมิชอบ
                         </div>
                     </a>
-                    <a href="#" class="col-xl-5 banner-section-1 d-flex mx-1 my-2">
+                    <a href="https://plaengyao.go.th/PerformanceResults/show/section/topic/details/84" class="col-xl-5 banner-section-1 d-flex mx-1 my-2">
                         <img class="icon" src="{{ asset('images/section-1/goal.png') }}" alt="icon">
                         <div class="text-content lh-1">
                             เจตจำนงสุจริต <br>

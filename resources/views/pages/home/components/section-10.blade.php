@@ -53,7 +53,7 @@
         color: rgb(255, 255, 255);
         box-shadow: 0px 2px 15px rgba(255, 255, 255, 0.9);
         font-weight: bold;
-        background: linear-gradient(to bottom, rgba(163, 245, 12, 0.9),rgba(74, 131, 0, 0.9));
+        background: linear-gradient(to bottom, rgba(163, 245, 12, 0.9), rgba(74, 131, 0, 0.9));
         border-radius: 16px;
     }
 
@@ -86,6 +86,7 @@
         border-top-left-radius: 20px;
         border-top-right-radius: 20px;
     }
+
 </style>
 <!-- Content Section -->
 <main class="bg-page10 d-flex pt-3">
@@ -96,37 +97,57 @@
                     <span class="fw-bold fs-3">จำนวนผู้เข้าชมเว็บไซต์</span> <br>
                     number of website visitors
                 </div>
+
                 <div class="text-center py-3 px-5 border-3 lh-1">
-                    <span class=" fs-1">1</span> <br>
+                    <span class="fs-1" id="online_users">0</span> <br>
                     <span class="fw-bold text-white">ขณะนี้</span>
                 </div>
                 <div class="text-center py-3 px-5 border-3 lh-1">
-                    <span class=" fs-1">1</span> <br>
+                    <span class="fs-1" id="today_users">0</span> <br>
                     <span class="fw-bold text-white">วันนี้</span>
                 </div>
                 <div class="text-center py-3 px-5 border-3 lh-1">
-                    <span class=" fs-1">1</span> <br>
+                    <span class="fs-1" id="week_users">0</span> <br>
                     <span class="fw-bold text-white">สัปดาห์นี้</span>
                 </div>
                 <div class="text-center py-3 px-5 border-3 lh-1">
-                    <span class=" fs-1">1</span> <br>
+                    <span class="fs-1" id="month_users">0</span> <br>
                     <span class="fw-bold text-white">เดือนนี้</span>
                 </div>
                 <div class="text-center py-3 px-5 lh-1">
-                    <span class=" fs-1">1</span> <br>
+                    <span class="fs-1" id="year_users">0</span> <br>
                     <span class="fw-bold text-white">ปีนี้</span>
                 </div>
                 <div class="text-center py-3 px-5 lh-1">
-                    <span class=" fs-1">1</span> <br>
+                    <span class="fs-1" id="all_users">0</span> <br>
                     <span class="fw-bold text-white">ทั้งหมด</span>
                 </div>
+
+                <script>
+                    document.addEventListener("DOMContentLoaded", function() {
+                        fetchVisitorStats();
+                    });
+
+                    function fetchVisitorStats() {
+                        fetch('/visitor-stats')
+                            .then(response => response.json())
+                            .then(data => {
+                                document.getElementById('online_users').innerText = data.online_users;
+                                document.getElementById('today_users').innerText = data.today_users;
+                                document.getElementById('month_users').innerText = data.month_users;
+                                document.getElementById('week_users').innerText = data.week_users;
+                                document.getElementById('year_users').innerText = data.year_users;
+                                document.getElementById('all_users').innerText = data.all_users;
+                            })
+                            .catch(error => console.error('Error fetching visitor stats:', error));
+                    }
+
+                </script>
             </div>
         </div>
         <div class="bg-footer d-flex w-100">
-            <div
-                class="container d-flex flex-column flex-lg-row justify-content-around align-items-center gap-3 py-3">
-                <img src="{{ asset('images/section-10/logo.png') }}" alt="logo" class="logo-footer"
-                    style="margin-top: -4rem;">
+            <div class="container d-flex flex-column flex-lg-row justify-content-around align-items-center gap-3 py-3">
+                <img src="{{ asset('images/section-10/logo.png') }}" alt="logo" class="logo-footer" style="margin-top: -4rem;">
                 <div class="d-flex flex-column justify-content-center align-items-start">
                     <div class="lh-1 ms-5 ms-lg-0">
                         <span class="fw-bold fs-5">องค์การบริหารส่วนตำบลแปลงยาว</span> <br>
@@ -138,18 +159,15 @@
                 </div>
                 <div class="d-flex flex-column justify-content-center align-items-start lh-1">
                     <div class="d-flex justify-content-center align-items-start gap-2 mb-1">
-                        <img src="{{ asset('images/section-10/phone-call.png') }}" alt="phone" width="20"
-                            height="20">
+                        <img src="{{ asset('images/section-10/phone-call.png') }}" alt="phone" width="20" height="20">
                         <div class="fw-bold" style="font-size: 16px;">โทรศัพท์ : 038-852-556</div>
                     </div>
                     <div class="d-flex justify-content-center align-items-start gap-2 mb-1">
-                        <img src="{{ asset('images/section-10/fax.png') }}" alt="phone" width="20"
-                            height="20">
+                        <img src="{{ asset('images/section-10/fax.png') }}" alt="phone" width="20" height="20">
                         <div class="fw-bold" style="font-size: 16px;">เบอร์แฟกซ์ : 038-589630</div>
                     </div>
                     <div class="d-flex justify-content-center align-items-start gap-2 mb-1">
-                        <img src="{{ asset('images/section-10/email.png') }}" alt="phone" width="23"
-                            height="20">
+                        <img src="{{ asset('images/section-10/email.png') }}" alt="phone" width="23" height="20">
                         <div class="fw-bold" style="font-size: 16px;">Email : plaengyao_sao@hotmail.com</div>
                     </div>
                     <div class="d-flex justify-content-center align-items-start gap-2 mb-1 mt-3">
@@ -168,36 +186,26 @@
 
                 <div class="d-flex flex-column justify-content-center align-items-start lh-1 gap-2 text-link-custom">
                     <a href="#" class="d-flex justify-content-center align-items-start gap-2">
-                        <img src="{{ asset('images/section-10/email.png') }}" alt="email" width="20"
-                            height="15">
+                        <img src="{{ asset('images/section-10/email.png') }}" alt="email" width="20" height="15">
                         <div style="font-size: 16px;">ตรวจสอบEmail</div>
                     </a>
                     <a href="#" class="d-flex justify-content-center align-items-start gap-2">
-                        <img src="{{ asset('images/section-10/home.png') }}" alt="phone" width="20"
-                            height="20">
+                        <img src="{{ asset('images/section-10/home.png') }}" alt="phone" width="20" height="20">
                         <div style="font-size: 16px;">เว็บใกล้เคียง</div>
                     </a>
                     <a href="#" class="d-flex justify-content-center align-items-start gap-2">
-                        <img src="{{ asset('images/section-10/user.png') }}" alt="phone" width="20"
-                            height="20">
+                        <img src="{{ asset('images/section-10/user.png') }}" alt="phone" width="20" height="20">
                         <div style="font-size: 16px;">เว็บมาสเตอร์</div>
                     </a>
                     <a href="{{route('showLoginForm')}}" class="d-flex justify-content-center align-items-start gap-2">
-                        <img src="{{ asset('images/section-10/enter.png') }}" alt="phone" width="20"
-                            height="20">
+                        <img src="{{ asset('images/section-10/enter.png') }}" alt="phone" width="20" height="20">
                         <div style="font-size: 16px;">เข้าสู่ระบบ Admin</div>
                     </a>
                 </div>
                 <div class="d-flex flex-row flex-lg-column justify-content-center align-items-start lh-1 gap-2">
-                    <a href="#"><img class="hover-effect"
-                            src="{{ asset('images/section-10/arrow.png') }}" alt="upload" width="25"
-                            height="25"></a>
-                    <a href="#"><img class="hover-effect"
-                            src="{{ asset('images/section-10/share.png') }}" alt="chair" width="25"
-                            height="25"></a>
-                    <a href="#"><img class="hover-effect"
-                            src="{{ asset('images/section-10/messenger.png') }}" alt="message" width="25"
-                            height="25"></a>
+                    <a href="#"><img class="hover-effect" src="{{ asset('images/section-10/arrow.png') }}" alt="upload" width="25" height="25"></a>
+                    <a href="#"><img class="hover-effect" src="{{ asset('images/section-10/share.png') }}" alt="chair" width="25" height="25"></a>
+                    <a href="#"><img class="hover-effect" src="{{ asset('images/section-10/messenger.png') }}" alt="message" width="25" height="25"></a>
                 </div>
 
             </div>

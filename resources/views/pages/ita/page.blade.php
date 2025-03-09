@@ -90,20 +90,57 @@
         <div class=" d-flex flex-column justify-content-center align-items-center p-5 ">
             <div class="fs-1 fw-bold mb-4 text-center">การประเมินคุณธรรม และความโปร่งใส (ITA) พ.ศ.{{ Carbon::now()->year + 543 }} </div><br>
 
-            <table class="table table-bordered table-striped">
+            <table class="table table-bordered table-striped" style="font-size: 16px;">
                 <thead>
-                    <tr>
-                        <th>ข้อ</th>
-                        <th>URL</th>
-                        <th>คำอธิบาย</th>
-                    </tr>
+                    @foreach($showITA as $type)
+                        <!-- แสดงหัวข้อหลักตาม type_name -->
+                        <tr>
+                            <th colspan="4" class="text-center bg-success"><span style="color: white;">{{ $type->type_name ?? 'ไม่มีข้อมูล' }}</span></th>
+                        </tr>
+                        <tr>
+                            <th class="text-center"></th>
+                            <th class="text-center">ข้อ</th>
+                            <th class="text-center">URL</th>
+                            <th class="text-center">คำอธิบาย</th>
+                        </tr>
                 </thead>
                 <tbody>
-                    <td></td>
-                    <td></td>
-                    <td></td>
+                    @foreach($type->itADetails as $index => $detail)
+                    {{-- @forelse ($ITADetails as $index => $detail) --}}
+                        <tr>
+                            <td class="text-center">{{ $index + 1 }}</td>
+                            <td>{{ $detail->title_name ?? 'N/A' }}</td>
+                            <td class="col-md-4"><a href="{{ $detail->url_link ?? '#' }}" target="_blank" style="text-decoration: none;">{{ $detail->url_name ?? '' }} <br> {{ $detail->url_link }}</a></td>
+                            <td style="max-width: 300px; overflow: auto; white-space: normal;">
+                                {!! $detail->detail ?? 'N/A' !!}
+                            </td>
+                        </tr>
+                    @endforeach
                 </tbody>
+                @endforeach
             </table>
+
+            <style>
+                /* ปรับขนาดแถบเลื่อนในแนวนอน */
+                td::-webkit-scrollbar {
+                    height: 8px; /* ความสูงของแถบเลื่อนแนวนอน */
+                }
+
+                td::-webkit-scrollbar-thumb {
+                    background-color: #888; /* สีของแถบเลื่อน */
+                    border-radius: 10px; /* มุมโค้งของแถบเลื่อน */
+                }
+
+                td::-webkit-scrollbar-thumb:hover {
+                    background-color: #46c700; /* สีแถบเลื่อนเมื่อเมาส์ชี้ไป */
+                }
+
+                td::-webkit-scrollbar-track {
+                    background: #f1f1f1; /* สีพื้นหลังของแทร็กแถบเลื่อน */
+                    border-radius: 10px;
+                }
+            </style>
+
         </div>
     </div>
 </div>

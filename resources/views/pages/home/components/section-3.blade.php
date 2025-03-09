@@ -234,7 +234,7 @@
                 </a>
             </div>
             <div class="col-sm-6 col-xl-4">
-                <a href="#" class="banner-section-2 d-flex lh-1 p-0">
+                <a href="https://welfare.dla.go.th/webview/" class="banner-section-2 d-flex lh-1 p-0">
                     <div class="bg-inbanner">
                         <img src="{{ asset('images/section-3/เบี้ยยังชีพผู้สูงอายุ.png') }}" alt="icon" style="width: 65px;">
                     </div>
@@ -244,7 +244,7 @@
                 </a>
             </div>
             <div class="col-sm-6 col-xl-4">
-                <a href="#" class="banner-section-2 d-flex lh-1 p-0">
+                <a href="https://govwelfare.dep.go.th/" class="banner-section-2 d-flex lh-1 p-0">
                     <div class="bg-inbanner">
                         <img src="{{ asset('images/section-3/เบี้ยยังชีพคนพิการ.png') }}" alt="icon" style="width: 60px;">
                     </div>

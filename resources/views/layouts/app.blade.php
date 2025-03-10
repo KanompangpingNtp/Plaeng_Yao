@@ -404,7 +404,7 @@
                                 <div class="navbar-text ">ข้อมูลพื้นฐาน</div>
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="basicInfoDropdown">
-                                <li><a class="dropdown-item" href="{{route('testPage')}}">ประวัติความเป็นมา</a>
+                                <li><a class="dropdown-item" href="{{route('HistoryPage')}}">ประวัติความเป็นมา</a>
                                 </li>
                                 <li><a class="dropdown-item" href="{{route('testPage')}}">วิสัยทัศน์</a></li>
                                 <li><a class="dropdown-item" href="{{route('testPage')}}">ข้อมูลสภาพทั่วไป</a></li>

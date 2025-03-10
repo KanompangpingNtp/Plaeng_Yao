@@ -24,6 +24,6 @@ class TestController extends Controller
 
         $showITA = ITAType::with('itADetails')->get();
 
-        return view('test.page', compact('personnelAgencies'));
+        return view('test.page', compact('personnelAgencies','AuthorityDetails','OperationalPlanMenu','PerfResultsMenu'));
     }
 }

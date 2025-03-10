@@ -1,8 +1,8 @@
-@extends('layout.sub-layout.app')
+@extends('layouts.sub-layout')
 @section('content')
     <style>
         .bg {
-            background-image: url('{{ asset('images/agency/BG-AENGY.png') }}');
+            background-image: url('{{ asset('images/section-3/bg-4.png') }}');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
@@ -23,7 +23,7 @@
     <div class="bg py-5">
         <div class="container py-5 custom-gradient-shadow">
             <div class=" d-flex flex-column justify-content-center p-5">
-                <div class="fs-1 fw-bold mb-4 text-center" style="color: #77b329;">ข้อมูลสภาพทั่วไป</div>
+                <div class="fs-1 fw-bold mb-4 text-center">ข้อมูลสภาพทั่วไป</div>
                 @forelse ($basicInfoDetail as $detail)
 
                 <p>{!! $detail->details !!}</p>
@@ -58,9 +58,8 @@
                 <p></p>
                 @endif
 
-                <hr>
                 @empty
-                <p class="text-center">ยังไม่มีข้อมูล</p>
+                <p class="text-center"></p>
                 @endforelse
 
             </div>

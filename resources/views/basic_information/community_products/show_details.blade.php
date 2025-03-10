@@ -24,7 +24,7 @@
 <div class="bg py-5">
     <div class="container py-5 custom-gradient-shadow">
         <div class=" d-flex flex-column justify-content-center p-5">
-            <div class="fs-1 fw-bold mb-4 text-center" style="color: #77b329;">ผลิตภัณฑ์ชุมชน/OTOP</div>
+            <div class="fs-1 fw-bold mb-4 text-center">ผลิตภัณฑ์ชุมชน/OTOP</div>
 
 
                     <h5 class="card-title"><strong>ชื่อผลิตภัณฑ์</strong> {{ $listDetail->list_details_name }}</h5>

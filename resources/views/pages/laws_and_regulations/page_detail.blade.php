@@ -7,16 +7,16 @@
         background-position: center;
         background-repeat: no-repeat;
         min-height: 100vh;
+        padding: 2rem 0px;
     }
 
     .custom-gradient-shadow {
         border-radius: 30px;
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3),
-            /* เงาพื้นฐาน */
-            0 0 50px -10px rgba(158, 255, 3, 0.8),
-            /* เงาสีฟ้าเข้ม */
-            0 0 50px -10px rgba(72, 255, 0, 0.8);
-        /* เงาสีฟ้าอ่อน */
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2),
+            0 0 40px -10px rgba(0, 100, 0, 0.6),
+            /* เงาสีเขียวเข้ม */
+            0 0 40px -10px rgba(50, 205, 50, 0.6);
+        /* เงาสีเขียวอ่อน */
         background-color: #ffffff;
     }
 
@@ -64,7 +64,6 @@
         background: #fff;
         padding: 15px;
         border-top: 2px solid #46c700;
-        /* เส้นสีฟ้าที่ด้านบน */
     }
 
     .card-title {
@@ -84,31 +83,24 @@
 <div class="bg py-5">
     <div class="container py-5 custom-gradient-shadow">
         <div class=" d-flex flex-column justify-content-center p-5">
-            <div class="fs-1 fw-bold mb-4 text-center">ผลิตภัณฑ์ชุมชน/OTOP</div>
-
-            <div class="row">
-                @foreach ($listDetail as $detail)
-                <div class="col-md-6 col-lg-4 mb-4">
-                    <div class="card custom-card shadow-lg" onclick="window.location='{{ route('ShowDetails', $detail->id) }}'">
-                        {{-- รูปภาพ --}}
-                        <div class="image-container">
-                            @if ($detail->images->isNotEmpty())
-                            <img src="{{ asset('storage/' . $detail->images->where('status', 1)->first()->images_file) }}" class="card-img-top">
-                            @else
-                            <img src="{{ asset('images/navbar/Logo-601.png') }}" class="card-img-top">
-                            @endif
-                        </div>
-
-                        {{-- เนื้อหาของการ์ด --}}
-                        <div class="card-body text-center">
-                            <h5 class="card-title">{{ $detail->list_details_name }}</h5>
-                        </div>
-                    </div>
-                </div>
-                @endforeach
+            <div class="fs-1 fw-bold mb-4 text-center">
+                {{ $LawsRegsSection->type->type_name }} <br> <span style="font-size: 30px;">{{ $LawsRegsSection->section_name }}</span>
             </div>
 
+            <!-- ไฟล์แนบ: PDF -->
+            @if ($LawsRegsFiles->count() > 0)
+            @foreach ($LawsRegsFiles as $details)
+            <div class="mb-3">
+                <iframe src="{{ asset('storage/' . $details->files_path) }}" width="100%" height="800px"></iframe>
+            </div>
+            @endforeach
+            @endif
+
+            @foreach ($LawsRegsFiles as $details)
+            <p class="text-muted">วันที่เผยแพร่: {{ \Carbon\Carbon::parse($details->created_at)->format('d-m-Y') }}</p>
+            @endforeach
         </div>
     </div>
+</div>
 </div>
 @endsection

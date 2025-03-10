@@ -85,25 +85,6 @@
             <div class=" d-flex flex-column justify-content-center p-5">
                 <div class="fs-1 fw-bold mb-4 text-center">สถานที่สำคัญ/แหล่งท่องเที่ยว</div>
 
-                {{-- @foreach ($listDetail as $detail)
-                    <a href="{{ route('ImportantPlacesShowDetails', $detail->id) }}" style="text-decoration: none;">
-
-                        <p>{{ $detail->list_details_name }}</p>
-
-                        @if ($detail->images->isNotEmpty())
-                            <div class="row">
-                                @foreach ($detail->images->where('status', 1) as $image)
-                                    <div class="col-md-3">
-                                        <img src="{{ asset('storage/' . $image->images_file) }}" class="img-fluid rounded">
-                                    </div>
-                                @endforeach
-                            </div>
-                        @else
-                            <p class="text-muted"></p>
-                        @endif
-                    </a>
-                @endforeach --}}
-
                 <div class="row">
                     @foreach ($listDetail as $detail)
                         <div class="col-md-6 col-lg-4 mb-4">
@@ -115,7 +96,7 @@
                                         <img src="{{ asset('storage/' . $detail->images->where('status', 1)->first()->images_file) }}"
                                             class="card-img-top">
                                     @else
-                                        <img src="{{ asset('images/default-image.jpg') }}" class="card-img-top">
+                                        <img src="{{ asset('images/navbar/Logo-601.png') }}" class="card-img-top">
                                     @endif
                                 </div>
 

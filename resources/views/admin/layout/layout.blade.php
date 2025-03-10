@@ -78,6 +78,7 @@
                                 <a class="nav-link" href="{{route('AuthorityAdmin')}}">จัดการอำนาจหน้าที่</a>
                                 <a class="nav-link" href="{{route('PerformanceResultsType')}}">จัดการผลการดำเนินงาน</a>
                                 <a class="nav-link" href="{{route('OperationalPlanType')}}">จัดการแผนงานพัฒนาท้องถิ่น</a>
+                                <a class="nav-link" href="{{route('LawsAndRegulationsType')}}">จัดการกฏหมายและกฏระเบียบ</a>
                             </nav>
                         </div>
                         <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts3" aria-expanded="false" aria-controls="collapseLayouts3">
@@ -94,7 +95,7 @@
                             <nav class="sb-sidenav-menu-nested nav">
                                 <a class="nav-link" href="{{route('HistoryAdmin')}}">ประวัติความเป็นมา</a>
                                 <a class="nav-link" href="{{route('VisionMissionAdmin')}}">วิสัยทัศน์/พันธกิจ</a>
-                                {{-- <a class="nav-link" href="{{route('GeneralInformationAdmin')}}">ข้อมูลสภาพทั่วไป</a> --}}
+                                <a class="nav-link" href="{{route('GeneralInformationAdmin')}}">ข้อมูลสภาพทั่วไป</a>
                                 <a class="nav-link" href="{{route('CommunityProductsAdmin')}}">ผลิตภัณฑ์ชุมชน/OTOP</a>
                                 <a class="nav-link" href="{{route('ImportantPlacesAdmin')}}">สถานที่สำคัญ/แหล่งท่องเที่ยว</a>
                             </nav>

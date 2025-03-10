@@ -407,7 +407,7 @@
                                 <li><a class="dropdown-item" href="{{route('HistoryPage')}}">ประวัติความเป็นมา</a>
                                 </li>
                                 <li><a class="dropdown-item" href="{{route('VisionMissionPage')}}">วิสัยทัศน์</a></li>
-                                <li><a class="dropdown-item" href="{{route('coppyPage1')}}">ข้อมูลสภาพทั่วไป</a></li>
+                                <li><a class="dropdown-item" href="{{route('GeneralInformationPage')}}">ข้อมูลสภาพทั่วไป</a></li>
                                 <li><a class="dropdown-item" href="{{route('CommunityProductsPage')}}">ผลิตภัณฑ์ชุมชน/OTOP</a>
                                 </li>
                                 <li><a class="dropdown-item" href="{{route('ImportantPlacesPage')}}">สถานที่สำคัญ</a></li>
@@ -511,9 +511,13 @@
                                 <div class="navbar-text">กฏหมายและกฏระเบียบ</div>
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="lawDropdown">
-                                <li><a class="dropdown-item" href="{{route('testPage')}}">ข้อบัญญัติ และคำสั่งอบต.</a></li>
-                                <li><a class="dropdown-item" href="{{route('testPage')}}">พระราชบัญญัติ และพระราชกฤษฎีกา</a></li>
-                                <li><a class="dropdown-item" href="{{route('testPage')}}">กฎหมาย ระเบียบ และประกาศกระทรวง</a></li>
+                                @foreach ($LawsRegsMenu as $detail)
+                                <li>
+                                    <a class="dropdown-item" href="{{ route('LawsAndRegulationsSectionPages', ['id' => $detail->id]) }}">
+                                        {{ $detail->type_name }}
+                                    </a>
+                                </li>
+                                @endforeach
                             </ul>
                         </li>
 

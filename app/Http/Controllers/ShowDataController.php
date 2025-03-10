@@ -9,6 +9,7 @@ use App\Models\BasicInfoType;
 use App\Models\ListDetail;
 use App\Models\PerfResultsType;
 use App\Models\OperationalPlanType;
+use App\Models\LawsRegsType;
 
 class ShowDataController extends Controller
 {
@@ -116,6 +117,8 @@ class ShowDataController extends Controller
         //เมนูแผนงานพัฒนาท้องถิ่น
         $OperationalPlanMenu = OperationalPlanType::all();
 
+        $LawsRegsMenu = LawsRegsType::all();
+
         return view('pages.home.app', compact(
             'pressRelease',
             'activity',
@@ -131,7 +134,8 @@ class ShowDataController extends Controller
             'personnelAgencies',
             'AuthorityDetails',
             'PerfResultsMenu',
-            'OperationalPlanMenu'
+            'OperationalPlanMenu',
+            'LawsRegsMenu'
         ));
     }
 }

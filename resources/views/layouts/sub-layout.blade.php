@@ -393,7 +393,7 @@
                                 <li><a class="dropdown-item" href="{{route('HistoryPage')}}">ประวัติความเป็นมา</a>
                                 </li>
                                 <li><a class="dropdown-item" href="{{route('VisionMissionPage')}}">วิสัยทัศน์</a></li>
-                                <li><a class="dropdown-item" href="{{route('coppyPage1')}}">ข้อมูลสภาพทั่วไป</a></li>
+                                <li><a class="dropdown-item" href="{{route('GeneralInformationPage')}}">ข้อมูลสภาพทั่วไป</a></li>
                                 <li><a class="dropdown-item" href="{{route('CommunityProductsPage')}}">ผลิตภัณฑ์ชุมชน/OTOP</a>
                                 </li>
                                 <li><a class="dropdown-item" href="{{route('ImportantPlacesPage')}}">สถานที่สำคัญ</a></li>

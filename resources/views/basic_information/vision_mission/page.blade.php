@@ -46,7 +46,6 @@
 
                 {{-- แสดงรูปภาพ --}}
                 @if ($detail->images->count() > 0)
-                <h6>รูปภาพ:</h6>
                 <div class="d-flex flex-wrap">
                     @foreach ($detail->images as $image)
                     <div class="col-md-3 p-2">

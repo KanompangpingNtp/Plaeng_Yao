@@ -17,7 +17,6 @@ class VisionMissionController extends Controller
     {
         $personnelAgencies = PersonnelAgency::with('ranks')->get();
 
-
         $AuthorityInfoType = BasicInfoType::where('type_name', 'อำนาจหน้าที่')->first();
         $AuthorityDetails = ListDetail::where('basic_info_type_id', $AuthorityInfoType->id)->get();
 

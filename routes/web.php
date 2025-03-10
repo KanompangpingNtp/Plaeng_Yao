@@ -34,6 +34,10 @@ use App\Http\Controllers\Information\HistoryController;
 use App\Http\Controllers\Information\AdminHistoryController;
 use App\Http\Controllers\Information\VisionMissionController;
 use App\Http\Controllers\Information\AdminVisionMissionController;
+use App\Http\Controllers\Information\AdminCommunityProductsController;
+use App\Http\Controllers\Information\CommunityProductsController;
+use App\Http\Controllers\Information\AdminImportantPlacesController;
+use App\Http\Controllers\Information\ImportantPlacesController;
 
 use App\Http\Controllers\TestController;
 /*
@@ -47,6 +51,9 @@ use App\Http\Controllers\TestController;
 |
 */
 
+Route::get('/details', [TestController::class, 'testPage'])->name('testPage');
+Route::get('/details/page/test', [TestController::class, 'coppyPage1'])->name('coppyPage1');
+
 // Route::get('/', function () {
 //     return view('pages.home.app');
 // });
@@ -54,6 +61,10 @@ use App\Http\Controllers\TestController;
 //ข้อมูลพื้นฐาน
 Route::get('/History/page', [HistoryController::class, 'HistoryPage'])->name('HistoryPage');
 Route::get('/VisionMission/page', [VisionMissionController::class, 'VisionMissionPage'])->name('VisionMissionPage');
+Route::get('/CommunityProducts/page', [CommunityProductsController::class, 'CommunityProductsPage'])->name('CommunityProductsPage');
+Route::get('/CommunityProducts/showdetails/index/{id}', [CommunityProductsController::class, 'ShowDetails'])->name('ShowDetails');
+Route::get('/ImportantPlaces/page', [ImportantPlacesController::class, 'ImportantPlacesPage'])->name('ImportantPlacesPage');
+Route::get('/ImportantPlaces/showdetails/index/{id}', [ImportantPlacesController::class, 'ImportantPlacesShowDetails'])->name('ImportantPlacesShowDetails');
 
 Route::get('/Contect/Pages', [WebPagesController::class, 'ContectPages'])->name('ContectPages');
 Route::get('/Bannser/Pages', [WebPagesController::class, 'BannserPages'])->name('BannserPages');
@@ -66,8 +77,6 @@ Route::get('/PerformanceResults/show/section/topic/details/{id}', [PerformanceRe
 //แผนงานพัฒนาท้องถิ่น
 Route::get('/OperationalPlan/show/section/{id}', [OperationalPlanController::class, 'OperationalPlanSectionPages'])->name('OperationalPlanSectionPages');
 Route::get('/OperationalPlan/show/section/details/{id}', [OperationalPlanController::class, 'OperationalPlanShowDetailsPages'])->name('OperationalPlanShowDetailsPages');
-
-Route::get('/details', [TestController::class, 'testPage'])->name('testPage');
 
 Route::get('/', [ShowDataController::class, 'Home'])->name('Home');
 
@@ -286,6 +295,24 @@ Route::middleware(['check.auth'])->group(function () {
     Route::get('/Admin/VisionMission/page', [AdminVisionMissionController::class, 'VisionMissionAdmin'])->name('VisionMissionAdmin');
     Route::post('/Admin/VisionMission/create', [AdminVisionMissionController::class, 'VisionMissionCreate'])->name('VisionMissionCreate');
     Route::delete('/Admin/VisionMission/delete/{id}', [AdminVisionMissionController::class, 'VisionMissionDelete'])->name('VisionMissionDelete');
+
+    //CommunityProducts
+    Route::get('/Admin/CommunityProducts/page', [AdminCommunityProductsController::class, 'CommunityProductsAdmin'])->name('CommunityProductsAdmin');
+    Route::post('/Admin/CommunityProducts/create/name', [AdminCommunityProductsController::class, 'CommunityProductsNameCreate'])->name('CommunityProductsNameCreate');
+    Route::delete('/Admin/CommunityProducts/{id}/delete', [AdminCommunityProductsController::class, 'CommunityProductDelete'])->name('CommunityProductDelete');
+    Route::post('/Admin/CommunityProducts/{id}/update', [AdminCommunityProductsController::class, 'CommunityProductsNameUpdate'])->name('CommunityProductsNameUpdate');
+    Route::get('/Admin/CommunityProducts/show/details/{id}', [AdminCommunityProductsController::class, 'CommunityProductShowDertails'])->name('CommunityProductShowDertails');
+    Route::post('/Admin/CommunityProducts/show/details/{id}/create', [AdminCommunityProductsController::class, 'CommunityProductDertailsCreate'])->name('CommunityProductDertailsCreate');
+    Route::delete('/Admin/CommunityProducts/show/details/{id}/delete', [AdminCommunityProductsController::class, 'CommunityProductDetailsDelete'])->name('CommunityProductDetailsDelete');
+
+    //ImportantPlaces
+    Route::get('/Admin/ImportantPlaces/page', [AdminImportantPlacesController::class, 'ImportantPlacesAdmin'])->name('ImportantPlacesAdmin');
+    Route::post('/Admin/ImportantPlaces/create/name', [AdminImportantPlacesController::class, 'ImportantPlacesNameCreate'])->name('ImportantPlacesNameCreate');
+    Route::delete('/Admin/ImportantPlaces/{id}/delete', [AdminImportantPlacesController::class, 'ImportantPlacesDelete'])->name('ImportantPlacesDelete');
+    Route::post('/Admin/ImportantPlaces/{id}/update', [AdminImportantPlacesController::class, 'ImportantPlacesNameUpdate'])->name('ImportantPlacesNameUpdate');
+    Route::get('/Admin/ImportantPlaces/show/details/{id}', [AdminImportantPlacesController::class, 'ImportantPlacesShowDertails'])->name('ImportantPlacesShowDertails');
+    Route::post('/Admin/ImportantPlaces/show/details/{id}/create', [AdminImportantPlacesController::class, 'ImportantPlacesDertailsCreate'])->name('ImportantPlacesDertailsCreate');
+    Route::delete('/Admin/ImportantPlaces/show/details/{id}/delete', [AdminImportantPlacesController::class, 'ImportantPlacesDetailsDelete'])->name('ImportantPlacesDetailsDelete');
 });
 
 Route::get('/visitor-stats', [VisitorsController::class, 'getVisitorStats']);

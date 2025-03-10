@@ -94,12 +94,9 @@
                             <nav class="sb-sidenav-menu-nested nav">
                                 <a class="nav-link" href="{{route('HistoryAdmin')}}">ประวัติความเป็นมา</a>
                                 <a class="nav-link" href="{{route('VisionMissionAdmin')}}">วิสัยทัศน์/พันธกิจ</a>
-                                {{-- <a class="nav-link" href="{{route('GeneralInformationAdmin')}}">ข้อมูลสภาพทั่วไป</a>
-                                <a class="nav-link" href="{{route('StrategyGuidelineAdmin')}}">ยุทธศาสตร์และแนวทางการพัฒนา</a>
+                                {{-- <a class="nav-link" href="{{route('GeneralInformationAdmin')}}">ข้อมูลสภาพทั่วไป</a> --}}
                                 <a class="nav-link" href="{{route('CommunityProductsAdmin')}}">ผลิตภัณฑ์ชุมชน/OTOP</a>
                                 <a class="nav-link" href="{{route('ImportantPlacesAdmin')}}">สถานที่สำคัญ/แหล่งท่องเที่ยว</a>
-                                <a class="nav-link" href="{{route('AuthorityAdmin')}}">อำนาจหน้าที่</a>
-                                <a class="nav-link" href="{{route('ManagementPolicyAdmin')}}">การบริหารและพัฒนาทรัพยากรบุคคล</a><br> --}}
                             </nav>
                         </div>
                         <a class="nav-link" href="{{route('PressReleaseHome')}}">

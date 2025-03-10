@@ -26,4 +26,19 @@ class TestController extends Controller
 
         return view('test.page', compact('personnelAgencies','AuthorityDetails','OperationalPlanMenu','PerfResultsMenu'));
     }
+
+    public function coppyPage1 ()
+    {
+        $personnelAgencies = PersonnelAgency::with('ranks')->get();
+
+        $AuthorityInfoType = BasicInfoType::where('type_name', 'อำนาจหน้าที่')->first();
+        $AuthorityDetails = ListDetail::where('basic_info_type_id', $AuthorityInfoType->id)->get();
+
+        $PerfResultsMenu = PerfResultsType::all();
+        $OperationalPlanMenu = OperationalPlanType::all();
+
+        $showITA = ITAType::with('itADetails')->get();
+
+        return view('test.page1', compact('personnelAgencies','AuthorityDetails','OperationalPlanMenu','PerfResultsMenu'));
+    }
 }

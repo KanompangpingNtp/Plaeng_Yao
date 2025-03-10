@@ -1,8 +1,8 @@
-@extends('layout.sub-layout.app')
+@extends('layouts.sub-layout')
 @section('content')
 <style>
     .bg {
-        background-image: url('{{ asset('images/agency/BG-AENGY.png') }}');
+        background-image: url('{{ asset('images/section-3/bg-4.png') }}');
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;

@@ -1,8 +1,8 @@
-@extends('layout.sub-layout.app')
+@extends('layouts.sub-layout')
 @section('content')
 <style>
     .bg {
-        background-image: url('{{ asset('images/agency/BG-AENGY.png') }}');
+        background-image: url('{{ asset('images/section-3/bg-4.png') }}');
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
@@ -24,7 +24,7 @@
 <div class="bg py-5">
     <div class="container py-5 custom-gradient-shadow">
         <div class=" d-flex flex-column justify-content-center p-5">
-            <div class="fs-1 fw-bold mb-4 text-center" style="color: #77b329;">สถานที่สำคัญ/แหล่งท่องเที่ยว</div>
+            <div class="fs-1 fw-bold mb-4 text-center">สถานที่สำคัญ/แหล่งท่องเที่ยว</div>
 
 
                     <h5 class="card-title"><strong>ชื่อสถานที่สำคัญ/แหล่งท่องเที่ยว</strong> {{ $listDetail->list_details_name }}</h5>

@@ -15,6 +15,10 @@ class BasicInfoTypeSeeder extends Seeder
     {
         $data = [
             ['type_name' => 'ประวัติความเป็นมา'],
+            ['type_name' => 'วิสัยทัศน์/พันธกิจ'],
+            ['type_name' => 'ผลิตภัณฑ์ชุมชน/OTOP'],
+            ['type_name' => 'สถานที่สำคัญ/แหล่งท่องเที่ยว'],
+            ['type_name' => 'นโยบายการบริหาร/เจตจำนงสุจริต'],
 
             ['type_name' => 'อำนาจหน้าที่'],
         ];

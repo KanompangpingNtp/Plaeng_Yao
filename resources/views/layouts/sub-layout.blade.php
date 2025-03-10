@@ -392,7 +392,7 @@
                             <ul class="dropdown-menu" aria-labelledby="basicInfoDropdown">
                                 <li><a class="dropdown-item" href="{{route('HistoryPage')}}">ประวัติความเป็นมา</a>
                                 </li>
-                                <li><a class="dropdown-item" href="{{route('testPage')}}">วิสัยทัศน์</a></li>
+                                <li><a class="dropdown-item" href="{{route('VisionMissionPage')}}">วิสัยทัศน์</a></li>
                                 <li><a class="dropdown-item" href="{{route('testPage')}}">ข้อมูลสภาพทั่วไป</a></li>
                                 <li><a class="dropdown-item" href="{{route('testPage')}}">ผลิตภัณฑ์ชุมชน/OTOP</a>
                                 </li>

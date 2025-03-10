@@ -32,6 +32,8 @@ use App\Http\Controllers\VisitorsController;
 use App\Http\Controllers\WebPagesController;
 use App\Http\Controllers\Information\HistoryController;
 use App\Http\Controllers\Information\AdminHistoryController;
+use App\Http\Controllers\Information\VisionMissionController;
+use App\Http\Controllers\Information\AdminVisionMissionController;
 
 use App\Http\Controllers\TestController;
 /*
@@ -51,6 +53,7 @@ use App\Http\Controllers\TestController;
 
 //ข้อมูลพื้นฐาน
 Route::get('/History/page', [HistoryController::class, 'HistoryPage'])->name('HistoryPage');
+Route::get('/VisionMission/page', [VisionMissionController::class, 'VisionMissionPage'])->name('VisionMissionPage');
 
 Route::get('/Contect/Pages', [WebPagesController::class, 'ContectPages'])->name('ContectPages');
 Route::get('/Bannser/Pages', [WebPagesController::class, 'BannserPages'])->name('BannserPages');
@@ -272,13 +275,17 @@ Route::middleware(['check.auth'])->group(function () {
     Route::post('/Admin/ITA/create/{id}', [AdminITAController::class, 'ITACreate'])->name('ITACreate');
     Route::put('/Admin/ITA/update/{id}', [AdminITAController::class, 'ITAUpdate'])->name('ITAUpdate');
     Route::delete('/Admin/ITA/delete/{id}', [AdminITAController::class, 'ITADelete'])->name('ITADelete');
-
     Route::delete('iTALink/{id}', [AdminITAController::class, 'destroy'])->name('ITAlink.destroy');
 
     //History
     Route::get('/Admin/History/page', [AdminHistoryController::class, 'HistoryAdmin'])->name('HistoryAdmin');
     Route::post('/Admin/History/create', [AdminHistoryController::class, 'HistoryCreate'])->name('HistoryCreate');
     Route::delete('/Admin/History/delete/{id}', [AdminHistoryController::class, 'HistoryDelete'])->name('HistoryDelete');
+
+    //VisionMission
+    Route::get('/Admin/VisionMission/page', [AdminVisionMissionController::class, 'VisionMissionAdmin'])->name('VisionMissionAdmin');
+    Route::post('/Admin/VisionMission/create', [AdminVisionMissionController::class, 'VisionMissionCreate'])->name('VisionMissionCreate');
+    Route::delete('/Admin/VisionMission/delete/{id}', [AdminVisionMissionController::class, 'VisionMissionDelete'])->name('VisionMissionDelete');
 });
 
 Route::get('/visitor-stats', [VisitorsController::class, 'getVisitorStats']);

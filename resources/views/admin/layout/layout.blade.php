@@ -80,6 +80,28 @@
                                 <a class="nav-link" href="{{route('OperationalPlanType')}}">จัดการแผนงานพัฒนาท้องถิ่น</a>
                             </nav>
                         </div>
+                        <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts3" aria-expanded="false" aria-controls="collapseLayouts3">
+                            <div class="sb-nav-link-icon">
+                                <i class="bi bi-database-add"></i>
+                            </div>
+                            จัดการเมนูข้อมูลพื้นฐาน
+                            <div class="sb-sidenav-collapse-arrow">
+                                <i class="fas fa-angle-down"></i>
+                            </div>
+                        </a>
+
+                        <div class="collapse" id="collapseLayouts3" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                            <nav class="sb-sidenav-menu-nested nav">
+                                <a class="nav-link" href="{{route('HistoryAdmin')}}">ประวัติความเป็นมา</a>
+                                {{-- <a class="nav-link" href="{{route('VisionMissionAdmin')}}">วิสัยทัศน์/พันธกิจ</a>
+                                <a class="nav-link" href="{{route('GeneralInformationAdmin')}}">ข้อมูลสภาพทั่วไป</a>
+                                <a class="nav-link" href="{{route('StrategyGuidelineAdmin')}}">ยุทธศาสตร์และแนวทางการพัฒนา</a>
+                                <a class="nav-link" href="{{route('CommunityProductsAdmin')}}">ผลิตภัณฑ์ชุมชน/OTOP</a>
+                                <a class="nav-link" href="{{route('ImportantPlacesAdmin')}}">สถานที่สำคัญ/แหล่งท่องเที่ยว</a>
+                                <a class="nav-link" href="{{route('AuthorityAdmin')}}">อำนาจหน้าที่</a>
+                                <a class="nav-link" href="{{route('ManagementPolicyAdmin')}}">การบริหารและพัฒนาทรัพยากรบุคคล</a><br> --}}
+                            </nav>
+                        </div>
                         <a class="nav-link" href="{{route('PressReleaseHome')}}">
                             <div class="sb-nav-link-icon">
                                 <i class="bi bi-database-add"></i>

@@ -14,6 +14,8 @@ class BasicInfoTypeSeeder extends Seeder
     public function run(): void
     {
         $data = [
+            ['type_name' => 'ประวัติความเป็นมา'],
+
             ['type_name' => 'อำนาจหน้าที่'],
         ];
 

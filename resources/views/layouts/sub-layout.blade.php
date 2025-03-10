@@ -479,11 +479,11 @@
                                 <img src="{{ asset('images/header/verdict.png') }}" alt="กฏหมายและกฏระเบียบ" class="navbar-icon">
                                 <div class="navbar-text">กฏหมายและกฏระเบียบ</div>
                             </a>
-                            <ul class="dropdown-menu" aria-labelledby="lawDropdown">
+                            {{-- <ul class="dropdown-menu" aria-labelledby="lawDropdown">
                                 <li><a class="dropdown-item" href="{{route('testPage')}}">ข้อบัญญัติ และคำสั่งอบต.</a></li>
                                 <li><a class="dropdown-item" href="{{route('testPage')}}">พระราชบัญญัติ และพระราชกฤษฎีกา</a></li>
                                 <li><a class="dropdown-item" href="{{route('testPage')}}">กฎหมาย ระเบียบ และประกาศกระทรวง</a></li>
-                            </ul>
+                            </ul> --}}
                         </li>
 
                         <!-- 7. เมนูหรับประชาชน -->

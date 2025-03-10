@@ -67,7 +67,7 @@ class AdminITAController extends Controller
         $request->validate([
             'title_name' => 'required|string',
             'url_name' => 'nullable|string',
-            'url_link' => 'required|string|url',
+            'url_link' => 'nullable|string|url',
             'detail' => 'nullable|string',
         ]);
 
@@ -89,7 +89,7 @@ class AdminITAController extends Controller
         $request->validate([
             'title_name' => 'required|string',
             'url_name' => 'nullable|string',
-            'url_link' => 'required|string|url',
+            'url_link' => 'nullable|string|url',
             'detail' => 'nullable|string',
         ]);
 

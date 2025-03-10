@@ -48,7 +48,7 @@ use Carbon\Carbon;
 
                     <div class="mb-3">
                         <label for="url_link" class="form-label">แนบลิงค์</label>
-                        <input type="text" class="form-control" id="url_link" name="url_link" required>
+                        <input type="text" class="form-control" id="url_link" name="url_link">
                     </div>
 
                     <div class="mb-3">
@@ -85,11 +85,11 @@ use Carbon\Carbon;
         @forelse ($ITADetails as $index => $detail)
         <tr>
             <td>{{ $index + 1 }}</td>
-            <td>{{ $detail->title_name ?? 'N/A' }}</td>
+            <td>{{ $detail->title_name ?? 'ยังไม่มีข้อมูล' }}</td>
             <td><a href="{{ $detail->url_link }}" target="_blank" style="text-decoration: none;">{{ $detail->url_name ?? '' }} <br> {{ $detail->url_link }}</a></td>
             {{-- <td>{!! $detail->detail ?? 'N/A' !!}</td> --}}
             <td style="max-width: 300px; overflow: auto; white-space: normal;">
-                {!! $detail->detail ?? 'N/A' !!}
+                {!! $detail->detail ?? 'ยังไม่มีข้อมูล' !!}
             </td>
             <td class="text-center">
                 <button type="button" class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#editModal{{ $detail->id }}">
@@ -131,7 +131,7 @@ use Carbon\Carbon;
 
                     <div class="mb-3">
                         <label for="url_link" class="form-label">แนบลิงค์</label>
-                        <input type="text" class="form-control" id="url_link" name="url_link" value="{{ $postDetail->url_link }}" required>
+                        <input type="text" class="form-control" id="url_link" name="url_link" value="{{ $postDetail->url_link }}">
                     </div>
 
                     <div class="mb-3">

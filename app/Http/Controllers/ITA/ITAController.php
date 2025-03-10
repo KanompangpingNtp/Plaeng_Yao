@@ -23,7 +23,7 @@ class ITAController extends Controller
         $PerfResultsMenu = PerfResultsType::all();
         $OperationalPlanMenu = OperationalPlanType::all();
 
-        $showITA = ITAType::with('itADetails')->get();
+        $showITA = ITAType::with('itADetails.iTALinks')->get();
 
         // dd($showITA);
 

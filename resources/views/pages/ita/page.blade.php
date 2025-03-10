@@ -93,7 +93,6 @@
             <table class="table table-bordered table-striped" style="font-size: 16px;">
                 <thead>
                     @foreach($showITA as $type)
-                        <!-- แสดงหัวข้อหลักตาม type_name -->
                         <tr>
                             <th colspan="4" class="text-center bg-success"><span style="color: white;">{{ $type->type_name ?? 'ไม่มีข้อมูล' }}</span></th>
                         </tr>
@@ -105,12 +104,19 @@
                         </tr>
                 </thead>
                 <tbody>
-                    @foreach($type->itADetails as $index => $detail)
-                    {{-- @forelse ($ITADetails as $index => $detail) --}}
+                    @foreach($type->itADetails as $detail)
                         <tr>
-                            <td class="text-center">{{ $index + 1 }}</td>
-                            <td>{{ $detail->title_name ?? 'N/A' }}</td>
-                            <td class="col-md-4"><a href="{{ $detail->url_link ?? '#' }}" target="_blank" style="text-decoration: none;">{{ $detail->url_name ?? '' }} <br> {{ $detail->url_link }}</a></td>
+                            <td class="text-center" style="max-width: 40px;">{{ $detail->number_ita }}</td>
+                            <td class="col-md-3">{{ $detail->title_name ?? 'N/A' }}</td>
+                            <td class="col-md-4">
+                                @forelse ($detail->iTALinks as $link)
+                                    <a href="{{ $link->url_link }}" target="_blank" style="text-decoration: none;">
+                                        {{ $link->url_name ?? '' }} <br> {{ $link->url_link }} <br>
+                                    </a><br>
+                                @empty
+                                    ไม่มีลิงก์
+                                @endforelse
+                            </td>
                             <td style="max-width: 300px; overflow: auto; white-space: normal;">
                                 {!! $detail->detail ?? 'N/A' !!}
                             </td>

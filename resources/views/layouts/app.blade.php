@@ -426,7 +426,7 @@
                                 <div class="navbar-text">บุคลากร</div>
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="personnelDropdown">
-                                <li><a class="dropdown-item" href="#">แผนผังองค์กรรวม</a>
+                                <li><a class="dropdown-item" href="{{route('PersonnelChart')}}">โครงสร้างองค์กร</a>
                                 </li>
                                 @foreach ($personnelAgencies as $agency)
                                 <li>

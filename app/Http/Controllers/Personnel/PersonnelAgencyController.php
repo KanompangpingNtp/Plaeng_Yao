@@ -28,4 +28,17 @@ class PersonnelAgencyController extends Controller
 
         return view('pages.agency.show', compact('agency','personnelAgencies','photos','AuthorityDetails','OperationalPlanMenu','PerfResultsMenu'));
     }
+
+    public function PersonnelChart()
+    {
+        $personnelAgencies = PersonnelAgency::with('ranks')->get();
+
+        $AuthorityInfoType = BasicInfoType::where('type_name', 'อำนาจหน้าที่')->first();
+        $AuthorityDetails = ListDetail::where('basic_info_type_id', $AuthorityInfoType->id)->get();
+
+        $PerfResultsMenu = PerfResultsType::all();
+        $OperationalPlanMenu = OperationalPlanType::all();
+
+        return view('pages.agency.personnel_chart', compact('personnelAgencies','AuthorityDetails','OperationalPlanMenu','PerfResultsMenu'));
+    }
 }

@@ -64,6 +64,7 @@ Route::get('/details', [TestController::class, 'testPage'])->name('testPage');
 Route::get('/', [ShowDataController::class, 'Home'])->name('Home');
 
 //เมนูบุคลากร
+Route::get('/personnel_chart', [PersonnelAgencyController::class, 'PersonnelChart'])->name('PersonnelChart');
 Route::get('/agency/{id}', [PersonnelAgencyController::class, 'AgencyShow'])->name('AgencyShow');
 
 //กิจกรรม
@@ -266,6 +267,9 @@ Route::middleware(['check.auth'])->group(function () {
     Route::post('/Admin/ITA/create/{id}', [AdminITAController::class, 'ITACreate'])->name('ITACreate');
     Route::put('/Admin/ITA/update/{id}', [AdminITAController::class, 'ITAUpdate'])->name('ITAUpdate');
     Route::delete('/Admin/ITA/delete/{id}', [AdminITAController::class, 'ITADelete'])->name('ITADelete');
+
+    Route::delete('iTALink/{id}', [AdminITAController::class, 'destroy'])->name('ITAlink.destroy');
+
 
 });
 

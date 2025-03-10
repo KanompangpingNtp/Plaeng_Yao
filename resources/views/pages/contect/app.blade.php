@@ -23,39 +23,37 @@
     <div class="bg py-5">
         <div class="container py-5 custom-gradient-shadow">
             <div class=" d-flex flex-column justify-content-center align-items-center">
-                <img src="{{ asset('images/header/logo.png') }}" alt="icon">
-                <div class="d-flex flex-column justify-content-center align-items-start">
-                    <div class="lh-1">
+                <img src="{{ asset('images/contect/logo.png') }}" alt="icon" class="mb-3">
+                <div class="d-flex flex-column justify-content-center align-items-center text-center lh-1">
                         <span class="fw-bold fs-2">องค์การบริหารส่วนตำบลแปลงยาว</span> <br>
-                        <span class="fw-bold fs-3">Phra Achan Subdistrict Administrative Organization</span> <br>
-                        <span class="text-muted fs-3">
+                        <span class="fw-bold fs-4">Phra Achan Subdistrict Administrative Organization</span> <br>
+                        <span class="text-muted fs-4">
                             เลขที่ 86 หมู่ที่ 7 ตำบลแปลงยาว<br>
                             อำเภอแปลงยาว จังหวัดฉะเชิงเทรา <br>
                             รหัสไปรษณีย์ : 24190
                         </span>
-                    </div>
                 </div>
-                <div class="d-flex flex-column justify-content-center align-items-start lh-1">
+                <div class="d-flex flex-column justify-content-center align-items-center lh-1 my-3">
                     <div class="d-flex justify-content-center align-items-start gap-2 mb-1">
-                        <img src="{{ asset('images/home/section-10/phone-call.png') }}" alt="phone" width="20"
-                            height="20">
+                        <img src="{{ asset('images/contect/phone-call.png') }}" alt="phone" width="20"
+                            height="20" style="filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.5)">
                         <div>โทรศัพท์ : 038-852-556</div>
                     </div>
                     <div class="d-flex justify-content-center align-items-start gap-2 mb-1">
-                        <img src="{{ asset('images/home/section-10/fax.png') }}" alt="phone" width="20"
-                            height="20">
+                        <img src="{{ asset('images/contect/fax.png') }}" alt="phone" width="20"
+                            height="20" style="filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.5)">
                         <div>เบอร์แฟกซ์ : 038-589630</div>
                     </div>
                     <div class="d-flex justify-content-center align-items-start gap-2 mb-1">
-                        <img src="{{ asset('images/home/section-10/email.png') }}" alt="phone" width="23"
-                            height="20">
+                        <img src="{{ asset('images/contect/email.png') }}" alt="phone" width="23"
+                            height="20" style="filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.5)">
                         <div>Email : plaengyao_sao@hotmail.com</div>
                     </div>
                 </div>
                 <div class="row justify-content-center">
                     <div class="col-lg-6 d-flex flex-column justify-content-center align-items-center">
-                        <div>
-                            ช่องทางการชำระค่าธรรมเนียมต่าง ๆ
+                        <div class="text-center">
+                            ช่องทางการชำระค่าธรรมเนียมต่าง ๆ <br>
                             (ภาษีบำรุงท้องที่, ค่าเก็บขนขยะ, ค่าธรรมเนียมต่างๆ)
                         </div>
                         <img src="{{ asset('images/contect/qr_code_01.png') }}" alt="qr-code">

@@ -84,7 +84,8 @@
                             <div class="mt-2" style="font-size: 14px;">
                                 {{ $detail->full_name }}<br>
                                 {{ $detail->department ?? '' }}<br>
-                                {{ $detail->phone }}
+                                {{-- {{ $detail->phone }} --}}
+                                {!! preg_replace('/(\d{2,}-\d{3,}-\d{4,})/', '<br>$1', $detail->phone) !!}
                             </div>
                         </div>
                     </div>
@@ -104,7 +105,8 @@
                                 <div class="mt-2" style="font-size: 14px;">
                                     {{ $chunk->first()->full_name }}<br>
                                     {{ $chunk->first()->department ?? '' }}<br>
-                                    {{ $chunk->first()->phone }}
+                                    {{-- {{ $chunk->first()->phone }} --}}
+                                    {!! preg_replace('/(\d{2,}-\d{3,}-\d{4,})/', '<br>$1', $chunk->first()->phone) !!}
                                 </div>
                             </div>
                         </div>
@@ -121,7 +123,8 @@
                                 <div class="mt-2" style="font-size: 14px;">
                                     {{ $chunk->last()->full_name }}<br>
                                     {{ $chunk->last()->department ?? '' }}<br>
-                                    {{ $chunk->last()->phone }}
+                                    {{-- {{ $chunk->last()->phone }} --}}
+                                    {!! preg_replace('/(\d{2,}-\d{3,}-\d{4,})/', '<br>$1', $chunk->last()->phone) !!}
                                 </div>
                             </div>
                         </div>
@@ -143,7 +146,8 @@
                             <div class="mt-2" style="font-size: 14px;">
                                 {{ $detail->full_name }}<br>
                                 {{ $detail->department ?? '' }}<br>
-                                {{ $detail->phone }}
+                                {{-- {{ $detail->phone }} --}}
+                                {!! preg_replace('/(\d{2,}-\d{3,}-\d{4,})/', '<br>$1', $detail->phone) !!}
                             </div>
                         </div>
                     </div>

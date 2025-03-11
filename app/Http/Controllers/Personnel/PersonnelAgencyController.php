@@ -23,10 +23,21 @@ class PersonnelAgencyController extends Controller
         $PerfResultsMenu = PerfResultsType::all();
         $OperationalPlanMenu = OperationalPlanType::all();
 
+        // $agency = PersonnelAgency::with('ranks.details.images')->findOrFail($id);
+        // $photos = PersonnelGroupPhoto::whereIn('personnel_rank_id', $agency->ranks->pluck('id'))->get();
+
+        // return view('pages.agency.show', compact('agency','personnelAgencies','photos','AuthorityDetails','OperationalPlanMenu','PerfResultsMenu'));
+
         $agency = PersonnelAgency::with('ranks.details.images')->findOrFail($id);
         $photos = PersonnelGroupPhoto::whereIn('personnel_rank_id', $agency->ranks->pluck('id'))->get();
 
-        return view('pages.agency.show', compact('agency','personnelAgencies','photos','AuthorityDetails','OperationalPlanMenu','PerfResultsMenu'));
+        // แยกข้อความและหมายเลขโทรศัพท์
+        preg_match('/(.*?)(\d{2,}-\d{3,}-\d{4,})/', $agency->phone, $matches);
+        $text = trim($matches[1] ?? '');
+        $phone = trim($matches[2] ?? '');
+
+        // ส่งไปที่ Blade
+        return view('pages.agency.show', compact('agency', 'photos', 'text', 'phone', 'AuthorityDetails', 'OperationalPlanMenu', 'PerfResultsMenu','personnelAgencies'));
     }
 
     public function PersonnelChart()
@@ -39,6 +50,6 @@ class PersonnelAgencyController extends Controller
         $PerfResultsMenu = PerfResultsType::all();
         $OperationalPlanMenu = OperationalPlanType::all();
 
-        return view('pages.agency.personnel_chart', compact('personnelAgencies','AuthorityDetails','OperationalPlanMenu','PerfResultsMenu'));
+        return view('pages.agency.personnel_chart', compact('personnelAgencies', 'AuthorityDetails', 'OperationalPlanMenu', 'PerfResultsMenu'));
     }
 }

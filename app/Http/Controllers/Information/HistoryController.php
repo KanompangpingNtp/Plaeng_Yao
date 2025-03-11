@@ -11,6 +11,7 @@ use App\Models\ListDetail;
 use App\Models\PerfResultsType;
 use App\Models\OperationalPlanType;
 use App\Models\BasicInfoDetail;
+use App\Models\LawsRegsType;
 
 class HistoryController extends Controller
 {
@@ -23,12 +24,13 @@ class HistoryController extends Controller
 
         $PerfResultsMenu = PerfResultsType::all();
         $OperationalPlanMenu = OperationalPlanType::all();
+        $LawsRegsMenu = LawsRegsType::all();
 
         $basicInfoType = BasicInfoType::all();
         $basicInfoTypeID = $basicInfoType->firstWhere('type_name', 'ประวัติความเป็นมา')->id;
         $basicInfoDetail = BasicInfoDetail::with('type', 'images', 'pdf')
             ->where('basic_info_type_id', $basicInfoTypeID)->get();
 
-        return view('basic_information.history.page',compact('basicInfoDetail','basicInfoType','personnelAgencies','AuthorityDetails','OperationalPlanMenu','PerfResultsMenu'));
+        return view('basic_information.history.page',compact('LawsRegsMenu','basicInfoDetail','basicInfoType','personnelAgencies','AuthorityDetails','OperationalPlanMenu','PerfResultsMenu'));
     }
 }

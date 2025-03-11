@@ -15,10 +15,26 @@ class AdminSeeder extends Seeder
     public function run(): void
     {
         //
-        User::create([
-            'name' => 'Admin',
-            'email' => 'admin@example.com',
-            'password' => Hash::make('123456789'),
-        ]);
+        // User::create([
+            // 'name' => 'Admin',
+            // 'email' => 'admin@example.com',
+            // 'password' => Hash::make('123456789'),
+        // ]);
+        User::firstOrCreate(
+            ['email' => 'admin@example.com'], // เงื่อนไขตรวจสอบ
+            [
+                'name' => 'Admin',
+                'password' => Hash::make('123456789'),
+            ]
+        );
+
+        // ตรวจสอบและสร้างบัญชีแอดมินที่สอง
+        User::firstOrCreate(
+            ['email' => 'admin@plaengyao.go.th'], // เงื่อนไขตรวจสอบ
+            [
+                'name' => 'Admin2',
+                'password' => Hash::make('987654321'),
+            ]
+        );
     }
 }

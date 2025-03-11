@@ -24,13 +24,13 @@ class LawsAndRegulationsController extends Controller
         $AuthorityDetails = ListDetail::where('basic_info_type_id', $AuthorityInfoType->id)->get();
 
         $PerfResultsMenu = PerfResultsType::all();
-
         $OperationalPlanMenu = OperationalPlanType::all();
+        $LawsRegsMenu = LawsRegsType::all();
 
         $LawsRegsType = LawsRegsType::findOrFail($id);
         $LawsRegsSection = LawsRegsSection::where('type_id', $id)->get();
 
-        return view('pages.laws_and_regulations.page_section', compact('LawsRegsType', 'LawsRegsSection', 'personnelAgencies','AuthorityDetails','OperationalPlanMenu','PerfResultsMenu'));
+        return view('pages.laws_and_regulations.page_section', compact('LawsRegsMenu','LawsRegsType', 'LawsRegsSection', 'personnelAgencies','AuthorityDetails','OperationalPlanMenu','PerfResultsMenu'));
     }
 
     public function LawsAndRegulationsShowDetailsPages($id)
@@ -41,12 +41,12 @@ class LawsAndRegulationsController extends Controller
         $AuthorityDetails = ListDetail::where('basic_info_type_id', $AuthorityInfoType->id)->get();
 
         $PerfResultsMenu = PerfResultsType::all();
-
         $OperationalPlanMenu = OperationalPlanType::all();
+        $LawsRegsMenu = LawsRegsType::all();
 
         $LawsRegsSection = LawsRegsSection::with('type')->findOrFail($id);
         $LawsRegsFiles = LawsRegsFiles::where('section_id', $id)->get();
 
-        return view('pages.laws_and_regulations.page_detail', compact('LawsRegsSection', 'LawsRegsFiles', 'personnelAgencies','AuthorityDetails','OperationalPlanMenu','PerfResultsMenu'));
+        return view('pages.laws_and_regulations.page_detail', compact('LawsRegsMenu','LawsRegsSection', 'LawsRegsFiles', 'personnelAgencies','AuthorityDetails','OperationalPlanMenu','PerfResultsMenu'));
     }
 }

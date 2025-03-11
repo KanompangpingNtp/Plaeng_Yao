@@ -8,6 +8,7 @@ use App\Models\BasicInfoType;
 use App\Models\ListDetail;
 use App\Models\PerfResultsType;
 use App\Models\OperationalPlanType;
+use App\Models\LawsRegsType;
 
 class TreasuryAnnouncementController extends Controller
 {
@@ -22,7 +23,8 @@ class TreasuryAnnouncementController extends Controller
 
         $PerfResultsMenu = PerfResultsType::all();
         $OperationalPlanMenu = OperationalPlanType::all();
+        $LawsRegsMenu = LawsRegsType::all();
 
-        return view('pages.treasury_announcement.show_data', compact('personnelAgencies','personnelAgencies','AuthorityDetails','OperationalPlanMenu','PerfResultsMenu'));
+        return view('pages.treasury_announcement.show_data', compact('LawsRegsMenu','personnelAgencies','personnelAgencies','AuthorityDetails','OperationalPlanMenu','PerfResultsMenu'));
     }
 }

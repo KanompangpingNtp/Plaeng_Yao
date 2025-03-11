@@ -9,6 +9,7 @@ use App\Models\ListDetail;
 use App\Models\PerfResultsType;
 use App\Models\OperationalPlanType;
 use App\Models\ITAType;
+use App\Models\LawsRegsType;
 
 class TestController extends Controller
 {
@@ -21,10 +22,11 @@ class TestController extends Controller
 
         $PerfResultsMenu = PerfResultsType::all();
         $OperationalPlanMenu = OperationalPlanType::all();
+        $LawsRegsMenu = LawsRegsType::all();
 
         $showITA = ITAType::with('itADetails')->get();
 
-        return view('test.page', compact('personnelAgencies','AuthorityDetails','OperationalPlanMenu','PerfResultsMenu'));
+        return view('test.page', compact('LawsRegsMenu','personnelAgencies','AuthorityDetails','OperationalPlanMenu','PerfResultsMenu'));
     }
 
     public function coppyPage1 ()
@@ -36,10 +38,11 @@ class TestController extends Controller
 
         $PerfResultsMenu = PerfResultsType::all();
         $OperationalPlanMenu = OperationalPlanType::all();
+        $LawsRegsMenu = LawsRegsType::all();
 
         $showITA = ITAType::with('itADetails')->get();
 
-        return view('test.page1', compact('personnelAgencies','AuthorityDetails','OperationalPlanMenu','PerfResultsMenu'));
+        return view('test.page1', compact('LawsRegsMenu','personnelAgencies','AuthorityDetails','OperationalPlanMenu','PerfResultsMenu'));
     }
 
     public function eservice_pages ()
@@ -51,10 +54,11 @@ class TestController extends Controller
 
         $PerfResultsMenu = PerfResultsType::all();
         $OperationalPlanMenu = OperationalPlanType::all();
+        $LawsRegsMenu = LawsRegsType::all();
 
         $showITA = ITAType::with('itADetails')->get();
 
-        return view('e-service.page', compact('personnelAgencies','AuthorityDetails','OperationalPlanMenu','PerfResultsMenu'));
+        return view('e-service.page', compact('LawsRegsMenu','personnelAgencies','AuthorityDetails','OperationalPlanMenu','PerfResultsMenu'));
     }
 
     public function elderly_allowance_pages ()
@@ -66,10 +70,11 @@ class TestController extends Controller
 
         $PerfResultsMenu = PerfResultsType::all();
         $OperationalPlanMenu = OperationalPlanType::all();
+        $LawsRegsMenu = LawsRegsType::all();
 
         $showITA = ITAType::with('itADetails')->get();
 
-        return view('e-service.elderly_allowance.page', compact('personnelAgencies','AuthorityDetails','OperationalPlanMenu','PerfResultsMenu'));
+        return view('e-service.elderly_allowance.page', compact('LawsRegsMenu','personnelAgencies','AuthorityDetails','OperationalPlanMenu','PerfResultsMenu'));
     }
 
     public function general_requests_pages ()
@@ -81,10 +86,11 @@ class TestController extends Controller
 
         $PerfResultsMenu = PerfResultsType::all();
         $OperationalPlanMenu = OperationalPlanType::all();
+        $LawsRegsMenu = LawsRegsType::all();
 
         $showITA = ITAType::with('itADetails')->get();
 
-        return view('e-service.general_requests.page', compact('personnelAgencies','AuthorityDetails','OperationalPlanMenu','PerfResultsMenu'));
+        return view('e-service.general_requests.page', compact('LawsRegsMenu','personnelAgencies','AuthorityDetails','OperationalPlanMenu','PerfResultsMenu'));
     }
 
     public function disability_pages ()
@@ -96,10 +102,11 @@ class TestController extends Controller
 
         $PerfResultsMenu = PerfResultsType::all();
         $OperationalPlanMenu = OperationalPlanType::all();
+        $LawsRegsMenu = LawsRegsType::all();
 
         $showITA = ITAType::with('itADetails')->get();
 
-        return view('e-service.disability.page', compact('personnelAgencies','AuthorityDetails','OperationalPlanMenu','PerfResultsMenu'));
+        return view('e-service.disability.page', compact('LawsRegsMenu','personnelAgencies','AuthorityDetails','OperationalPlanMenu','PerfResultsMenu'));
     }
 
     public function receive_assistance_pages ()
@@ -114,6 +121,6 @@ class TestController extends Controller
 
         $showITA = ITAType::with('itADetails')->get();
 
-        return view('e-service.receive_assistance.page', compact('personnelAgencies','AuthorityDetails','OperationalPlanMenu','PerfResultsMenu'));
+        return view('e-service.receive_assistance.page', compact('LawsRegsMenu','personnelAgencies','AuthorityDetails','OperationalPlanMenu','PerfResultsMenu'));
     }
 }

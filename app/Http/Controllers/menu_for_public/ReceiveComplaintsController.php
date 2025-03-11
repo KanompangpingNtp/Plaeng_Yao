@@ -9,6 +9,7 @@ use App\Models\BasicInfoType;
 use App\Models\ListDetail;
 use App\Models\PerfResultsType;
 use App\Models\OperationalPlanType;
+use App\Models\LawsRegsType;
 
 class ReceiveComplaintsController extends Controller
 {
@@ -21,7 +22,8 @@ class ReceiveComplaintsController extends Controller
 
         $PerfResultsMenu = PerfResultsType::all();
         $OperationalPlanMenu = OperationalPlanType::all();
+        $LawsRegsMenu = LawsRegsType::all();
 
-       return view('pages.menu_for_public.receive_complaints.page_form',compact('personnelAgencies','AuthorityDetails','PerfResultsMenu','OperationalPlanMenu'));
+       return view('pages.menu_for_public.receive_complaints.page_form',compact('LawsRegsMenu','personnelAgencies','AuthorityDetails','PerfResultsMenu','OperationalPlanMenu'));
     }
 }

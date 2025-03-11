@@ -13,6 +13,7 @@ use App\Models\PersonnelAgency;
 use App\Models\BasicInfoType;
 use App\Models\ListDetail;
 use App\Models\OperationalPlanType;
+use App\Models\LawsRegsType;
 
 class PerformanceResultsController extends Controller
 {
@@ -25,11 +26,12 @@ class PerformanceResultsController extends Controller
 
         $PerfResultsMenu = PerfResultsType::all();
         $OperationalPlanMenu = OperationalPlanType::all();
+        $LawsRegsMenu = LawsRegsType::all();
 
         $PerfResultsType = PerfResultsType::findOrFail($id);
         $PerfResultsSection = PerfResultsSection::where('type_id', $id)->get();
 
-        return view('pages.performance_results.page_section', compact('PerfResultsType', 'PerfResultsSection', 'OperationalPlanMenu','personnelAgencies','AuthorityDetails','PerfResultsMenu','OperationalPlanMenu'));
+        return view('pages.performance_results.page_section', compact('LawsRegsMenu','PerfResultsType', 'PerfResultsSection', 'OperationalPlanMenu','personnelAgencies','AuthorityDetails','PerfResultsMenu','OperationalPlanMenu'));
     }
 
     public function PerfResultsSubTopicPages($id)
@@ -41,11 +43,12 @@ class PerformanceResultsController extends Controller
 
         $PerfResultsMenu = PerfResultsType::all();
         $OperationalPlanMenu = OperationalPlanType::all();
+        $LawsRegsMenu = LawsRegsType::all();
 
         $PerfResultsSection = PerfResultsSection::with('type')->findOrFail($id);
         $PerfResultsSubTopic = PerfResultsSubTopic::where('section_id', $id)->get();
 
-        return view('pages.performance_results.page_sub_topic', compact('PerfResultsSection', 'PerfResultsSubTopic', 'personnelAgencies','AuthorityDetails','PerfResultsMenu','OperationalPlanMenu'));
+        return view('pages.performance_results.page_sub_topic', compact('LawsRegsMenu','PerfResultsSection', 'PerfResultsSubTopic', 'personnelAgencies','AuthorityDetails','PerfResultsMenu','OperationalPlanMenu'));
     }
 
     public function PerfResultsShowDetailsPages($id)

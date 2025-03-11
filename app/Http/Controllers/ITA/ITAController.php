@@ -10,6 +10,7 @@ use App\Models\ListDetail;
 use App\Models\PerfResultsType;
 use App\Models\OperationalPlanType;
 use App\Models\ITAType;
+use App\Models\LawsRegsType;
 
 class ITAController extends Controller
 {
@@ -22,11 +23,12 @@ class ITAController extends Controller
 
         $PerfResultsMenu = PerfResultsType::all();
         $OperationalPlanMenu = OperationalPlanType::all();
+        $LawsRegsMenu = LawsRegsType::all();
 
         $showITA = ITAType::with('itADetails.iTALinks')->get();
 
         // dd($showITA);
 
-        return view('pages.ita.page',compact('showITA','personnelAgencies','PerfResultsMenu','AuthorityDetails','OperationalPlanMenu'));
+        return view('pages.ita.page',compact('LawsRegsMenu','showITA','personnelAgencies','PerfResultsMenu','AuthorityDetails','OperationalPlanMenu'));
     }
 }

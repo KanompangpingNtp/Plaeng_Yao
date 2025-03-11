@@ -14,6 +14,7 @@ use App\Models\BasicInfoType;
 use App\Models\ListDetail;
 use App\Models\PerfResultsType;
 use App\Models\OperationalPlanType;
+use App\Models\LawsRegsType;
 
 class PressReleaseController extends Controller
 {
@@ -252,6 +253,7 @@ class PressReleaseController extends Controller
 
         $PerfResultsMenu = PerfResultsType::all();
         $OperationalPlanMenu = OperationalPlanType::all();
+        $LawsRegsMenu = LawsRegsType::all();
 
         $pressRelease = PostDetail::with('postType', 'videos', 'photos', 'pdfs')
             ->whereHas('postType', function ($query) {
@@ -260,7 +262,7 @@ class PressReleaseController extends Controller
             ->orderBy('date', 'desc')
             ->paginate(14); // กำหนดจำนวนรายการที่แสดงต่อหน้าเป็น 14
 
-        return view('pages.press_release.show_data', compact('pressRelease','personnelAgencies','AuthorityDetails','PerfResultsMenu','OperationalPlanMenu'));
+        return view('pages.press_release.show_data', compact('LawsRegsMenu','pressRelease','personnelAgencies','AuthorityDetails','PerfResultsMenu','OperationalPlanMenu'));
     }
 
     public function PressReleaseShowDetails($id)
@@ -272,6 +274,7 @@ class PressReleaseController extends Controller
 
         $PerfResultsMenu = PerfResultsType::all();
         $OperationalPlanMenu = OperationalPlanType::all();
+        $LawsRegsMenu = LawsRegsType::all();
 
         $pressRelease = PostDetail::with(['postType', 'videos', 'photos', 'pdfs'])
             ->whereHas('postType', function ($query) {
@@ -279,7 +282,7 @@ class PressReleaseController extends Controller
             })
             ->findOrFail($id);
 
-        return view('pages.press_release.show_detail', compact('pressRelease', 'personnelAgencies','AuthorityDetails','PerfResultsMenu','OperationalPlanMenu'));
+        return view('pages.press_release.show_detail', compact('LawsRegsMenu','pressRelease', 'personnelAgencies','AuthorityDetails','PerfResultsMenu','OperationalPlanMenu'));
     }
 
     public function PressReleaseSearchData(Request $request)
@@ -293,6 +296,7 @@ class PressReleaseController extends Controller
 
         $PerfResultsMenu = PerfResultsType::all();
         $OperationalPlanMenu = OperationalPlanType::all();
+        $LawsRegsMenu = LawsRegsType::all();
 
         $pressRelease = PostDetail::with('postType', 'videos', 'photos', 'pdfs')
             ->whereHas('postType', function ($query) {
@@ -307,6 +311,6 @@ class PressReleaseController extends Controller
             ->orderBy('created_at', 'desc')
             ->paginate(14);
 
-        return view('pages.press_release.show_data', compact('pressRelease', 'personnelAgencies','AuthorityDetails','PerfResultsMenu','OperationalPlanMenu'));
+        return view('pages.press_release.show_data', compact('LawsRegsMenu','pressRelease', 'personnelAgencies','AuthorityDetails','PerfResultsMenu','OperationalPlanMenu'));
     }
 }

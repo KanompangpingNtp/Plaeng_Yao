@@ -12,6 +12,7 @@ use App\Models\BasicInfoType;
 use App\Models\ListDetail;
 use App\Models\PerfResultsType;
 use App\Models\OperationalPlanType;
+use App\Models\LawsRegsType;
 
 class ProcurementPlanController extends Controller
 {
@@ -135,13 +136,14 @@ class ProcurementPlanController extends Controller
 
         $PerfResultsMenu = PerfResultsType::all();
         $OperationalPlanMenu = OperationalPlanType::all();
+        $LawsRegsMenu = LawsRegsType::all();
 
         $procurementPlan = PostDetail::with(['pdfs'])
             ->whereHas('postType', function ($query) {
                 $query->where('type_name', 'แผนการจัดซื้อจัดจ้าง');
             })->findOrFail($id);
 
-        return view('pages.procurementPlan.show_detail', compact('procurementPlan','personnelAgencies','AuthorityDetails','PerfResultsMenu','OperationalPlanMenu'));
+        return view('pages.procurementPlan.show_detail', compact('LawsRegsMenu','procurementPlan','personnelAgencies','AuthorityDetails','PerfResultsMenu','OperationalPlanMenu'));
     }
 
     public function ProcurementPlanShowData()
@@ -153,13 +155,14 @@ class ProcurementPlanController extends Controller
 
         $PerfResultsMenu = PerfResultsType::all();
         $OperationalPlanMenu = OperationalPlanType::all();
+        $LawsRegsMenu = LawsRegsType::all();
 
         $procurementPlan = PostDetail::with('postType','photos')
             ->whereHas('postType', function ($query) {
                 $query->where('type_name', 'แผนการจัดซื้อจัดจ้าง');
             })->paginate(14);
 
-        return view('pages.procurementPlan.show_data', compact('procurementPlan','personnelAgencies','AuthorityDetails','PerfResultsMenu','OperationalPlanMenu'));
+        return view('pages.procurementPlan.show_data', compact('LawsRegsMenu','procurementPlan','personnelAgencies','AuthorityDetails','PerfResultsMenu','OperationalPlanMenu'));
     }
 
     public function ProcurementPlanSearchData(Request $request)
@@ -173,6 +176,7 @@ class ProcurementPlanController extends Controller
 
         $PerfResultsMenu = PerfResultsType::all();
         $OperationalPlanMenu = OperationalPlanType::all();
+        $LawsRegsMenu = LawsRegsType::all();
 
         $procurementPlan = PostDetail::with('postType', 'videos', 'photos', 'pdfs')
             ->whereHas('postType', function ($query) {
@@ -187,6 +191,6 @@ class ProcurementPlanController extends Controller
             ->orderBy('date', 'desc')
             ->paginate(14);
 
-        return view('pages.procurementPlan.show_data', compact('procurementPlan', 'personnelAgencies','AuthorityDetails','PerfResultsMenu','OperationalPlanMenu'));
+        return view('pages.procurementPlan.show_data', compact('LawsRegsMenu','procurementPlan', 'personnelAgencies','AuthorityDetails','PerfResultsMenu','OperationalPlanMenu'));
     }
 }

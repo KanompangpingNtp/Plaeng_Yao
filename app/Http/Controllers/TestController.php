@@ -41,4 +41,79 @@ class TestController extends Controller
 
         return view('test.page1', compact('personnelAgencies','AuthorityDetails','OperationalPlanMenu','PerfResultsMenu'));
     }
+
+    public function eservice_pages ()
+    {
+        $personnelAgencies = PersonnelAgency::with('ranks')->get();
+
+        $AuthorityInfoType = BasicInfoType::where('type_name', 'อำนาจหน้าที่')->first();
+        $AuthorityDetails = ListDetail::where('basic_info_type_id', $AuthorityInfoType->id)->get();
+
+        $PerfResultsMenu = PerfResultsType::all();
+        $OperationalPlanMenu = OperationalPlanType::all();
+
+        $showITA = ITAType::with('itADetails')->get();
+
+        return view('e-service.page', compact('personnelAgencies','AuthorityDetails','OperationalPlanMenu','PerfResultsMenu'));
+    }
+
+    public function elderly_allowance_pages ()
+    {
+        $personnelAgencies = PersonnelAgency::with('ranks')->get();
+
+        $AuthorityInfoType = BasicInfoType::where('type_name', 'อำนาจหน้าที่')->first();
+        $AuthorityDetails = ListDetail::where('basic_info_type_id', $AuthorityInfoType->id)->get();
+
+        $PerfResultsMenu = PerfResultsType::all();
+        $OperationalPlanMenu = OperationalPlanType::all();
+
+        $showITA = ITAType::with('itADetails')->get();
+
+        return view('e-service.elderly_allowance.page', compact('personnelAgencies','AuthorityDetails','OperationalPlanMenu','PerfResultsMenu'));
+    }
+
+    public function general_requests_pages ()
+    {
+        $personnelAgencies = PersonnelAgency::with('ranks')->get();
+
+        $AuthorityInfoType = BasicInfoType::where('type_name', 'อำนาจหน้าที่')->first();
+        $AuthorityDetails = ListDetail::where('basic_info_type_id', $AuthorityInfoType->id)->get();
+
+        $PerfResultsMenu = PerfResultsType::all();
+        $OperationalPlanMenu = OperationalPlanType::all();
+
+        $showITA = ITAType::with('itADetails')->get();
+
+        return view('e-service.general_requests.page', compact('personnelAgencies','AuthorityDetails','OperationalPlanMenu','PerfResultsMenu'));
+    }
+
+    public function disability_pages ()
+    {
+        $personnelAgencies = PersonnelAgency::with('ranks')->get();
+
+        $AuthorityInfoType = BasicInfoType::where('type_name', 'อำนาจหน้าที่')->first();
+        $AuthorityDetails = ListDetail::where('basic_info_type_id', $AuthorityInfoType->id)->get();
+
+        $PerfResultsMenu = PerfResultsType::all();
+        $OperationalPlanMenu = OperationalPlanType::all();
+
+        $showITA = ITAType::with('itADetails')->get();
+
+        return view('e-service.disability.page', compact('personnelAgencies','AuthorityDetails','OperationalPlanMenu','PerfResultsMenu'));
+    }
+
+    public function receive_assistance_pages ()
+    {
+        $personnelAgencies = PersonnelAgency::with('ranks')->get();
+
+        $AuthorityInfoType = BasicInfoType::where('type_name', 'อำนาจหน้าที่')->first();
+        $AuthorityDetails = ListDetail::where('basic_info_type_id', $AuthorityInfoType->id)->get();
+
+        $PerfResultsMenu = PerfResultsType::all();
+        $OperationalPlanMenu = OperationalPlanType::all();
+
+        $showITA = ITAType::with('itADetails')->get();
+
+        return view('e-service.receive_assistance.page', compact('personnelAgencies','AuthorityDetails','OperationalPlanMenu','PerfResultsMenu'));
+    }
 }

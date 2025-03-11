@@ -254,7 +254,7 @@
                 </a>
             </div>
             <div class="col-sm-6 col-xl-4">
-                <a href="#" class="banner-section-2 d-flex lh-1 p-0">
+                <a href="https://plaengyao.go.th/PerformanceResults/show/section/topic/34" class="banner-section-2 d-flex lh-1 p-0">
                     <div class="bg-inbanner">
                         <img src="{{ asset('images/section-3/แผนการใช้จ่ายงบประมาณประจำปี.png') }}" alt="icon" style="width: 65px;">
                     </div>
@@ -265,7 +265,7 @@
                 </a>
             </div>
             <div class="col-sm-6 col-xl-4">
-                <a href="#" class="banner-section-2 d-flex lh-1 p-0">
+                <a href="https://plaengyao.go.th/PerformanceResults/show/section/topic/37" class="banner-section-2 d-flex lh-1 p-0">
                     <div class="bg-inbanner">
                         <img src="{{ asset('images/section-3/คู่มือการปฎิบัติงาน.png') }}" alt="icon" style="width: 60px;">
                     </div>

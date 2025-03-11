@@ -58,6 +58,13 @@ use App\Http\Controllers\TestController;
 Route::get('/details', [TestController::class, 'testPage'])->name('testPage');
 Route::get('/details/page/test', [TestController::class, 'coppyPage1'])->name('coppyPage1');
 
+//eservice
+Route::get('/e-service/page', [TestController::class, 'eservice_pages'])->name('eservice_pages');
+Route::get('/e-service/elderly_allowance/page', [TestController::class, 'elderly_allowance_pages'])->name('elderly_allowance_pages');
+Route::get('/e-service/general_requests/page', [TestController::class, 'general_requests_pages'])->name('general_requests_pages');
+Route::get('/e-service/disability/page', [TestController::class, 'disability_pages'])->name('disability_pages');
+Route::get('/e-service/receive_assistance/page', [TestController::class, 'receive_assistance_pages'])->name('receive_assistance_pages');
+
 // Route::get('/', function () {
 //     return view('pages.home.app');
 // });

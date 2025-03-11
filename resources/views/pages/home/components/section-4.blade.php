@@ -215,7 +215,7 @@
         <div
             class="col-12 col-lg-6 col-xl-4 d-flex flex-column justify-content-center align-items-center gap-3 gap-lg-5">
             <div class="w-100 px-1 px-lg-4">
-                <a href="#" class="bg-e-service d-flex flex-column justify-content-between position-relative"
+                <a href="{{route('eservice_pages')}}" class="bg-e-service d-flex flex-column justify-content-between position-relative"
                     style="filter: drop-shadow(2px 2px 10px rgba(255, 255, 255, 0.5));">
                     <img src="{{ asset('images/section-4/star.png') }}" alt="star" class="star-icon">
                     <div class="fs-4 lh-1 text-center text-light fw-bold">
@@ -279,7 +279,7 @@
                 </a>
             </div>
             <div class="col-sm-6 col-xl-4">
-                <a href="#" class="banner-section-2 d-flex lh-1 p-0">
+                <a href="https://plaengyao.go.th/PerformanceResults/show/section/topic/42" class="banner-section-2 d-flex lh-1 p-0">
                     <div class="bg-inbanner">
                         <img src="{{ asset('images/section-4/การเสริมสร้างวัฒนธรรมองค์กร.png') }}" alt="icon"
                             style="width: 60px;">
@@ -290,7 +290,7 @@
                 </a>
             </div>
             <div class="col-sm-6 col-xl-4">
-                <a href="#" class="banner-section-2 d-flex lh-1 p-0">
+                <a href="https://plaengyao.go.th/PerformanceResults/show/section/6" class="banner-section-2 d-flex lh-1 p-0">
                     <div class="bg-inbanner">
                         <img src="{{ asset('images/section-4/การบริหารและพัฒนาทรัพยากรบุคคล.png') }}" alt="icon"
                             style="width: 65px;">
@@ -301,7 +301,7 @@
                 </a>
             </div>
             <div class="col-sm-6 col-xl-4">
-                <a href="#" class="banner-section-2 d-flex lh-1 p-0">
+                <a href="https://plaengyao.go.th/OperationalPlan/show/section/11" class="banner-section-2 d-flex lh-1 p-0">
                     <div class="bg-inbanner">
                         <img src="{{ asset('images/section-4/ส่งเสริมความโปร่งใสและแผนป้องกันการทุจริต.png') }}"
                             alt="icon" style="width: 60px;">

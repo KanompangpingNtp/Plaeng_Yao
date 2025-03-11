@@ -124,4 +124,20 @@ class TestController extends Controller
 
         return view('e-service.receive_assistance.page', compact('LawsRegsMenu','personnelAgencies','AuthorityDetails','OperationalPlanMenu','PerfResultsMenu'));
     }
+
+    public function forum_pages ()
+    {
+        $personnelAgencies = PersonnelAgency::with('ranks')->get();
+
+        $AuthorityInfoType = BasicInfoType::where('type_name', 'อำนาจหน้าที่')->first();
+        $AuthorityDetails = ListDetail::where('basic_info_type_id', $AuthorityInfoType->id)->get();
+
+        $PerfResultsMenu = PerfResultsType::all();
+        $OperationalPlanMenu = OperationalPlanType::all();
+        $LawsRegsMenu = LawsRegsType::all();
+
+        $showITA = ITAType::with('itADetails')->get();
+
+        return view('page.forum.page', compact('LawsRegsMenu','personnelAgencies','AuthorityDetails','OperationalPlanMenu','PerfResultsMenu'));
+    }
 }

@@ -65,9 +65,9 @@ Route::get('/e-service/general_requests/page', [TestController::class, 'general_
 Route::get('/e-service/disability/page', [TestController::class, 'disability_pages'])->name('disability_pages');
 Route::get('/e-service/receive_assistance/page', [TestController::class, 'receive_assistance_pages'])->name('receive_assistance_pages');
 
-// Route::get('/', function () {
-//     return view('pages.home.app');
-// });
+Route::get('/forum', function () {
+    return view('pages.forum.app');
+});
 
 //ข้อมูลพื้นฐาน
 Route::get('/History/page', [HistoryController::class, 'HistoryPage'])->name('HistoryPage');

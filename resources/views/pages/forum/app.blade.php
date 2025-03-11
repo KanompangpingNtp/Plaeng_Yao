@@ -100,7 +100,7 @@
 
 
             @foreach ($complaints as $forum)
-                <a href="#" class="forum-card rounded mb-2">
+                <a href="{{route('forum_details_pages')}}" class="forum-card rounded mb-2">
                     <div class="card p-3 shadow-sm">
                         <div class="d-flex flex-column flex-lg-row align-items-center">
                             <!-- แสดงรูปถ้ามี -->

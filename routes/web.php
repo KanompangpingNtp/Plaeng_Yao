@@ -58,9 +58,8 @@ use App\Http\Controllers\TestController;
 Route::get('/details', [TestController::class, 'testPage'])->name('testPage');
 Route::get('/details/page/test', [TestController::class, 'coppyPage1'])->name('coppyPage1');
 
-
-
 Route::get('/forum/page', [TestController::class, 'forum_pages'])->name('forum_pages');
+Route::get('/forum/details/page', [TestController::class, 'forum_details_pages'])->name('forum_details_pages');
 
 //eservice
 Route::get('/e-service/page', [TestController::class, 'eservice_pages'])->name('eservice_pages');
@@ -68,7 +67,6 @@ Route::get('/e-service/elderly_allowance/page', [TestController::class, 'elderly
 Route::get('/e-service/general_requests/page', [TestController::class, 'general_requests_pages'])->name('general_requests_pages');
 Route::get('/e-service/disability/page', [TestController::class, 'disability_pages'])->name('disability_pages');
 Route::get('/e-service/receive_assistance/page', [TestController::class, 'receive_assistance_pages'])->name('receive_assistance_pages');
-
 
 //ข้อมูลพื้นฐาน
 Route::get('/History/page', [HistoryController::class, 'HistoryPage'])->name('HistoryPage');

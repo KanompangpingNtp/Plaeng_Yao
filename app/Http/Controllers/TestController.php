@@ -138,6 +138,6 @@ class TestController extends Controller
 
         $showITA = ITAType::with('itADetails')->get();
 
-        return view('page.forum.page', compact('LawsRegsMenu','personnelAgencies','AuthorityDetails','OperationalPlanMenu','PerfResultsMenu'));
+        return view('pages.forum.app', compact('LawsRegsMenu','personnelAgencies','AuthorityDetails','OperationalPlanMenu','PerfResultsMenu'));
     }
 }

@@ -23,7 +23,7 @@
     <div class="bg py-5">
         <div class="container py-5 custom-gradient-shadow">
             <div class=" d-flex flex-column justify-content-center p-5">
-                <div class="fs-1 fw-bold mb-4 text-center" style="color: #77b329;">วิสัยทัศน์/พันธกิจ</div>
+                <div class="fs-1 fw-bold mb-4 text-center">วิสัยทัศน์/พันธกิจ</div>
                 @forelse ($basicInfoDetail as $detail)
 
                 <p>{!! $detail->details !!}</p>

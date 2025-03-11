@@ -118,6 +118,7 @@ class TestController extends Controller
 
         $PerfResultsMenu = PerfResultsType::all();
         $OperationalPlanMenu = OperationalPlanType::all();
+        $LawsRegsMenu = LawsRegsType::all();
 
         $showITA = ITAType::with('itADetails')->get();
 

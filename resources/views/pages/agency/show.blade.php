@@ -61,6 +61,15 @@
             $sortedDetails = $groupedDetails->sortBy('status')->groupBy('status');
             @endphp
 
+            @php
+            function formatPhone($phone) {
+            if (preg_match('/^(.*?)(\d{2,}-\d{3,}-\d{4,})$/', $phone, $matches)) {
+            return trim($matches[1]) ? trim($matches[1]) . '<br>' . trim($matches[2]) : trim($matches[2]);
+            }
+            return $phone; // แสดงค่าเดิมหากไม่มีการจับคู่
+            }
+            @endphp
+
             <!-- แสดงผลตามกลุ่ม status -->
             @foreach ($sortedDetails as $status => $details)
             <div class="w-100 mb-4 px-5">
@@ -85,7 +94,15 @@
                                 {{ $detail->full_name }}<br>
                                 {{ $detail->department ?? '' }}<br>
                                 {{-- {{ $detail->phone }} --}}
-                                {!! preg_replace('/(\d{2,}-\d{3,}-\d{4,})/', '<br>$1', $detail->phone) !!}
+                                {{-- {!! preg_replace('/(\d{2,}-\d{3,}-\d{4,})/', '<br>$1', $detail->phone) !!} --}}
+                                @php
+                                $phone = $detail->phone;
+                                if (preg_match('/^(.*?)(\d{2,}-\d{3,}-\d{4,})$/', $phone, $matches)) {
+                                echo trim($matches[1]) ? trim($matches[1]) . '<br>' . trim($matches[2]) : trim($matches[2]);
+                                } else {
+                                echo $phone; // แสดงค่าเดิมหากไม่มีการจับคู่
+                                }
+                                @endphp
                             </div>
                         </div>
                     </div>
@@ -106,7 +123,7 @@
                                     {{ $chunk->first()->full_name }}<br>
                                     {{ $chunk->first()->department ?? '' }}<br>
                                     {{-- {{ $chunk->first()->phone }} --}}
-                                    {!! preg_replace('/(\d{2,}-\d{3,}-\d{4,})/', '<br>$1', $chunk->first()->phone) !!}
+                                    {!! formatPhone($chunk->first()->phone) !!}
                                 </div>
                             </div>
                         </div>
@@ -124,7 +141,7 @@
                                     {{ $chunk->last()->full_name }}<br>
                                     {{ $chunk->last()->department ?? '' }}<br>
                                     {{-- {{ $chunk->last()->phone }} --}}
-                                    {!! preg_replace('/(\d{2,}-\d{3,}-\d{4,})/', '<br>$1', $chunk->last()->phone) !!}
+                                    {!! formatPhone($chunk->last()->phone) !!}
                                 </div>
                             </div>
                         </div>
@@ -147,7 +164,14 @@
                                 {{ $detail->full_name }}<br>
                                 {{ $detail->department ?? '' }}<br>
                                 {{-- {{ $detail->phone }} --}}
-                                {!! preg_replace('/(\d{2,}-\d{3,}-\d{4,})/', '<br>$1', $detail->phone) !!}
+                                @php
+                                $phone = $detail->phone;
+                                if (preg_match('/^(.*?)(\d{2,}-\d{3,}-\d{4,})$/', $phone, $matches)) {
+                                echo trim($matches[1]) ? trim($matches[1]) . '<br>' . trim($matches[2]) : trim($matches[2]);
+                                } else {
+                                echo $phone;
+                                }
+                                @endphp
                             </div>
                         </div>
                     </div>
@@ -166,26 +190,26 @@
 
             <div class="text-center">
                 @if ($photos->count() > 0)
-                    <!-- Carousel แสดงภาพ -->
-                    <div id="photoCarousel" class="carousel slide" data-bs-ride="carousel">
-                        <div class="carousel-inner">
-                            @foreach ($photos as $index => $photo)
-                                <div class="carousel-item {{ $index == 0 ? 'active' : '' }}">
-                                    <img src="{{ asset('storage/' . $photo->group_photo_file) }}" class="d-block rounded" alt="รูปแนบ">
-                                </div>
-                            @endforeach
+                <!-- Carousel แสดงภาพ -->
+                <div id="photoCarousel" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                        @foreach ($photos as $index => $photo)
+                        <div class="carousel-item {{ $index == 0 ? 'active' : '' }}">
+                            <img src="{{ asset('storage/' . $photo->group_photo_file) }}" class="d-block rounded" alt="รูปแนบ">
                         </div>
-                        <!-- ปุ่มเลื่อนซ้าย -->
-                        <button class="carousel-control-prev" type="button" data-bs-target="#photoCarousel" data-bs-slide="prev">
-                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Previous</span>
-                        </button>
-                        <!-- ปุ่มเลื่อนขวา -->
-                        <button class="carousel-control-next" type="button" data-bs-target="#photoCarousel" data-bs-slide="next">
-                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Next</span>
-                        </button>
+                        @endforeach
                     </div>
+                    <!-- ปุ่มเลื่อนซ้าย -->
+                    <button class="carousel-control-prev" type="button" data-bs-target="#photoCarousel" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <!-- ปุ่มเลื่อนขวา -->
+                    <button class="carousel-control-next" type="button" data-bs-target="#photoCarousel" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
                 @endif
 
                 <br>
@@ -200,6 +224,7 @@
                 height: 437px;
                 object-fit: cover;
             }
+
         </style>
 
     </div>

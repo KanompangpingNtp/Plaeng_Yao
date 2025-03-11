@@ -61,7 +61,7 @@
 <div class="bg py-5">
     <div class="container py-5 custom-gradient-shadow">
         <div class=" d-flex flex-column justify-content-center p-5">
-            <div class="fs-1 fw-bold mb-4 text-center">แบบคำขอรับการสงเคราะห์ (ผู้ป่วยเอดส์)</div>
+            <div class="fs-1 fw-bold mb-4 text-center">E-Service</div>
 
             <h3 class="text-center"> แบบคำขอรับการสงเคราะห์ (ผู้ป่วยเอดส์) </h3>
 

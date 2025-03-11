@@ -47,6 +47,7 @@
 
             {{-- แสดงรูปภาพ --}}
             @if ($detail->images->count() > 0)
+            <p class="text-center"><strong>ตราสัญญาลักษณ์</strong></p>
             <div class="d-flex flex-wrap justify-content-center align-items-center">
                 @foreach ($detail->images as $image)
                 <div class="col-md-3 p-2 d-flex justify-content-center">

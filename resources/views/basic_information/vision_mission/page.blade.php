@@ -46,15 +46,16 @@
 
                 {{-- แสดงรูปภาพ --}}
                 @if ($detail->images->count() > 0)
-                <div class="d-flex flex-wrap">
+                <p class="text-center"><strong>ตราสัญญาลักษณ์</strong></p>
+                <div class="d-flex flex-wrap justify-content-center align-items-center">
                     @foreach ($detail->images as $image)
-                    <div class="col-md-3 p-2">
+                    <div class="col-md-3 p-2 d-flex justify-content-center">
                         <img src="{{ asset('storage/' . $image->images_file) }}" class="img-fluid rounded" alt="รูปภาพ">
                     </div>
                     @endforeach
                 </div>
                 @else
-                <p></p>
+                <p class="text-center"></p>
                 @endif
 
                 @empty

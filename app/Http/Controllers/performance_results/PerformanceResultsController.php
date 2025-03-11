@@ -60,10 +60,11 @@ class PerformanceResultsController extends Controller
 
         $PerfResultsMenu = PerfResultsType::all();
         $OperationalPlanMenu = OperationalPlanType::all();
+        $LawsRegsMenu = LawsRegsType::all();
 
         $PerfResultsSubTopic = PerfResultsSubTopic::with('section.type')->findOrFail($id);
         $PerfResultsFile = PerfResultsFile::where('sub_topic_id', $id)->get();
 
-        return view('pages.performance_results.page_detail', compact('PerfResultsSubTopic', 'PerfResultsFile', 'personnelAgencies','AuthorityDetails','PerfResultsMenu','OperationalPlanMenu'));
+        return view('pages.performance_results.page_detail', compact('LawsRegsMenu','PerfResultsSubTopic', 'PerfResultsFile', 'personnelAgencies','AuthorityDetails','PerfResultsMenu','OperationalPlanMenu'));
     }
 }

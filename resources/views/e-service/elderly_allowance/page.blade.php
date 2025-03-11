@@ -111,7 +111,7 @@
                             </select>
                         </div>
                         <div class="col-12 col-md-6">
-                            <label for="first_name">ขื่่อ: <span class="text-danger">*</span></label>
+                            <label for="first_name">ชื่อ: <span class="text-danger">*</span></label>
                             <input type="text" id="first_name" name="first_name" class="form-control" required>
                         </div>
                     </div>
@@ -308,7 +308,7 @@
                             <input type="text" id="province" name="province" class="form-control" required>
                         </div>
                         <div class="col-12 col-md-6">
-                            <label for="postal_code">รหัสไปรษณีย: <span class="text-danger">*</span></label>
+                            <label for="postal_code">รหัสไปรษณีย์: <span class="text-danger">*</span></label>
                             <input type="text" id="postal_code" name="postal_code" class="form-control" required>
                         </div>
                     </div>

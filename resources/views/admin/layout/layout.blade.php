@@ -79,6 +79,7 @@
                                 <a class="nav-link" href="{{route('PerformanceResultsType')}}">จัดการผลการดำเนินงาน</a>
                                 <a class="nav-link" href="{{route('OperationalPlanType')}}">จัดการแผนงานพัฒนาท้องถิ่น</a>
                                 <a class="nav-link" href="{{route('LawsAndRegulationsType')}}">จัดการกฏหมายและกฏระเบียบ</a>
+                                <a class="nav-link" href="{{route('MenuForPublicType')}}">จัดการเมนูสำหรับประชาชน</a>
                             </nav>
                         </div>
                         <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts3" aria-expanded="false" aria-controls="collapseLayouts3">

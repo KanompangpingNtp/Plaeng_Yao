@@ -65,7 +65,7 @@
 
             <h3 class="text-center"> แบบคำขอรับการสงเคราะห์ (ผู้ป่วยเอดส์) </h3>
 
-            <form action="#" method="POST" enctype="multipart/form-data">
+            {{-- <form action="#" method="POST" enctype="multipart/form-data"> --}}
                 @csrf
                 <h3>ข้อมูลผู้ขอรับการสงเคราะห์</h3>
                 <div class="row mb-3">

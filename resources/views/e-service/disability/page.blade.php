@@ -65,7 +65,7 @@
 
 
                 <h3 class="text-center">แบบคำขอลงทะเบียนรับเงินเบี้ยความพิการ</h3>
-                <form action="#" method="POST" enctype="multipart/form-data">
+                {{-- <form action="#" method="POST" enctype="multipart/form-data"> --}}
                     @csrf
                     <!-- Personal Information -->
                     <div class="my-4">

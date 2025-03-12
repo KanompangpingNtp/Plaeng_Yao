@@ -11,6 +11,7 @@ use App\Models\OperationalPlanType;
 use App\Models\BasicInfoDetail;
 use App\Models\ListDetail;
 use App\Models\LawsRegsType;
+use App\Models\PublicMenusType;
 
 class VisionMissionController extends Controller
 {
@@ -24,12 +25,22 @@ class VisionMissionController extends Controller
         $PerfResultsMenu = PerfResultsType::all();
         $OperationalPlanMenu = OperationalPlanType::all();
         $LawsRegsMenu = LawsRegsType::all();
+        $PublicMenus = PublicMenusType::all();
 
         $basicInfoType = BasicInfoType::all();
         $basicInfoTypeID = $basicInfoType->firstWhere('type_name', 'วิสัยทัศน์/พันธกิจ')->id;
         $basicInfoDetail = BasicInfoDetail::with('type', 'images', 'pdf')
             ->where('basic_info_type_id', $basicInfoTypeID)->get();
 
-        return view('basic_information.vision_mission.page',compact('LawsRegsMenu','basicInfoDetail','basicInfoType','personnelAgencies','AuthorityDetails','OperationalPlanMenu','PerfResultsMenu'));
+        return view('basic_information.vision_mission.page',compact(
+            'PublicMenus',
+            'LawsRegsMenu',
+            'basicInfoDetail',
+            'basicInfoType',
+            'personnelAgencies',
+            'AuthorityDetails',
+            'OperationalPlanMenu',
+            'PerfResultsMenu'
+        ));
     }
 }

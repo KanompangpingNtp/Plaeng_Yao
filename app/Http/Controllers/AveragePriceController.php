@@ -13,6 +13,7 @@ use App\Models\BasicInfoType;
 use App\Models\PerfResultsType;
 use App\Models\OperationalPlanType;
 use App\Models\LawsRegsType;
+use App\Models\PublicMenusType;
 
 class AveragePriceController extends Controller
 {
@@ -138,13 +139,22 @@ class AveragePriceController extends Controller
         $PerfResultsMenu = PerfResultsType::all();
         $OperationalPlanMenu = OperationalPlanType::all();
         $LawsRegsMenu = LawsRegsType::all();
+        $PublicMenus = PublicMenusType::all();
 
         $averageprice = PostDetail::with(['pdfs'])
             ->whereHas('postType', function ($query) {
                 $query->where('type_name', 'ประกาศผู้ชนะการเสนอราคา');
             })->findOrFail($id);
 
-        return view('pages.averageprice.show_detail', compact('LawsRegsMenu','averageprice', 'personnelAgencies','AuthorityDetails','PerfResultsMenu','OperationalPlanMenu'));
+        return view('pages.averageprice.show_detail', compact(
+            'LawsRegsMenu',
+            'averageprice',
+            'personnelAgencies',
+            'AuthorityDetails',
+            'PerfResultsMenu',
+            'OperationalPlanMenu',
+            'PublicMenus',
+        ));
     }
 
     public function AveragePriceShowData()
@@ -157,13 +167,22 @@ class AveragePriceController extends Controller
         $PerfResultsMenu = PerfResultsType::all();
         $OperationalPlanMenu = OperationalPlanType::all();
         $LawsRegsMenu = LawsRegsType::all();
+        $PublicMenus = PublicMenusType::all();
 
         $averageprice = PostDetail::with('postType', 'pdfs')
             ->whereHas('postType', function ($query) {
                 $query->where('type_name', 'ประกาศผู้ชนะการเสนอราคา');
             })->paginate(14);
 
-        return view('pages.averageprice.show_data', compact('LawsRegsMenu','averageprice', 'personnelAgencies','AuthorityDetails','PerfResultsMenu','OperationalPlanMenu'));
+        return view('pages.averageprice.show_data', compact(
+            'LawsRegsMenu',
+            'averageprice',
+            'personnelAgencies',
+            'AuthorityDetails',
+            'PerfResultsMenu',
+            'OperationalPlanMenu',
+            'PublicMenus',
+        ));
     }
 
     public function AveragePriceSearchData(Request $request)
@@ -178,6 +197,7 @@ class AveragePriceController extends Controller
         $PerfResultsMenu = PerfResultsType::all();
         $OperationalPlanMenu = OperationalPlanType::all();
         $LawsRegsMenu = LawsRegsType::all();
+        $PublicMenus = PublicMenusType::all();
 
         $averageprice = PostDetail::with('postType', 'videos', 'photos', 'pdfs')
             ->whereHas('postType', function ($query) {
@@ -192,6 +212,14 @@ class AveragePriceController extends Controller
             ->orderBy('date', 'desc')
             ->paginate(14);
 
-        return view('pages.averageprice.show_data', compact('LawsRegsMenu','averageprice', 'personnelAgencies','AuthorityDetails','PerfResultsMenu','OperationalPlanMenu'));
+        return view('pages.averageprice.show_data', compact(
+            'LawsRegsMenu',
+            'averageprice',
+            'personnelAgencies',
+            'AuthorityDetails',
+            'PerfResultsMenu',
+            'OperationalPlanMenu',
+            'PublicMenus',
+        ));
     }
 }

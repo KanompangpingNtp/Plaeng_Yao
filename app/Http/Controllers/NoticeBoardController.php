@@ -90,24 +90,4 @@ class NoticeBoardController extends Controller
         return redirect()->back()->with('success', 'โพสถูกลบแล้ว');
     }
 
-    // public function NoticeBoardShowData()
-    // {
-    //     $noticeBoard = PostDetail::with('postType','photos')
-    //         ->whereHas('postType', function ($query) {
-    //             $query->where('type_name', 'ป้ายประกาศ');
-    //         })->paginate(14);
-
-    //     return view('pages.notice_board.show_data', compact('noticeBoard'));
-    // }
-
-    // public function NoticeBoardShowDetails($id)
-    // {
-    //     $noticeBoard = PostDetail::with(['postType','photos'])
-    //         ->whereHas('postType', function ($query) {
-    //             $query->where('type_name', 'ป้ายประกาศ');
-    //         })
-    //         ->findOrFail($id);
-
-    //     return view('pages.notice_board.show_detail', compact('noticeBoard'));
-    // }
 }

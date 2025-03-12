@@ -11,6 +11,7 @@ use App\Models\ListDetail;
 use App\Models\PerfResultsType;
 use App\Models\OperationalPlanType;
 use App\Models\LawsRegsType;
+use App\Models\PublicMenusType;
 
 class PersonnelAgencyController extends Controller
 {
@@ -24,11 +25,7 @@ class PersonnelAgencyController extends Controller
         $PerfResultsMenu = PerfResultsType::all();
         $OperationalPlanMenu = OperationalPlanType::all();
         $LawsRegsMenu = LawsRegsType::all();
-
-        // $agency = PersonnelAgency::with('ranks.details.images')->findOrFail($id);
-        // $photos = PersonnelGroupPhoto::whereIn('personnel_rank_id', $agency->ranks->pluck('id'))->get();
-
-        // return view('pages.agency.show', compact('agency','personnelAgencies','photos','AuthorityDetails','OperationalPlanMenu','PerfResultsMenu'));
+        $PublicMenus = PublicMenusType::all();
 
         $agency = PersonnelAgency::with('ranks.details.images')->findOrFail($id);
         $photos = PersonnelGroupPhoto::whereIn('personnel_rank_id', $agency->ranks->pluck('id'))->get();
@@ -38,8 +35,18 @@ class PersonnelAgencyController extends Controller
         $text = trim($matches[1] ?? '');
         $phone = trim($matches[2] ?? '');
 
-        // ส่งไปที่ Blade
-        return view('pages.agency.show', compact('LawsRegsMenu','agency', 'photos', 'text', 'phone', 'AuthorityDetails', 'OperationalPlanMenu', 'PerfResultsMenu','personnelAgencies'));
+        return view('pages.agency.show', compact(
+            'PublicMenus',
+            'LawsRegsMenu',
+            'agency',
+            'photos',
+            'text',
+            'phone',
+            'AuthorityDetails',
+            'OperationalPlanMenu',
+            'PerfResultsMenu',
+            'personnelAgencies'
+        ));
     }
 
     public function PersonnelChart()
@@ -52,7 +59,15 @@ class PersonnelAgencyController extends Controller
         $PerfResultsMenu = PerfResultsType::all();
         $OperationalPlanMenu = OperationalPlanType::all();
         $LawsRegsMenu = LawsRegsType::all();
+        $PublicMenus = PublicMenusType::all();
 
-        return view('pages.agency.personnel_chart', compact('LawsRegsMenu','personnelAgencies', 'AuthorityDetails', 'OperationalPlanMenu', 'PerfResultsMenu'));
+        return view('pages.agency.personnel_chart', compact(
+            'PublicMenus',
+            'LawsRegsMenu',
+            'personnelAgencies',
+            'AuthorityDetails',
+            'OperationalPlanMenu',
+            'PerfResultsMenu'
+        ));
     }
 }

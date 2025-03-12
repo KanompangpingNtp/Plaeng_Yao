@@ -9,6 +9,7 @@ use App\Models\BasicInfoType;
 use App\Models\PerfResultsType;
 use App\Models\OperationalPlanType;
 use App\Models\LawsRegsType;
+use App\Models\PublicMenusType;
 
 class AuthorityController extends Controller
 {
@@ -22,11 +23,19 @@ class AuthorityController extends Controller
         $PerfResultsMenu = PerfResultsType::all();
         $OperationalPlanMenu = OperationalPlanType::all();
         $LawsRegsMenu = LawsRegsType::all();
-
+        $PublicMenus = PublicMenusType::all();
 
         $listDetail = ListDetail::with('images','pdf')->findOrFail($id);
 
         // ส่งข้อมูลไปยังหน้า view
-        return view('pages.authority.show_details', compact('LawsRegsMenu','listDetail','personnelAgencies','AuthorityDetails','OperationalPlanMenu','PerfResultsMenu'));
+        return view('pages.authority.show_details', compact(
+            'LawsRegsMenu',
+            'listDetail',
+            'personnelAgencies',
+            'AuthorityDetails',
+            'OperationalPlanMenu',
+            'PerfResultsMenu',
+            'PublicMenus',
+        ));
     }
 }

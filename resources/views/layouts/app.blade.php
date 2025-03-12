@@ -450,14 +450,6 @@
                             </ul>
                         </li>
 
-                        <!-- 4. อำนาจหน้าที่ -->
-                        {{-- <li class="nav-item">
-                            <a class="nav-link d-flex flex-column align-items-center" href="">
-                                <img src="{{ asset('images/header/certificate-authority.png') }}" alt="อำนาจหน้าที่"
-                        class="navbar-icon">
-                        <div class="navbar-text">อำนาจหน้าที่</div>
-                        </a>
-                        </li> --}}
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle d-flex flex-column align-items-center" href="#" id="authorityDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 <img src="{{ asset('images/header/certificate-authority.png') }}" alt="อำนาจหน้าที่" class="navbar-icon">
@@ -474,14 +466,6 @@
                             </ul>
                         </li>
 
-
-                        <!-- 5. แผนพัฒนนาท้องถิ่น -->
-                        {{-- <li class="nav-item">
-                            <a class="nav-link d-flex flex-column align-items-center" href="#">
-                                <img src="{{ asset('images/header/growth.png') }}" alt="แผนพัฒนนาท้องถิ่น" class="navbar-icon">
-                        <div class="navbar-text">แผนพัฒนาท้องถิ่น</div>
-                        </a>
-                        </li> --}}
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle d-flex flex-column align-items-center" href="#" id="developmentPlanDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 <img src="{{ asset('images/header/growth.png') }}" alt="แผนพัฒนาท้องถิ่น" class="navbar-icon">
@@ -498,13 +482,6 @@
                             </ul>
                         </li>
 
-                        <!-- 6. กฏหมายและกฏระเบียบ -->
-                        {{-- <li class="nav-item">
-                            <a class="nav-link d-flex flex-column align-items-center" href="#">
-                                <img src="{{ asset('images/header/verdict.png') }}" alt="กฏหมายและกฏระเบียบ" class="navbar-icon">
-                        <div class="navbar-text">กฏหมายและกฏระเบียบ</div>
-                        </a>
-                        </li> --}}
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle d-flex flex-column align-items-center" href="#" id="lawDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 <img src="{{ asset('images/header/verdict.png') }}" alt="กฏหมายและกฏระเบียบ" class="navbar-icon">
@@ -521,13 +498,6 @@
                             </ul>
                         </li>
 
-                        <!-- 7. เมนูหรับประชาชน -->
-                        {{-- <li class="nav-item">
-                            <a class="nav-link d-flex flex-column align-items-center" href="#">
-                                <img src="{{ asset('images/header/crowd.png') }}" alt="เมนูสำหรับประชาชน" class="navbar-icon">
-                        <div class="navbar-text">เมนูสำหรับประชาชน</div>
-                        </a>
-                        </li> --}}
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle d-flex flex-column align-items-center" href="#" id="citizenMenuDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 <img src="{{ asset('images/header/crowd.png') }}" alt="เมนูสำหรับประชาชน" class="navbar-icon">
@@ -537,16 +507,13 @@
                                 <li><a class="dropdown-item" href="{{route('ReceiveComplaintsForm')}}">รับเรื่องราวร้องทุกข์ </a></li>
                                 <li><a class="dropdown-item" href="{{route('SatisfactionForm')}}">รับแจ้งร้องเรียนทุจริตประพฤติมิชอบ</a></li>
                                 <li><a class="dropdown-item" href="{{route('testPage')}}">แบบสอบถามความพึงพอใจ </a></li>
-                                <li><a class="dropdown-item" href="{{route('testPage')}}">คู่มือต่าง ๆ</a></li>
-                                <li><a class="dropdown-item" href="{{route('testPage')}}">การประปา</a></li>
-                                <li><a class="dropdown-item" href="{{route('testPage')}}">การชำระภาษี</a></li>
-                                <li><a class="dropdown-item" href="{{route('testPage')}}">การขออนุญาตก่อสร้าง</a></li>
-                                <li><a class="dropdown-item" href="https://welfare.dla.go.th/webview/">การลงทะเบียนผู้สูงอายุ/คนพิการ/ผู้ติดเชื้อ</a></li>
-                                <li><a class="dropdown-item" href="{{route('testPage')}}">การขอมีบัตรประจำตัวคนพิการ</a></li>
-                                <li><a class="dropdown-item" href="{{route('testPage')}}">เด็กแรกเกิด</a></li>
-                                <li><a class="dropdown-item" href="{{route('testPage')}}">บริการด้านงานทะเบียน</a></li>
-                                <li><a class="dropdown-item" href="{{route('testPage')}}">บริการจดทะเบียนพาณิชย์</a></li>
-                                <li><a class="dropdown-item" href="{{route('testPage')}}">ดาวน์โหลดแบบฟอร์ม</a></li>
+                                @foreach ($PublicMenus as $detail)
+                                <li>
+                                    <a class="dropdown-item" href="{{ route('MenuForPublicSectionPages', ['id' => $detail->id]) }}">
+                                        {{ $detail->type_name }}
+                                    </a>
+                                </li>
+                                @endforeach
                             </ul>
                         </li>
 

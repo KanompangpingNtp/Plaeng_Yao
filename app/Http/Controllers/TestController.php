@@ -10,6 +10,7 @@ use App\Models\PerfResultsType;
 use App\Models\OperationalPlanType;
 use App\Models\ITAType;
 use App\Models\LawsRegsType;
+use App\Models\PublicMenusType;
 
 class TestController extends Controller
 {
@@ -23,10 +24,18 @@ class TestController extends Controller
         $PerfResultsMenu = PerfResultsType::all();
         $OperationalPlanMenu = OperationalPlanType::all();
         $LawsRegsMenu = LawsRegsType::all();
+        $PublicMenus = PublicMenusType::all();
 
         $showITA = ITAType::with('itADetails')->get();
 
-        return view('test.page', compact('LawsRegsMenu', 'personnelAgencies', 'AuthorityDetails', 'OperationalPlanMenu', 'PerfResultsMenu'));
+        return view('test.page', compact(
+            'LawsRegsMenu',
+            'personnelAgencies',
+            'AuthorityDetails',
+            'OperationalPlanMenu',
+            'PerfResultsMenu',
+            'PublicMenus',
+        ));
     }
 
     public function coppyPage1()
@@ -39,10 +48,18 @@ class TestController extends Controller
         $PerfResultsMenu = PerfResultsType::all();
         $OperationalPlanMenu = OperationalPlanType::all();
         $LawsRegsMenu = LawsRegsType::all();
+        $PublicMenus = PublicMenusType::all();
 
         $showITA = ITAType::with('itADetails')->get();
 
-        return view('test.page1', compact('LawsRegsMenu', 'personnelAgencies', 'AuthorityDetails', 'OperationalPlanMenu', 'PerfResultsMenu'));
+        return view('test.page1', compact(
+            'LawsRegsMenu',
+            'personnelAgencies',
+            'AuthorityDetails',
+            'OperationalPlanMenu',
+            'PerfResultsMenu',
+            'PublicMenus',
+        ));
     }
 
     public function eservice_pages()
@@ -55,10 +72,18 @@ class TestController extends Controller
         $PerfResultsMenu = PerfResultsType::all();
         $OperationalPlanMenu = OperationalPlanType::all();
         $LawsRegsMenu = LawsRegsType::all();
+        $PublicMenus = PublicMenusType::all();
 
         $showITA = ITAType::with('itADetails')->get();
 
-        return view('e-service.page', compact('LawsRegsMenu', 'personnelAgencies', 'AuthorityDetails', 'OperationalPlanMenu', 'PerfResultsMenu'));
+        return view('e-service.page', compact(
+            'LawsRegsMenu',
+            'personnelAgencies',
+            'AuthorityDetails',
+            'OperationalPlanMenu',
+            'PerfResultsMenu',
+            'PublicMenus',
+        ));
     }
 
     public function elderly_allowance_pages()
@@ -71,10 +96,18 @@ class TestController extends Controller
         $PerfResultsMenu = PerfResultsType::all();
         $OperationalPlanMenu = OperationalPlanType::all();
         $LawsRegsMenu = LawsRegsType::all();
+        $PublicMenus = PublicMenusType::all();
 
         $showITA = ITAType::with('itADetails')->get();
 
-        return view('e-service.elderly_allowance.page', compact('LawsRegsMenu', 'personnelAgencies', 'AuthorityDetails', 'OperationalPlanMenu', 'PerfResultsMenu'));
+        return view('e-service.elderly_allowance.page', compact(
+            'LawsRegsMenu',
+            'personnelAgencies',
+            'AuthorityDetails',
+            'OperationalPlanMenu',
+            'PerfResultsMenu',
+            'PublicMenus',
+        ));
     }
 
     public function general_requests_pages()
@@ -87,10 +120,18 @@ class TestController extends Controller
         $PerfResultsMenu = PerfResultsType::all();
         $OperationalPlanMenu = OperationalPlanType::all();
         $LawsRegsMenu = LawsRegsType::all();
+        $PublicMenus = PublicMenusType::all();
 
         $showITA = ITAType::with('itADetails')->get();
 
-        return view('e-service.general_requests.page', compact('LawsRegsMenu', 'personnelAgencies', 'AuthorityDetails', 'OperationalPlanMenu', 'PerfResultsMenu'));
+        return view('e-service.general_requests.page', compact(
+            'LawsRegsMenu',
+            'personnelAgencies',
+            'AuthorityDetails',
+            'OperationalPlanMenu',
+            'PerfResultsMenu',
+            'PublicMenus',
+        ));
     }
 
     public function disability_pages()
@@ -103,10 +144,18 @@ class TestController extends Controller
         $PerfResultsMenu = PerfResultsType::all();
         $OperationalPlanMenu = OperationalPlanType::all();
         $LawsRegsMenu = LawsRegsType::all();
+        $PublicMenus = PublicMenusType::all();
 
         $showITA = ITAType::with('itADetails')->get();
 
-        return view('e-service.disability.page', compact('LawsRegsMenu', 'personnelAgencies', 'AuthorityDetails', 'OperationalPlanMenu', 'PerfResultsMenu'));
+        return view('e-service.disability.page', compact(
+            'LawsRegsMenu',
+            'personnelAgencies',
+            'AuthorityDetails',
+            'OperationalPlanMenu',
+            'PerfResultsMenu',
+            'PublicMenus',
+        ));
     }
 
     public function receive_assistance_pages()
@@ -119,10 +168,18 @@ class TestController extends Controller
         $PerfResultsMenu = PerfResultsType::all();
         $OperationalPlanMenu = OperationalPlanType::all();
         $LawsRegsMenu = LawsRegsType::all();
+        $PublicMenus = PublicMenusType::all();
 
         $showITA = ITAType::with('itADetails')->get();
 
-        return view('e-service.receive_assistance.page', compact('LawsRegsMenu', 'personnelAgencies', 'AuthorityDetails', 'OperationalPlanMenu', 'PerfResultsMenu'));
+        return view('e-service.receive_assistance.page', compact(
+            'LawsRegsMenu',
+            'personnelAgencies',
+            'AuthorityDetails',
+            'OperationalPlanMenu',
+            'PerfResultsMenu',
+            'PublicMenus',
+        ));
     }
 
     public function forum_pages()
@@ -135,10 +192,18 @@ class TestController extends Controller
         $PerfResultsMenu = PerfResultsType::all();
         $OperationalPlanMenu = OperationalPlanType::all();
         $LawsRegsMenu = LawsRegsType::all();
+        $PublicMenus = PublicMenusType::all();
 
         $showITA = ITAType::with('itADetails')->get();
 
-        return view('pages.forum.app', compact('LawsRegsMenu', 'personnelAgencies', 'AuthorityDetails', 'OperationalPlanMenu', 'PerfResultsMenu'));
+        return view('pages.forum.app', compact(
+            'LawsRegsMenu',
+            'personnelAgencies',
+            'AuthorityDetails',
+            'OperationalPlanMenu',
+            'PerfResultsMenu',
+            'PublicMenus',
+        ));
     }
 
     public function forum_details_pages()
@@ -151,9 +216,17 @@ class TestController extends Controller
         $PerfResultsMenu = PerfResultsType::all();
         $OperationalPlanMenu = OperationalPlanType::all();
         $LawsRegsMenu = LawsRegsType::all();
+        $PublicMenus = PublicMenusType::all();
 
         $showITA = ITAType::with('itADetails')->get();
 
-        return view('pages.forum.details.app', compact('LawsRegsMenu', 'personnelAgencies', 'AuthorityDetails', 'OperationalPlanMenu', 'PerfResultsMenu'));
+        return view('pages.forum.details.app', compact(
+            'LawsRegsMenu',
+            'personnelAgencies',
+            'AuthorityDetails',
+            'OperationalPlanMenu',
+            'PerfResultsMenu',
+            'PublicMenus',
+        ));
     }
 }

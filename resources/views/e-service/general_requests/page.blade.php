@@ -88,7 +88,7 @@
             <div class="container">
                 <h3 class="text-center fs-1 mb-4">ฟอร์มส่งคำร้องทั่วไป</h3>
 
-                <form action="#" method="POST" enctype="multipart/form-data">
+                {{-- <form action="#" method="POST" enctype="multipart/form-data"> --}}
                     @csrf
 
                     <!-- Row 1: วันที่ และ เรื่อง -->

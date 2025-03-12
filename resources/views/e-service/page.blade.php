@@ -132,6 +132,12 @@
 
             </table>
 
+            <div class="d-flex justify-content-center align-items-center text-center mt-5">
+                <a href="{{ asset('images/e-service/คู่มือ E-Service.pdf') }}" class="btn btn-success">
+                    คู่มือการใช้งานระบบ E-Service
+                    <i class="bi bi-file-earmark-pdf"></i>
+                </a>
+            </div>
         </div>
     </div>
 </div>

@@ -15,6 +15,7 @@ use App\Models\ListDetail;
 use App\Models\PerfResultsType;
 use App\Models\OperationalPlanType;
 use App\Models\LawsRegsType;
+use App\Models\PublicMenusType;
 
 class ActivityController extends Controller
 {
@@ -253,6 +254,7 @@ class ActivityController extends Controller
         $PerfResultsMenu = PerfResultsType::all();
         $OperationalPlanMenu = OperationalPlanType::all();
         $LawsRegsMenu = LawsRegsType::all();
+        $PublicMenus = PublicMenusType::all();
 
         $activity = PostDetail::with('postType', 'videos', 'photos', 'pdfs')
             ->whereHas('postType', function ($query) {
@@ -261,7 +263,15 @@ class ActivityController extends Controller
             ->orderBy('date', 'desc')
             ->paginate(14);
 
-        return view('pages.activity.show_data', compact('LawsRegsMenu','activity', 'personnelAgencies','AuthorityDetails','PerfResultsMenu','OperationalPlanMenu'));
+        return view('pages.activity.show_data', compact(
+            'LawsRegsMenu',
+            'activity',
+            'personnelAgencies',
+            'AuthorityDetails',
+            'PerfResultsMenu',
+            'OperationalPlanMenu',
+            'PublicMenus'
+        ));
     }
 
     public function ActivityShowDetails($id)
@@ -274,6 +284,7 @@ class ActivityController extends Controller
         $PerfResultsMenu = PerfResultsType::all();
         $OperationalPlanMenu = OperationalPlanType::all();
         $LawsRegsMenu = LawsRegsType::all();
+        $PublicMenus = PublicMenusType::all();
 
         $activity = PostDetail::with(['postType', 'videos', 'photos', 'pdfs'])
             ->whereHas('postType', function ($query) {
@@ -281,15 +292,21 @@ class ActivityController extends Controller
             })
             ->findOrFail($id);
 
-        return view('pages.activity.show_detail', compact('LawsRegsMenu','activity', 'personnelAgencies','AuthorityDetails','PerfResultsMenu','OperationalPlanMenu'));
+        return view('pages.activity.show_detail', compact(
+            'LawsRegsMenu',
+            'activity',
+            'personnelAgencies',
+            'AuthorityDetails',
+            'PerfResultsMenu',
+            'OperationalPlanMenu',
+            'PublicMenus'
+        ));
     }
 
     public function ActivitySearchData(Request $request)
     {
-        // รับค่าจาก input ค้นหาที่ชื่อ query
         $searchQuery = $request->input('query');
 
-        // เรียกข้อมูลจากฐานข้อมูล พร้อมกับการกรองการค้นหาหากมี
         $personnelAgencies = PersonnelAgency::with('ranks')->get();
 
         $AuthorityInfoType = BasicInfoType::where('type_name', 'อำนาจหน้าที่')->first();
@@ -298,6 +315,7 @@ class ActivityController extends Controller
         $PerfResultsMenu = PerfResultsType::all();
         $OperationalPlanMenu = OperationalPlanType::all();
         $LawsRegsMenu = LawsRegsType::all();
+        $PublicMenus = PublicMenusType::all();
 
         $activity = PostDetail::with('postType', 'videos', 'photos', 'pdfs')
             ->whereHas('postType', function ($query) {
@@ -313,6 +331,14 @@ class ActivityController extends Controller
             ->orderBy('date', 'desc')
             ->paginate(14);
 
-        return view('pages.activity.show_data', compact('LawsRegsMenu','activity', 'personnelAgencies','AuthorityDetails','PerfResultsMenu','OperationalPlanMenu'));
+        return view('pages.activity.show_data', compact(
+            'LawsRegsMenu',
+            'activity',
+            'personnelAgencies',
+            'AuthorityDetails',
+            'PerfResultsMenu',
+            'OperationalPlanMenu',
+            'PublicMenus'
+        ));
     }
 }

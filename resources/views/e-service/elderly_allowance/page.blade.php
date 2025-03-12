@@ -88,7 +88,7 @@
             <div class="container">
 
                 <h5 class="text-center fs-1 mb-4">แบบยืนยันสิทธิผู้สูงอายุ</h5>
-                <form action="#" method="POST" enctype="multipart/form-data">
+                {{-- <form action="#" method="POST" enctype="multipart/form-data"> --}}
                     @csrf
 
                     <!-- Personal Information -->

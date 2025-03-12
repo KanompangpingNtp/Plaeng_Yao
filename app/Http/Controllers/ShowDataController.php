@@ -10,6 +10,7 @@ use App\Models\ListDetail;
 use App\Models\PerfResultsType;
 use App\Models\OperationalPlanType;
 use App\Models\LawsRegsType;
+use App\Models\PublicMenusType;
 
 class ShowDataController extends Controller
 {
@@ -119,6 +120,8 @@ class ShowDataController extends Controller
 
         $LawsRegsMenu = LawsRegsType::all();
 
+        $PublicMenus = PublicMenusType::all();
+
         return view('pages.home.app', compact(
             'pressRelease',
             'activity',
@@ -135,7 +138,8 @@ class ShowDataController extends Controller
             'AuthorityDetails',
             'PerfResultsMenu',
             'OperationalPlanMenu',
-            'LawsRegsMenu'
+            'LawsRegsMenu',
+            'PublicMenus'
         ));
     }
 }

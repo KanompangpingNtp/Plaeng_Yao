@@ -11,10 +11,11 @@ use App\Models\PerfResultsType;
 use App\Models\OperationalPlanType;
 use App\Models\ITAType;
 use App\Models\LawsRegsType;
+use App\Models\PublicMenusType;
 
 class ITAController extends Controller
 {
-    public function itaPage ()
+    public function itaPage()
     {
         $personnelAgencies = PersonnelAgency::with('ranks')->get();
 
@@ -24,11 +25,18 @@ class ITAController extends Controller
         $PerfResultsMenu = PerfResultsType::all();
         $OperationalPlanMenu = OperationalPlanType::all();
         $LawsRegsMenu = LawsRegsType::all();
+        $PublicMenus = PublicMenusType::all();
 
         $showITA = ITAType::with('itADetails.iTALinks')->get();
 
-        // dd($showITA);
-
-        return view('pages.ita.page',compact('LawsRegsMenu','showITA','personnelAgencies','PerfResultsMenu','AuthorityDetails','OperationalPlanMenu'));
+        return view('pages.ita.page', compact(
+            'PublicMenus',
+            'LawsRegsMenu',
+            'showITA',
+            'personnelAgencies',
+            'PerfResultsMenu',
+            'AuthorityDetails',
+            'OperationalPlanMenu'
+        ));
     }
 }

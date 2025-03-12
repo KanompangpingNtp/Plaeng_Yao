@@ -13,6 +13,7 @@ use App\Models\ListDetail;
 use App\Models\PerfResultsType;
 use App\Models\OperationalPlanType;
 use App\Models\LawsRegsType;
+use App\Models\PublicMenusType;
 
 class RevenueController extends Controller
 {
@@ -141,13 +142,22 @@ class RevenueController extends Controller
         $PerfResultsMenu = PerfResultsType::all();
         $OperationalPlanMenu = OperationalPlanType::all();
         $LawsRegsMenu = LawsRegsType::all();
+        $PublicMenus = PublicMenusType::all();
 
         $revenue = PostDetail::with(['pdfs'])
             ->whereHas('postType', function ($query) {
                 $query->where('type_name', 'สรุปผลการจัดซื้อจัดจ้าง');
             })->findOrFail($id);
 
-        return view('pages.revenue.show_detail', compact('LawsRegsMenu','revenue','personnelAgencies','AuthorityDetails','PerfResultsMenu','OperationalPlanMenu'));
+        return view('pages.revenue.show_detail', compact(
+            'LawsRegsMenu',
+            'revenue',
+            'personnelAgencies',
+            'AuthorityDetails',
+            'PerfResultsMenu',
+            'OperationalPlanMenu',
+            'PublicMenus',
+        ));
     }
 
     public function RevenueShowData()
@@ -160,13 +170,22 @@ class RevenueController extends Controller
         $PerfResultsMenu = PerfResultsType::all();
         $OperationalPlanMenu = OperationalPlanType::all();
         $LawsRegsMenu = LawsRegsType::all();
+        $PublicMenus = PublicMenusType::all();
 
         $revenue = PostDetail::with('postType','photos')
             ->whereHas('postType', function ($query) {
                 $query->where('type_name', 'สรุปผลการจัดซื้อจัดจ้าง');
             })->paginate(14);
 
-        return view('pages.revenue.show_data', compact('LawsRegsMenu','revenue','personnelAgencies','AuthorityDetails','PerfResultsMenu','OperationalPlanMenu'));
+        return view('pages.revenue.show_data', compact(
+            'LawsRegsMenu',
+            'revenue',
+            'personnelAgencies',
+            'AuthorityDetails',
+            'PerfResultsMenu',
+            'OperationalPlanMenu',
+            'PublicMenus',
+        ));
     }
 
     public function RevenueSearchData(Request $request)
@@ -181,6 +200,7 @@ class RevenueController extends Controller
         $PerfResultsMenu = PerfResultsType::all();
         $OperationalPlanMenu = OperationalPlanType::all();
         $LawsRegsMenu = LawsRegsType::all();
+        $PublicMenus = PublicMenusType::all();
 
         $revenue = PostDetail::with('postType', 'videos', 'photos', 'pdfs')
             ->whereHas('postType', function ($query) {
@@ -195,6 +215,14 @@ class RevenueController extends Controller
             ->orderBy('date', 'desc')
             ->paginate(14);
 
-        return view('pages.revenue.show_data', compact('LawsRegsMenu','revenue', 'personnelAgencies','AuthorityDetails','PerfResultsMenu','OperationalPlanMenu'));
+        return view('pages.revenue.show_data', compact(
+            'LawsRegsMenu',
+            'revenue',
+            'personnelAgencies',
+            'AuthorityDetails',
+            'PerfResultsMenu',
+            'OperationalPlanMenu',
+            'PublicMenus',
+        ));
     }
 }

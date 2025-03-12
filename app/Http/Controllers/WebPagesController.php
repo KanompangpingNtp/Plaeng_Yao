@@ -9,6 +9,7 @@ use App\Models\ListDetail;
 use App\Models\PerfResultsType;
 use App\Models\OperationalPlanType;
 use App\Models\LawsRegsType;
+use App\Models\PublicMenusType;
 
 class WebPagesController extends Controller
 {
@@ -22,8 +23,16 @@ class WebPagesController extends Controller
         $PerfResultsMenu = PerfResultsType::all();
         $LawsRegsMenu = LawsRegsType::all();
         $OperationalPlanMenu = OperationalPlanType::all();
+        $PublicMenus = PublicMenusType::all();
 
-        return view('pages.contect.app',compact('LawsRegsMenu','personnelAgencies','AuthorityDetails','PerfResultsMenu','OperationalPlanMenu'));
+        return view('pages.contect.app',compact(
+            'LawsRegsMenu',
+            'personnelAgencies',
+            'AuthorityDetails',
+            'PerfResultsMenu',
+            'OperationalPlanMenu',
+            'PublicMenus',
+        ));
     }
 
     public function BannserPages()
@@ -36,7 +45,15 @@ class WebPagesController extends Controller
         $PerfResultsMenu = PerfResultsType::all();
         $LawsRegsMenu = LawsRegsType::all();
         $OperationalPlanMenu = OperationalPlanType::all();
+        $PublicMenus = PublicMenusType::all();
 
-        return view('pages.banner-in.app',compact('LawsRegsMenu','personnelAgencies','AuthorityDetails','PerfResultsMenu','OperationalPlanMenu'));
+        return view('pages.banner-in.app',compact(
+            'LawsRegsMenu',
+            'personnelAgencies',
+            'AuthorityDetails',
+            'PerfResultsMenu',
+            'OperationalPlanMenu',
+            'PublicMenus',
+        ));
     }
 }

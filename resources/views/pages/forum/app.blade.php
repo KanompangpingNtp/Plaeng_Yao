@@ -48,7 +48,7 @@
     </style>
 
     <div class="bg py-5">
-        <div class="container py-5 custom-gradient-shadow">
+        <div class="container p-5 custom-gradient-shadow">
             <div class="d-flex flex-column flex-md-row justify-content-between align-items-center mb-3">
                 <p class="fs-2 fw-bold text-center mb-0">กระดานกระทู้</p> <!-- แก้ไข mb-0 เพื่อไม่ให้มี margin ด้านล่าง -->
                 <a href="#" class="btn btn-success" data-bs-toggle="modal"

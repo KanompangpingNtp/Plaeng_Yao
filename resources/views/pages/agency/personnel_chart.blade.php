@@ -44,22 +44,17 @@
         <div class="d-flex flex-column justify-content-center align-items-center">
             <div class="fs-1 fw-bold mb-4 mt-5">โครงสร้างองค์กร</div>
 
-            <style>
-                .a4-size {
-                    width: 794px;
-                    height: 1123px;
-                    object-fit: contain;
-                    align-content: center;
-                }
+            <div class="row justify-content-center mt-2">
+                <div class="col-12 col-md-8 mb-4 text-center">
+                    <img src="{{ asset('images/personnel_chart/1.png') }}" class="img-fluid" alt="โครงสร้างองค์กร 1">
+                </div>
 
-            </style>
-
-            <div class="mt-5">
-                <img src="{{ asset('images/personnel_chart/st01-3.png') }}" class="a4-size" alt="">
+                <div class="col-12 col-md-8 mb-4 text-center">
+                    <img src="{{ asset('images/personnel_chart/2.png') }}" class="img-fluid" alt="โครงสร้างองค์กร 2">
+                </div>
             </div>
 
         </div>
-
     </div>
 </div>
 

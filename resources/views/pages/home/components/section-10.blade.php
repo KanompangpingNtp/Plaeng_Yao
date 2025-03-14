@@ -178,7 +178,7 @@
                     {{-- <span class="bg-dataweb px-2 py-1 mb-1">ข้อมูลเว็บไซด์</span> --}}
                     <ul class="no-bullets">
                         <li><a href="#" class="text-decoration-none " style="font-size: 16px;">หน้าแรก</a></li>
-                        <li><a href="#" class="text-decoration-none " style="font-size: 16px;">กระดานกระทู้</a></li>
+                        <li><a href="{{route('forum_pages')}}" class="text-decoration-none " style="font-size: 16px;">กระดานกระทู้</a></li>
                         <li><a href="#" class="text-decoration-none " style="font-size: 16px;">ติดต่อ</a></li>
                         <li><a href="#" class="text-decoration-none " style="font-size: 16px;">แผนผังเว็บไซต์</a></li>
                     </ul>

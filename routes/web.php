@@ -45,6 +45,8 @@ use App\Http\Controllers\laws_and_regulations\LawsAndRegulationsController;
 use App\Http\Controllers\menu_for_public\AdminMenuForPublicController;
 use App\Http\Controllers\menu_for_public\MenuForPublicController;
 
+use App\Http\Controllers\festival_slides\FestivalSlidesController;
+
 use App\Http\Controllers\TestController;
 /*
 |--------------------------------------------------------------------------
@@ -56,6 +58,8 @@ use App\Http\Controllers\TestController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+
+Route::get('/FestivalSlides', [FestivalSlidesController::class, 'FestivalSlidesPage'])->name('FestivalSlidesPage');
 
 Route::get('/details', [TestController::class, 'testPage'])->name('testPage');
 Route::get('/details/page/test', [TestController::class, 'coppyPage1'])->name('coppyPage1');
@@ -95,7 +99,7 @@ Route::get('/OperationalPlan/show/section/details/{id}', [OperationalPlanControl
 Route::get('/LawsAndRegulations/show/section/{id}', [LawsAndRegulationsController::class, 'LawsAndRegulationsSectionPages'])->name('LawsAndRegulationsSectionPages');
 Route::get('/LawsAndRegulations/show/section/details/{id}', [LawsAndRegulationsController::class, 'LawsAndRegulationsShowDetailsPages'])->name('LawsAndRegulationsShowDetailsPages');
 
-//แผนงานพัฒนาท้องถิ่น
+//เมนูสำหรับประชาชน
 Route::get('/MenuForPublic/show/section/{id}', [MenuForPublicController::class, 'MenuForPublicSectionPages'])->name('MenuForPublicSectionPages');
 Route::get('/MenuForPublic/show/section/details/{id}', [MenuForPublicController::class, 'MenuForPublicShowDetailsPages'])->name('MenuForPublicShowDetailsPages');
 

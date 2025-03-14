@@ -224,7 +224,7 @@
     <div class="container mt-3 mt-sm-5">
         <div class="row g-4 justify-content-center">
             <div class="col-sm-6 col-xl-4">
-                <a href="#" class="banner-section-2 d-flex lh-1 p-0">
+                <a href="{{route('forum_pages')}}" class="banner-section-2 d-flex lh-1 p-0">
                     <div class="bg-inbanner">
                         <img src="{{ asset('images/section-3/กระดานกระทู้.png') }}" alt="icon" style="width: 65px;">
                     </div>

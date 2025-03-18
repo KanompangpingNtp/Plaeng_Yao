@@ -20,6 +20,8 @@ class AdminWebIntroController extends Controller
     {
         $request->validate([
             'files_path' => 'file|mimes:jpg,jpeg,png',
+            'button_name' => 'nullable|string',
+            'button_link' => 'nullable|url',
         ]);
 
         // dd( $request);
@@ -34,6 +36,8 @@ class AdminWebIntroController extends Controller
             WebIntro::create([
                 'files_path' => $path,
                 'files_type' => $fileType,
+                'button_name' => $request->button_name,
+                'button_link' => $request->button_link,
             ]);
         }
 

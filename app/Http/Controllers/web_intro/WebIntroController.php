@@ -11,6 +11,8 @@ class WebIntroController extends Controller
     public function WebIntroPage()
     {
         $Image = WebIntro::all();
-        return view('pages.festival_slides.pages',compact('Image'));
+        $Button = WebIntro::first();
+
+        return view('pages.festival_slides.pages',compact('Image','Button'));
     }
 }

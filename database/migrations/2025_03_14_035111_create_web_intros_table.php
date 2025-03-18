@@ -15,6 +15,8 @@ return new class extends Migration
             $table->id();
             $table->string('files_path');
             $table->string('files_type');
+            $table->string('button_name')->nullable();
+            $table->string('button_link')->nullable();
             $table->timestamps();
         });
     }

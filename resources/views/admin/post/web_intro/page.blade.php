@@ -31,10 +31,25 @@
                 @csrf
                 <div class="modal-body">
                     <div class="mb-3">
-                        <label for="files_path" class="form-label">แนบไฟล์</label>
+                        <label for="files_path" class="form-label">แนบไฟล์ภาพพื้นหลัง</label>
                         <input type="file" class="form-control" id="files_path" name="files_path">
                         <small class="text-muted">ประเภทไฟล์ที่รองรับ: jpg, jpeg, png</small>
                     </div>
+
+                    <button type="button" id="addButton" class="btn btn-primary btn-sm">เพิ่มปุ่ม</button>
+
+                    <div id="buttonContainer" style="display: none;">
+                        <div class="mb-3 mt-3">
+                            <label for="button_name" class="form-label">ชื่อปุ่ม</label>
+                            <input type="text" class="form-control" id="button_name" name="button_name">
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="button_link" class="form-label">แนบลิงค์</label>
+                            <input type="url" class="form-control" id="button_link" name="button_link" placeholder="https://example.com">
+                        </div>
+                    </div>
+
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">ปิด</button>
@@ -64,7 +79,12 @@
 
 <script src="{{asset('js/datatable.js')}}"></script>
 
-@endsection
+<script>
+    document.getElementById("addButton").addEventListener("click", function() {
+        var container = document.getElementById("buttonContainer");
+        container.style.display = (container.style.display === "none") ? "block" : "none";
+    });
+    </script>
 
-<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-<script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js" defer></script>
+
+@endsection

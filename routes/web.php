@@ -44,6 +44,9 @@ use App\Http\Controllers\laws_and_regulations\AdminLawsAndRegulationsController;
 use App\Http\Controllers\laws_and_regulations\LawsAndRegulationsController;
 use App\Http\Controllers\menu_for_public\AdminMenuForPublicController;
 use App\Http\Controllers\menu_for_public\MenuForPublicController;
+use App\Http\Controllers\web_intro\AdminWebIntroController;
+use App\Http\Controllers\web_intro\WebIntroController;
+
 
 use App\Http\Controllers\festival_slides\FestivalSlidesController;
 
@@ -59,7 +62,9 @@ use App\Http\Controllers\TestController;
 |
 */
 
-Route::get('/FestivalSlides', [FestivalSlidesController::class, 'FestivalSlidesPage'])->name('FestivalSlidesPage');
+//หน้าหลัก
+Route::get('/', [WebIntroController::class, 'WebIntroPage'])->name('WebIntroPage');
+Route::get('/Home', [ShowDataController::class, 'Home'])->name('Home');
 
 Route::get('/details', [TestController::class, 'testPage'])->name('testPage');
 Route::get('/details/page/test', [TestController::class, 'coppyPage1'])->name('coppyPage1');
@@ -102,8 +107,6 @@ Route::get('/LawsAndRegulations/show/section/details/{id}', [LawsAndRegulationsC
 //เมนูสำหรับประชาชน
 Route::get('/MenuForPublic/show/section/{id}', [MenuForPublicController::class, 'MenuForPublicSectionPages'])->name('MenuForPublicSectionPages');
 Route::get('/MenuForPublic/show/section/details/{id}', [MenuForPublicController::class, 'MenuForPublicShowDetailsPages'])->name('MenuForPublicShowDetailsPages');
-
-Route::get('/', [ShowDataController::class, 'Home'])->name('Home');
 
 //เมนูบุคลากร
 Route::get('/personnel_chart', [PersonnelAgencyController::class, 'PersonnelChart'])->name('PersonnelChart');
@@ -373,6 +376,12 @@ Route::middleware(['check.auth'])->group(function () {
     Route::get('/Admin/MenuForPublic/show/section/detail/{id}', [AdminMenuForPublicController::class, 'MenuForPublicShowDetails'])->name('MenuForPublicShowDetails');
     Route::post('/Admin/MenuForPublic/show/section/detail/create/{id}', [AdminMenuForPublicController::class, 'MenuForPublicDetailCreate'])->name('MenuForPublicDetailCreate');
     Route::delete('/Admin/MenuForPublic/show/section/detail/delete/{id}', [AdminMenuForPublicController::class, 'MenuForPublicDetailDelete'])->name('MenuForPublicDetailDelete');
+
+    //MenuForPublic
+    Route::get('/Admin/WebIntro/page', [AdminWebIntroController::class, 'AdminWebIntro'])->name('AdminWebIntro');
+    Route::post('/Admin/WebIntro/create', [AdminWebIntroController::class, 'WebIntroCreate'])->name('WebIntroCreate');
+    Route::delete('/Admin/WebIntro/delete/{id}', [AdminWebIntroController::class, 'WebIntroDelete'])->name('WebIntroDelete');
+
 });
 
 //นำจำนวนคนเข้าชมเว็บ

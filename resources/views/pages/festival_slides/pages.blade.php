@@ -8,7 +8,7 @@
 </head>
 <body>
     <style>
-           @font-face {
+        @font-face {
             font-family: 'THSarabunNewBold';
             src: url('/fonts/THSarabunNewBold.ttf') format('truetype');
             font-weight: normal;
@@ -73,6 +73,10 @@
                 -4px -4px 10px rgba(255, 255, 255, 0.5);
             transition: all 0.3s ease;
             font-family: 'THSarabunNewBold';
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-decoration: none;
         }
 
         .login-button:hover {
@@ -85,12 +89,14 @@
     </style>
 
     <div class="fullscreen-image">
-        <img id="background-image" src="{{ asset('images/festival_slides/410a5b6611a80470.png') }}" alt="รูปภาพอินโทร">
-    </div>
+        @foreach($Image as $item)
+        <img id="background-image" src="{{ asset('storage/' . $item->files_path) }}" alt="รูปภาพอินโทร">
+        @endforeach
 
-    <button class="login-button">
-        <strong style="font-size: 30px">เข้าสู่เว็บไซต์</strong>
-    </button>
+        <a href="{{route('Home')}}" class="login-button">
+            <strong style="font-size: 30px">เข้าสู่เว็บไซต์</strong>
+        </a>
+    </div>
 
     <script>
         window.onload = function() {

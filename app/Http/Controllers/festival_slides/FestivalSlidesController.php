@@ -7,8 +7,5 @@ use Illuminate\Http\Request;
 
 class FestivalSlidesController extends Controller
 {
-    public function FestivalSlidesPage()
-    {
-        return view('pages.festival_slides.pages');
-    }
+
 }

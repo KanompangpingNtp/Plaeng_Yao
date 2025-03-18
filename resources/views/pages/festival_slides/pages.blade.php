@@ -124,14 +124,17 @@
         @endforeach
 
         <div class="button-container">
+
             <a href="{{route('Home')}}" class="login-button">
                 <strong style="font-size: 30px">เข้าสู่เว็บไซต์</strong>
             </a>
+
             @if($Button && $item->button_name)
             <a href="{{ $item->button_link }}" class="login-button">
                 <strong style="font-size: 30px">{{ $item->button_name }}</strong>
             </a>
             @endif
+
         </div>
     </div>
 

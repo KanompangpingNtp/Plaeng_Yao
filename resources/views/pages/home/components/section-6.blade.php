@@ -141,7 +141,7 @@
                         <img src="{{asset('images/section-6/ช่องทางชำระค่าทำเนียม.png')}}" alt="xx">
                     </div>
                     <div class="col-md-6 d-flex justify-content-center">
-                        <img src="{{asset('images/section-6/ช่องทางline.png')}}" alt="xx">
+                        <img src="{{asset('images/section-6/line-plangyao.png')}}" alt="xx">
                     </div>
                 </div>
 

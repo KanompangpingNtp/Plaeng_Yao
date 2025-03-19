@@ -47,9 +47,6 @@ use App\Http\Controllers\menu_for_public\MenuForPublicController;
 use App\Http\Controllers\web_intro\AdminWebIntroController;
 use App\Http\Controllers\web_intro\WebIntroController;
 
-
-use App\Http\Controllers\festival_slides\FestivalSlidesController;
-
 use App\Http\Controllers\TestController;
 /*
 |--------------------------------------------------------------------------

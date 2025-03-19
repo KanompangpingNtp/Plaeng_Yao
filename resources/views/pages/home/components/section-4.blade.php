@@ -339,7 +339,7 @@
                 </a>
             </div>
             <div class="col-sm-6 col-xl-4">
-                <a href="#" class="image-link-section4">
+                <a href="https://public.sarabun.plaengyao.sosmartsolution.com/" target="_blank" class="image-link-section4">
                     <img src="{{ asset('images/section-4/ระบบสารบรรณแปลงยาว.png') }}" alt="icon">
                     <span class="image-text-section4">ระบบสารบรรณแปลงยาว</span>
                 </a>

@@ -58,7 +58,10 @@ class PerformanceResultsController extends Controller
         $PublicMenus = PublicMenusType::all();
 
         $PerfResultsSection = PerfResultsSection::with('type')->findOrFail($id);
-        $PerfResultsSubTopic = PerfResultsSubTopic::where('section_id', $id)->get();
+        // $PerfResultsSubTopic = PerfResultsSubTopic::where('section_id', $id)->get();
+        $PerfResultsSubTopic = PerfResultsSubTopic::where('section_id', $id)
+        ->orderBy('created_at', 'desc') // เพิ่ม orderBy()
+        ->get();
 
         return view('pages.performance_results.page_sub_topic', compact(
             'PublicMenus',

@@ -185,7 +185,7 @@
                 </div>
 
                 <div class="d-flex flex-column justify-content-center align-items-start lh-1 gap-2 text-link-custom">
-                    <a href="#" class="d-flex justify-content-center align-items-start gap-2">
+                    <a href="https://webmail.plaengyao.go.th/" class="d-flex justify-content-center align-items-start gap-2">
                         <img src="{{ asset('images/section-10/email.png') }}" alt="email" width="20" height="15">
                         <div style="font-size: 16px;">ตรวจสอบEmail</div>
                     </a>

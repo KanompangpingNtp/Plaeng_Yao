@@ -37,7 +37,7 @@ class ProcurementResultsController extends Controller
             'post_type_id' => 'required|exists:post_types,id',
             'date' => 'nullable|date',
             'file_post' => 'nullable|array',
-            'file_post.*' => 'file', // ตรวจสอบขนาดไฟล์
+            'file_post.*' => 'file',
             'title_name' => 'nullable|string',
         ]);
 
@@ -50,16 +50,19 @@ class ProcurementResultsController extends Controller
         // ตรวจสอบและอัปโหลดไฟล์ PDF
         if ($request->hasFile('file_post')) {
             foreach ($request->file('file_post') as $file) {
-                if ($file->getClientOriginalExtension() !== 'pdf') {
-                    return redirect()->back()->with('error', 'รองรับเฉพาะไฟล์ PDF เท่านั้น!');
+                $allowedExtensions = ['pdf', 'doc', 'docx', 'xls', 'xlsx'];
+
+                if (!in_array($file->getClientOriginalExtension(), $allowedExtensions)) {
+                    return redirect()->back()->with('error', 'รองรับเฉพาะไฟล์ PDF, Word หรือ Excel เท่านั้น!');
                 }
 
                 $filename = time() . '_' . $file->getClientOriginalName();
-                $path = $file->storeAs('pdf', $filename, 'public');
+                $path = $file->storeAs('documents', $filename, 'public');
 
                 PostPdf::create([
                     'post_detail_id' => $postDetail->id,
                     'post_pdf_file' => $path,
+                    'post_file_type' => $file->getClientOriginalExtension(),
                 ]);
             }
         }
@@ -100,12 +103,19 @@ class ProcurementResultsController extends Controller
         // อัปโหลดไฟล์ใหม่ถ้ามี
         if ($request->hasFile('file_post')) {
             foreach ($request->file('file_post') as $file) {
+                $allowedExtensions = ['pdf', 'doc', 'docx', 'xls', 'xlsx'];
+
+                if (!in_array($file->getClientOriginalExtension(), $allowedExtensions)) {
+                    return redirect()->back()->with('error', 'รองรับเฉพาะไฟล์ PDF, Word หรือ Excel เท่านั้น!');
+                }
+
                 $filename = time() . '_' . $file->getClientOriginalName();
-                $path = $file->storeAs('pdf', $filename, 'public');
+                $path = $file->storeAs('documents', $filename, 'public');
 
                 PostPdf::create([
                     'post_detail_id' => $postDetail->id,
                     'post_pdf_file' => $path,
+                    'post_file_type' => $file->getClientOriginalExtension(),
                 ]);
             }
         }

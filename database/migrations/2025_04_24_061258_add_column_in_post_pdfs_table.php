@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::table('post_pdfs', function (Blueprint $table) {
             //
-            $table->string('post_file_type');
+            $table->string('post_file_type')->nullable();
         });
     }
 
@@ -24,6 +24,7 @@ return new class extends Migration
     {
         Schema::table('post_pdfs', function (Blueprint $table) {
             //
+            $table->dropColumn('post_file_type');
         });
     }
 };

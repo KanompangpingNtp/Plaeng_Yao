@@ -86,17 +86,30 @@
         <div class=" d-flex flex-column justify-content-center p-5">
             <div class="fs-1 fw-bold mb-4 text-center">ผลประกาศจัดซื้อจัดจ้างประจำปี <br><span class="fs-3">{{$procurementResults->title_name}}</div>
 
-                <p class="text-muted">วันที่เผยแพร่: {{ \Carbon\Carbon::parse($procurementResults->date)->format('d-m-Y') }}</p>
+            <p class="text-muted">วันที่เผยแพร่: {{ \Carbon\Carbon::parse($procurementResults->date)->format('d-m-Y') }}</p>
 
-                <!-- ไฟล์แนบ: PDF -->
-                @if ($procurementResults->pdfs->count() > 0)
-                <h5 class="text-secondary mt-4">ไฟล์เอกสาร</h5>
-                @foreach ($procurementResults->pdfs as $pdf)
-                <div class="mb-3">
-                    <iframe src="{{ asset('storage/' . $pdf->post_pdf_file) }}" width="100%" height="700px"></iframe>
-                </div>
-                @endforeach
+            <!-- ไฟล์แนบ: PDF -->
+            @if ($procurementResults->pdfs->count() > 0)
+            <h5 class="text-secondary mt-4">ไฟล์เอกสาร</h5>
+            @foreach ($procurementResults->pdfs as $pdf)
+            <div class="mb-3">
+                @php
+                $extension = strtolower($pdf->post_file_type);
+                @endphp
+
+                @if ($extension === 'pdf')
+                <iframe src="{{ asset('storage/' . $pdf->post_pdf_file) }}" width="100%" height="700px"></iframe>
+                @elseif (in_array($extension, ['doc', 'docx', 'xls', 'xlsx']))
+                <a href="{{ asset('storage/' . $pdf->post_pdf_file) }}" class="btn btn-primary btn-sm" target="_blank">
+                    ดาวน์โหลดไฟล์ {{ strtoupper($extension) }}
+                </a>
+                @else
+                <p class="text-danger">ไม่สามารถแสดงไฟล์ประเภทนี้ได้</p>
                 @endif
+            </div>
+            @endforeach
+            @endif
+
         </div>
     </div>
 </div>

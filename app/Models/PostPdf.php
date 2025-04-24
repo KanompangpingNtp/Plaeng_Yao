@@ -9,7 +9,7 @@ class PostPdf extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['post_detail_id', 'post_pdf_file'];
+    protected $fillable = ['post_detail_id', 'post_pdf_file','post_file_type'];
 
     public function postDetail()
     {

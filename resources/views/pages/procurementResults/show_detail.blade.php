@@ -88,7 +88,6 @@
 
             <p class="text-muted">วันที่เผยแพร่: {{ \Carbon\Carbon::parse($procurementResults->date)->format('d-m-Y') }}</p>
 
-            <!-- ไฟล์แนบ: PDF -->
             @if ($procurementResults->pdfs->count() > 0)
             <h5 class="text-secondary mt-4">ไฟล์เอกสาร</h5>
             @foreach ($procurementResults->pdfs as $pdf)

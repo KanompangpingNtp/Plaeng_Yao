@@ -83,6 +83,8 @@ use App\Http\Controllers\forum\AdminForumController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+Route::get('/e-service/page', [TemporaryController::class, 'EservicePage'])->name('eservice_pages');
+
 //Forum
 Route::get('/forum/pages', [ForumController::class, 'ForumPages'])->name('forum_pages');
 Route::post('/forum/create/form', [ForumController::class, 'ForumFormCreate'])->name('ForumFormCreate');
@@ -100,7 +102,7 @@ Route::get('/details/page/test', [TestController::class, 'coppyPage1'])->name('c
 // Route::get('/forum/details/page', [TestController::class, 'forum_details_pages'])->name('forum_details_pages');
 
 //eservice
-Route::get('/e-service/page', [TestController::class, 'eservice_pages'])->name('eservice_pages');
+
 Route::get('/e-service/elderly_allowance/page', [TestController::class, 'elderly_allowance_pages'])->name('elderly_allowance_pages');
 Route::get('/e-service/general_requests/page', [TestController::class, 'general_requests_pages'])->name('general_requests_pages');
 Route::get('/e-service/disability/page', [TestController::class, 'disability_pages'])->name('disability_pages');

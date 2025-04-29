@@ -108,7 +108,7 @@
         <span >(กรณีนอกเขตควบคุมอาคารตามพระราชบัญญัติควบคุมอาคาร พ.ศ. 2522)</span>
     </div>
     <div class="box_text" style="text-align: right; margin-top: 10px;">
-        <span>เขียนที่ ที่ทำการองค์การบริหารส่วนตำบลคลองบ้านโพธิ์</span>
+        <span>เขียนที่ ที่ทำการองค์การบริหารส่วนตำบลแปลงยาว</span>
     </div>
     <div class="box_text" style="text-align: right;">
         <span>วันที่</span>
@@ -124,7 +124,7 @@
     </div>
     <div class="box_text" style="text-align: left;">
         <span style="margin-right:20px;">เรียน</span>
-        <span>นายกองค์การบริหารส่วนตำบลคลองบ้านโพธิ์</span>
+        <span>นายกองค์การบริหารส่วนตำบลแปลงยาว</span>
     </div>
     <div class="box_text" style="text-align: left; margin-left:5rem;">
         <span>ข้าพเจ้า</span>
@@ -235,7 +235,7 @@
         </div> --}}
     </div>
     <div class="footer font-sarabun-bold">
-        <p>องค์การบริหารส่วนตำบลคลองบ้านโพธิ์ https://public.es.demo.gmskysmartcity.com/ </p>
+        <p>องค์การบริหารส่วนตำบลแปลงยาว https://public.es.demo.gmskysmartcity.com/ </p>
     </div>
 
     {{-- new page --}}
@@ -284,7 +284,7 @@
         </table>
     </div>
     <div class="footer font-sarabun-bold">
-        <p>องค์การบริหารส่วนตำบลคลองบ้านโพธิ์ https://public.es.demo.gmskysmartcity.com/</p>
+        <p>องค์การบริหารส่วนตำบลแปลงยาว https://public.es.demo.gmskysmartcity.com/</p>
     </div>
 
 </body>

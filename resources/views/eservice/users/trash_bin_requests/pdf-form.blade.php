@@ -189,7 +189,7 @@
         <span style="margin-top: -10px;">และมูลฝอยฯ ขององค์การบริหารส่วนตำบลแปลงยาว</span><br>
         <input type="checkbox"><span  style="margin-top: 5px;">อื่นๆ</span><span class="dotted-line" style="width: 92%; text-align: center;"></span>
     </div>
-    <table style="width: 100%; margin-top: 4rem;">
+    {{-- <table style="width: 100%; margin-top: 4rem;">
         <tr>
             <!-- ฝั่งซ้าย -->
             <td style="text-align: center; width: 50%;">
@@ -219,7 +219,7 @@
                 <span>นายกองค์การบริหารส่วนตำบลแปลงยาว</span>
             </td>
         </tr>
-    </table>
+    </table> --}}
 </body>
 
 

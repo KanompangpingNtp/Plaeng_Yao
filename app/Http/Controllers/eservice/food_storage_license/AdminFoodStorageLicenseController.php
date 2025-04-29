@@ -34,7 +34,7 @@ class AdminFoodStorageLicenseController extends Controller
         $document_option = is_array($document_option) ? $document_option : [];
 
         $pdf = Pdf::loadView(
-            'eservice.admin.food_storage_license.pdf-form',
+            'eservice.users.food_storage_license.pdf-form',
             compact('form', 'document_option')
         )->setPaper('A4', 'portrait');
 

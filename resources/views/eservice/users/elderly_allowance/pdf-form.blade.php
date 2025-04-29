@@ -311,24 +311,24 @@
         <div style="width: 100%;">
             <div style="width: 100%;">
                 <span style="float: left; width: 60%; line-height: 0.9;">
-                    <input type="checkbox" style="margin: 0;" {{ in_array('option1', $documentType) ? 'checked' : '' }}>
+                    <input type="checkbox" style="margin: 0;" {{ in_array('option1', $documentType ?? [] ?? []) ? 'checked' : '' }}>
                     บัตรประจำตัวประชาชน หรือบัตรอื่นที่ออกโดยหน่วยงานของรัฐที่มีรูปถ่าย
                 </span>
                 <span style="float: right; width: 40%; line-height: 0.9;">
-                    <input type="checkbox" style="margin: 0;" {{ in_array('option2', $documentType) ? 'checked' : '' }}>
+                    <input type="checkbox" style="margin: 0;" {{ in_array('option2', $documentType ?? []) ? 'checked' : '' }}>
                     ทะเบียนบ้าน
                 </span>
                 <div style="clear: both;"></div>
 
                 <span style="float: left; width: 100%; line-height: 0.9;">
-                    <input type="checkbox" style="margin: 0;" {{ in_array('option3', $documentType) ? 'checked' : '' }}>
+                    <input type="checkbox" style="margin: 0;" {{ in_array('option3', $documentType ?? []) ? 'checked' : '' }}>
                     สมุดบัญชีเงินฝากธนาคาร
                     (ในกรณีผู้ขอรับเงินเบี้ยยังชีพผู้สูงอายุประสงค์ขอรับเงินเบี้ยยังชีพผู้สูงอายุผ่านธนาคาร)
                 </span>
                 <div style="clear: both;"></div>
 
                 <span style="float: left; width: 100%; line-height: 0.9;">
-                    <input type="checkbox" style="margin: 0;" {{ in_array('option4', $documentType) ? 'checked' : '' }}>
+                    <input type="checkbox" style="margin: 0;" {{ in_array('option4', $documentType ?? []) ? 'checked' : '' }}>
                     หนังสือมอบอำนาจพร้อมบัตรประจำตัวประชาชนของผู้มอบอำนาจและผู้รับมอบอำนาจ
                 </span>
                 <div style="clear: both;"></div>

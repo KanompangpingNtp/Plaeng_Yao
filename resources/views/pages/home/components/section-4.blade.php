@@ -232,18 +232,18 @@
                 <div class="bg-brown"></div>
             </div>
             <div class=" px-1 px-lg-4">
-                <a href="#" class="bg-e-book d-flex flex-column justify-content-between position-relative"
+                <div img-fluid class="bg-e-book d-flex flex-column justify-content-between position-relative"
                     style="filter: drop-shadow(2px 2px 10px rgba(255, 255, 255, 0.5));">
                     <div class="d-flex align-items-center justify-content-start fs-1 fw-bold text-light lh-1">
                         E - LIBRARY
                     </div>
                     <img src="{{ asset('images/section-4/star.png') }}" alt="star" class="star-icon">
-                    <div class="d-flex justify-content-between align-items-center gap-3">
-                        <img src="{{ asset('images/section-4/ebook-1.png') }}" alt="book1" class="ebook-section-4">
-                        <img src="{{ asset('images/section-4/ebook-2.png') }}" alt="book2" class="ebook-section-4">
-                        <img src="{{ asset('images/section-4/ebook-3.png') }}" alt="book3" class="ebook-section-4">
+                    <div class="d-flex justify-content-center justify-content-md-between align-items-center gap-0 gap-md-2 gap-lg-3">
+                        <img src="{{ asset('images/section-4/ebook-1.png') }}" alt="book1" class="ebook-section-4 img-fluid">
+                        <img src="{{ asset('images/section-4/ebook-2.png') }}" alt="book2" class="ebook-section-4 img-fluid">
+                        <img src="{{ asset('images/section-4/ebook-3.png') }}" alt="book3" class="ebook-section-4 img-fluid">
                     </div>
-                </a>
+                </div>
                 <div class="bg-brown"></div>
                 <div class="d-flex align-items-center justify-content-end mt-3 fs-4 fw-bold ">
                     <a href="#" class="bg-link-buttons px-4 py-1">

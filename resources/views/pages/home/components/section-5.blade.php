@@ -379,7 +379,7 @@
         <div class="container d-flex flex-column flex-lg-row ">
             <div class="d-flex flex-column justify-content-center align-items-center">
                 <a href="https://www.facebook.com/xbt.p.lng.yaw.chacheingthera/?locale=th_TH" class="hover-scale">
-                    <img src="{{ asset('images/section-5/Group_19.png') }}" alt="facebook" class="mb-4">
+                    <img src="{{ asset('images/section-5/Group_19.png') }}" alt="facebook" class="mb-4 img-fluid">
                 </a>
                 
                 <div class="d-flex flex-column align-items-start justify-content-center mb-3  lh-1"

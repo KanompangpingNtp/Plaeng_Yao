@@ -164,7 +164,7 @@
         </div>
         <div class="  col-xl-4 d-flex justify-content-center ms-0 ms-sm-3 mt-lg-5 pt-lg-4">
             <img src="{{ asset('images/section-2/N.png') }}" alt="img-right"
-                style="filter: drop-shadow(2px 2px 10px rgba(0, 0, 0, 0.5));">
+                style="filter: drop-shadow(2px 2px 10px rgba(0, 0, 0, 0.5));" class="img-fluid">
         </div>
     </div>
     <div class="container mt-3 mt-sm-5">

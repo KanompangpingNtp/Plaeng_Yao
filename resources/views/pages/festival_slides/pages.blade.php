@@ -31,7 +31,8 @@
             align-items: center;
         }
 
-        .fullscreen-image img {
+        .fullscreen-image img,
+        .fullscreen-image video {
             width: 100%;
             height: 100%;
             object-fit: cover;
@@ -52,12 +53,12 @@
                 overflow-x: scroll;
             }
 
-            .fullscreen-image img {
+            .fullscreen-image img,
+            .fullscreen-image video {
                 min-width: 100%;
                 min-height: 100%;
                 object-fit: contain;
             }
-
         }
 
         .button-container {

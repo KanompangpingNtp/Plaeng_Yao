@@ -29,7 +29,14 @@ class OperationalPlanController extends Controller
         $PublicMenus = PublicMenusType::all();
 
         $OperationalPlanType = OperationalPlanType::findOrFail($id);
-        $OperationalPlanSection = OperationalPlanSection::where('type_id', $id)->get();
+        // $OperationalPlanSection = OperationalPlanSection::where('type_id', $id)->get();
+        $OperationalPlanSection = OperationalPlanSection::where('type_id', $id)
+            ->orderByRaw("CASE
+        WHEN section_name = 'แผนพัฒนาท้องถิ่น (พ.ศ.๒๕๖๖-๒๕๗๐) เพิ่มเติม ครั้งที่ ๑/๒๕๖๗' THEN 0
+        ELSE 1
+    END")
+            ->get();
+
 
         return view('pages.operational_plan.page_section', compact(
             'PublicMenus',
